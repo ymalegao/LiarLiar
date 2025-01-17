@@ -11,7 +11,10 @@ public class DialogueManager : MonoBehaviour
     public Text dialogueText; // Assign a Text component to show dialogue
 
     private Queue<string> dialogueQueue = new Queue<string>();
-    private bool isDisplayingDialogue = false;
+    public bool IsDialogueActive { get; private set; } = false;
+
+    // Event triggered when dialogue ends
+    public event System.Action OnDialogueEnd;
 
     private void Awake()
     {
@@ -36,6 +39,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         dialoguePanel.SetActive(true);
+        IsDialogueActive = true;
         DisplayNextLine();
     }
 
@@ -65,6 +69,9 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         dialoguePanel.SetActive(false);
-        isDisplayingDialogue = false;
+        IsDialogueActive = false;
+
+        // Trigger the end-of-dialogue event
+        OnDialogueEnd?.Invoke();
     }
 }

@@ -9,44 +9,43 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E)) // Press E to interact
         {
-            CheckForInteractable();
-        }
-
-        // Trigger DisplayNextLine in DialogueManager with the Right Arrow Key
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            if (DialogueManager.Instance != null)
+            // If dialogue is active, advance to the next line
+            if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive)
             {
                 DialogueManager.Instance.DisplayNextLine();
+            }
+            else
+            {
+                // Otherwise, check for interactable objects
+                CheckForInteractable();
             }
         }
     }
 
     private void CheckForInteractable()
-{
-    // Perform a raycast to detect interactable objects
-    RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, interactionRange, interactableLayer);
-
-    if (hit.collider != null)
     {
-        Debug.Log($"Hit object: {hit.collider.name}");
-        IInteractable interactable = hit.collider.GetComponent<IInteractable>();
-        if (interactable != null)
+        // Perform a raycast to detect interactable objects
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, interactionRange, interactableLayer);
+
+        if (hit.collider != null)
         {
-            Debug.Log($"Interactable found: {hit.collider.name}");
-            interactable.Interact();
+            Debug.Log($"Hit object: {hit.collider.name}");
+            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+            if (interactable != null)
+            {
+                Debug.Log($"Interactable found: {hit.collider.name}");
+                interactable.Interact();
+            }
+            else
+            {
+                Debug.LogWarning($"Object {hit.collider.name} does not implement IInteractable.");
+            }
         }
         else
         {
-            Debug.LogWarning($"Object {hit.collider.name} does not implement IInteractable.");
+            Debug.Log("No interactable object detected.");
         }
     }
-    else
-    {
-        Debug.Log("No interactable object detected.");
-    }
-}
-
 
     private void OnDrawGizmosSelected()
     {
