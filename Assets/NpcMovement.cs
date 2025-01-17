@@ -5,24 +5,47 @@ using UnityEngine.AI;
 
 public class NpcMovement : MonoBehaviour
 {
-
     [SerializeField] private Transform target;
 
-    NavMeshAgent agent;
+    private NavMeshAgent agent;
 
-    //[SerializeField] private Transform[] points;
-
-    // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+
+        // Find target dynamically if not assigned
+        if (target == null)
+        {
+            GameObject player = GameObject.FindWithTag("Player");
+            if (player != null)
+            {
+                target = player.transform;
+                Debug.Log("Assigned target dynamically: " + target.name);
+            }
+            else
+            {
+                Debug.LogWarning("No Player object found in the scene!");
+            }
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(target.position);
+        if (target != null)
+        {
+            agent.SetDestination(target.position);
+        }
+        else
+        {
+            Debug.LogWarning("Target is null, cannot set destination.");
+        }
+    }
+
+    public void AssignTarget(Transform playerTransform)
+    {
+        target = playerTransform;
+        Debug.Log("Assigned target via method: " + target.name);
     }
 }

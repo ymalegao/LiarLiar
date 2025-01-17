@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class PlayerMovement : MonoBehaviour
+
+public class PlayerMovement : NetworkBehaviour
 {
     [SerializeField] private float speed = 5f;
     private Rigidbody2D rb;
@@ -18,12 +20,22 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+{
+    // Allow movement if the player is the owner or if the network is not running
+    if (NetworkManager.Singleton.IsClient || NetworkManager.Singleton.IsServer)
     {
-        moveVelocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed;
+        if (!IsOwner) return; // Only process movement for the owning player
     }
+
+    moveVelocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed;
+}
+
 
     void FixedUpdate()
     {
+
+        if (!IsOwner) return; // Only update the Rigidbody for the local player
+
         rb.velocity = moveVelocity * speed;
     }
 }
