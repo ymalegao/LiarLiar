@@ -18,7 +18,7 @@ public class JournalManager : MonoBehaviour
 
     [Header("Journal Data")]
     private List<string> clues = new List<string>(); // List to store clues
-    private List<JournalEntry> truthsAndLies = new List<JournalEntry>(); // List to store truths and lies
+    private List<string> truthsAndLies = new List<string>(); // List to store truths and lies
 
     private void Awake()
     {
@@ -71,7 +71,10 @@ public class JournalManager : MonoBehaviour
 
     public void AddTruthsAndLies(string truth1, string truth2, string lie)
     {
-        truthsAndLies.Add(new JournalEntry(truth1, truth2, lie));
+        truthsAndLies.Add(truth1);
+        truthsAndLies.Add(truth2);
+        truthsAndLies.Add(lie);
+
         UpdateTruthsUI();
     }
 
@@ -101,17 +104,19 @@ public class JournalManager : MonoBehaviour
         }
 
         // Add new truths and lies
-        foreach (JournalEntry entry in truthsAndLies)
+        foreach (string entry in truthsAndLies)
         {
             GameObject item = Instantiate(journalItemPrefab, truthsContent.transform);
             TMP_Text text = item.GetComponent<TMP_Text>();
-            text.text = $"Truth 1: {entry.Truth1}\nTruth 2: {entry.Truth2}\nLie: {entry.Lie}";
+            text.text = entry;
 
             // Optional: Add button for marking truths/lies
             Button itemButton = item.GetComponent<Button>();
             if (itemButton != null)
             {
                 itemButton.onClick.AddListener(() => HighlightEntry(item));
+            }else{
+                Debug.LogWarning("Button component not found on the item.");
             }
         }
     }
@@ -124,26 +129,18 @@ public class JournalManager : MonoBehaviour
         return;
     }
 
-    Image background = item.GetComponent<Image>();
-    if (background == null)
+    var currentItemState = item.GetComponent<JournalItemState>();
+    if (currentItemState != null)
     {
-        Debug.LogError($"No Image component found on {item.name} or its children.");
-        return;
-    }
-
-    // Toggle background color
-    if (background.color == Color.white)
-    {
-        background.color = Color.red; // Mark as Lie
-    }
-    else if (background.color == Color.red)
-    {
-        background.color = Color.blue; // Mark as Truth
+        currentItemState.cycleState();
     }
     else
     {
-        background.color = Color.white; // Reset
+        Debug.LogWarning("JournalItemState component not found on the item.");
     }
+
+
+    
 }
 }
 
