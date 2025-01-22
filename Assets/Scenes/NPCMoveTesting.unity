@@ -580,6 +580,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 412223442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &712293642 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8570322947333569281, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
+  m_PrefabInstance: {fileID: 5563406996769653957}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &725479122
 GameObject:
   m_ObjectHideFlags: 0
@@ -3147,7 +3152,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcPrefab: {fileID: 1274148144918918901, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
-  waypoints: []
+  waypoints:
+  - {fileID: 712293642}
+  - {fileID: 725479123}
+  - {fileID: 595746978}
+  - {fileID: 844597305}
   spawnPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &2114147200
 GameObject:
