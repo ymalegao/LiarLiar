@@ -25,23 +25,20 @@ public class PlayerInteraction : MonoBehaviour
 
     private void CheckForInteractable()
     {
-        // Perform a raycast to detect interactable objects
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, interactionRange, interactableLayer);
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, interactionRange, interactableLayer);
 
-        if (hit.collider != null)
+        if (hit != null)
         {
-            Debug.Log($"Hit object: {hit.collider.name}");
-            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+            Debug.Log($"Hit object: {hit.name}");
+            IInteractable interactable = hit.GetComponent<IInteractable>();
             if (interactable != null)
             {
-                Debug.Log($"Interactable found: {hit.collider.name}");
-                //stop NPC from moving
-                
+                Debug.Log($"Interactable found: {hit.name}");
                 interactable.Interact();
             }
             else
             {
-                Debug.LogWarning($"Object {hit.collider.name} does not implement IInteractable.");
+                Debug.LogWarning($"Object {hit.name} does not implement IInteractable.");
             }
         }
         else
