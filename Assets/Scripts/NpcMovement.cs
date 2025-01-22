@@ -31,6 +31,20 @@ public class NpcMovement : MonoBehaviour
         {
             Debug.LogWarning("No where to go!");
         }
+
+        if (DialogueManager.Instance != null)
+        {
+            DialogueManager.Instance.OnDialogueEnd += ResumeMovement;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // Unsubscribe from the DialogueManager's OnDialogueEnd event to avoid memory leaks
+        if (DialogueManager.Instance != null)
+        {
+            DialogueManager.Instance.OnDialogueEnd -= ResumeMovement;
+        }
     }
 
     // Update is called once per frame
@@ -67,7 +81,10 @@ public class NpcMovement : MonoBehaviour
     public void StopMovement()
     {
         Debug.Log("Stop the character");
+        
         isStoppedForInteraction = true;
+        //set NPC velocity to 0
+        agent.velocity = Vector3.zero;
         agent.isStopped = true; // Halts movement
     }
 
