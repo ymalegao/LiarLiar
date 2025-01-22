@@ -7,6 +7,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.E)) // Press E to interact
         {
             // If dialogue is active, advance to the next line
@@ -34,6 +35,8 @@ public class PlayerInteraction : MonoBehaviour
             if (interactable != null)
             {
                 Debug.Log($"Interactable found: {hit.collider.name}");
+                //stop NPC from moving
+                
                 interactable.Interact();
             }
             else

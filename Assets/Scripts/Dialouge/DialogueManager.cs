@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     // Event triggered when dialogue ends
     public event System.Action OnDialogueEnd;
 
+
     private void Awake()
     {
         // Singleton pattern
@@ -40,6 +41,8 @@ public class DialogueManager : MonoBehaviour
 
         dialoguePanel.SetActive(true);
         IsDialogueActive = true;
+
+
         DisplayNextLine();
     }
 
