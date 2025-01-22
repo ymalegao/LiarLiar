@@ -95,4 +95,9 @@ public class NpcMovement : MonoBehaviour
         Debug.Log("Resume Play\n\n");
     }
 
+    public void SetWaypoints(Transform[] newWaypoints)
+    {
+      points = newWaypoints;
+    }
+
 }
