@@ -13,13 +13,13 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> dialogueQueue = new Queue<string>();
     public bool IsDialogueActive { get; private set; } = false;
 
+    private string currentNPCName; // Name of the NPC currently speaking
+
     // Event triggered when dialogue ends
     public event System.Action OnDialogueEnd;
 
-
     private void Awake()
     {
-        // Singleton pattern
         if (Instance == null)
         {
             Instance = this;
@@ -30,8 +30,11 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void StartDialogue(string[] dialogueLines)
+    // Start the dialogue and pass the NPC's name
+    public void StartDialogue(string npcName, string[] dialogueLines)
     {
+        currentNPCName = npcName; // Set the current NPC name
+
         dialogueQueue.Clear();
 
         foreach (string line in dialogueLines)
@@ -41,7 +44,6 @@ public class DialogueManager : MonoBehaviour
 
         dialoguePanel.SetActive(true);
         IsDialogueActive = true;
-
 
         DisplayNextLine();
     }
@@ -55,6 +57,10 @@ public class DialogueManager : MonoBehaviour
         }
 
         string line = dialogueQueue.Dequeue();
+
+        // Check for special markers and update the journal if needed
+        line = CheckForClueOrTruth(line);
+
         StopAllCoroutines();
         StartCoroutine(TypeLine(line));
     }
@@ -73,8 +79,30 @@ public class DialogueManager : MonoBehaviour
     {
         dialoguePanel.SetActive(false);
         IsDialogueActive = false;
+        
 
         // Trigger the end-of-dialogue event
         OnDialogueEnd?.Invoke();
+    }
+
+    // Check if the line contains a [Clue] or [TTL] marker and update the journal
+    private string CheckForClueOrTruth(string line)
+    {
+        if (line.StartsWith("[Clue]"))
+        {
+            string clue = line.Substring(6); // Extract the clue after "[Clue]"
+            JournalManager.Instance.AddClueFromNPC(currentNPCName, clue); // Add clue with NPC's name
+            return clue; // Return the cleaned-up dialogue without the marker
+        }
+        else if (line.StartsWith("[TTL]"))
+        {
+            string[] truthsAndLies = line.Substring(6).Split('|'); // Extract truths and lies
+            JournalManager.Instance.AddTruthsAndLiesFromNPC(currentNPCName, truthsAndLies[0], truthsAndLies[1], truthsAndLies[2]); // Add truths/lies with NPC's name
+
+            // Optionally return all truths and lies formatted for dialogue display
+            return $"{truthsAndLies[0]}\n {truthsAndLies[1]}\n {truthsAndLies[2]}";
+        }
+
+        return line; // Return the unmodified line if no markers are found
     }
 }
