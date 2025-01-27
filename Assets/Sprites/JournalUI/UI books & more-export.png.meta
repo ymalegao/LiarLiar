@@ -1,0 +1,4364 @@
+fileFormatVersion: 2
+guid: 67d2626d56923429f8e6a37475bf58d1
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI books & more-export_0
+      rect:
+        serializedVersion: 2
+        x: 5543
+        y: 4636
+        width: 342
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b50b160935134dccb52ff5c8f705531
+      internalID: -947096186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_1
+      rect:
+        serializedVersion: 2
+        x: 5894
+        y: 4664
+        width: 251
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edfa4107b70d04344bc035b76a2d535c
+      internalID: -58736529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_2
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 4506
+        width: 301
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eec4ee00cf934580bcd9ac5b0ad6ea7
+      internalID: -1192420911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_3
+      rect:
+        serializedVersion: 2
+        x: 1595
+        y: 3673
+        width: 1771
+        height: 971
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58af21fb504d84e46a41b9e062081ec7
+      internalID: 208579212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_4
+      rect:
+        serializedVersion: 2
+        x: 3516
+        y: 3836
+        width: 971
+        height: 808
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12e396f2a7e324f0fb1dd6425e7d96ef
+      internalID: 285476257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_5
+      rect:
+        serializedVersion: 2
+        x: 5131
+        y: 3377
+        width: 466
+        height: 609
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 844a857cae5e0431682e13d20352fc3a
+      internalID: 1837938204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_6
+      rect:
+        serializedVersion: 2
+        x: 7205
+        y: 4165
+        width: 471
+        height: 470
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6508dcb35117c455c94f85fc1b7ba014
+      internalID: -1861307258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_7
+      rect:
+        serializedVersion: 2
+        x: 7684
+        y: 4165
+        width: 471
+        height: 470
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee56dbae39b264cfc9069741a14922aa
+      internalID: -209217117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_8
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 3994
+        width: 1288
+        height: 491
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1641bf32da854dccb0f917fd506443c
+      internalID: 4395205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_9
+      rect:
+        serializedVersion: 2
+        x: 7205
+        y: 3673
+        width: 959
+        height: 491
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 610771ff75e1847ba9d58dc12aee9218
+      internalID: 915255745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_10
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 3543
+        width: 548
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 144bfe9529b604c42912f282718f2947
+      internalID: -1741761958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_11
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 3543
+        width: 329
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1f8c7eaea200418ba4516077af42f07
+      internalID: -329896676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_12
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 2556
+        width: 950
+        height: 484
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9d38f7a1809e40a3952350ebcf1350c
+      internalID: -1846218209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_13
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 3065
+        width: 457
+        height: 448
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 16, y: 15, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcac26ff52daa45b29047edadf963041
+      internalID: -1118649205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_14
+      rect:
+        serializedVersion: 2
+        x: 3565
+        y: 3425
+        width: 89
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc78ae084a204449879ce6fb06c8b4f
+      internalID: -603101594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_15
+      rect:
+        serializedVersion: 2
+        x: 3666
+        y: 3425
+        width: 98
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f5fc4fd1ef804154bd4786258210d86
+      internalID: 1161756926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_16
+      rect:
+        serializedVersion: 2
+        x: 3874
+        y: 3413
+        width: 40
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdb675557d9bf42d3bb75ffc8d7bf157
+      internalID: 1490292164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_17
+      rect:
+        serializedVersion: 2
+        x: 3926
+        y: 3255
+        width: 171
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ddcf384962cf4e1ebd59d2607189c2f
+      internalID: -789633023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_18
+      rect:
+        serializedVersion: 2
+        x: 4074
+        y: 3434
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84e90f2ffe87e49fbb9a90aad67b778f
+      internalID: -309024435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_19
+      rect:
+        serializedVersion: 2
+        x: 4166
+        y: 3226
+        width: 130
+        height: 280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3945b13203a0b42ae834d03858556639
+      internalID: -1386048748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_20
+      rect:
+        serializedVersion: 2
+        x: 4345
+        y: 3405
+        width: 81
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3e7f5bb024304e448335ffbdef8bad1
+      internalID: -1508122496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_21
+      rect:
+        serializedVersion: 2
+        x: 3614
+        y: 3374
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36de2d076e31f4451a73f59fbda54719
+      internalID: -533869945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_22
+      rect:
+        serializedVersion: 2
+        x: 3524
+        y: 3206
+        width: 130
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be9b4d005a93147e1b64014419394946
+      internalID: 733577286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_23
+      rect:
+        serializedVersion: 2
+        x: 3684
+        y: 3214
+        width: 141
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee546e6359421453eb6b45f7af6e93ff
+      internalID: -980588865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_24
+      rect:
+        serializedVersion: 2
+        x: 3853
+        y: 3255
+        width: 61
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc6e1fc990eb74fe29d0e60b8f133a83
+      internalID: 1551865266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_25
+      rect:
+        serializedVersion: 2
+        x: 4316
+        y: 3245
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d2564f21de09423d836fa60bd4f4045
+      internalID: 437453997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_26
+      rect:
+        serializedVersion: 2
+        x: 4345
+        y: 3214
+        width: 89
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdada9fbab4484323b77fa3a627a0e25
+      internalID: 888276364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_27
+      rect:
+        serializedVersion: 2
+        x: 3926
+        y: 3226
+        width: 49
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01cb8afd5ba1c48108bf996f349e19a4
+      internalID: -372248210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_28
+      rect:
+        serializedVersion: 2
+        x: 4065
+        y: 3214
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd143bdd250b4b749f2606cbd67bd13
+      internalID: 1475809367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_29
+      rect:
+        serializedVersion: 2
+        x: 3573
+        y: 3174
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e903366b319c84b23af43bffaf8e933b
+      internalID: -1841386384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_30
+      rect:
+        serializedVersion: 2
+        x: 3605
+        y: 3166
+        width: 41
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa457be4cd92a4af5b5feeb0119a9143
+      internalID: -1721394209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_31
+      rect:
+        serializedVersion: 2
+        x: 3695
+        y: 3076
+        width: 142
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fffaef196621348c5a2863349dbf4e26
+      internalID: 1255349629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_32
+      rect:
+        serializedVersion: 2
+        x: 4016
+        y: 3125
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c19dc25919cd1417da2b4e99b0ab07a3
+      internalID: 1651049071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_33
+      rect:
+        serializedVersion: 2
+        x: 4093
+        y: 3153
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e31d51cbd7a204d50adcd87814008446
+      internalID: 367188338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_34
+      rect:
+        serializedVersion: 2
+        x: 4166
+        y: 3166
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c08b6f8e2a3db4f01b6fcd9971971124
+      internalID: -495126468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_35
+      rect:
+        serializedVersion: 2
+        x: 4186
+        y: 3056
+        width: 281
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b520822586ca24e9881e1b538d24506c
+      internalID: 1463857279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_36
+      rect:
+        serializedVersion: 2
+        x: 3524
+        y: 3064
+        width: 110
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cbc7cc67a4e241fbad47351d4a498c0
+      internalID: 1843196961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_37
+      rect:
+        serializedVersion: 2
+        x: 3853
+        y: 3084
+        width: 142
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e34287973fd7d4796956c2a18a4fb95e
+      internalID: 350188083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_38
+      rect:
+        serializedVersion: 2
+        x: 3874
+        y: 3056
+        width: 61
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53fc657ed95624d1795d998e533a7431
+      internalID: -254867814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_39
+      rect:
+        serializedVersion: 2
+        x: 4016
+        y: 3076
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 163deb6821045477db79f63d1fbd56b4
+      internalID: -1153044217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_40
+      rect:
+        serializedVersion: 2
+        x: 4074
+        y: 3064
+        width: 51
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d1a7cf046c204c73b8ae037832aae33
+      internalID: -1156182786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_41
+      rect:
+        serializedVersion: 2
+        x: 5685
+        y: 3064
+        width: 301
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff4b9fb41bfc04a198d3abbeb793238b
+      internalID: 1873757388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_42
+      rect:
+        serializedVersion: 2
+        x: 3545
+        y: 2885
+        width: 881
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6d61df4f29cd452f9c3a0ca94b52a74
+      internalID: 317680500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_43
+      rect:
+        serializedVersion: 2
+        x: 4633
+        y: 2073
+        width: 1451
+        height: 962
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09f447649cd8e4bd5ae52e1b28150a5a
+      internalID: -831880990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_44
+      rect:
+        serializedVersion: 2
+        x: 6104
+        y: 2906
+        width: 110
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73b2a15b47c774945af03a8a993395ac
+      internalID: -1861545081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_45
+      rect:
+        serializedVersion: 2
+        x: 6234
+        y: 2556
+        width: 333
+        height: 479
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 489a36b95cba94cf98a4da8643b51df9
+      internalID: -514863856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_46
+      rect:
+        serializedVersion: 2
+        x: 6583
+        y: 2906
+        width: 114
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7b3fb9ea2dda4a318bea7fc87640297
+      internalID: -934571738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_47
+      rect:
+        serializedVersion: 2
+        x: 6713
+        y: 2073
+        width: 333
+        height: 962
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e72fa540ece864bb19e5963e8c7ef8f3
+      internalID: 1150119949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_48
+      rect:
+        serializedVersion: 2
+        x: 7064
+        y: 2906
+        width: 112
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a7b8fc881c1342d0836af86f146a411
+      internalID: -461252721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_49
+      rect:
+        serializedVersion: 2
+        x: 7225
+        y: 2906
+        width: 110
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38d1b09a7050a4132a5fd37a321453ef
+      internalID: -303115463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_50
+      rect:
+        serializedVersion: 2
+        x: 7384
+        y: 2906
+        width: 112
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bd3192b957bd4f6085275a3e877c294
+      internalID: 1823321841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_51
+      rect:
+        serializedVersion: 2
+        x: 7676
+        y: 2906
+        width: 159
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8735de4dc7143438d80eb2304b37e0c4
+      internalID: -242077711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_52
+      rect:
+        serializedVersion: 2
+        x: 7844
+        y: 2906
+        width: 161
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afa1383e4d602425f9787a325358d3c0
+      internalID: -2094810808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_53
+      rect:
+        serializedVersion: 2
+        x: 3703
+        y: 2735
+        width: 114
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a2434b984a054699a3069ce0d7cd355
+      internalID: 987916605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_54
+      rect:
+        serializedVersion: 2
+        x: 3865
+        y: 2735
+        width: 110
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96d396c60274644c0a59a6e5860dad8c
+      internalID: -608798731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_55
+      rect:
+        serializedVersion: 2
+        x: 4024
+        y: 2735
+        width: 110
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a9ff58e8649d42f7853e6b518eaa82a
+      internalID: -1145074892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_56
+      rect:
+        serializedVersion: 2
+        x: 4186
+        y: 2735
+        width: 110
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d61e5a047d67493aa5020531b647961
+      internalID: -1206976552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_57
+      rect:
+        serializedVersion: 2
+        x: 6096
+        y: 2735
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7fb58620219c46ce804a0315cc4c81f
+      internalID: 35846085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_58
+      rect:
+        serializedVersion: 2
+        x: 6575
+        y: 2735
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5576dca10bcb2475b8392b74191faf9b
+      internalID: -1722295745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_59
+      rect:
+        serializedVersion: 2
+        x: 7055
+        y: 2735
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae5f8f96c0d85442f912753fef98342e
+      internalID: 1768874891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_60
+      rect:
+        serializedVersion: 2
+        x: 7213
+        y: 2735
+        width: 134
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9cff06701da3456a95e0e34e2a5a4d2
+      internalID: -663533968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_61
+      rect:
+        serializedVersion: 2
+        x: 7375
+        y: 2735
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e71c9905dd26240bbb328ca96dc72d7e
+      internalID: 870641058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_62
+      rect:
+        serializedVersion: 2
+        x: 7676
+        y: 2743
+        width: 159
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ba0677e17b774785b2d69e99a3b1195
+      internalID: -1294396622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_63
+      rect:
+        serializedVersion: 2
+        x: 7844
+        y: 2743
+        width: 161
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6855304b2a39c4c1f96ff68db1990a0d
+      internalID: 1118998812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_64
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 2394
+        width: 650
+        height: 333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 482c27f68ae48492e8c17a84105d0b5e
+      internalID: 1203623035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_65
+      rect:
+        serializedVersion: 2
+        x: 6096
+        y: 2574
+        width: 130
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2149dffcd4e1d428eb6e8a9f180fcc45
+      internalID: 1889349760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_66
+      rect:
+        serializedVersion: 2
+        x: 6575
+        y: 2574
+        width: 130
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f2aa1b0741494073a54cf802270d4e6
+      internalID: -445371092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_67
+      rect:
+        serializedVersion: 2
+        x: 7055
+        y: 2574
+        width: 130
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6b05422e59264ce4ad2f12335828f9a
+      internalID: 1897539466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_68
+      rect:
+        serializedVersion: 2
+        x: 7213
+        y: 2574
+        width: 134
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50b535a53fd78439e86f8cfa5b4f1621
+      internalID: 2075798657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_69
+      rect:
+        serializedVersion: 2
+        x: 7375
+        y: 2574
+        width: 130
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4114a06b91a0a4d76a4f6f29f5c6d512
+      internalID: 1131971852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_70
+      rect:
+        serializedVersion: 2
+        x: 7696
+        y: 2585
+        width: 130
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 046d18ff3f22e4f2fa7d2cf63f38e60d
+      internalID: -442423765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_71
+      rect:
+        serializedVersion: 2
+        x: 7855
+        y: 2574
+        width: 130
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2a490a90237e4eacbbe96acd909f7d7
+      internalID: -877860365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_72
+      rect:
+        serializedVersion: 2
+        x: 6116
+        y: 2426
+        width: 89
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3316c44a4d094dbfa316d1420d2a6a4
+      internalID: 1055141129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_73
+      rect:
+        serializedVersion: 2
+        x: 6275
+        y: 2435
+        width: 89
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ea0f05a4b9f24e0e86adde7b715243a
+      internalID: 348240801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_74
+      rect:
+        serializedVersion: 2
+        x: 6433
+        y: 2414
+        width: 93
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d205efa1e35ca475fa5aea2ca5e69334
+      internalID: -217444850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_75
+      rect:
+        serializedVersion: 2
+        x: 6575
+        y: 2406
+        width: 130
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7ff50371ccfe4191add357035c1482e
+      internalID: 2120071085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_76
+      rect:
+        serializedVersion: 2
+        x: 7696
+        y: 2426
+        width: 130
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32dc883bc8b3a4b20bc9391cdf43787f
+      internalID: -564782578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_77
+      rect:
+        serializedVersion: 2
+        x: 7855
+        y: 2414
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcdc2697d56d649978493a7c6c06b005
+      internalID: -624891313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_78
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 2264
+        width: 1162
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58f59ed938b1e4610b64aaf7cf2726b1
+      internalID: -1539871074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_79
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 2264
+        width: 614
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df194e450dcb2483095d88a6337aabff
+      internalID: -1542858734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_80
+      rect:
+        serializedVersion: 2
+        x: 2245
+        y: 2264
+        width: 329
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a3378e587c5243be8ee6e65dbe08128
+      internalID: -1287549074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_81
+      rect:
+        serializedVersion: 2
+        x: 2606
+        y: 2264
+        width: 431
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84b45d5fb2aeb40039ac4e14e174da2c
+      internalID: 566681402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_82
+      rect:
+        serializedVersion: 2
+        x: 6104
+        y: 2256
+        width: 110
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 723490513b0674da0b5367e0857cfb8c
+      internalID: 43529440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_83
+      rect:
+        serializedVersion: 2
+        x: 6266
+        y: 2264
+        width: 110
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60387da1915fa42ddb42b0260367e7c6
+      internalID: 1725545070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_84
+      rect:
+        serializedVersion: 2
+        x: 6425
+        y: 2244
+        width: 110
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d447b45883dd4a8790f737b82ce13ae
+      internalID: -1035382681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_85
+      rect:
+        serializedVersion: 2
+        x: 6563
+        y: 2236
+        width: 153
+        height: 170
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29c1c069e263342248afb31cd95e63ea
+      internalID: 1992087213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_86
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 1273
+        width: 1288
+        height: 971
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 516c99043793f4eb6851b17868eb11ee
+      internalID: -1911927734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_87
+      rect:
+        serializedVersion: 2
+        x: 3205
+        y: 1768
+        width: 317
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dcdc022de129495aa378890278ac265
+      internalID: 897423206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_88
+      rect:
+        serializedVersion: 2
+        x: 6104
+        y: 2094
+        width: 110
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e616287a73a194e688a226fd7e84af8b
+      internalID: -2139756154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_89
+      rect:
+        serializedVersion: 2
+        x: 6266
+        y: 2106
+        width: 110
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28602b1570eb84429b680bfd265290ee
+      internalID: 378370722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_90
+      rect:
+        serializedVersion: 2
+        x: 6425
+        y: 2085
+        width: 110
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60cf54daa709c455ab69ace76f20d4a1
+      internalID: -1943418000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_91
+      rect:
+        serializedVersion: 2
+        x: 6563
+        y: 2073
+        width: 153
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afe1b9d90710547a9810c563083e86fb
+      internalID: -600411593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_92
+      rect:
+        serializedVersion: 2
+        x: 4966
+        y: 1774
+        width: 431
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e539928add04fe68164cd00c7e49d6
+      internalID: -193455163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_93
+      rect:
+        serializedVersion: 2
+        x: 5413
+        y: 1774
+        width: 183
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd18654e008144ae08aac54d89648ab3
+      internalID: -1759114988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_94
+      rect:
+        serializedVersion: 2
+        x: 4325
+        y: 1444
+        width: 150
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10d49a033681040df94ceedf1e8b1e5e
+      internalID: 1594752916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_95
+      rect:
+        serializedVersion: 2
+        x: 4483
+        y: 1635
+        width: 153
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46e24ee303eab4700b4197bee8ec1418
+      internalID: -1836683366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_96
+      rect:
+        serializedVersion: 2
+        x: 4645
+        y: 1444
+        width: 151
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56c7a115ad2104af0b9198c19194ab44
+      internalID: -911760038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_97
+      rect:
+        serializedVersion: 2
+        x: 4804
+        y: 1614
+        width: 150
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b68d82343fab24c53affd002fec7810d
+      internalID: 609434348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_98
+      rect:
+        serializedVersion: 2
+        x: 4966
+        y: 1614
+        width: 151
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55b4dc60742a141d29f39b37720f0759
+      internalID: -1900347973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_99
+      rect:
+        serializedVersion: 2
+        x: 5125
+        y: 1606
+        width: 142
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa8e6c9573c1840dba14c427b1245d91
+      internalID: 815477097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_100
+      rect:
+        serializedVersion: 2
+        x: 5295
+        y: 1606
+        width: 139
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1984a3f60963a4972b6715559d12e959
+      internalID: 663970630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_101
+      rect:
+        serializedVersion: 2
+        x: 5454
+        y: 1606
+        width: 142
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7720610f49f2a4015932731e435753c7
+      internalID: -1199766278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_102
+      rect:
+        serializedVersion: 2
+        x: 5604
+        y: 1606
+        width: 142
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8a8a8039774d475e8cf35f7f4b85a08
+      internalID: 9314226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_103
+      rect:
+        serializedVersion: 2
+        x: 5815
+        y: 1606
+        width: 102
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bc1edf98c965477dadff2a3d718dec0
+      internalID: -229674987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_104
+      rect:
+        serializedVersion: 2
+        x: 5925
+        y: 1606
+        width: 102
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd2838f286e9e4adaae1b92e74add083
+      internalID: -1170221684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_105
+      rect:
+        serializedVersion: 2
+        x: 6104
+        y: 1606
+        width: 110
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abc42d4e5ce0d4478a23c638f341c1bd
+      internalID: -871591752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_106
+      rect:
+        serializedVersion: 2
+        x: 6433
+        y: 1626
+        width: 93
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d851b1b5eef4a2c9a96c1dce0f812a
+      internalID: 485353565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_107
+      rect:
+        serializedVersion: 2
+        x: 4483
+        y: 1444
+        width: 153
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0ef4524c711d42d79e7c13881311a5f
+      internalID: 476903497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_108
+      rect:
+        serializedVersion: 2
+        x: 4824
+        y: 1444
+        width: 122
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9cee5a315b6f4b1e9cb32041f267efa
+      internalID: -1293145216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_109
+      rect:
+        serializedVersion: 2
+        x: 4984
+        y: 1444
+        width: 121
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec1d2ea9c8bdb48b8bf452bcc42f4581
+      internalID: -2063393074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_110
+      rect:
+        serializedVersion: 2
+        x: 5125
+        y: 1444
+        width: 142
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60db90ff00ca14b4c8d3fd54dddb7ddb
+      internalID: -1368454673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_111
+      rect:
+        serializedVersion: 2
+        x: 5295
+        y: 1444
+        width: 139
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d5b2d6c767a64c599b55daf73ee17b2
+      internalID: 1547203677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_112
+      rect:
+        serializedVersion: 2
+        x: 5446
+        y: 1123
+        width: 150
+        height: 471
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb55a8a8e6295414d8783bbc37194238
+      internalID: -924377224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_113
+      rect:
+        serializedVersion: 2
+        x: 5604
+        y: 1123
+        width: 151
+        height: 471
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a75413a007d514ea9943ce9465799ba3
+      internalID: -957766607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_114
+      rect:
+        serializedVersion: 2
+        x: 5764
+        y: 1444
+        width: 153
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d6d11703d28a450a998e4c99fff363b
+      internalID: 370121039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_115
+      rect:
+        serializedVersion: 2
+        x: 5925
+        y: 1444
+        width: 150
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 170eb503cd5db46c289123001de9f16a
+      internalID: 459909618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_116
+      rect:
+        serializedVersion: 2
+        x: 6084
+        y: 1456
+        width: 150
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 070e401fd38ba4c6a8c9ca61f8fe9afd
+      internalID: 1708592840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_117
+      rect:
+        serializedVersion: 2
+        x: 6414
+        y: 1525
+        width: 51
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9552ab2c600ce44ffa35d83324a5e351
+      internalID: -2125515222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_118
+      rect:
+        serializedVersion: 2
+        x: 6494
+        y: 1525
+        width: 53
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcae59413c1b54e58b9e47e37206ca74
+      internalID: 1959272947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_119
+      rect:
+        serializedVersion: 2
+        x: 4824
+        y: 1294
+        width: 122
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a196f1486940430bb36f379ab9265d0
+      internalID: 1041562149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_120
+      rect:
+        serializedVersion: 2
+        x: 4975
+        y: 1294
+        width: 121
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 513779903ba544ed4945d2fe208a1905
+      internalID: 1167127636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_121
+      rect:
+        serializedVersion: 2
+        x: 5125
+        y: 1285
+        width: 142
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f45e2283c7f74ae692455fa996eca08
+      internalID: -128995500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_122
+      rect:
+        serializedVersion: 2
+        x: 5295
+        y: 1285
+        width: 139
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 091ecdc65521d4593bf83cd7e1576c75
+      internalID: -1942552620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_123
+      rect:
+        serializedVersion: 2
+        x: 5764
+        y: 1285
+        width: 153
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e949e6999e0f49d2ba3adfc5f4e528d
+      internalID: 814414660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_124
+      rect:
+        serializedVersion: 2
+        x: 5925
+        y: 1285
+        width: 150
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b7e5b3e5bffe4b97b715ddbd34abdfc
+      internalID: 903312899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_125
+      rect:
+        serializedVersion: 2
+        x: 6116
+        y: 1285
+        width: 89
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c21c882c0cc44393a22c7c0317937cf
+      internalID: -2137210016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_126
+      rect:
+        serializedVersion: 2
+        x: 6396
+        y: 1383
+        width: 69
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c767eb83fef254373aa8ea94bcad08a4
+      internalID: 1640794335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_127
+      rect:
+        serializedVersion: 2
+        x: 6494
+        y: 1383
+        width: 73
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90b656e429cb94270a3c422fdd3ccf39
+      internalID: -734439934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_128
+      rect:
+        serializedVersion: 2
+        x: 4365
+        y: 1123
+        width: 102
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c70f6b3738664af0936dd4bfcd2f886
+      internalID: 470501109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_129
+      rect:
+        serializedVersion: 2
+        x: 5295
+        y: 1123
+        width: 102
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f34acfc07e0864f908f8670a90c266e6
+      internalID: -923789315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_130
+      rect:
+        serializedVersion: 2
+        x: 6396
+        y: 1273
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d3b015f0962481ba78ae807dbf1c04
+      internalID: 1533791260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_131
+      rect:
+        serializedVersion: 2
+        x: 6514
+        y: 1273
+        width: 53
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 418f304128a874e0c9b8ceebee676f50
+      internalID: -698224444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_132
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 156
+        width: 1288
+        height: 971
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 559506c1bf7dc47a8aa98129768ba0e7
+      internalID: 307311717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_133
+      rect:
+        serializedVersion: 2
+        x: 1595
+        y: 156
+        width: 2571
+        height: 971
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9533ac8849f1946d4be28e9dc11bc213
+      internalID: 725392329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_134
+      rect:
+        serializedVersion: 2
+        x: 4524
+        y: 1123
+        width: 93
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3ad5258a82b34f4e8ff02f109c579ad
+      internalID: -1960529200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_135
+      rect:
+        serializedVersion: 2
+        x: 4654
+        y: 1123
+        width: 130
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24c45e7d4382d4651b09528cad44fae9
+      internalID: 603155617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_136
+      rect:
+        serializedVersion: 2
+        x: 4816
+        y: 1123
+        width: 130
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa21718cd84a04d5fb186c431629f111
+      internalID: -243652748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_137
+      rect:
+        serializedVersion: 2
+        x: 4975
+        y: 1123
+        width: 130
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2db7f227394494ac784a2cce7eaf073f
+      internalID: -825651043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_138
+      rect:
+        serializedVersion: 2
+        x: 5145
+        y: 1123
+        width: 90
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa449e19d8b454655ba133d471090229
+      internalID: 1440624457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_139
+      rect:
+        serializedVersion: 2
+        x: 4966
+        y: 985
+        width: 431
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddd234c09b9924f1eb73ee1ece837c69
+      internalID: -1180470454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_140
+      rect:
+        serializedVersion: 2
+        x: 5413
+        y: 985
+        width: 183
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec90c6fb5b56b40d2bd46d03a67b2191
+      internalID: 1300999995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_141
+      rect:
+        serializedVersion: 2
+        x: 4325
+        y: 806
+        width: 150
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68202e7c06329457da42c04f95f75ad9
+      internalID: 385209062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_142
+      rect:
+        serializedVersion: 2
+        x: 4483
+        y: 835
+        width: 153
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06710e7897f8b4f49b585be2759b32bd
+      internalID: -199932005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_143
+      rect:
+        serializedVersion: 2
+        x: 4645
+        y: 806
+        width: 151
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 364c0d71fdf954c9bac2a733ddb7fe3c
+      internalID: -1344178454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_144
+      rect:
+        serializedVersion: 2
+        x: 4804
+        y: 814
+        width: 150
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e7d6ab847964504804fcd585fbd8e6
+      internalID: 1303863820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_145
+      rect:
+        serializedVersion: 2
+        x: 4966
+        y: 814
+        width: 151
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39a8b9ff41b224e248058a423f5c8394
+      internalID: -1536205612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_146
+      rect:
+        serializedVersion: 2
+        x: 5125
+        y: 806
+        width: 142
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93b3a66526cdf40338ff470e8d4d8709
+      internalID: -1489968480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_147
+      rect:
+        serializedVersion: 2
+        x: 5295
+        y: 806
+        width: 139
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33d8fc1e978db4c159d070eae4ccfaf6
+      internalID: 376886249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_148
+      rect:
+        serializedVersion: 2
+        x: 5454
+        y: 806
+        width: 142
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc8aa8d5f869648849d0a8a19a9434b9
+      internalID: -1765104787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_149
+      rect:
+        serializedVersion: 2
+        x: 5604
+        y: 806
+        width: 142
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 246f4023b8eb346d4a2f67531ec972c9
+      internalID: 1870622212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_150
+      rect:
+        serializedVersion: 2
+        x: 5815
+        y: 806
+        width: 102
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ef3bce250c3441b595bfc848a1b2b33
+      internalID: -1076553472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_151
+      rect:
+        serializedVersion: 2
+        x: 5925
+        y: 806
+        width: 102
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63d6666afe65843f8882785204f6b8a3
+      internalID: 740680913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_152
+      rect:
+        serializedVersion: 2
+        x: 6104
+        y: 806
+        width: 110
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63e29a718883640fab12bb1939e9afd9
+      internalID: 335084967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_153
+      rect:
+        serializedVersion: 2
+        x: 6433
+        y: 835
+        width: 93
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a91297327fe1466a843f9014a11f06f
+      internalID: -1979353695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_154
+      rect:
+        serializedVersion: 2
+        x: 4353
+        y: 644
+        width: 93
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1a6e1bde61664430abf7e037779ccd4
+      internalID: 860411346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_155
+      rect:
+        serializedVersion: 2
+        x: 4483
+        y: 644
+        width: 153
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebc52d7397b744518a46e0b636e92eab
+      internalID: -792404260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_156
+      rect:
+        serializedVersion: 2
+        x: 4645
+        y: 644
+        width: 151
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6818831a576f46ddbb8f1a79e965731
+      internalID: 1017809736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_157
+      rect:
+        serializedVersion: 2
+        x: 4824
+        y: 644
+        width: 122
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ec21e21999ef4a7a9cb212d2b23fb8f
+      internalID: -1854721698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_158
+      rect:
+        serializedVersion: 2
+        x: 4984
+        y: 644
+        width: 121
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc9b3bf3fdc44585b4dc76603f1da4e
+      internalID: 2123474511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_159
+      rect:
+        serializedVersion: 2
+        x: 5125
+        y: 644
+        width: 142
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fdff3fd221174b4b8ae752aa5fee0e8
+      internalID: -1772931736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_160
+      rect:
+        serializedVersion: 2
+        x: 5295
+        y: 644
+        width: 139
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb955af69500e4c939bd6f50bfae3845
+      internalID: 1184582433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_161
+      rect:
+        serializedVersion: 2
+        x: 5454
+        y: 644
+        width: 142
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f774b1268c47a49d5ab6a018f0761cf4
+      internalID: -592095203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_162
+      rect:
+        serializedVersion: 2
+        x: 5604
+        y: 644
+        width: 142
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d11b4d03378340d4b2bf2cb2ca596bf
+      internalID: 2115786432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_163
+      rect:
+        serializedVersion: 2
+        x: 5764
+        y: 644
+        width: 153
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 446cd523da4924709a220c9f703461b2
+      internalID: 156694075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_164
+      rect:
+        serializedVersion: 2
+        x: 5925
+        y: 644
+        width: 150
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db93b2c095cf4437f94b80d7e6b57949
+      internalID: -532811331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_165
+      rect:
+        serializedVersion: 2
+        x: 6084
+        y: 664
+        width: 150
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c36e11be236c40c8b78bb015ccf6503
+      internalID: 1831060528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_166
+      rect:
+        serializedVersion: 2
+        x: 6414
+        y: 733
+        width: 51
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b504ef448c4c4d5584bf26003011491
+      internalID: -1064181189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_167
+      rect:
+        serializedVersion: 2
+        x: 6494
+        y: 733
+        width: 53
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48e81ed1afbd54d9bab2f5bdcaf8e1c4
+      internalID: -1539907179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_168
+      rect:
+        serializedVersion: 2
+        x: 6414
+        y: 656
+        width: 51
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a09d14f68adaf473d8ce5ef3bfea849f
+      internalID: 191266712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_169
+      rect:
+        serializedVersion: 2
+        x: 6494
+        y: 656
+        width: 53
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 299fb1fd034644c69afb205a79900dc2
+      internalID: -69292568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_170
+      rect:
+        serializedVersion: 2
+        x: 4824
+        y: 494
+        width: 122
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b110fedbc11964f199407ee2f3fe3b02
+      internalID: -106021415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_171
+      rect:
+        serializedVersion: 2
+        x: 4975
+        y: 494
+        width: 121
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4fedcb6267b34215888057bd3328b28
+      internalID: -108153424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_172
+      rect:
+        serializedVersion: 2
+        x: 5125
+        y: 485
+        width: 142
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0d8ad0dce1244099b91ce91c2177e9d
+      internalID: 299301876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_173
+      rect:
+        serializedVersion: 2
+        x: 5295
+        y: 485
+        width: 139
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d4b7c41b3ce4b7a817fa3382d54013
+      internalID: 1760286817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_174
+      rect:
+        serializedVersion: 2
+        x: 5446
+        y: 485
+        width: 150
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af337c05dcfc7450fbd0d928e9256092
+      internalID: -1063026878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_175
+      rect:
+        serializedVersion: 2
+        x: 5604
+        y: 485
+        width: 151
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d9c8664f0a9e4e39821af94264b4500
+      internalID: -1663848735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_176
+      rect:
+        serializedVersion: 2
+        x: 5764
+        y: 485
+        width: 153
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2bf05221002d4e4cab97e148b1a8e68
+      internalID: 1325631500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_177
+      rect:
+        serializedVersion: 2
+        x: 5925
+        y: 485
+        width: 150
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 127565999a8bd4f8892573d818d035c6
+      internalID: -655785539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_178
+      rect:
+        serializedVersion: 2
+        x: 6116
+        y: 485
+        width: 89
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89262303fcbd343a585eeb839f965e30
+      internalID: 2119695695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_179
+      rect:
+        serializedVersion: 2
+        x: 6396
+        y: 595
+        width: 49
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81b6060068a1e4026b6f25dcef5abc47
+      internalID: -1116299474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_180
+      rect:
+        serializedVersion: 2
+        x: 6514
+        y: 595
+        width: 53
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b13e5ff3b0614d908be49d2f631ba4c
+      internalID: 65901245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_181
+      rect:
+        serializedVersion: 2
+        x: 4365
+        y: 323
+        width: 102
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c66d017728cf2495f8700360b9c8ceb2
+      internalID: -1506034866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_182
+      rect:
+        serializedVersion: 2
+        x: 5295
+        y: 323
+        width: 102
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cebdcaaa3b86416ebfe5b5381eb2804
+      internalID: -1704810960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_183
+      rect:
+        serializedVersion: 2
+        x: 5446
+        y: 323
+        width: 150
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48e48cbdf9cbc4d7881a27250f9a479f
+      internalID: -79652725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_184
+      rect:
+        serializedVersion: 2
+        x: 5604
+        y: 323
+        width: 151
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2ab90076a2744a9188d3aa8e0164062
+      internalID: -1568506902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_185
+      rect:
+        serializedVersion: 2
+        x: 6396
+        y: 473
+        width: 49
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de36e1a64f6a745aca4e3700e22aef09
+      internalID: 1295533151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_186
+      rect:
+        serializedVersion: 2
+        x: 6514
+        y: 473
+        width: 53
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fe25a059b2ec425cbb3149ca2fb54d9
+      internalID: 1541900078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_187
+      rect:
+        serializedVersion: 2
+        x: 4524
+        y: 335
+        width: 93
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faeb77b93c6694f15a20c375e6aab096
+      internalID: -1991361233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_188
+      rect:
+        serializedVersion: 2
+        x: 4654
+        y: 335
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3de7dafaf4dc461fbb2b185cde8ed1c
+      internalID: -364975573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_189
+      rect:
+        serializedVersion: 2
+        x: 4816
+        y: 335
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af841775c37074c8991d4fa202482195
+      internalID: -1378074557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_190
+      rect:
+        serializedVersion: 2
+        x: 4975
+        y: 335
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 484608c3f48034e0797d3c7c8d53c173
+      internalID: 1102439248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI books & more-export_191
+      rect:
+        serializedVersion: 2
+        x: 5145
+        y: 335
+        width: 90
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c38b07ed44f32447a8ede3589020f24a
+      internalID: 119903667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      UI books & more-export_0: -947096186
+      UI books & more-export_1: -58736529
+      UI books & more-export_10: -1741761958
+      UI books & more-export_100: 663970630
+      UI books & more-export_101: -1199766278
+      UI books & more-export_102: 9314226
+      UI books & more-export_103: -229674987
+      UI books & more-export_104: -1170221684
+      UI books & more-export_105: -871591752
+      UI books & more-export_106: 485353565
+      UI books & more-export_107: 476903497
+      UI books & more-export_108: -1293145216
+      UI books & more-export_109: -2063393074
+      UI books & more-export_11: -329896676
+      UI books & more-export_110: -1368454673
+      UI books & more-export_111: 1547203677
+      UI books & more-export_112: -924377224
+      UI books & more-export_113: -957766607
+      UI books & more-export_114: 370121039
+      UI books & more-export_115: 459909618
+      UI books & more-export_116: 1708592840
+      UI books & more-export_117: -2125515222
+      UI books & more-export_118: 1959272947
+      UI books & more-export_119: 1041562149
+      UI books & more-export_12: -1846218209
+      UI books & more-export_120: 1167127636
+      UI books & more-export_121: -128995500
+      UI books & more-export_122: -1942552620
+      UI books & more-export_123: 814414660
+      UI books & more-export_124: 903312899
+      UI books & more-export_125: -2137210016
+      UI books & more-export_126: 1640794335
+      UI books & more-export_127: -734439934
+      UI books & more-export_128: 470501109
+      UI books & more-export_129: -923789315
+      UI books & more-export_13: -1118649205
+      UI books & more-export_130: 1533791260
+      UI books & more-export_131: -698224444
+      UI books & more-export_132: 307311717
+      UI books & more-export_133: 725392329
+      UI books & more-export_134: -1960529200
+      UI books & more-export_135: 603155617
+      UI books & more-export_136: -243652748
+      UI books & more-export_137: -825651043
+      UI books & more-export_138: 1440624457
+      UI books & more-export_139: -1180470454
+      UI books & more-export_14: -603101594
+      UI books & more-export_140: 1300999995
+      UI books & more-export_141: 385209062
+      UI books & more-export_142: -199932005
+      UI books & more-export_143: -1344178454
+      UI books & more-export_144: 1303863820
+      UI books & more-export_145: -1536205612
+      UI books & more-export_146: -1489968480
+      UI books & more-export_147: 376886249
+      UI books & more-export_148: -1765104787
+      UI books & more-export_149: 1870622212
+      UI books & more-export_15: 1161756926
+      UI books & more-export_150: -1076553472
+      UI books & more-export_151: 740680913
+      UI books & more-export_152: 335084967
+      UI books & more-export_153: -1979353695
+      UI books & more-export_154: 860411346
+      UI books & more-export_155: -792404260
+      UI books & more-export_156: 1017809736
+      UI books & more-export_157: -1854721698
+      UI books & more-export_158: 2123474511
+      UI books & more-export_159: -1772931736
+      UI books & more-export_16: 1490292164
+      UI books & more-export_160: 1184582433
+      UI books & more-export_161: -592095203
+      UI books & more-export_162: 2115786432
+      UI books & more-export_163: 156694075
+      UI books & more-export_164: -532811331
+      UI books & more-export_165: 1831060528
+      UI books & more-export_166: -1064181189
+      UI books & more-export_167: -1539907179
+      UI books & more-export_168: 191266712
+      UI books & more-export_169: -69292568
+      UI books & more-export_17: -789633023
+      UI books & more-export_170: -106021415
+      UI books & more-export_171: -108153424
+      UI books & more-export_172: 299301876
+      UI books & more-export_173: 1760286817
+      UI books & more-export_174: -1063026878
+      UI books & more-export_175: -1663848735
+      UI books & more-export_176: 1325631500
+      UI books & more-export_177: -655785539
+      UI books & more-export_178: 2119695695
+      UI books & more-export_179: -1116299474
+      UI books & more-export_18: -309024435
+      UI books & more-export_180: 65901245
+      UI books & more-export_181: -1506034866
+      UI books & more-export_182: -1704810960
+      UI books & more-export_183: -79652725
+      UI books & more-export_184: -1568506902
+      UI books & more-export_185: 1295533151
+      UI books & more-export_186: 1541900078
+      UI books & more-export_187: -1991361233
+      UI books & more-export_188: -364975573
+      UI books & more-export_189: -1378074557
+      UI books & more-export_19: -1386048748
+      UI books & more-export_190: 1102439248
+      UI books & more-export_191: 119903667
+      UI books & more-export_2: -1192420911
+      UI books & more-export_20: -1508122496
+      UI books & more-export_21: -533869945
+      UI books & more-export_22: 733577286
+      UI books & more-export_23: -980588865
+      UI books & more-export_24: 1551865266
+      UI books & more-export_25: 437453997
+      UI books & more-export_26: 888276364
+      UI books & more-export_27: -372248210
+      UI books & more-export_28: 1475809367
+      UI books & more-export_29: -1841386384
+      UI books & more-export_3: 208579212
+      UI books & more-export_30: -1721394209
+      UI books & more-export_31: 1255349629
+      UI books & more-export_32: 1651049071
+      UI books & more-export_33: 367188338
+      UI books & more-export_34: -495126468
+      UI books & more-export_35: 1463857279
+      UI books & more-export_36: 1843196961
+      UI books & more-export_37: 350188083
+      UI books & more-export_38: -254867814
+      UI books & more-export_39: -1153044217
+      UI books & more-export_4: 285476257
+      UI books & more-export_40: -1156182786
+      UI books & more-export_41: 1873757388
+      UI books & more-export_42: 317680500
+      UI books & more-export_43: -831880990
+      UI books & more-export_44: -1861545081
+      UI books & more-export_45: -514863856
+      UI books & more-export_46: -934571738
+      UI books & more-export_47: 1150119949
+      UI books & more-export_48: -461252721
+      UI books & more-export_49: -303115463
+      UI books & more-export_5: 1837938204
+      UI books & more-export_50: 1823321841
+      UI books & more-export_51: -242077711
+      UI books & more-export_52: -2094810808
+      UI books & more-export_53: 987916605
+      UI books & more-export_54: -608798731
+      UI books & more-export_55: -1145074892
+      UI books & more-export_56: -1206976552
+      UI books & more-export_57: 35846085
+      UI books & more-export_58: -1722295745
+      UI books & more-export_59: 1768874891
+      UI books & more-export_6: -1861307258
+      UI books & more-export_60: -663533968
+      UI books & more-export_61: 870641058
+      UI books & more-export_62: -1294396622
+      UI books & more-export_63: 1118998812
+      UI books & more-export_64: 1203623035
+      UI books & more-export_65: 1889349760
+      UI books & more-export_66: -445371092
+      UI books & more-export_67: 1897539466
+      UI books & more-export_68: 2075798657
+      UI books & more-export_69: 1131971852
+      UI books & more-export_7: -209217117
+      UI books & more-export_70: -442423765
+      UI books & more-export_71: -877860365
+      UI books & more-export_72: 1055141129
+      UI books & more-export_73: 348240801
+      UI books & more-export_74: -217444850
+      UI books & more-export_75: 2120071085
+      UI books & more-export_76: -564782578
+      UI books & more-export_77: -624891313
+      UI books & more-export_78: -1539871074
+      UI books & more-export_79: -1542858734
+      UI books & more-export_8: 4395205
+      UI books & more-export_80: -1287549074
+      UI books & more-export_81: 566681402
+      UI books & more-export_82: 43529440
+      UI books & more-export_83: 1725545070
+      UI books & more-export_84: -1035382681
+      UI books & more-export_85: 1992087213
+      UI books & more-export_86: -1911927734
+      UI books & more-export_87: 897423206
+      UI books & more-export_88: -2139756154
+      UI books & more-export_89: 378370722
+      UI books & more-export_9: 915255745
+      UI books & more-export_90: -1943418000
+      UI books & more-export_91: -600411593
+      UI books & more-export_92: -193455163
+      UI books & more-export_93: -1759114988
+      UI books & more-export_94: 1594752916
+      UI books & more-export_95: -1836683366
+      UI books & more-export_96: -911760038
+      UI books & more-export_97: 609434348
+      UI books & more-export_98: -1900347973
+      UI books & more-export_99: 815477097
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

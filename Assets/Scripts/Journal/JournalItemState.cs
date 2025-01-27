@@ -58,7 +58,7 @@ public class JournalItemState : MonoBehaviour , IPointerClickHandler
         switch (state)
         {
             case State.Default:
-                text.color = Color.white;
+                text.color = Color.black;
                 Debug.Log("Default");
                 break;
             case State.Lie:
