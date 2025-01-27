@@ -37,7 +37,7 @@ public class PlayerMovement : NetworkBehaviour
         transform.position = transform.position + horizontal * Time.deltaTime;
 
         animator.SetFloat("vertical", Input.GetAxis("Vertical"));
-        Vector3 vertical = new Vector3(0.0f, Input.GetAxis("Vertical"), 0.0f);;
+        Vector3 vertical = new Vector3(0.0f, Input.GetAxis("Vertical"),  0.0f);;
         transform.position = transform.position + vertical * Time.deltaTime;
 
     }
