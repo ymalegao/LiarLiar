@@ -1,50 +1,66 @@
-// using UnityEngine;
+using UnityEngine;
 
-// public class JournalTest : MonoBehaviour
-// {
-//     private void Start()
-//     {
-//         // Add some test data to the journal
-//         AddTestClues();
-//         AddTestTruthsAndLies();
+public class JournalTest : MonoBehaviour
+{
+    private void Start()
+    {
+        // // Test adding general clues
+        JournalManager.Instance.AddClue("The door was unlocked when I arrived.");
+        JournalManager.Instance.AddClue("I found a set of footprints leading to the barn.");
+        JournalManager.Instance.AddClue("The clock stopped at midnight.");
+         JournalManager.Instance.AddClue("The door was unlocked when I arrived.");
+        JournalManager.Instance.AddClue("I found a set of footprints leading to the barn.");
+        JournalManager.Instance.AddClue("The clock stopped at midnight.");
+         JournalManager.Instance.AddClue("The door was unlocked when I arrived.");
+        JournalManager.Instance.AddClue("I found a set of footprints leading to the barn.");
+        JournalManager.Instance.AddClue("The clock stopped at midnight.");
+        JournalManager.Instance.AddClue("The door was unlocked when I arrived.");
+        JournalManager.Instance.AddClue("I found a set of footprints leading to the barn.");
+        JournalManager.Instance.AddClue("The clock stopped at midnight.");
+         JournalManager.Instance.AddClue("The door was unlocked when I arrived.");
+        JournalManager.Instance.AddClue("I found a set of footprints leading to the barn.");
+        JournalManager.Instance.AddClue("The clock stopped at midnight.");
+         JournalManager.Instance.AddClue("The door was unlocked when I arrived.");
+        JournalManager.Instance.AddClue("I found a set of footprints leading to the barn.");
+        JournalManager.Instance.AddClue("The clock stopped at midnight.");
 
-//         // Simulate switching tabs
-//         Invoke(nameof(SwitchToTruthsTab), 2f); // Switch to truths tab after 2 seconds
-//         Invoke(nameof(SwitchToCluesTab), 4f); // Switch back to clues tab after 4 seconds
+        // Test adding truths and lies from a specific NPC
+        JournalManager.Instance.RegisterNPC("FarmerJoe", "Farmer Joe", "Farmer", null);
+        JournalManager.Instance.AddTruthsAndLiesFromNPC(
+            "FarmerJoe",
+            "I was tending to the crops.",
+            "I never left my house.",
+            "I heard something suspicious."
+        );
 
-//         // Simulate highlighting a clue after 6 seconds
-//         // Invoke(nameof(HighlightFirstClue), 6f);
-//     }
+        JournalManager.Instance.RegisterNPC("SheriffSmith", "Sheriff Smith", "Sheriff", null);
+        JournalManager.Instance.AddTruthsAndLiesFromNPC(
+            "SheriffSmith",
+            "I was patrolling the area.",
+            "I saw Farmer Joe near the barn.",
+            "I didn’t hear anything unusual."
+        );
 
-//     private void AddTestClues()
-//     {
-//         JournalManager.Instance.AddClueFromNPC("The door was unlocked when I arrived.");
-//         JournalManager.Instance.AddClue("There was a strange sound coming from the attic.");
-//         JournalManager.Instance.AddClue("I saw someone leaving the scene in a red car.");
-//     }
+        JournalManager.Instance.RegisterNPC("rick", "Sheriff Smith", "Sheriff", null);
+        JournalManager.Instance.AddTruthsAndLiesFromNPC(
+            "rick",
+            "I was patrolling the area.",
+            "I saw Farmer Joe near the barn.",
+            "I didn’t hear anything unusual."
+        );
 
-//     private void AddTestTruthsAndLies()
-//     {
-//         JournalManager.Instance.AddTruthsAndLies("I love pizza", "I have a dog", "I climbed Mount Everest");
-//         JournalManager.Instance.AddTruthsAndLies("I never lie", "I love cats", "I own a mansion in Paris");
-//     }
+        JournalManager.Instance.RegisterNPC("morty", "Sheriff Smith", "Sheriff", null);
+        JournalManager.Instance.AddTruthsAndLiesFromNPC(
+            "morty",
+            "I was patrolling the area.",
+            "I saw Farmer Joe near the barn.",
+            "I didn’t hear anything unusual."
+        );
 
-//     private void SwitchToTruthsTab()
-//     {
-//         Debug.Log("Switching to Truths tab...");
-//         JournalManager.Instance.ShowTruths();
-//     }
 
-//     private void SwitchToCluesTab()
-//     {
-//         Debug.Log("Switching to Clues tab...");
-//         JournalManager.Instance.ShowClues();
-//     }
 
-//     private void HighlightFirstClue()
-//     {
-//         Debug.Log("Highlighting the first clue...");
-//         Transform firstClue = JournalManager.Instance.cluesContent.transform.GetChild(0); // Get the first clue
-//         JournalManager.Instance.HighlightEntry(firstClue.gameObject); // Highlight it
-//     }
-// }
+
+        // Add general truths and lies (not tied to NPCs)
+        // JournalManager.Instance.AddTruthsAndLies("The key is hidden in the barn.", "The sheriff has a secret.", "The farmer saw nothing.");
+    }
+}

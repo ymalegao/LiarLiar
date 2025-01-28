@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 31940652376845680}
   - component: {fileID: 1932076596873877296}
   - component: {fileID: 2933907359940838968}
-  - component: {fileID: 1372693012614686339}
   - component: {fileID: 4036316172205604178}
   - component: {fileID: 2903435387078939565}
   - component: {fileID: 6631003329715415194}
@@ -19,6 +18,8 @@ GameObject:
   - component: {fileID: 3422067375036860200}
   - component: {fileID: 5162267916191432836}
   - component: {fileID: 7008269896304235665}
+  - component: {fileID: 9010658577687573313}
+  - component: {fileID: -6131217497538004741}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -120,22 +121,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1372693012614686339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6718280064430215988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a0d20c6d492c4762a4bedffd36d0d1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionRange: 1.5
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!114 &4036316172205604178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,3 +279,39 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9010658577687573313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6718280064430215988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac266e39d3d54f6fbcc8bc0641448b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jobName: fish
+  assignedTask:
+    name: 
+    position: {x: 0, y: 0}
+    completionRadius: 0
+    completionTime: 0
+    isCompleted: 0
+    taskTimer: 0
+--- !u!114 &-6131217497538004741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6718280064430215988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a0d20c6d492c4762a4bedffd36d0d1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRange: 1.5
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 8
