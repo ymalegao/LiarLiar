@@ -70,24 +70,26 @@ public class PlayerNetwork : NetworkBehaviour
     //     transform.position = transform.position + vertical * Time.deltaTime * 5;
 
     // }
-    void Update()
-{
-    if (NetworkManager.Singleton.IsClient || NetworkManager.Singleton.IsServer)
-    {
-        if (!IsOwner) return; // Only process movement for the owning player
+
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            randomNumber.Value = Random.Range(1, 100);
+        }
+    
+        if (NetworkManager.Singleton.IsClient || NetworkManager.Singleton.IsServer)
+        {
+            if (!IsOwner) return; // Only process movement for the owning player
+        }
+
+        float moveX = Input.GetAxis("Horizontal");
+        float moveY = Input.GetAxis("Vertical");
+
+        moveVelocity = new Vector2(moveX, moveY).normalized * speed;
+
+        animator.SetFloat("horizontal", moveX);
+        animator.SetFloat("vertical", moveY);
     }
-
-    float moveX = Input.GetAxis("Horizontal");
-    float moveY = Input.GetAxis("Vertical");
-
-    moveVelocity = new Vector2(moveX, moveY).normalized * speed;
-
-    animator.SetFloat("horizontal", moveX);
-    animator.SetFloat("vertical", moveY);
-}
-    void FixedUpdate()
-    {
-
+    void FixedUpdate() {
         if (!IsOwner) return; // Only update the Rigidbody for the local player
 
         rb.velocity = moveVelocity;
