@@ -6,7 +6,8 @@ public class TaskManager : MonoBehaviour
 {
     //List of Tasks in the game. Add and modify this dictionary to create and edit tasks. 
     public Dictionary<string, Task> tasks = new Dictionary<string, Task>(){
-        {"fish", new Task("fish", new Vector2(0f,0f))}
+        {"fish", new Task("fish", new Vector2(5f,-2f))},
+        {"blacksmith", new Task("blacksmith", new Vector2(-12f,5f))}
     };
 
     void Start()
