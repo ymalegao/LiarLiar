@@ -87,7 +87,14 @@ public class PlayerNetwork : NetworkBehaviour
         moveVelocity = new Vector2(moveX, moveY).normalized * speed;
 
         animator.SetFloat("horizontal", moveX);
-        animator.SetFloat("vertical", moveY);
+        animator.SetFloat("vertical", moveY);    
+        if(moveVelocity.sqrMagnitude != 0) {
+            Debug.Log(moveVelocity.sqrMagnitude);
+        }   
+        
+        animator.SetFloat("speed", moveVelocity.sqrMagnitude);
+
+
     }
     void FixedUpdate() {
         if (!IsOwner) return; // Only update the Rigidbody for the local player

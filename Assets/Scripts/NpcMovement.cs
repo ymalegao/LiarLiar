@@ -14,7 +14,7 @@ public class NpcMovement : MonoBehaviour
     private NavMeshAgent agent;
     private int currentPointIndex;
     private bool isStoppedForInteraction;
-
+    [SerializeField] private Animator animator; 
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +51,13 @@ public class NpcMovement : MonoBehaviour
     void Update()
     {
         if (isStoppedForInteraction) return; // Skip updates if stopped
+
+        Vector2 movementDirection = new Vector2(agent.velocity.x, agent.velocity.y).normalized;
+
+        // Pass direction to Animator
+        animator.SetFloat("npc_horizontal", movementDirection.x);
+        animator.SetFloat("npc_vertical", movementDirection.y);
+        animator.SetFloat("npc_speed", agent.velocity.magnitude);
 
         if (!agent.pathPending && agent.remainingDistance <= destPoint)
         {
