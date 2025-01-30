@@ -48,35 +48,50 @@ public class PlayerNetwork : NetworkBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-{
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
+    //     void Update()
+    // {
+    //         if (Input.GetKeyDown(KeyCode.Space))
+    //         {
+    //             randomNumber.Value = Random.Range(1, 100);
+    //         }
+
+    //         // Allow movement if the player is the owner or if the network is not running
+    //         if (NetworkManager.Singleton.IsClient || NetworkManager.Singleton.IsServer)
+    //     {
+    //         if (!IsOwner) return; // Only process movement for the owning player
+    //     }
+
+    //     animator.SetFloat("horizontal", Input.GetAxis("Horizontal"));
+    //     Vector3 horizontal = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);;
+    //     transform.position = transform.position + horizontal * Time.deltaTime * 5;
+
+    //     animator.SetFloat("vertical", Input.GetAxis("Vertical"));
+    //     Vector3 vertical = new Vector3(0.0f, Input.GetAxis("Vertical"),  0.0f);;
+    //     transform.position = transform.position + vertical * Time.deltaTime * 5;
+
+    // }
+
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Space)) {
             randomNumber.Value = Random.Range(1, 100);
         }
-
-        // Allow movement if the player is the owner or if the network is not running
+    
         if (NetworkManager.Singleton.IsClient || NetworkManager.Singleton.IsServer)
-    {
-        if (!IsOwner) return; // Only process movement for the owning player
+        {
+            if (!IsOwner) return; // Only process movement for the owning player
+        }
+
+        float moveX = Input.GetAxis("Horizontal");
+        float moveY = Input.GetAxis("Vertical");
+
+        moveVelocity = new Vector2(moveX, moveY).normalized * speed;
+
+        animator.SetFloat("horizontal", moveX);
+        animator.SetFloat("vertical", moveY);
     }
-
-    animator.SetFloat("horizontal", Input.GetAxis("Horizontal"));
-    Vector3 horizontal = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);;
-    transform.position = transform.position + horizontal * Time.deltaTime;
-
-    animator.SetFloat("vertical", Input.GetAxis("Vertical"));
-    Vector3 vertical = new Vector3(0.0f, Input.GetAxis("Vertical"),  0.0f);;
-    transform.position = transform.position + vertical * Time.deltaTime;
-
-}
-
-
-    void FixedUpdate()
-    {
-
+    void FixedUpdate() {
         if (!IsOwner) return; // Only update the Rigidbody for the local player
 
-        rb.velocity = moveVelocity * speed;
+        rb.velocity = moveVelocity;
     }
 }
