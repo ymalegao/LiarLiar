@@ -4,7 +4,7 @@ using UnityEngine;
 public class NPCSpawner : NetworkBehaviour
 {
     [SerializeField] private GameObject npcPrefab;
-    [SerializeField] private Transform[] waypoints; // Waypoints to assign to spawned NPCs
+    [SerializeField] private Transform[] waypoints;
     [SerializeField] private Vector3 spawnPosition;
 
     public override void OnNetworkSpawn()
@@ -19,25 +19,21 @@ public class NPCSpawner : NetworkBehaviour
     {
         if (npcPrefab == null)
         {
-            Debug.LogError("NPC prefab is not assigned!");
+            Debug.LogError("NPC prefab is null");
             return;
         }
 
-        // Spawn the NPC dynamically on the server
         GameObject npcInstance = Instantiate(npcPrefab, spawnPosition, Quaternion.identity);
 
-        // Assign waypoints to the spawned NPC
         var npcMovement = npcInstance.GetComponent<NpcMovement>();
         if (npcMovement != null)
         {
-            npcMovement.SetWaypoints(waypoints);  // Make sure the waypoints are set 
+            npcMovement.SetWaypoints(waypoints);
         }
         else
         {
-            Debug.LogError("NpcMovement component is missing from the NPC prefab!");
+            Debug.LogError("NpcMovement component is missing from the NPC prefab");
         }
-
-        // Spawn the NPC on the network
         npcInstance.GetComponent<NetworkObject>().Spawn();
     }
 }

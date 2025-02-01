@@ -89,7 +89,7 @@ public class PlayerNetwork : NetworkBehaviour
         animator.SetFloat("horizontal", moveX);
         animator.SetFloat("vertical", moveY);    
         if(moveVelocity.sqrMagnitude != 0) {
-            Debug.Log(moveVelocity.sqrMagnitude);
+            //Debug.Log(moveVelocity.sqrMagnitude);
         }   
         
         animator.SetFloat("speed", moveVelocity.sqrMagnitude);
