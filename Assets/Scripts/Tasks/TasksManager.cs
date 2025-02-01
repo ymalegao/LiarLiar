@@ -5,9 +5,8 @@ using UnityEngine;
 public class TaskManager : MonoBehaviour
 {
     //List of Tasks in the game. Add and modify this dictionary to create and edit tasks. 
-    public Dictionary<string, Task> tasks = new Dictionary<string, Task>(){
-        {"fish", new Task("fish", new Vector2(5f,-2f))},
-        {"blacksmith", new Task("blacksmith", new Vector2(-12f,5f))}
+    public Dictionary<string, GameTask> tasks = new Dictionary<string, GameTask>(){
+        {"fish", new GameTask("fish", new Vector2(0f,0f))}
     };
 
     void Start()
@@ -16,7 +15,7 @@ public class TaskManager : MonoBehaviour
 
 
     // Assign tasks to players
-    public Task AssignTaskToPlayer(string  taskName)
+    public GameTask AssignTaskToPlayer(string  taskName)
     {
 
         return(tasks[taskName]); //return the task that matches the player
@@ -28,7 +27,7 @@ public class TaskManager : MonoBehaviour
         GetTask[] players = FindObjectsOfType<GetTask>();
         foreach (var player in players)
         {
-            Task task = player.assignedTask;
+            GameTask task = player.assignedTask;
 
             if (task == null || task.isCompleted) continue;
 

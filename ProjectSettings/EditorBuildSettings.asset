@@ -11,16 +11,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MultiplayerScene.unity
     guid: 35f0f1a669bd22d46bc33cd40bc2391c
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/NPCMoveTesting.unity
     guid: 0792d84c324a2ab4a9b8682becb57119
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MultiVideo.unity
     guid: fa10d9d712b2279449f4cdfce48557d1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/map-creation.unity
     guid: 403d89a64341c3e439bac232c6860145
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/npc-creation.unity
     guid: 8342c9f1d3185464eac9ef0ddb55a866
   m_configObjects: {}

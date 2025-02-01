@@ -5,25 +5,26 @@ using UnityEngine;
 public class GetTask : MonoBehaviour
 {
     public string jobName; // Name of the task to assign player 
-    public Task assignedTask; // The task assigned to this player
+    public GameTask assignedTask; // The task assigned to this player
     public TaskManager TM; 
     
-    public Task getTask(){
+    public GameTask GetAssignedTask()
+    {
         return TM.AssignTaskToPlayer(this.jobName);
     }
 
-    public void SetTask(Task task)
+    public void SetTask(GameTask task)
     {
         assignedTask = task;
         Debug.Log("Task assigned to player: " + task.position);
     }
 
-    void Start(){
-        //initialize task manager
+    void Start()
+    {
+        // Initialize task manager
         this.TM = FindFirstObjectByType<TaskManager>(); 
-        this.SetTask(this.getTask());
+        this.SetTask(this.GetAssignedTask());
     }
 
-    void Update(){}
-
+    void Update() { }
 }
