@@ -4,33 +4,28 @@ using UnityEngine;
 
 public class TaskManager : MonoBehaviour
 {
+    //List of Tasks in the game. Add and modify this dictionary to create and edit tasks. 
     public Dictionary<string, Task> tasks = new Dictionary<string, Task>(){
-        {"fish", new Task("fish", new Vector2(0f,0f))}
+        {"fish", new Task("fish", new Vector2(5f,-2f))},
+        {"blacksmith", new Task("blacksmith", new Vector2(-12f,5f))}
     };
-    public GetTask[] players; // All gameObjects with Player script 
 
     void Start()
     {
-        AssignTasksToPlayers();
     }
 
 
     // Assign tasks to players
-    public void AssignTasksToPlayers()
+    public Task AssignTaskToPlayer(string  taskName)
     {
-         //add all players to players array
-        players = FindObjectsOfType<GetTask>();
 
-        for (int i = 0; i < players.Length; i++ )
-        {
-            players[i].SetTask(tasks[players[i].jobName]); // Assign each player a task
-        }
-
-        Debug.Log("Tasks assigned to all players.");
+        return(tasks[taskName]); //return the task that matches the player
+        Debug.Log("Tasks assigned to player  " + taskName);
     }
 
     void Update()
     {
+        GetTask[] players = FindObjectsOfType<GetTask>();
         foreach (var player in players)
         {
             Task task = player.assignedTask;
