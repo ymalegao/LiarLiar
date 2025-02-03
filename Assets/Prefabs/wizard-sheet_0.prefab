@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 6269544432781698125}
   - component: {fileID: 950776779663999051}
   m_Layer: 3
-  m_Name: WizNpc
+  m_Name: wizard-sheet_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
