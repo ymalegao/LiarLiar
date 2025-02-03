@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TaskManager : MonoBehaviour
 {
     //List of Tasks in the game. Add and modify this dictionary to create and edit tasks. 
     public Dictionary<string, GameTask> tasks = new Dictionary<string, GameTask>(){
-        {"fish", new GameTask("fish", new Vector2(0f,0f))}
+        {"fish", new GameTask("fish", new Vector2(0f,0f))},
+        {"blacksmith", new GameTask("blacksmith", new Vector2(-10f,5f))}
     };
 
     void Start()
@@ -15,11 +17,11 @@ public class TaskManager : MonoBehaviour
 
 
     // Assign tasks to players
-    public GameTask AssignTaskToPlayer(string  taskName)
+    public GameTask AssignTaskToPlayer()
     {
-
-        return(tasks[taskName]); //return the task that matches the player
-        Debug.Log("Tasks assigned to player  " + taskName);
+        int randomIndex = Random.Range(0, tasks.Count);
+        Debug.Log("Task assigned to player  " + tasks.ElementAt(randomIndex));
+        return(tasks.ElementAt(randomIndex).Value); //return random task
     }
 
     void Update()
