@@ -3210,6 +3210,17 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!114 &1182780520 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3908483830856597667, guid: 7624345f0bdc8491daac9636bfc78be3, type: 3}
+  m_PrefabInstance: {fileID: 8909733503537794282}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1218599559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3269,7 +3280,7 @@ PrefabInstance:
     - target: {fileID: 5619489537768418143, guid: a6de011da98df4b47a1b7e8cc7cfa321, type: 3}
       propertyPath: NetworkConfig.PlayerPrefab
       value: 
-      objectReference: {fileID: 1364883654379630471, guid: 8f04047221c70417c83f32e0635488af, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 5619489537768418143, guid: a6de011da98df4b47a1b7e8cc7cfa321, type: 3}
       propertyPath: NetworkConfig.Prefabs.NetworkPrefabsLists.Array.size
       value: 1
@@ -3358,6 +3369,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232701369}
   m_CullTransparentMesh: 1
+--- !u!1 &1337480496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1337480498}
+  - component: {fileID: 1337480497}
+  m_Layer: 0
+  m_Name: LobbyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1337480497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337480496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 544622af640364f93afb8e13f7c60e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNamesText: {fileID: 1182780520}
+  _isHost: 0
+--- !u!4 &1337480498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337480496}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.6667421, y: 0.7910866, z: -1.1067215}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1374144810
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3961,6 +4018,22 @@ PrefabInstance:
       propertyPath: characterSelectionPanel
       value: 
       objectReference: {fileID: 1654542827}
+    - target: {fileID: 3592633884307937998, guid: 7624345f0bdc8491daac9636bfc78be3, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[0].m_Text
+      value: blacksmith-Sheet_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592633884307937998, guid: 7624345f0bdc8491daac9636bfc78be3, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[1].m_Text
+      value: dad-farmer-sheet_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592633884307937998, guid: 7624345f0bdc8491daac9636bfc78be3, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[2].m_Text
+      value: wizard-sheet_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592633884307937998, guid: 7624345f0bdc8491daac9636bfc78be3, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[3].m_Text
+      value: blacksmith-Sheet_0
+      objectReference: {fileID: 0}
     - target: {fileID: 5880096418965036605, guid: 7624345f0bdc8491daac9636bfc78be3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -4088,4 +4161,5 @@ SceneRoots:
   - {fileID: 848229526}
   - {fileID: 1374144810}
   - {fileID: 1606166671}
+  - {fileID: 1337480498}
   - {fileID: 8909733503537794282}
