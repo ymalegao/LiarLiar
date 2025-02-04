@@ -80,6 +80,7 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         IsDialogueActive = false;
         
+        dialogueText.text = ""; // Clear the dialogue text
 
         // Trigger the end-of-dialogue event
         OnDialogueEnd?.Invoke();
@@ -100,7 +101,7 @@ public class DialogueManager : MonoBehaviour
             JournalManager.Instance.AddTruthsAndLiesFromNPC(currentNPCName, truthsAndLies[0], truthsAndLies[1], truthsAndLies[2]); // Add truths/lies with NPC's name
 
             // Optionally return all truths and lies formatted for dialogue display
-            return $"{truthsAndLies[0]}\n {truthsAndLies[1]}\n {truthsAndLies[2]}";
+            return $"{truthsAndLies[0]} {truthsAndLies[1]} {truthsAndLies[2]}";
         }
 
         return line; // Return the unmodified line if no markers are found
