@@ -16251,13 +16251,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c70cfaf5466c3b4db4aecda766407d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcPrefab: {fileID: 1274148144918918901, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
+  npcPrefabs:
+  - {fileID: 1274148144918918901, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
+  - {fileID: 1274148144918918901, guid: d6ac6f1d1cf5cf84f861d9ba32301773, type: 3}
   waypoints:
   - {fileID: 975009291}
   - {fileID: 1194939974}
   - {fileID: 1226550850}
   - {fileID: 155778863}
-  spawnPosition: {x: -15.77694, y: -5.39539, z: 0}
+  spawnPositions:
+  - {x: -19, y: -5, z: 0}
+  - {x: -17, y: -5, z: 0}
 --- !u!114 &1296637460
 MonoBehaviour:
   m_ObjectHideFlags: 0

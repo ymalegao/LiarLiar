@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 6269544432781698125}
   - component: {fileID: 950776779663999051}
   m_Layer: 3
-  m_Name: wizard-sheet_0
+  m_Name: npcBlacksmith
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ Transform:
   m_GameObject: {fileID: 1274148144918918901}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19, y: -5, z: 0}
+  m_LocalPosition: {x: -17, y: -5, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -115,7 +115,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -1250548452, guid: 7b3551c6a7081a44eb8c2a9bf50eec5d, type: 3}
+  m_Sprite: {fileID: -980357901, guid: 60306fab37bc9084b959c9be82be4e82, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -165,12 +165,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e8481a8e49f24d949325d2674148400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Obi
+  npcName: Blacksmith
   dialogueLines:
-  - '[Clue] My first clue
+  - '[Clue] Yo
 
 '
-  - '[TTL] t1 | t2| l1'
+  - '[T] BS T'
+  - '[L] BS L'
+  - '[T] BS T'
 --- !u!61 &2094843647503842778
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -223,7 +225,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274148144918918901}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c87572208cff5584abd0904e2bb86bb8, type: 3}
   m_Name: 
@@ -269,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 126372068
+  GlobalObjectIdHash: 2818104271
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -345,7 +347,7 @@ Animator:
   m_GameObject: {fileID: 1274148144918918901}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 38df6badcab3b0649881722041460ff3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9a64ee270aec1db4f923a4de8a7491e2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

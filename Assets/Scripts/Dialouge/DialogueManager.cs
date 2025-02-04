@@ -7,6 +7,8 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
 
+    public Dictionary<string, List<(string dialogue, bool isTruth)>> npcStatements = new Dictionary<string, List<(string, bool)>>();
+
     public GameObject dialoguePanel; // Assign a panel for dialogue in the UI
     public Text dialogueText; // Assign a Text component to show dialogue
 
@@ -84,24 +86,39 @@ public class DialogueManager : MonoBehaviour
 
         // Trigger the end-of-dialogue event
         OnDialogueEnd?.Invoke();
+        JournalManager.Instance.AddTruthsAndLiesFromNPC(currentNPCName, npcStatements[currentNPCName]);
+
+    }
+    private void AddToDict(string npcName, string dialogue, bool isTruth)
+    {
+        if (!npcStatements.ContainsKey(npcName))
+        {
+            npcStatements[npcName] = new List<(string, bool)>();
+        }
+
+        npcStatements[npcName].Add((dialogue, isTruth)); // Add truth/lie to the list
     }
 
-    // Check if the line contains a [Clue] or [TTL] marker and update the journal
+    // Check if the line contains a [Clue] or [T/L] marker and update the journal
     private string CheckForClueOrTruth(string line)
     {
         if (line.StartsWith("[Clue]"))
         {
-            string clue = line.Substring(6); // Extract the clue after "[Clue]"
-            JournalManager.Instance.AddClueFromNPC(currentNPCName, clue); // Add clue with NPC's name
-            return clue; // Return the cleaned-up dialogue without the marker
+            string clue = line.Substring(6); 
+            JournalManager.Instance.AddClueFromNPC(currentNPCName, clue); 
+            return clue;
         }
-        else if (line.StartsWith("[TTL]"))
+        else if (line.StartsWith("[T]"))
         {
-            string[] truthsAndLies = line.Substring(6).Split('|'); // Extract truths and lies
-            JournalManager.Instance.AddTruthsAndLiesFromNPC(currentNPCName, truthsAndLies[0], truthsAndLies[1], truthsAndLies[2]); // Add truths/lies with NPC's name
-
-            // Optionally return all truths and lies formatted for dialogue display
-            return $"{truthsAndLies[0]} {truthsAndLies[1]} {truthsAndLies[2]}";
+            string truth = line.Substring(4); 
+            AddToDict(currentNPCName, truth, true);
+            return $"{truth}";
+        }
+        else if (line.StartsWith("[L]"))
+        {
+            string lie = line.Substring(4);
+            AddToDict(currentNPCName, lie, false);
+            return $"{lie}";
         }
 
         return line; // Return the unmodified line if no markers are found
