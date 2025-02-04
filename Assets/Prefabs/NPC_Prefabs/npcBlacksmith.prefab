@@ -162,17 +162,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1274148144918918901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e8481a8e49f24d949325d2674148400, type: 3}
+  m_Script: {fileID: 11500000, guid: 4cee585c35ed7bc4985cd8f41842cebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Blacksmith
-  dialogueLines:
-  - '[Clue] Yo
-
-'
-  - '[T] BS T'
-  - '[L] BS L'
-  - '[T] BS T'
+  points: []
+  destPoint: 1
+  animator: {fileID: 950776779663999051}
 --- !u!61 &2094843647503842778
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -227,16 +222,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1274148144918918901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87572208cff5584abd0904e2bb86bb8, type: 3}
+  m_Script: {fileID: 11500000, guid: bf7298e1288d3814badecccae5c0ec48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {fileID: 8570322947333569281}
-  - {fileID: 3494646955653641689}
-  - {fileID: 3143158369267763509}
-  - {fileID: 2103538181071962022}
-  destPoint: 1
-  animator: {fileID: 950776779663999051}
+  npcName: Ed Porter (Blacksmith)
+  dialogueLines:
+  - "[T] Me and Hadwin were having a drink at Weston\u2019s last night. \r"
+  - "[L] Hadwin kept going on and on about a mistake he made earlier last night.
+    He\u2019s a bit of an odd-ball."
+  - "[T] He was also telling me about how he has been secretly mentoring Timmy to
+    be his apprentice. He\u2019s getting old and needs the extra hands. "
 --- !u!195 &8201454315367830834
 NavMeshAgent:
   m_ObjectHideFlags: 0

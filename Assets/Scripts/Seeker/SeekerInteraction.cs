@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerInteraction : MonoBehaviour
+public class SeekerInteraction : MonoBehaviour
 {
     public float interactionRange = 1.5f; // Range for interaction
     public LayerMask interactableLayer; // Assign in the inspector to detect interactables

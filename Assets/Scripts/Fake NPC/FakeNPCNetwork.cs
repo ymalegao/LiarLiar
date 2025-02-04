@@ -4,7 +4,7 @@ using UnityEngine;
 using Unity.Netcode;
 
 
-public class SeekerNetwork : NetworkBehaviour
+public class FakeNPCNetwork : NetworkBehaviour
 {
 
     private NetworkVariable<int> randomNumber = new NetworkVariable<int>(1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
@@ -48,11 +48,6 @@ public class SeekerNetwork : NetworkBehaviour
     }
 
     void Update() {
-        if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive)
-        {
-            rb.velocity = Vector2.zero; // Stop movement
-            return; // Skip movement logic
-        }
         if (Input.GetKeyDown(KeyCode.Space)) {
             randomNumber.Value = Random.Range(1, 100);
         }
@@ -67,13 +62,13 @@ public class SeekerNetwork : NetworkBehaviour
 
         moveVelocity = new Vector2(moveX, moveY).normalized * speed;
 
-        animator.SetFloat("npc_horizontal", moveX);
-        animator.SetFloat("npc_vertical", moveY);    
+        animator.SetFloat("horizontal", moveX);
+        animator.SetFloat("vertical", moveY);    
         if(moveVelocity.sqrMagnitude != 0) {
             //Debug.Log(moveVelocity.sqrMagnitude);
         }   
         
-        animator.SetFloat("npc_speed", moveVelocity.sqrMagnitude);
+        animator.SetFloat("speed", moveVelocity.sqrMagnitude);
 
 
     }

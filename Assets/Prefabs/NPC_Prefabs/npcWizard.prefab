@@ -50,9 +50,9 @@ GameObject:
   - component: {fileID: 3540462122569174297}
   - component: {fileID: 4399940814885571179}
   - component: {fileID: 6269544432781698125}
-  - component: {fileID: 950776779663999051}
+  - component: {fileID: 738380750543101518}
   m_Layer: 3
-  m_Name: npcPrefab
+  m_Name: npcWizard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,7 +115,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -1927248443, guid: b7dc44570ca3c0241aff6208d785832d, type: 3}
+  m_Sprite: {fileID: -1250548452, guid: 7b3551c6a7081a44eb8c2a9bf50eec5d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -162,17 +162,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1274148144918918901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e8481a8e49f24d949325d2674148400, type: 3}
+  m_Script: {fileID: 11500000, guid: bf7298e1288d3814badecccae5c0ec48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Obi
+  npcName: Hadwin Mitchell (Wizard)
   dialogueLines:
-  - '[Clue] My first clue
+  - '[T] My book is missing! Someone stole it from my chest last night!!!
 
 '
-  - '[T] Some  Truth'
-  - '[T] Some  Truth'
-  - '[L] Some  Lie'
+  - "[L] I was home all night!! There\u2019s no way someone stole it.\r\n"
+  - '[T] Those spells in the book are dangerous. They can be triggered just by speaking
+    the words.
+
+
+
+'
 --- !u!61 &2094843647503842778
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -227,16 +231,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1274148144918918901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87572208cff5584abd0904e2bb86bb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4cee585c35ed7bc4985cd8f41842cebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {fileID: 8570322947333569281}
-  - {fileID: 3494646955653641689}
-  - {fileID: 3143158369267763509}
-  - {fileID: 2103538181071962022}
+  points: []
   destPoint: 1
-  animator: {fileID: 950776779663999051}
+  animator: {fileID: 738380750543101518}
 --- !u!195 &8201454315367830834
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1293753299
+  GlobalObjectIdHash: 1383173479
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TransitionStateInfoList: []
-  m_Animator: {fileID: 950776779663999051}
+  m_Animator: {fileID: 738380750543101518}
 --- !u!114 &6269544432781698125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d7c879794dfda4687da0e400131852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &950776779663999051
+--- !u!95 &738380750543101518
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -347,7 +347,7 @@ Animator:
   m_GameObject: {fileID: 1274148144918918901}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 38df6badcab3b0649881722041460ff3, type: 2}
+  m_Controller: {fileID: 9100000, guid: a627128abe15b794c8655bf92949e10e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
