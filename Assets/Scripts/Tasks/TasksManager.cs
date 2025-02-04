@@ -37,18 +37,28 @@ public class TaskManager : MonoBehaviour
 
             if (distance <= task.completionRadius)
             {
-                task.taskTimer += Time.deltaTime;
 
-                if (task.taskTimer >= task.completionTime)
+                if (Input.GetKeyDown(KeyCode.Return) && !task.isActive){
+                    task.isActive = true;
+                    Debug.Log($"Task started: {task.name}");
+                }
+                
+                if (task.isActive)
                 {
-                    task.isCompleted = true;
-                    Debug.Log("Task completed by player: " + player.name + " at location: " + task.position);
+                    task.taskTimer += Time.deltaTime;
+
+                    if (task.taskTimer >= task.completionTime)
+                    {
+                        task.isCompleted = true;
+                        Debug.Log($"Task completed at {task.position} by {name}");
+                        task.isActive = false; // Reset flag after completion
+                    }
                 }
             }
-            else
-            {
-                // Reset the timer if the player moves out of the task area
+            else{
+                // Reset the timer if the player moves away before starting
                 task.taskTimer = 0f;
+                task.isActive = false;
             }
         }
     }

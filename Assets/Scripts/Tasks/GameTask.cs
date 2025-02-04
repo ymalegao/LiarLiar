@@ -10,6 +10,8 @@ public class GameTask
     public float completionTime;
     [HideInInspector] public bool isCompleted = false;
     [HideInInspector] public float taskTimer = 0f;
+    [HideInInspector] public bool isActive= false;
+
 
     public GameTask(string name, Vector2 position, float completionRadius = 2.0f, float completionTime = 3.0f)
     {
