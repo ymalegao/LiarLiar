@@ -5,14 +5,25 @@ using UnityEngine;
 
 public class TaskManager : MonoBehaviour
 {
-    //List of Tasks in the game. Add and modify this dictionary to create and edit tasks. 
+    //List of Tasks in the game. Add and modify this dictionary to create and edit tasks.
+    //public GameObject ...; for atri        
     public Dictionary<string, GameTask> tasks = new Dictionary<string, GameTask>(){
-        {"fish", new GameTask("fish", new Vector2(0f,0f))},
-        {"blacksmith", new GameTask("blacksmith", new Vector2(-10f,5f))}
+        {"fish", new GameTask("fish", null,new Vector2(0f,0f))},
+        {"blacksmith", new GameTask("blacksmith", null,new Vector2(-10f,5f))}
     };
+    private void Awake(){
+
+    }
 
     void Start()
     {
+        tasks["fish"].canvas = GameObject.Find("FishCanvas");
+        tasks["blacksmith"].canvas = GameObject.Find("FishCanvas");
+
+        //Disable all canvas objects.
+        foreach( KeyValuePair<string, GameTask> task in  tasks ){
+            task.Value.canvas.SetActive(false);
+        }
     }
 
 
@@ -31,7 +42,7 @@ public class TaskManager : MonoBehaviour
         {
             GameTask task = player.assignedTask;
 
-            if (task == null || task.isCompleted) continue;
+            if (task == null) continue;
 
             float distance = Vector2.Distance(player.transform.position, task.position);
 
@@ -45,13 +56,21 @@ public class TaskManager : MonoBehaviour
                 
                 if (task.isActive)
                 {
+                    //Spawn Minigame Canvas
+                    if(!task.canvas.activeSelf){
+                        task.canvas.SetActive(true);
+                    }
+
                     task.taskTimer += Time.deltaTime;
 
                     if (task.taskTimer >= task.completionTime)
                     {
-                        task.isCompleted = true;
                         Debug.Log($"Task completed at {task.position} by {name}");
+                        task.taskTimer = 0f;
                         task.isActive = false; // Reset flag after completion
+                        if(task.canvas.activeSelf){
+                            task.canvas.SetActive(false);
+                        }
                     }
                 }
             }
@@ -63,13 +82,17 @@ public class TaskManager : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
-    {
-        // Visualize task locations in the editor
-        Gizmos.color = Color.green;
-        foreach (var (name,task) in tasks)
-        {
-            Gizmos.DrawWireSphere(task.position, task.completionRadius);
-        }
-    }
+    // void OnDrawGizmos()
+    // {
+    //     // Visualize task locations in the editor
+    //     tasks = new Dictionary<string, GameTask>(){
+    //         {"fish", new GameTask("fish", GameObject.Find("FishCanvas"),new Vector2(0f,0f))},
+    //         {"blacksmith", new GameTask("blacksmith", GameObject.Find("FishCanvas"),new Vector2(-10f,5f))}
+    //     };
+    //     Gizmos.color = Color.green;
+    //     foreach (var (name,task) in tasks)
+    //     {
+    //         Gizmos.DrawWireSphere(task.position, task.completionRadius);
+    //     }
+    // }
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameTask
 {
     public string name;
+
+    public GameObject canvas;
     public Vector2 position;
     public float completionRadius;
     public float completionTime;
@@ -13,9 +15,10 @@ public class GameTask
     [HideInInspector] public bool isActive= false;
 
 
-    public GameTask(string name, Vector2 position, float completionRadius = 2.0f, float completionTime = 3.0f)
+    public GameTask(string name, GameObject canvas ,Vector2 position, float completionRadius = 2.0f, float completionTime = 3.0f)
     {
         this.name = name;
+        this.canvas = canvas;
         this.position = position;
         this.completionRadius = completionRadius;
         this.completionTime = completionTime;
