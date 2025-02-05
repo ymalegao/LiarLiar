@@ -54,4 +54,3 @@ public class SeekerInteraction : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, interactionRange);
     }
 }
-

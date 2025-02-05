@@ -67,7 +67,7 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeLine(line));
     }
 
-    private IEnumerator TypeLine(string line)
+     private IEnumerator TypeLine(string line)
     {
         dialogueText.text = "";
         foreach (char letter in line.ToCharArray())
