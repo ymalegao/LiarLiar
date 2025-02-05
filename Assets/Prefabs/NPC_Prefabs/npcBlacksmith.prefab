@@ -227,7 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Ed Porter (Blacksmith)
   dialogueLines:
-  - "[T] Me and Hadwin were having a drink at Weston\u2019s last night. \r"
+  - "[T] Hadwin and I were having a drink at Weston\u2019s last night. \r"
   - "[L] Hadwin kept going on and on about a mistake he made earlier last night.
     He\u2019s a bit of an odd-ball."
   - "[T] He was also telling me about how he has been secretly mentoring Timmy to
