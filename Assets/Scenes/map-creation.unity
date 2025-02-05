@@ -16065,6 +16065,9 @@ MonoBehaviour:
   - {fileID: 1274148144918918901, guid: d6ac6f1d1cf5cf84f861d9ba32301773, type: 3}
   - {fileID: 1274148144918918901, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
   - {fileID: 1274148144918918901, guid: 28eac5850ef15b047a880508e458ce69, type: 3}
+  - {fileID: 1274148144918918901, guid: 0389f998cc4d28a448a6da4c6032f65d, type: 3}
+  - {fileID: 1274148144918918901, guid: c60fb5839d8bda344a1d8c5f4c673644, type: 3}
+  - {fileID: 1274148144918918901, guid: bac519af8f5dbc84b9587aaab668a7ca, type: 3}
   waypoints:
   - {fileID: 975009291}
   - {fileID: 1194939974}
@@ -16074,6 +16077,9 @@ MonoBehaviour:
   - {x: -19, y: -5, z: 0}
   - {x: -17, y: -5, z: 0}
   - {x: -14.6, y: -15.8, z: 0}
+  - {x: 18, y: 10, z: 0}
+  - {x: 8, y: -13, z: 0}
+  - {x: -19, y: 13, z: 0}
 --- !u!114 &1296637460
 MonoBehaviour:
   m_ObjectHideFlags: 0
