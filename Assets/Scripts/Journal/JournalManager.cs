@@ -110,7 +110,7 @@ public class JournalManager : MonoBehaviour
     }
 
     // Add truths and lies provided by an NPC
-    public void AddTruthsAndLiesFromNPC(string npc, string truth1, string truth2, string lie)
+    public void AddTruthsAndLiesFromNPC(string npc, List<(string dialogue, bool isTruth)> statements)
     {
         if (npcDataMap.ContainsKey(npc))
         {
@@ -121,7 +121,7 @@ public class JournalManager : MonoBehaviour
                 data.HasBeenInteractedWith = true;
 
                 // Add NPC name and their Truths and Lies
-                AddNPCNameAndStatements(data.Name, truth1, truth2, lie, data.Icon);
+                AddNPCNameAndStatements(data.Name, statements, data.Icon);
             }
             else
             {
@@ -131,7 +131,7 @@ public class JournalManager : MonoBehaviour
     }
 
     // Add the NPC's name and their three statements
-    private void AddNPCNameAndStatements(string npcName, string truth1, string truth2, string lie, Sprite icon)
+    private void AddNPCNameAndStatements(string npcName, List<(string dialogue, bool isTruth)> statements, Sprite icon)
     {
         // Add the NPC name as a header
         GameObject nameItem = Instantiate(journalItemPrefab, truthsContent.transform);
@@ -146,9 +146,11 @@ public class JournalManager : MonoBehaviour
         }
 
         // Add the three statements below the name
-        AddStatement(truth1);
-        AddStatement(truth2);
-        AddStatement(lie);
+        foreach (var (dialogue, isTruth) in statements)
+        {
+            string formattedText = isTruth ? $"Truth: {dialogue}" : $"Lie: {dialogue}";
+            AddStatement(formattedText);
+        }
     }
 
     // Add a single statement to the journal

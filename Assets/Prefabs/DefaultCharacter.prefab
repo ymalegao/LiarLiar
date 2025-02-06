@@ -81,7 +81,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 6.34, y: 6.62}
+    newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1234075566
+  GlobalObjectIdHash: 1400393563
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -150,13 +150,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1364883654379630471}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e272dc72127db4df5b6110fa6042e174, type: 3}
+  m_Script: {fileID: 11500000, guid: dad3a384bbe91eb40b8eb9f7b74010be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionRange: 1.5
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 62
+  speed: 5
+  animator: {fileID: 5112175493857286404}
 --- !u!50 &6153845803831488788
 Rigidbody2D:
   serializedVersion: 4
@@ -221,7 +219,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 6.34, y: 6.62}
+    newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -270,15 +268,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -896425166, guid: 7e8ecdde01422d14b95bfe48e39bb451, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.34, y: 6.62}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &5112175493857286404
@@ -291,7 +289,7 @@ Animator:
   m_GameObject: {fileID: 1364883654379630471}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9a64ee270aec1db4f923a4de8a7491e2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 63d6a2ea5e25972478fab97e5f7ab06e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -311,11 +309,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1364883654379630471}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89a50e847cdd3d541b3e7cd6e4d7be08, type: 3}
+  m_Script: {fileID: 11500000, guid: d9aaf3a6878e22d4193e731b02b1ad6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  animator: {fileID: 5112175493857286404}
+  interactionRange: 1.5
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &2631005165532672791
 MonoBehaviour:
   m_ObjectHideFlags: 0
