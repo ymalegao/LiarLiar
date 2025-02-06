@@ -3458,7 +3458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4022121053648312839, guid: 0de4925c3178c42d2a04edc5228488eb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3884,6 +3884,10 @@ PrefabInstance:
     - target: {fileID: 1478387266783110918, guid: 7cbd36b8d6fcf4440b722516411594d9, type: 3}
       propertyPath: m_Name
       value: LobbyCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799126883119355632, guid: 7cbd36b8d6fcf4440b722516411594d9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4028133241534920058, guid: 7cbd36b8d6fcf4440b722516411594d9, type: 3}
       propertyPath: m_Camera
