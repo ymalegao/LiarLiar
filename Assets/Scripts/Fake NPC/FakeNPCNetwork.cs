@@ -62,13 +62,13 @@ public class FakeNPCNetwork : NetworkBehaviour
 
         moveVelocity = new Vector2(moveX, moveY).normalized * speed;
 
-        animator.SetFloat("horizontal", moveX);
-        animator.SetFloat("vertical", moveY);    
+        animator.SetFloat("npc_horizontal", moveX);
+        animator.SetFloat("npc_vertical", moveY);    
         if(moveVelocity.sqrMagnitude != 0) {
             //Debug.Log(moveVelocity.sqrMagnitude);
         }   
         
-        animator.SetFloat("speed", moveVelocity.sqrMagnitude);
+        animator.SetFloat("npc_speed", moveVelocity.sqrMagnitude);
 
 
     }
