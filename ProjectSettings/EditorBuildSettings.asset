@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/npc-creation.unity
     guid: 8342c9f1d3185464eac9ef0ddb55a866
+  - enabled: 1
+    path: Assets/Scenes/SeekerSelection.unity
+    guid: cd31f76db3d494344a0bdaf2dfb828ca
   m_configObjects: {}

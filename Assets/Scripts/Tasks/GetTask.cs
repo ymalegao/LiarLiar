@@ -10,7 +10,7 @@ public class GetTask : MonoBehaviour
     
     public GameTask GetAssignedTask()
     {
-        return TM.AssignTaskToPlayer(this.jobName);
+        return TM.AssignTaskToPlayer();
     }
 
     public void SetTask(GameTask task)
