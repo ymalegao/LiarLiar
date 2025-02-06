@@ -19,8 +19,7 @@ GameObject:
   - component: {fileID: 2631005165532672791}
   - component: {fileID: 4848053356585163661}
   - component: {fileID: 1873206435408161555}
-  - component: {fileID: 1873206435408161555}
-  - component: {fileID: 6232563605749643560}
+  - component: {fileID: 5837701590131336442}
   m_Layer: 0
   m_Name: FarmerPlayer
   m_TagString: Untagged
@@ -79,7 +78,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 0.2, y: 0.26}
     newSize: {x: 6.34, y: 6.62}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -100,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3331448030
+  GlobalObjectIdHash: 342913299
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -203,7 +202,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 0.2, y: 0.26}
     newSize: {x: 6.34, y: 6.62}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -311,3 +310,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TransitionStateInfoList: []
   m_Animator: {fileID: 5112175493857286404}
+--- !u!114 &1873206435408161555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364883654379630471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9caeddcce148a415ba5ad94ed3ccfc98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5837701590131336442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364883654379630471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9aaf3a6878e22d4193e731b02b1ad6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRange: 1.5
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 0

@@ -81,28 +81,6 @@ public class ServerManager : NetworkBehaviour
 
     
 
-    private IEnumerator MapClientToAuthId(ulong clientId)
-{
-    float timeout = 10f;
-    float startTime = Time.time;
-    
-    while (Time.time - startTime < timeout)
-    {
-        if (LobbyManager.Instance._clientToPlayerIdMap.TryGetValue(clientId, out string authId))
-        {
-            if (!_clientAuthIdMap.ContainsKey(clientId)) // Prevent duplicates
-            {
-                _clientAuthIdMap[clientId] = authId;
-                Debug.Log($"🔗 Mapped client {clientId} to AuthID {authId} in ServerManager");
-            }
-            yield break;
-        }
-        yield return new WaitForSeconds(0.5f);
-    }
-    
-    Debug.LogError($"⌛ Failed to map client {clientId} to an AuthID");
-}
-
 
 
     private async void OnClientConnected(ulong clientId)
@@ -164,15 +142,6 @@ public class ServerManager : NetworkBehaviour
     private bool IsClientSceneSynchronized(ulong clientId)
     {
         if (!NetworkManager.Singleton.ConnectedClients.ContainsKey(clientId))
-        float timeout = 5f;
-        float startTime = Time.time;
-        // Wait until the mapping is available or timeout.
-        while (!LobbyManager.Instance._clientToPlayerIdMap.ContainsKey(clientId) && Time.time - startTime < timeout)
-        {
-            yield return new WaitForSeconds(0.2f);
-        }
-        // If mapping still isn't available, log a warning (or handle it as needed).
-        if (!LobbyManager.Instance._clientToPlayerIdMap.ContainsKey(clientId))
         {
             Debug.LogError($"Client {clientId} not connected.");
             return false;
