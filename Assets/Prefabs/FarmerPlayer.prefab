@@ -12,14 +12,14 @@ GameObject:
   - component: {fileID: 6631003329715415194}
   - component: {fileID: 1259356967569038999}
   - component: {fileID: 2647460016824838938}
-  - component: {fileID: 4211190036259046023}
   - component: {fileID: 6153845803831488788}
   - component: {fileID: 2505616982096008740}
   - component: {fileID: 2480332627561373311}
   - component: {fileID: 5112175493857286404}
-  - component: {fileID: 147394417138587340}
   - component: {fileID: 2631005165532672791}
   - component: {fileID: 4848053356585163661}
+  - component: {fileID: 1873206435408161555}
+  - component: {fileID: 6232563605749643560}
   m_Layer: 0
   m_Name: FarmerPlayer
   m_TagString: Untagged
@@ -139,22 +139,6 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &4211190036259046023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1364883654379630471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e272dc72127db4df5b6110fa6042e174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionRange: 1.5
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 62
 --- !u!50 &6153845803831488788
 Rigidbody2D:
   serializedVersion: 4
@@ -300,20 +284,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &147394417138587340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1364883654379630471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89a50e847cdd3d541b3e7cd6e4d7be08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  animator: {fileID: 5112175493857286404}
 --- !u!114 &2631005165532672791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,3 +310,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TransitionStateInfoList: []
   m_Animator: {fileID: 5112175493857286404}
+--- !u!114 &1873206435408161555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364883654379630471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9caeddcce148a415ba5ad94ed3ccfc98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6232563605749643560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364883654379630471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9aaf3a6878e22d4193e731b02b1ad6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRange: 1.5
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 0

@@ -193,7 +193,7 @@ SpriteRenderer:
   m_Size: {x: 24, y: 24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &105941826
@@ -245,13 +245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87572208cff5584abd0904e2bb86bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {fileID: 588892396}
-  - {fileID: 725479123}
-  - {fileID: 595746978}
-  - {fileID: 844597305}
-  destPoint: 1
-  animator: {fileID: 0}
 --- !u!114 &105941829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,10 +257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e8481a8e49f24d949325d2674148400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Red square
-  dialogueLines:
-  - hell oI hav etheu
-  - moving NPC
 --- !u!61 &105941830
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -582,11 +571,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 412223442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &712293642 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8570322947333569281, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
-  m_PrefabInstance: {fileID: 5563406996769653957}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &725479122
 GameObject:
   m_ObjectHideFlags: 0
@@ -3312,13 +3296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c70cfaf5466c3b4db4aecda766407d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcPrefab: {fileID: 1274148144918918901, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
-  waypoints:
-  - {fileID: 712293642}
-  - {fileID: 725479123}
-  - {fileID: 595746978}
-  - {fileID: 844597305}
-  spawnPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &2114147200
 GameObject:
   m_ObjectHideFlags: 0
@@ -3390,7 +3367,7 @@ SpriteRenderer:
   m_Size: {x: 6.34, y: 6.62}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &2114147202
@@ -3447,8 +3424,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89a50e847cdd3d541b3e7cd6e4d7be08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  animator: {fileID: 0}
 --- !u!114 &2114147205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4035,6 +4010,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ServerManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
+      propertyPath: seekerPrefab
+      value: 
+      objectReference: {fileID: 1364883654379630471, guid: 8f04047221c70417c83f32e0635488af, type: 3}
+    - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
+      propertyPath: characterPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1364883654379630471, guid: 8f04047221c70417c83f32e0635488af, type: 3}
     - target: {fileID: 7105505262449618103, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 158511541
