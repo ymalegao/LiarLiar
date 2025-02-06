@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 147394417138587340}
   - component: {fileID: 2631005165532672791}
   - component: {fileID: 4848053356585163661}
+  - component: {fileID: 8303181372692782067}
   m_Layer: 0
   m_Name: Seeker
   m_TagString: Untagged
@@ -99,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 473889126
+  GlobalObjectIdHash: 2813804470
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -340,3 +341,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TransitionStateInfoList: []
   m_Animator: {fileID: 5112175493857286404}
+--- !u!114 &8303181372692782067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364883654379630471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9caeddcce148a415ba5ad94ed3ccfc98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
