@@ -11,33 +11,69 @@ public class SeekerSelectionUI : MonoBehaviour
     
     private Dictionary<GameObject, bool> npcSelections = new Dictionary<GameObject, bool>();
     private List<GameObject> allCharacters = new List<GameObject>();
+
+    private void Start()
+    {
+        if (characterButtonPrefab != null)
+        {
+            characterButtonPrefab.SetActive(false);
+        }
+    }
+
     
     public void Initialize(List<GameObject> characters)
     {
+        ClearSelectionUI();
         allCharacters = characters;
         PopulateSelectionUI();
         selectionPanel.SetActive(true);
     }
-    
-    private void PopulateSelectionUI()
+  
+    public void ClearSelectionUI()
     {
-        foreach (var character in allCharacters)
-        {
-            Debug.Log(character);
-            GameObject buttonObj = Instantiate(characterButtonPrefab, gridParent);
-            Button button = buttonObj.GetComponent<Button>();
-            Image buttonImage = buttonObj.GetComponent<Image>();
-            
-            SpriteRenderer spriteRenderer = character.GetComponent<SpriteRenderer>();
-            if (spriteRenderer != null)
-            {
-                buttonImage.sprite = spriteRenderer.sprite;
-            }
-            
-            npcSelections[character] = false;
-            button.onClick.AddListener(() => ToggleSelection(character, buttonImage));
-        }
+      foreach (Transform child in gridParent)
+      {
+          if (child.gameObject != characterButtonPrefab)
+          {
+              Destroy(child.gameObject);
+          }
+      }
+      npcSelections.Clear();
     }
+
+
+
+    private void PopulateSelectionUI()
+{
+    foreach (var character in allCharacters)
+    {
+        Debug.Log(character);
+        GameObject buttonObj = Instantiate(characterButtonPrefab, gridParent);
+        buttonObj.SetActive(true);
+        Button button = buttonObj.GetComponent<Button>();
+        Image buttonImage = buttonObj.GetComponent<Image>();
+
+        SpriteRenderer spriteRenderer = character.GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            Sprite[] characterSprites = Resources.LoadAll<Sprite>(spriteRenderer.sprite.texture.name);
+            
+            if (characterSprites.Length > 0)
+            {
+                Debug.Log("found sprite texture :)");
+                buttonImage.sprite = characterSprites[0]; 
+            }
+            else
+            {
+                Debug.LogWarning($"No sprites found for {spriteRenderer.sprite.texture.name}");
+            }
+        }
+
+        npcSelections[character] = false;
+        button.onClick.AddListener(() => ToggleSelection(character, buttonImage));
+    }
+}
+
     
     private void ToggleSelection(GameObject character, Image buttonImage)
     {

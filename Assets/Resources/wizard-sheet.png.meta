@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 60306fab37bc9084b959c9be82be4e82
+guid: 7e0906d47664b264bb65baf9c1d64d89
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: blacksmith-Sheet_0
+      name: wizard-sheet_0
       rect:
         serializedVersion: 2
         x: 8
-        y: 69
+        y: 65
         width: 16
-        height: 22
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca6f90c009ab5e84facb032240140c8f
-      internalID: -980357901
+      spriteID: 4451cc8ef89cae642a54e0fa56d57c05
+      internalID: -1250548452
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blacksmith-Sheet_1
+      name: wizard-sheet_1
       rect:
         serializedVersion: 2
         x: 40
-        y: 69
+        y: 65
         width: 16
-        height: 22
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd0fdbb1a829a64418463ac7dc347feb
-      internalID: -36605869
+      spriteID: 64fb7d69e4274014b97a03f03ca6d4ef
+      internalID: 1981641948
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blacksmith-Sheet_2
+      name: wizard-sheet_2
       rect:
         serializedVersion: 2
         x: 72
-        y: 69
+        y: 65
         width: 16
-        height: 22
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f0268a40d2ec86458f91afb13796ac5
-      internalID: -1232009031
+      spriteID: 90e10511126f2004dbe8f9b023b6a2ee
+      internalID: -2022433385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blacksmith-Sheet_3
+      name: wizard-sheet_3
       rect:
         serializedVersion: 2
-        x: 106
-        y: 69
-        width: 12
-        height: 22
+        x: 105
+        y: 65
+        width: 14
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94549b5e772c28f4fb6f28ac591a935c
-      internalID: -2056838476
+      spriteID: 730427b6f2709c5469cfb65a828e5a51
+      internalID: 256575154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blacksmith-Sheet_4
+      name: wizard-sheet_4
       rect:
         serializedVersion: 2
-        x: 10
-        y: 37
-        width: 12
-        height: 22
+        x: 9
+        y: 33
+        width: 14
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e1a9419960b3df43b0d14deee7e8a61
-      internalID: -963536079
+      spriteID: 0fe66990a2241ee4b9a781d949d2c13d
+      internalID: 399176737
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blacksmith-Sheet_5
+      name: wizard-sheet_5
       rect:
         serializedVersion: 2
-        x: 42
-        y: 37
-        width: 12
-        height: 22
+        x: 41
+        y: 33
+        width: 14
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f672b86a079268458aa9e0dd8519aee
-      internalID: -1915552210
+      spriteID: 32bd3fef0600b3445887e9698870d289
+      internalID: 1724874094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blacksmith-Sheet_6
+      name: wizard-sheet_6
       rect:
         serializedVersion: 2
-        x: 74
-        y: 37
-        width: 12
-        height: 22
+        x: 73
+        y: 33
+        width: 14
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,20 +250,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf635b76e7f0c5f49bd5cfc26bbc55ed
-      internalID: -17436639
+      spriteID: 13c615d1aecc24a47a12dafa4b8ed624
+      internalID: -502636248
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blacksmith-Sheet_7
+      name: wizard-sheet_7
       rect:
         serializedVersion: 2
-        x: 106
-        y: 37
-        width: 12
-        height: 22
+        x: 105
+        y: 33
+        width: 14
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,20 +271,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96bc077154feee046a1f73fc93afb2a3
-      internalID: -670663865
+      spriteID: 6e869405bd2f24b4193046bcde5e4926
+      internalID: -842885491
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blacksmith-Sheet_8
+      name: wizard-sheet_8
       rect:
         serializedVersion: 2
-        x: 10
-        y: 5
-        width: 12
-        height: 22
+        x: 9
+        y: 1
+        width: 14
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,20 +292,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb91cf768d435874d88addcee8cdecc4
-      internalID: -225552069
+      spriteID: 79f4b58862d8a254bb6fe16a3afd092d
+      internalID: -1978948663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blacksmith-Sheet_9
+      name: wizard-sheet_9
       rect:
         serializedVersion: 2
         x: 40
-        y: 5
+        y: 1
         width: 16
-        height: 22
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,20 +313,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83724deb2f2937e4aa6c6374c3dda016
-      internalID: 1827419604
+      spriteID: b443fc80733797e41a56c544793e6f0c
+      internalID: 295868786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blacksmith-Sheet_10
+      name: wizard-sheet_10
       rect:
         serializedVersion: 2
         x: 72
-        y: 5
+        y: 1
         width: 16
-        height: 22
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -334,20 +334,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb317e338a74cc247ac3aa47b95e489f
-      internalID: 930018119
+      spriteID: 8ea599d75e542e045a1e97f9b687d710
+      internalID: 1951362839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blacksmith-Sheet_11
+      name: wizard-sheet_11
       rect:
         serializedVersion: 2
         x: 104
-        y: 5
+        y: 1
         width: 16
-        height: 22
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -355,8 +355,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6adc043d7361d8449ad43af3236b9c2
-      internalID: -1124693613
+      spriteID: ed58b339fbe5fb24f8ac4fb8ecc94482
+      internalID: -1402081684
       vertices: []
       indices: 
       edges: []
@@ -372,18 +372,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      blacksmith-Sheet_0: -980357901
-      blacksmith-Sheet_1: -36605869
-      blacksmith-Sheet_10: 930018119
-      blacksmith-Sheet_11: -1124693613
-      blacksmith-Sheet_2: -1232009031
-      blacksmith-Sheet_3: -2056838476
-      blacksmith-Sheet_4: -963536079
-      blacksmith-Sheet_5: -1915552210
-      blacksmith-Sheet_6: -17436639
-      blacksmith-Sheet_7: -670663865
-      blacksmith-Sheet_8: -225552069
-      blacksmith-Sheet_9: 1827419604
+      wizard-sheet_0: -1250548452
+      wizard-sheet_1: 1981641948
+      wizard-sheet_10: 1951362839
+      wizard-sheet_11: -1402081684
+      wizard-sheet_2: -2022433385
+      wizard-sheet_3: 256575154
+      wizard-sheet_4: 399176737
+      wizard-sheet_5: 1724874094
+      wizard-sheet_6: -502636248
+      wizard-sheet_7: -842885491
+      wizard-sheet_8: -1978948663
+      wizard-sheet_9: 295868786
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
