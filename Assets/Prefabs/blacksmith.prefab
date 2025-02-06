@@ -348,12 +348,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364883654379630471}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ac266e39d3d54f6fbcc8bc0641448b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jobName: blacksmith
+  jobName: 
   assignedTask:
     name: 
     position: {x: 0, y: 0}

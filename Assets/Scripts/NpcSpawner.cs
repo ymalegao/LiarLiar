@@ -16,24 +16,28 @@ public class NPCSpawner : NetworkBehaviour
     }
 
     private void SpawnNPC()
+{
+    if (npcPrefab == null)
     {
-        if (npcPrefab == null)
-        {
-            Debug.LogError("NPC prefab is null");
-            return;
-        }
-
-        GameObject npcInstance = Instantiate(npcPrefab, spawnPosition, Quaternion.identity);
-
-        var npcMovement = npcInstance.GetComponent<NpcMovement>();
-        if (npcMovement != null)
-        {
-            npcMovement.SetWaypoints(waypoints);
-        }
-        else
-        {
-            Debug.LogError("NpcMovement component is missing from the NPC prefab");
-        }
-        npcInstance.GetComponent<NetworkObject>().Spawn();
+        Debug.LogError("NPC prefab is null");
+        return;
     }
+
+    GameObject npcInstance = Instantiate(npcPrefab, spawnPosition, Quaternion.identity);
+
+    var npcMovement = npcInstance.GetComponent<NpcMovement>();
+    if (npcMovement != null)
+    {
+        npcMovement.SetWaypoints(waypoints);
+    }
+    else
+    {
+        Debug.LogError("NpcMovement component is missing from the NPC prefab");
+    }
+
+    Debug.Log("spawning npc " + npcInstance);
+    NPCManager.Instance?.RegisterNPC(npcInstance);
+    
+    npcInstance.GetComponent<NetworkObject>().Spawn();
+  }
 }
