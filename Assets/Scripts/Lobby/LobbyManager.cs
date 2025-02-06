@@ -8,56 +8,77 @@ using System.Threading.Tasks;
 using Unity.Netcode;
 using System;
 using TMPro;
+using System.Linq;
+using Newtonsoft.Json;
 
 public class LobbyManager : MonoBehaviour
 {
     private Lobby _hostLobby;
-    private Lobby _joinLobby;
+    public Lobby _joinLobby;
     private float _heartbeatTimer;
     private float lobbyupdateTimer;
+
+    private bool _rolesAssigned;
 
     public TMP_Text playerNamesText;
 
     private string playerName = "Za";
     public static event Action OnLobbyCreated;
+    public static event Action OnLobbyJoined;
+
+    private System.Random _random = new System.Random();
+
+    private const string SEEKER_ROLE = "Seeker";
+    private const string FAKENPC_ROLE = "FakeNPC";
+
     public bool _isHost = false;
     public static LobbyManager Instance { get; private set; }
-    public static NetworkManager NetworkManager { get; private set; }
 
     private bool isTestingLocally = false;
-    private CustomLocalLobby _localLobby; // For local testing
+
+    public Dictionary<ulong, string> _clientToPlayerIdMap = new Dictionary<ulong, string>();
+    public Dictionary<string, string> _playerNameToPlayerIdMap = new Dictionary<string, string>();
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
+            Debug.LogWarning("⚠️ Duplicate LobbyManager detected and destroyed!");
             Destroy(gameObject);
+            return;
         }
     }
 
     private async void Start()
     {
-        // isTestingLocally = Application.isEditor || Application.platform == RuntimePlatform.WindowsPlayer;
+        await UnityServices.InitializeAsync();
 
-
-        playerName = "Za" + UnityEngine.Random.Range(1000, 9999);
-
-        Debug.Log("Player Name: " + playerName);    
-        if (!isTestingLocally)
+        if (!AuthenticationService.Instance.IsSignedIn)
         {
-            await UnityServices.InitializeAsync();
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
+            playerName = "Za" + UnityEngine.Random.Range(1000, 9999);
             Debug.Log("Signed in as: " + AuthenticationService.Instance.PlayerId);
+            Debug.Log("client id: " + NetworkManager.Singleton.LocalClientId);
+            _clientToPlayerIdMap[NetworkManager.Singleton.LocalClientId] = AuthenticationService.Instance.PlayerId;
+            _playerNameToPlayerIdMap[playerName] = AuthenticationService.Instance.PlayerId;
         }
         else
         {
-            Debug.LogWarning("Skipping authentication for local testing.");
-            _localLobby = new CustomLocalLobby();
+            Debug.Log("Player is already signed in as: " + AuthenticationService.Instance.PlayerId);
         }
+
+        Debug.Log("Player Name: " + playerName);
+        Debug.Log("Player ID: " + AuthenticationService.Instance.PlayerId);
+    }
+
+    public string GetPlayerIdFromClientId(ulong clientId)
+    {
+        return _clientToPlayerIdMap.TryGetValue(clientId, out string playerId) ? playerId : null;
     }
 
     private void Update()
@@ -83,57 +104,36 @@ public class LobbyManager : MonoBehaviour
                     Debug.LogError("Failed to heartbeat lobby: " + e.Message);
                 }
             }
-
         }
-    }
-
-    public string GetLobbyCode()
-    {
-        if (isTestingLocally)
-        {
-            return _localLobby?.LobbyCode ?? "No Lobby Code Available";
-        }
-        return _hostLobby != null ? _hostLobby.LobbyCode : "No Lobby Code Available";
     }
 
     public async Task CreateLobby(string lobbyName, int maxPlayers, bool isPrivate)
     {
-        if (isTestingLocally)
-        {
-            _localLobby = new CustomLocalLobby();
-            _isHost = true;
-            Debug.Log("Created local test lobby: " + _localLobby.LobbyCode);
-            OnLobbyCreated?.Invoke();
-            return;
-        }
-
         try
         {
-            
             CreateLobbyOptions options = new CreateLobbyOptions
             {
                 IsPrivate = isPrivate,
                 Player = new Player
                 {
-                    Data = new Dictionary<string, PlayerDataObject> //here we can set the player role in the lobby and other data
+                    Data = new Dictionary<string, PlayerDataObject>
                     {
-                        { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName)
-                        // { "PlayerRole", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "Host") }
-
-                        }
+                        { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName)},
+                        { "Character", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "DefaultCharacter") },
+                        { "AuthID", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, AuthenticationService.Instance.PlayerId) },
+                        { "Role", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "DefaultRole") }
                     }
                 },
                 Data = new Dictionary<string, DataObject>
                 {
-                    { "GameMode", new DataObject(DataObject.VisibilityOptions.Public, "DefaultMode") } //here we can set the game mode
+                    { "GameMode", new DataObject(DataObject.VisibilityOptions.Public, "DefaultMode") }
                 }
             };
 
             _hostLobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, options);
             _joinLobby = _hostLobby;
-            printPlayers(_hostLobby);
             _isHost = true;
-            Debug.Log("Lobby created! Lobby Code: " + _hostLobby.LobbyCode);
+            Debug.Log($"Lobby created! Lobby Code: {_hostLobby.LobbyCode}");
             OnLobbyCreated?.Invoke();
         }
         catch (LobbyServiceException e)
@@ -144,24 +144,26 @@ public class LobbyManager : MonoBehaviour
 
     public async Task JoinLobbyByCode(string lobbyCode)
     {
-        if (isTestingLocally)
-        {
-            Debug.Log("Joined local test lobby: " + _localLobby.LobbyCode);
-            return;
-        }
-
         try
         {
             JoinLobbyByCodeOptions joinOptions = new JoinLobbyByCodeOptions
             {
                 Player = GetPlayer()
             };
-            
-            
-            Lobby lobby = await LobbyService.Instance.JoinLobbyByCodeAsync(lobbyCode, joinOptions);
-            _joinLobby = lobby;
-            Debug.Log("Joined lobby with code: " + _joinLobby.LobbyCode);
-            printPlayers(_joinLobby);
+
+            _joinLobby = await LobbyService.Instance.JoinLobbyByCodeAsync(lobbyCode, joinOptions);
+            if (_isHost)
+            {
+                _hostLobby = _joinLobby;
+            }
+            ulong clientId = NetworkManager.Singleton.LocalClientId;
+            if (!_clientToPlayerIdMap.ContainsKey(clientId))
+            {
+                _clientToPlayerIdMap[clientId] = AuthenticationService.Instance.PlayerId;
+                _playerNameToPlayerIdMap[playerName] = AuthenticationService.Instance.PlayerId;
+            }
+            Debug.Log($"Joined lobby with code: {_joinLobby.LobbyCode}");
+            OnLobbyJoined?.Invoke();
         }
         catch (LobbyServiceException e)
         {
@@ -169,30 +171,205 @@ public class LobbyManager : MonoBehaviour
         }
     }
 
-    private void PrintPlayers(){
-        printPlayers(_joinLobby);
+    public async Task UpdatePlayerCharacter(string selectedCharacter)
+    {
+        try
+        {
+            await LobbyService.Instance.UpdatePlayerAsync(_joinLobby.Id, AuthenticationService.Instance.PlayerId, new UpdatePlayerOptions
+            {
+                Data = new Dictionary<string, PlayerDataObject>
+                {
+                    { "Character", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, selectedCharacter) }
+                }
+            });
+
+            Debug.Log($"Updated player character to: {selectedCharacter}");
+            printPlayers(_joinLobby);
+        }
+        catch (LobbyServiceException e)
+        {
+            Debug.LogError("Failed to update player data: " + e.Message);
+        }
     }
 
+    public string GetPlayerRoleFromClient(ulong clientId)
+    {
+        if (!_clientToPlayerIdMap.TryGetValue(clientId, out string authId))
+        {
+            Debug.LogWarning("Mapping not found for client " + clientId);
+            return FAKENPC_ROLE;
+        }
+        if (!_joinLobby.Data.TryGetValue("RoleAssignments", out DataObject roleAssignments))
+        {
+            Debug.LogWarning("RoleAssignments not found in lobby data");
+            return FAKENPC_ROLE;
+        }
+        var assignments = JsonConvert.DeserializeObject<Dictionary<string, RoleAssignment>>(roleAssignments.Value);
+        return assignments.TryGetValue(authId, out RoleAssignment assignment) ? assignment.Role : FAKENPC_ROLE;
+    }
 
-    public void StartGame()
+    public int GetPlayerSpriteIndexFromClient(ulong clientId)
+    {
+        if (!_clientToPlayerIdMap.TryGetValue(clientId, out string authId))
+        {
+            Debug.LogWarning("Mapping not found for client " + clientId);
+            return 0;
+        }
+        if (!_joinLobby.Data.TryGetValue("RoleAssignments", out DataObject roleAssignments))
+        {
+            Debug.LogWarning("RoleAssignments not found in lobby data");
+            return 0;
+        }
+        var assignments = JsonConvert.DeserializeObject<Dictionary<string, RoleAssignment>>(roleAssignments.Value);
+        return assignments.TryGetValue(authId, out RoleAssignment assignment) ? assignment.SpriteIndex : 0;
+    }
+
+    public string GetPlayerCharacter(ulong clientId)
+    {
+        if (_joinLobby == null)
+        {
+            Debug.LogWarning("⚠️ Lobby data not available. Returning default character.");
+            return "DefaultCharacter";
+        }
+
+        string clientIdString = clientId.ToString();
+
+        foreach (Player player in _joinLobby.Players)
+        {
+            if (player.Data.ContainsKey("Character"))
+            {
+                Debug.Log($"✅ Found character for client {clientId}: {player.Data["Character"].Value}");
+                return player.Data["Character"].Value;
+            }
+        }
+
+        Debug.LogWarning($"⚠️ Character not found for {clientIdString}. Returning DefaultCharacter.");
+        return "DefaultCharacter";
+    }
+
+    public async Task StartGame()
     {
         if (_isHost)
         {
-            Debug.Log("Starting game...");
-            if (isTestingLocally)
+            Debug.Log("Host is starting the game...");
+            await AssignRolesAndSprites();
+            _rolesAssigned = true;
+
+            string relayJoinCode = await ServerManager.Instance.CreateRelay();
+
+            await Lobbies.Instance.UpdateLobbyAsync(_hostLobby.Id, new UpdateLobbyOptions
             {
-                Debug.Log("🖥 Simulating local multiplayer.");
-            }
-            else
-            {
-                NetworkManager.Singleton.StartHost();
-                NetworkManager.Singleton.SceneManager.LoadScene("NPCMoveTesting", UnityEngine.SceneManagement.LoadSceneMode.Single);
-            }
+                Data = new Dictionary<string, DataObject>
+                {
+                    { "RelayJoinCode", new DataObject(DataObject.VisibilityOptions.Public, relayJoinCode) }
+                }
+            });
+
+            NetworkManager.Singleton.StartHost();
+            NetworkManager.Singleton.SceneManager.LoadScene("map-creation", UnityEngine.SceneManagement.LoadSceneMode.Single);
         }
         else
         {
-            Debug.LogWarning("Only the host can start the game!");
+            Debug.Log("Client joining game...");
+
+            string relayJoinCode = _joinLobby.Data["RelayJoinCode"].Value;
+            bool success = await ServerManager.Instance.JoinRelay(relayJoinCode);
+
+            if (success)
+            {
+                NetworkManager.Singleton.StartClient();
+            }
+            else
+            {
+                Debug.LogError("❌ Client failed to join relay.");
+            }
         }
+    }
+
+    private Player GetPlayer()
+    {
+        return new Player
+        {
+            Data = new Dictionary<string, PlayerDataObject>
+            {
+                { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName) },
+                { "Character", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "wizard-sheet_0") },
+                { "Role", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "DefaultRole") },
+                { "AuthID", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, AuthenticationService.Instance.PlayerId)}
+            }
+        };
+    }
+
+    private async void HandleLobbyPollForUpdates()
+    {
+        if (_joinLobby != null)
+        {
+            lobbyupdateTimer -= Time.deltaTime;
+            if (lobbyupdateTimer <= 0)
+            {
+                lobbyupdateTimer = 1.1f;
+                try
+                {
+                    Lobby lobby = await Lobbies.Instance.GetLobbyAsync(_joinLobby.Id);
+                    _joinLobby = lobby;
+                    foreach (Player player in _joinLobby.Players)
+                    {
+                        if (!_playerNameToPlayerIdMap.ContainsKey(player.Data["PlayerName"].Value))
+                        {
+                            _playerNameToPlayerIdMap[player.Data["PlayerName"].Value] = player.Data["AuthID"].Value;
+                        }
+                        else
+                        {
+                            Debug.Log("Player is already in the map");
+                        }
+                    }
+
+                    if (_joinLobby.Data.ContainsKey("RelayJoinCode") && !_isHost)
+                    {
+                        Debug.Log("🚀 Game started by host! Joining relay...");
+                        await StartGame();
+                    }
+                }
+                catch (LobbyServiceException e)
+                {
+                    Debug.LogError("Failed to update lobby: " + e.Message);
+                }
+            }
+        }
+    }
+
+    private void printPlayers(Lobby lobby)
+    {
+        string playerNames = "";
+        Debug.Log("Players in lobby and size: " + lobby.Players.Count);
+        Debug.Log("Player Name | Character | Role");
+        foreach (Player player in lobby.Players)
+        {
+            playerNames += player.Data["PlayerName"].Value + "\n" + player.Data["Character"].Value + "\n";
+            Debug.Log("Player: " + player.Data["PlayerName"].Value + " Character: " + player.Data["Character"].Value + " Role: " + player.Data["Role"].Value + " AuthID: " + player.Data["AuthID"].Value);
+        }
+
+        Debug.Log("printing client to player id map which has a len of " + _clientToPlayerIdMap.Count);
+        foreach (var item in _clientToPlayerIdMap)
+        {
+            Debug.Log("Key: " + item.Key + " Value: " + item.Value);
+        }
+
+        Debug.Log("printing player name to player id map which has a len of " + _playerNameToPlayerIdMap.Count);
+        foreach (var item in _playerNameToPlayerIdMap)
+        {
+            Debug.Log("Key: " + item.Key + " Value: " + item.Value);
+        }
+        playerNamesText.text = playerNames;
+    }
+
+    public string GetLobbyCode()
+    {
+        if (isTestingLocally)
+        {
+            return "No Lobby Code Available";
+        }
+        return _hostLobby != null ? _hostLobby.LobbyCode : "No Lobby Code Available";
     }
 
     public async void ListLobbies()
@@ -208,135 +385,116 @@ public class LobbyManager : MonoBehaviour
         catch (LobbyServiceException e)
         {
             Debug.LogError("Failed to query lobbies: " + e.Message);
-            return;
         }
     }
 
-    private void printPlayers(Lobby lobby){
-        Debug.Log("Players in lobby: " + lobby.LobbyCode);  
-        playerNamesText.text = "";
-        foreach (Player player in lobby.Players)
+    private async Task AssignRolesAndSprites()
+    {
+        var roleAssignments = new Dictionary<string, object>();
+        var players = _joinLobby.Players;
+        Debug.Log("Players in lobby: " + players.Count);
+
+        var availableSprites = new Queue<int>(Enumerable.Range(0, ServerManager.Instance.characterPrefabs.Count).OrderBy(x => _random.Next()));
+
+        var seeker = players[_random.Next(players.Count)];
+        roleAssignments[seeker.Data["AuthID"].Value] = new RoleAssignment
         {
-            Debug.Log("Player: " + player.Id + " " + player.Data["PlayerName"].Value);
-            playerNamesText.text += player.Data["PlayerName"].Value + "\n";
+            Role = SEEKER_ROLE,
+            SpriteIndex = -1
+        };
         
-        }
-    }
+        Task.Delay(1000);
+        Debug.Log($"Assigned seeker role to {seeker.Id}");
 
-    private async void HandleLobbyPollForUpdates()
-    {
-        if (_joinLobby != null)
+        foreach (var player in players.Where(p => p.Id != seeker.Id))
         {
-            lobbyupdateTimer -= Time.deltaTime;
-            if (lobbyupdateTimer <= 0)
+            Debug.Log("player is not seeker, their name is: " + player.Data["PlayerName"].Value);
+            roleAssignments[player.Data["AuthID"].Value] = new RoleAssignment
             {
-                lobbyupdateTimer = 5f;
-                try
-                {
-                    Lobby lobby = await LobbyService.Instance.GetLobbyAsync(_joinLobby.Id);
-                    _joinLobby = lobby;
-                    printPlayers(_joinLobby);
-                }
-                catch (LobbyServiceException e)
-                {
-                    Debug.LogError("Failed to update lobby: " + e.Message);
-                }
-            }
+                Role = FAKENPC_ROLE,
+                SpriteIndex = availableSprites.Count > 0 ? availableSprites.Dequeue() : _random.Next(ServerManager.Instance.characterPrefabs.Count)
+            };
+            Debug.Log($"Assigned role to {player.Data["AuthID"].Value}");
         }
-    }
 
-
-
-    private async void UpdatePlayerName(string newPlayerName){
-        try{
-            playerName = newPlayerName;
-            await LobbyService.Instance.UpdatePlayerAsync(_joinLobby.Id, AuthenticationService.Instance.PlayerId, new UpdatePlayerOptions
-            {
-                Data = new Dictionary<string, PlayerDataObject>
-                {
-                    { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName) }
-                }
-            });
-        }
-        catch (LobbyServiceException e)
-        {
-            Debug.LogError("Failed to update player data: " + e.Message);
-        }
-    }
-
-    private async void LeaveLobby(){
-        try{
-            await LobbyService.Instance.RemovePlayerAsync(_joinLobby.Id, AuthenticationService.Instance.PlayerId);
-        }
-        catch (LobbyServiceException e)
-        {
-            Debug.LogError("Failed to leave lobby: " + e.Message);
-        }
-    }
-
-    private async void KickPlayer(){
-        try {
-            await LobbyService.Instance.RemovePlayerAsync(_joinLobby.Id,_joinLobby.Players[1].Id);
-        } catch (LobbyServiceException e)
-        {
-            Debug.LogError("Failed to kick player: " + e.Message);
-        }
-    }
-
-    private async void DeleteLobby(){
-        try{
-            await LobbyService.Instance.DeleteLobbyAsync(_joinLobby.Id);
-        }
-        catch (LobbyServiceException e)
-        {
-            Debug.LogError("Failed to delete lobby: " + e.Message);
-        }
-    }
-
-
-
-    private async void UpdateLobbyGameMode(string gameMode)
-    {
-        try {
-            _hostLobby = await Lobbies.Instance.UpdateLobbyAsync(_hostLobby.Id, new UpdateLobbyOptions
+        await Lobbies.Instance.UpdateLobbyAsync(_joinLobby.Id, new UpdateLobbyOptions
         {
             Data = new Dictionary<string, DataObject>
             {
-                { "GameMode", new DataObject(DataObject.VisibilityOptions.Public, gameMode) }
+                { "RoleAssignments", new DataObject(DataObject.VisibilityOptions.Public, value: JsonConvert.SerializeObject(roleAssignments)) }
             }
         });
-
-        _joinLobby = _hostLobby;
-
-        }
-        catch (LobbyServiceException e)
-        {
-            Debug.LogError("Failed to update lobby data: " + e.Message);
-
-        }
-        
+        Debug.Log("Updated lobby with role assignments");
     }
 
-    private Player GetPlayer(){
-        return new Player
+    private async Task UpdatePlayerRole(string playerId, string role, int spriteIndex)
+    {
+        try
         {
-            Data = new Dictionary<string, PlayerDataObject>
+            await LobbyService.Instance.UpdatePlayerAsync(_joinLobby.Id, playerId, new UpdatePlayerOptions
             {
-                { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName) }
-            }
-        };
+                Data = new Dictionary<string, PlayerDataObject>
+                {
+                    { "Role", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, role) },
+                    { "SpriteIndex", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, spriteIndex.ToString()) }
+                }
+            });
+            Debug.Log($"Updated player role to {role}");
+            Debug.Log($"Updated player sprite index to {spriteIndex}");
+            Debug.Log("verifyin role and sprite index" + GetPlayerRole(playerName) + GetPlayerSpriteIndex(playerName));
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Failed to update player data: {e.Message}");
+        }
     }
 
+    public string GetPlayerRole(string playerName)
+    {
+        Debug.Log("Getting player role");
+        Debug.Log("Player Name: " + playerName);
+        foreach (var item in _playerNameToPlayerIdMap)
+        {
+            Debug.Log("Key: " + item.Key + " Value: " + item.Value);
+        }
+        if (!_playerNameToPlayerIdMap.TryGetValue(playerName, out string playerId))
+        {
+            Debug.LogWarning($"⚠️ Player ID not found for player {playerName}");
+            return FAKENPC_ROLE;
+        }
+
+        if (!_joinLobby.Data.TryGetValue("RoleAssignments", out DataObject roleAssignments))
+        {
+            Debug.LogWarning("⚠️ RoleAssignments data not found in lobby");
+            return FAKENPC_ROLE;
+        }
+
+        var assignments = JsonConvert.DeserializeObject<Dictionary<string, RoleAssignment>>(roleAssignments.Value);
+        return assignments.TryGetValue(playerId, out RoleAssignment assignment) ? assignment.Role : FAKENPC_ROLE;
+    }
+
+    public int GetPlayerSpriteIndex(string playerName)
+    {
+        if (!_playerNameToPlayerIdMap.TryGetValue(playerName, out string playerId))
+        {
+            Debug.LogWarning($"⚠️ Player ID not found for player {playerName}");
+            return 0;
+        }
+
+        if (!_joinLobby.Data.TryGetValue("RoleAssignments", out DataObject roleAssignments))
+        {
+            Debug.LogWarning("⚠️ RoleAssignments data not found in lobby");
+            return 0;
+        }
+
+        var assignments = JsonConvert.DeserializeObject<Dictionary<string, RoleAssignment>>(roleAssignments.Value);
+
+        return assignments.TryGetValue(playerId, out RoleAssignment assignment) ? assignment.SpriteIndex : 0;
+    }
 }
 
-class CustomLocalLobby
+public class RoleAssignment
 {
-    public string LobbyCode { get; private set; }
-    public List<string> Players { get; private set; }
-
-    public CustomLocalLobby()
-    {
-        LobbyCode = "LOCAL_" + UnityEngine.Random.Range(1000, 9999);
-        Players = new List<string> { "LocalHost" };
-    }
+    public string Role { get; set; }
+    public int SpriteIndex { get; set; }
 }
