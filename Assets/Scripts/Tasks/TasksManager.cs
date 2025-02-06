@@ -20,10 +20,12 @@ public class TaskManager : MonoBehaviour
         tasks["fish"].canvas = GameObject.Find("FishCanvas");
         tasks["blacksmith"].canvas = GameObject.Find("FishCanvas");
 
+      /*
         //Disable all canvas objects.
         foreach( KeyValuePair<string, GameTask> task in  tasks ){
             task.Value.canvas.SetActive(false);
         }
+      */
     }
 
 

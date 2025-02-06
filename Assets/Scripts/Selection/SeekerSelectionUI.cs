@@ -52,7 +52,7 @@ public class SeekerSelectionUI : MonoBehaviour
         buttonObj.SetActive(true);
         Button button = buttonObj.GetComponent<Button>();
         Image buttonImage = buttonObj.GetComponent<Image>();
-
+        buttonImage.color = Color.white;
         SpriteRenderer spriteRenderer = character.GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
