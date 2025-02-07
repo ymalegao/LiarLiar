@@ -320,7 +320,7 @@ public class LobbyManager : MonoBehaviour
                         }
                         else
                         {
-                            Debug.Log("Player is already in the map");
+                            //Debug.Log("Player is already in the map");
                         }
                     }
 
