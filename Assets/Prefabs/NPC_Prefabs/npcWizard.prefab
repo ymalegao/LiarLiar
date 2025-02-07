@@ -52,7 +52,6 @@ GameObject:
   - component: {fileID: 6269544432781698125}
   - component: {fileID: 738380750543101518}
   - component: {fileID: -7415606733240220363}
-  - component: {fileID: -1107276623066727085}
   m_Layer: 3
   m_Name: npcWizard
   m_TagString: Untagged
@@ -370,18 +369,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9caeddcce148a415ba5ad94ed3ccfc98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-1107276623066727085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274148144918918901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e90ab7cc4371764a9abca5a889d26c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5154053815875224403

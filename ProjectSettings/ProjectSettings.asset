@@ -897,10 +897,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 1ef847b3-d07b-4cd8-8fa7-203e6f911959
+  cloudProjectId: aa5b181a-3928-4c3e-a771-2ace164653d7
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Liar Liar
+  projectName: LiarLiar
   organizationId: liar-liar
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

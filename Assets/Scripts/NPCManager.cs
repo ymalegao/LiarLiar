@@ -4,7 +4,7 @@ using UnityEngine;
 public class NPCManager : MonoBehaviour
 {
     public static NPCManager Instance { get; private set; }
-    private List<GameObject> allNPCs = new List<GameObject>();
+    public List<GameObject> allNPCs = new List<GameObject>();
 
     private void Awake()
     {

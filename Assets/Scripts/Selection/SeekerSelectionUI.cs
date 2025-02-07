@@ -11,6 +11,8 @@ public class SeekerSelectionUI : MonoBehaviour
     
     private Dictionary<GameObject, bool> npcSelections = new Dictionary<GameObject, bool>();
     private List<GameObject> allCharacters = new List<GameObject>();
+    private List<Sprite> characterSprites = new List<Sprite>();
+
 
     private void Start()
     {
@@ -25,8 +27,19 @@ public class SeekerSelectionUI : MonoBehaviour
     {
         ClearSelectionUI();
         allCharacters = characters;
+        characterSprites.Clear(); // Ensure it's empty before filling
+
+        foreach (var character in allCharacters)
+        {
+            Debug.Log(character);
+            characterSprites.Add(character.GetComponent<SpriteRenderer>().sprite);
+        }
         PopulateSelectionUI();
         selectionPanel.SetActive(true);
+        foreach (var character in characterSprites)
+        {
+            Debug.Log(character);
+        }
     }
   
     public void ClearSelectionUI()
@@ -39,39 +52,40 @@ public class SeekerSelectionUI : MonoBehaviour
           }
       }
       npcSelections.Clear();
+      
     }
 
 
 
     private void PopulateSelectionUI()
 {
-    foreach (var character in allCharacters)
-    {
-        Debug.Log(character);
-        GameObject buttonObj = Instantiate(characterButtonPrefab, gridParent);
-        buttonObj.SetActive(true);
-        Button button = buttonObj.GetComponent<Button>();
-        Image buttonImage = buttonObj.GetComponent<Image>();
-        buttonImage.color = Color.white;
-        SpriteRenderer spriteRenderer = character.GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
-        {
-            Sprite[] characterSprites = Resources.LoadAll<Sprite>(spriteRenderer.sprite.texture.name);
-            
-            if (characterSprites.Length > 0)
-            {
-                Debug.Log("found sprite texture :)");
-                buttonImage.sprite = characterSprites[0]; 
-            }
-            else
-            {
-                Debug.LogWarning($"No sprites found for {spriteRenderer.sprite.texture.name}");
-            }
-        }
+    
+    for (int i = 0; i < allCharacters.Count; i++)
+{
+    Debug.Log(allCharacters[i]);
+    GameObject buttonObj = Instantiate(characterButtonPrefab, gridParent);
+    buttonObj.SetActive(true);
+    Button button = buttonObj.GetComponent<Button>();
+    Image buttonImage = buttonObj.GetComponent<Image>();
+    buttonImage.color = Color.white;
 
-        npcSelections[character] = false;
-        button.onClick.AddListener(() => ToggleSelection(character, buttonImage));
+    if (i < characterSprites.Count)
+    {
+        buttonImage.sprite = characterSprites[i];
     }
+    else
+    {
+        Debug.LogError($"Index {i} out of range for characterSprites (size: {characterSprites.Count})");
+        continue;
+    }
+
+    npcSelections[allCharacters[i]] = false;
+
+    // Fix: Capture current index in a separate variable
+    GameObject selectedCharacter = allCharacters[i];
+    button.onClick.AddListener(() => ToggleSelection(selectedCharacter, buttonImage));
+}
+
 }
 
     
