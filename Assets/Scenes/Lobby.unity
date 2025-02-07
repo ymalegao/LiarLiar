@@ -317,7 +317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544622af640364f93afb8e13f7c60e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNamesText: {fileID: 5591221395801803849}
   _isHost: 0
 --- !u!4 &1337480498
 Transform:
@@ -507,17 +506,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cbd36b8d6fcf4440b722516411594d9, type: 3}
---- !u!114 &5591221395801803849 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2657554864867808224, guid: 7cbd36b8d6fcf4440b722516411594d9, type: 3}
-  m_PrefabInstance: {fileID: 4656014548466941920}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &9183129693654850908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -570,6 +558,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: ServerManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
+      propertyPath: seekerPrefab
+      value: 
+      objectReference: {fileID: 1364883654379630471, guid: b04f7d5850735324298a428cf6028a01, type: 3}
+    - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
+      propertyPath: characterPrefabs.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
+      propertyPath: characterPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1274148144918918901, guid: bac519af8f5dbc84b9587aaab668a7ca, type: 3}
+    - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
+      propertyPath: characterPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1274148144918918901, guid: d6ac6f1d1cf5cf84f861d9ba32301773, type: 3}
+    - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
+      propertyPath: characterPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1274148144918918901, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
+    - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
+      propertyPath: characterPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 1274148144918918901, guid: 0389f998cc4d28a448a6da4c6032f65d, type: 3}
+    - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
+      propertyPath: characterPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 1274148144918918901, guid: c60fb5839d8bda344a1d8c5f4c673644, type: 3}
     - target: {fileID: 7105505262449618103, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 369878106
