@@ -9,6 +9,8 @@ public class FakeNPC : MonoBehaviour, IInteractable
 
     private NpcMovement npcMovement;
 
+
+
     private void Start()
     {
         npcMovement = GetComponent<NpcMovement>();
@@ -30,8 +32,16 @@ public class FakeNPC : MonoBehaviour, IInteractable
         Debug.Log($"NPC {npcName} dialogue lines: {string.Join(", ", dialogueLines)}");
     }
         
-        JournalManager.Instance.RegisterNPC(npcName, npcName, "farmer" , null);
-        Debug.Log("NPC registered: " + npcName);
+        if (JournalManager.Instance != null)
+        {
+            JournalManager.Instance.RegisterNPC(npcName, npcName, "farmer" , null);
+            Debug.Log("NPC registered: " + npcName);
+        }else{
+            Debug.LogWarning("JournalManager not found in the scene.");
+            
+        }
+        // JournalManager.Instance.RegisterNPC(npcName, npcName, "farmer" , null);
+       
     }
 
     public void Interact()

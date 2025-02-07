@@ -20,7 +20,7 @@ public class LobbyManager : MonoBehaviour
 
     private bool _rolesAssigned;
 
-    public TMP_Text playerNamesText;
+    // public TMP_Text playerNamesText;
 
     private string playerName = "Za";
     public static event Action OnLobbyCreated;
@@ -338,6 +338,8 @@ public class LobbyManager : MonoBehaviour
         }
     }
 
+   
+
     private void printPlayers(Lobby lobby)
     {
         string playerNames = "";
@@ -360,7 +362,7 @@ public class LobbyManager : MonoBehaviour
         {
             Debug.Log("Key: " + item.Key + " Value: " + item.Value);
         }
-        playerNamesText.text = playerNames;
+        // playerNamesText.text = playerNames;
     }
 
     public string GetLobbyCode()

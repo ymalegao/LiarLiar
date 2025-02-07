@@ -47,6 +47,8 @@ public class JournalManager : MonoBehaviour
         }
     }
 
+  
+
     public void ToggleJournal()
     {
         journalPanel.SetActive(!journalPanel.activeSelf);
