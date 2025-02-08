@@ -21277,7 +21277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f797167903052479ca2568470b830bfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seekerSpecificUI: {fileID: 0}
+  seekerSpecificUI: {fileID: 2126699101}
 --- !u!1001 &4630909094975666567
 PrefabInstance:
   m_ObjectHideFlags: 0
