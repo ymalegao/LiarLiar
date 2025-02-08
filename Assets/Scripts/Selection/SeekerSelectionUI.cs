@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Unity.Netcode;
+using System.Collections;
+
 
 public class SeekerSelectionUI : MonoBehaviour
 {
@@ -16,11 +18,43 @@ public class SeekerSelectionUI : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("SeekerSelectionUI Start");
         if (characterButtonPrefab != null)
+
         {
+            Debug.Log("Character button prefab is not null");
             characterButtonPrefab.SetActive(false);
         }
+        Debug.Log("Waiting for Seeker role...");
+        StartCoroutine(WaitForSeekerRole());
+
     }
+
+    private IEnumerator WaitForSeekerRole()
+{
+    Debug.Log("Waiting for ServerManager to spawn...");
+    while (ServerManager.Instance == null || !ServerManager.Instance.IsSpawned)
+    {
+        Debug.Log("ServerManager not spawned yet...");
+        yield return new WaitForSeconds(0.5f);
+    }
+
+    Debug.Log("ServerManager spawned. Checking if this client is the Seeker...");
+    ulong myClientId = NetworkManager.Singleton.LocalClientId;
+    Debug.Log($"My client ID: {myClientId}");
+    Debug.Log($"Seeker client ID: {ServerManager.Instance.seekerClientId.Value}");
+    if (ServerManager.Instance.seekerClientId.Value == myClientId)
+    {
+        Debug.Log("✅ This client is the Seeker.");
+        selectionPanel.SetActive(true);
+    }
+    else
+    {
+        Debug.Log("🚫 This client is NOT the Seeker.");
+        gameObject.SetActive(false); // Hide UI
+    }
+
+}
 
     
     public void Initialize(List<GameObject> characters)

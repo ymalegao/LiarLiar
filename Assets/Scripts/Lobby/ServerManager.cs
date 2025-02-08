@@ -17,6 +17,8 @@ using Unity.Services.Lobbies;
 public class ServerManager : NetworkBehaviour
 {
     public static ServerManager Instance { get; private set; }
+    public NetworkVariable<ulong> seekerClientId = new NetworkVariable<ulong>();
+
 
     public GameObject tempPlayerPrefab; // Temporary placeholder
     public List<GameObject> characterPrefabs; // List of all possible character prefabs
@@ -90,6 +92,8 @@ public class ServerManager : NetworkBehaviour
         Debug.Log($"🎮 Client connected: {clientId}");
 
         
+
+        
         //here accesses the hsahmap to get playerID from clientID and then gets the role using the playerID
         
         
@@ -111,6 +115,8 @@ public class ServerManager : NetworkBehaviour
         StartCoroutine(DelayedCharacterReplace(clientId));
         
     }
+
+    
 
     private IEnumerator DelayedCharacterReplace(ulong clientId)
     {
@@ -165,6 +171,16 @@ public class ServerManager : NetworkBehaviour
 {
     string role = LobbyManager.Instance.GetPlayerRoleFromClient(clientId);
     Debug.Log($"👤 Role for in ReplacePlayerWithCharacter {clientId}: {role}");
+    if (role == "Seeker")
+    {
+        Debug.Log("👤 Role is Seeker");
+        seekerClientId.Value = clientId;
+        Debug.Log("👤 Seeker client id is " + seekerClientId.Value);
+    }
+    else
+    {
+        Debug.Log("👤 Role is not Seeker");
+    }
 
     int indexforPrefab = LobbyManager.Instance.GetPlayerSpriteIndexFromClient(clientId);
 
