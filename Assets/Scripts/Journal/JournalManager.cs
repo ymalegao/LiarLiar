@@ -148,7 +148,7 @@ public class JournalManager : MonoBehaviour
         // Add the three statements below the name
         foreach (var (dialogue, isTruth) in statements)
         {
-            string formattedText = isTruth ? $"Truth: {dialogue}" : $"Lie: {dialogue}";
+            string formattedText = dialogue;
             AddStatement(formattedText);
         }
     }
