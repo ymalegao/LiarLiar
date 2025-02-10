@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Seeker
   - FakeNPC
+  - Basket
+  - Ground
   layers:
   - Default
   - TransparentFX
