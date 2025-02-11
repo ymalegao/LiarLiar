@@ -8,6 +8,7 @@ TagManager:
   - FakeNPC
   - Basket
   - Ground
+  - Obstackle
   layers:
   - Default
   - TransparentFX

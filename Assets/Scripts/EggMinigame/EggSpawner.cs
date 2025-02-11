@@ -4,12 +4,18 @@ using TMPro;
 public class EggSpawner : MonoBehaviour
 {
     public GameObject eggPrefab;
+
+    public GameObject obstaclePrefab;
     public Transform[] spawnPoints;
     public static EggSpawner Instance;
+
+    public Transform basket;
     public float spawnRate = 2f;
     public GameObject miniGameCanvas;
     public GameObject victoryPanel;
     public GameObject instructionsPanel;
+
+    public int obstaclespawnRate = 5;
 
     public GameObject failurePanel;
     public TMP_Text instructionsText;
@@ -68,7 +74,24 @@ public class EggSpawner : MonoBehaviour
 
     private void SpawnEgg()
     {
+        int EggOrObstacle = Random.Range(0, 10);
+        if (EggOrObstacle < 8)
+        {
+            int randomIndex = Random.Range(0, spawnPoints.Length);
+            Instantiate(eggPrefab, spawnPoints[randomIndex].position, Quaternion.identity);
+        }
+        else
+        {
+            int randomIndex = Random.Range(0, spawnPoints.Length);
+            Vector3 spawnPosition = new Vector3(basket.position.x, spawnPoints[randomIndex].position.y, basket.position.z);
+            Instantiate(obstaclePrefab, spawnPosition, Quaternion.identity);
+        }
+        
+    }
+
+    private void SpawnObstacle()
+    {
         int randomIndex = Random.Range(0, spawnPoints.Length);
-        Instantiate(eggPrefab, spawnPoints[randomIndex].position, Quaternion.identity);
+        Instantiate(obstaclePrefab, spawnPoints[randomIndex].position, Quaternion.identity);
     }
 }

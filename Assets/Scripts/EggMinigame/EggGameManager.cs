@@ -85,6 +85,12 @@ public class EggGameManager : MonoBehaviour
         UpdateUI();
     }
 
+    public void subtractScore()
+    {
+        score--;
+        UpdateUI();
+    }
+
     
 
     public int GetScore()

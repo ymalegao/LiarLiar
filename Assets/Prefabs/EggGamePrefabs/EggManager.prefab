@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eggPrefab: {fileID: 1801183735057153804, guid: 9baccbd6c357440b2a71a3ada1369841, type: 3}
+  obstaclePrefab: {fileID: 3744930506173321475, guid: 166e804cc73d7457c977776b10534fd3, type: 3}
   spawnPoints:
   - {fileID: 8416374017475889681}
   - {fileID: 3381358481912890001}
@@ -132,10 +133,12 @@ MonoBehaviour:
   - {fileID: 8570784750125418351}
   - {fileID: 168582437849507599}
   - {fileID: 2647869329571048}
+  basket: {fileID: 4291854110143728284}
   spawnRate: 2
   miniGameCanvas: {fileID: 4864678976599872201}
   victoryPanel: {fileID: 9164673029471585505}
   instructionsPanel: {fileID: 7828681380618863349}
+  obstaclespawnRate: 5
   failurePanel: {fileID: 4963898050241808557}
   instructionsText: {fileID: 6695484428957224661}
   minScoreToComplete: 1
