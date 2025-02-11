@@ -266,7 +266,7 @@ public class LobbyManager : MonoBehaviour
             });
 
             NetworkManager.Singleton.StartHost();
-            NetworkManager.Singleton.SceneManager.LoadScene("map-creation", UnityEngine.SceneManagement.LoadSceneMode.Single);
+            NetworkManager.Singleton.SceneManager.LoadScene("Gameplay Functions", UnityEngine.SceneManagement.LoadSceneMode.Single);
         }
         else
         {
@@ -448,6 +448,15 @@ public class LobbyManager : MonoBehaviour
         catch (Exception e)
         {
             Debug.LogError($"Failed to update player data: {e.Message}");
+        }
+    }
+
+    public void ReturnToLobby()
+    {
+        if (NetworkManager.Singleton.IsServer)
+        {
+            Debug.Log("Returning all players to the lobby...");
+            NetworkManager.Singleton.SceneManager.LoadScene("Lobby", UnityEngine.SceneManagement.LoadSceneMode.Single);
         }
     }
 
