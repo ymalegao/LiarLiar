@@ -15,24 +15,65 @@ public class TestSeekerSelection : MonoBehaviour
         }
     }
 
-    public void ToggleSeekerSelection()
+   public void ToggleSeekerSelection()
+{
+    if (seekerSelectionPanel != null)
     {
-        if (seekerSelectionPanel != null)
-        {
-            bool isActive = !seekerSelectionPanel.activeSelf;
-            seekerSelectionPanel.SetActive(isActive);
+        bool isActive = !seekerSelectionPanel.activeSelf;
+        seekerSelectionPanel.SetActive(isActive);
 
-            if (isActive)
+        if (isActive)
+        {
+            List<GameObject> allNPCs = NPCManager.Instance?.GetAllNPCs() ?? new List<GameObject>();
+            Debug.Log("Grabbing all NPCs");
+
+            List<GameObject> fakeNPCs = GetFakeNPCs();
+
+            // Create a HashSet to avoid duplicates when adding fake NPCs
+            HashSet<GameObject> uniqueNPCs = new HashSet<GameObject>(allNPCs);
+
+            // Add fake NPCs to the HashSet (will automatically avoid duplicates)
+            foreach (var fakeNPC in fakeNPCs)
             {
-                // Get all NPCs and send them to the UI
-                List<GameObject> allNPCs = NPCManager.Instance?.GetAllNPCs();
-                Debug.Log("grabbing all npcs");
-                if (allNPCs != null && seekerSelectionUI != null)
-                {
-                    Debug.Log("initalizing npcs");
-                    seekerSelectionUI.Initialize(allNPCs);
-                }
+                uniqueNPCs.Add(fakeNPC);
+            }
+
+            // Convert the HashSet back to a list
+            allNPCs = new List<GameObject>(uniqueNPCs);
+
+            if (allNPCs.Count > 0 && seekerSelectionUI != null)
+            {
+                Debug.Log("Initializing NPC selection UI with all NPCs including fake ones.");
+                seekerSelectionUI.Initialize(allNPCs);
             }
         }
     }
+}
+
+
+
+  private List<GameObject> GetFakeNPCs()
+  {
+      List<GameObject> fakeNPCs = new List<GameObject>();
+
+      foreach (ulong clientId in LobbyManager.Instance._clientToPlayerIdMap.Keys)
+      {
+          string role = LobbyManager.Instance.GetPlayerRoleFromClient(clientId);
+          if (role == "FakeNPC")
+          {
+              int spriteIndex = LobbyManager.Instance.GetPlayerSpriteIndexFromClient(clientId);
+              GameObject fakeNPC = ServerManager.Instance.GetCharacterPrefab(spriteIndex);
+
+              if (fakeNPC != null)
+              {
+                  fakeNPCs.Add(fakeNPC);
+                  Debug.Log($"Added Fake NPC with sprite index {spriteIndex} to selection.");
+              }
+          }
+      }
+
+      return fakeNPCs;
+  }
+
+
 }
