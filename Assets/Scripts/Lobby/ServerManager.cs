@@ -22,6 +22,7 @@ public class ServerManager : NetworkBehaviour
 
     public GameObject tempPlayerPrefab; // Temporary placeholder
     public List<GameObject> characterPrefabs; // List of all possible character prefabs
+    private List<GameObject> spawnedFakeNPCs = new List<GameObject>();  // Track the actual spawned Fake NPCs
     // public hashSet<int> spritesTaken; // List of all possible roles
     public GameObject seekerPrefab; // Seeker prefab
 
@@ -32,8 +33,6 @@ public class ServerManager : NetworkBehaviour
     public const string FAKENPC_ROLE = "FakeNPC";
 
     public Dictionary<ulong, string> _clientAuthIdMap = new Dictionary<ulong, string>();
-
-
     
 
     private void Awake()
@@ -152,7 +151,7 @@ public class ServerManager : NetworkBehaviour
             return false;
         }
         var activeScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
-        if (activeScene != "map-creation")
+        if (activeScene != "Gameplay Functions")
         {
             Debug.Log($"🎮 Scene not synchronized for {clientId}");
             return false;
@@ -183,6 +182,7 @@ public class ServerManager : NetworkBehaviour
     }
 
     int indexforPrefab = LobbyManager.Instance.GetPlayerSpriteIndexFromClient(clientId);
+    Debug.Log($"🛑 Sprite Index for client {clientId}: {indexforPrefab}");
 
     // For testing, we choose the seekerPrefab for "Seeker" or the first character for FakeNPC.
     // You can expand this logic to use the sprite index if needed:
@@ -209,6 +209,11 @@ public class ServerManager : NetworkBehaviour
     // Debug.Log("Did not destroy old player object");
     Debug.Log("prefato use name is " + prefabToUse.name);
     GameObject newCharacter = Instantiate(prefabToUse, spawnPos, Quaternion.identity);
+    if (role == FAKENPC_ROLE){
+      ServerManager.Instance.RegisterFakeNPC(newCharacter);
+    }
+    
+    Debug.Log($"🔍 Index for client {clientId}: {indexforPrefab}");
     Debug.Log($"🎮 Instantiated new character for {clientId}");
     newCharacter.tag = role; // Optionally tag the object for debugging
     newCharacter.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId);
@@ -295,30 +300,30 @@ public void UpdateMappingServerRpc(ulong clientId, string authId, ServerRpcParam
     }
 }
 
+  // Register a Fake NPC when it's spawned
+  public void RegisterFakeNPC(GameObject fakeNPC)
+  {
+      if (!spawnedFakeNPCs.Contains(fakeNPC))
+      {
+          spawnedFakeNPCs.Add(fakeNPC);
+          Debug.Log($"✅ Registered Fake NPC: {fakeNPC.name} | Instance ID: {fakeNPC.GetInstanceID()}");
+      }
+  }
+
+  // Get the actual spawned Fake NPCs
   public List<GameObject> GetFakeNPCs()
   {
-      List<GameObject> fakeNPCs = new List<GameObject>();
-
-      foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
-      {
-          ulong clientId = client.ClientId;
-          string role = LobbyManager.Instance.GetPlayerRoleFromClient(clientId);
-
-          if (role == FAKENPC_ROLE)
-          {
-              if (client.PlayerObject != null)
-              {
-                  fakeNPCs.Add(client.PlayerObject.gameObject);
-              }
-          }
-      }
-
-      Debug.Log($"🔍 Found {fakeNPCs.Count} Fake NPCs.");
-      return fakeNPCs;
+      return new List<GameObject>(spawnedFakeNPCs);  // Return a copy of the list of spawned Fake NPCs
   }
 
   public GameObject GetCharacterPrefab(int index)
   {
+    Debug.Log($"CharacterPrefabs.Count: {characterPrefabs.Count}");
+    foreach (var prefab in characterPrefabs)
+    {
+      Debug.Log($"📦 CharacterPrefab: {prefab.name}");
+    }
+
       if (index < 0 || index >= characterPrefabs.Count)
       {
           Debug.LogError($"❌ Invalid index {index} for character prefabs.");
@@ -326,6 +331,8 @@ public void UpdateMappingServerRpc(ulong clientId, string authId, ServerRpcParam
       }
       return characterPrefabs[index];
   }
+
+  
 
 
 

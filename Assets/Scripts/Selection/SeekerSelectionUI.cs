@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Unity.Netcode;
 using System.Collections;
+using System.Linq;
+
 
 
 public class SeekerSelectionUI : MonoBehaviour
@@ -37,7 +39,6 @@ public class SeekerSelectionUI : MonoBehaviour
         StartCoroutine(WaitForSeekerRole());
     }
 
-
     private IEnumerator WaitForSeekerRole()
 {
     Debug.Log("Waiting for ServerManager to spawn...");
@@ -69,18 +70,18 @@ public class SeekerSelectionUI : MonoBehaviour
 public void Initialize(List<GameObject> characters)
 {
     ClearSelectionUI(); // Ensure previous UI elements are removed
-    allCharacters = new List<GameObject>(characters); // Reset list instead of modifying the existing one
-    characterSprites.Clear(); 
-
-    // Iterate over all characters and get their sprites
+    allCharacters = new List<GameObject>(characters);
+    characterSprites.Clear();
+    foreach (GameObject selected in allCharacters)
+    {
+        Debug.Log($"🟡 allCharacters: {selected.name} | Instance ID: {selected.GetInstanceID()}");
+    }
     foreach (var character in allCharacters)
     {
         SpriteRenderer spriteRenderer = character.GetComponent<SpriteRenderer>();
-
-        // Check if spriteRenderer is null (which would indicate the prefab is missing a SpriteRenderer component)
         if (spriteRenderer != null)
         {
-            characterSprites.Add(spriteRenderer.sprite); // Add the correct sprite to the list
+            characterSprites.Add(spriteRenderer.sprite);
         }
         else
         {
@@ -88,14 +89,19 @@ public void Initialize(List<GameObject> characters)
         }
     }
 
-    // Ensure correctFakeNPCs is refreshed
-    correctFakeNPCs.Clear();  // ✅ Clears before adding new NPCs
-    correctFakeNPCs = new List<GameObject>(ServerManager.Instance.GetFakeNPCs()); // Retrieve fake NPCs
+    // ✅ Get properly instantiated fake NPCs from ServerManager
+    correctFakeNPCs = new List<GameObject>(ServerManager.Instance.GetFakeNPCs());
+
+    foreach (GameObject fakeNPC in correctFakeNPCs)
+    {
+        Debug.Log($"✅ Fake NPC in game: {fakeNPC.name} | Instance ID: {fakeNPC.GetInstanceID()}");
+    }
 
     Debug.Log($"Initializing UI with {allCharacters.Count} characters and {correctFakeNPCs.Count} fake NPCs.");
     PopulateSelectionUI();
     selectionPanel.SetActive(true);
 }
+
 
 
   
@@ -196,31 +202,43 @@ public void Initialize(List<GameObject> characters)
     }
 
     private void VerifySelection(List<GameObject> selectedFakes)
+{
+    Debug.Log($"🔍 Verifying Selection. Fake NPCs in-game: {correctFakeNPCs.Count}");
+
+    foreach (GameObject correctFake in correctFakeNPCs)
     {
-        if (correctFakeNPCs.Count == 0)
-        {
-            Debug.LogError("⚠️ No correct fake NPCs set! Ensure the list is initialized.");
-            return;
-        }
+        Debug.Log($"✅ Correct Fake NPC: {correctFake.name} | Instance ID: {correctFake.GetInstanceID()}");
+    }
 
-        int correctCount = 0;
-        
-        foreach (GameObject fake in selectedFakes)
-        {
-            if (correctFakeNPCs.Contains(fake))
-            {
-                correctCount++;
-            }
-        }
+    Debug.Log($"🕵️‍♂️ Seeker Selected {selectedFakes.Count} NPCs:");
+    int correctCount = 0;
 
-        if (correctCount == correctFakeNPCs.Count && selectedFakes.Count == correctFakeNPCs.Count)
+    foreach (GameObject selected in selectedFakes)
+    {
+        Debug.Log($"🟡 Seeker Selected: {selected.name} | Instance ID: {selected.GetInstanceID()}");
+
+        // Compare by reference, not Instance ID
+        if (correctFakeNPCs.Contains(selected))
         {
-            Debug.Log("🎯 Seeker correctly identified all fake NPCs! ✅");
+            Debug.Log("🎯 OMG I FOUND A FAKE!!");
+            correctCount++;
         }
         else
         {
-            Debug.Log($"❌ Seeker made incorrect choices. {correctCount}/{selectedFakes.Count} were correct.");
+            Debug.Log("❌ Seeker selected an incorrect NPC.");
         }
     }
+
+    if (correctCount == correctFakeNPCs.Count && selectedFakes.Count == correctFakeNPCs.Count)
+    {
+        Debug.Log("🎯 Seeker correctly identified all fake NPCs! ✅");
+    }
+    else
+    {
+        Debug.Log($"❌ Seeker made incorrect choices. {correctCount}/{correctFakeNPCs.Count} were correct.");
+    }
+}
+
+
 
 }

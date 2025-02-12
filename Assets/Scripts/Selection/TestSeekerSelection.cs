@@ -27,7 +27,7 @@ public class TestSeekerSelection : MonoBehaviour
             List<GameObject> allNPCs = NPCManager.Instance?.GetAllNPCs() ?? new List<GameObject>();
             Debug.Log("Grabbing all NPCs");
 
-            List<GameObject> fakeNPCs = GetFakeNPCs();
+            List<GameObject> fakeNPCs = ServerManager.Instance.GetFakeNPCs();
 
             // Create a HashSet to avoid duplicates when adding fake NPCs
             HashSet<GameObject> uniqueNPCs = new HashSet<GameObject>(allNPCs);
@@ -49,31 +49,5 @@ public class TestSeekerSelection : MonoBehaviour
         }
     }
 }
-
-
-
-  private List<GameObject> GetFakeNPCs()
-  {
-      List<GameObject> fakeNPCs = new List<GameObject>();
-
-      foreach (ulong clientId in LobbyManager.Instance._clientToPlayerIdMap.Keys)
-      {
-          string role = LobbyManager.Instance.GetPlayerRoleFromClient(clientId);
-          if (role == "FakeNPC")
-          {
-              int spriteIndex = LobbyManager.Instance.GetPlayerSpriteIndexFromClient(clientId);
-              GameObject fakeNPC = ServerManager.Instance.GetCharacterPrefab(spriteIndex);
-
-              if (fakeNPC != null)
-              {
-                  fakeNPCs.Add(fakeNPC);
-                  Debug.Log($"Added Fake NPC with sprite index {spriteIndex} to selection.");
-              }
-          }
-      }
-
-      return fakeNPCs;
-  }
-
 
 }
