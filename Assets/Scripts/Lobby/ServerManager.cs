@@ -295,5 +295,38 @@ public void UpdateMappingServerRpc(ulong clientId, string authId, ServerRpcParam
     }
 }
 
+  public List<GameObject> GetFakeNPCs()
+  {
+      List<GameObject> fakeNPCs = new List<GameObject>();
+
+      foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
+      {
+          ulong clientId = client.ClientId;
+          string role = LobbyManager.Instance.GetPlayerRoleFromClient(clientId);
+
+          if (role == FAKENPC_ROLE)
+          {
+              if (client.PlayerObject != null)
+              {
+                  fakeNPCs.Add(client.PlayerObject.gameObject);
+              }
+          }
+      }
+
+      Debug.Log($"🔍 Found {fakeNPCs.Count} Fake NPCs.");
+      return fakeNPCs;
+  }
+
+  public GameObject GetCharacterPrefab(int index)
+  {
+      if (index < 0 || index >= characterPrefabs.Count)
+      {
+          Debug.LogError($"❌ Invalid index {index} for character prefabs.");
+          return null;
+      }
+      return characterPrefabs[index];
+  }
+
+
 
 }

@@ -14,21 +14,29 @@ public class SeekerSelectionUI : MonoBehaviour
     private Dictionary<GameObject, bool> npcSelections = new Dictionary<GameObject, bool>();
     private List<GameObject> allCharacters = new List<GameObject>();
     private List<Sprite> characterSprites = new List<Sprite>();
+    private List<GameObject> correctFakeNPCs = new List<GameObject>(); // Stores actual Fake NPCs
+
 
 
     private void Start()
     {
         Debug.Log("SeekerSelectionUI Start");
-        if (characterButtonPrefab != null)
 
+        if (selectionPanel != null)
+        {
+            selectionPanel.SetActive(false);
+        }
+
+        if (characterButtonPrefab != null)
         {
             Debug.Log("Character button prefab is not null");
             characterButtonPrefab.SetActive(false);
         }
+
         Debug.Log("Waiting for Seeker role...");
         StartCoroutine(WaitForSeekerRole());
-
     }
+
 
     private IEnumerator WaitForSeekerRole()
 {
@@ -46,7 +54,8 @@ public class SeekerSelectionUI : MonoBehaviour
     if (ServerManager.Instance.seekerClientId.Value == myClientId)
     {
         Debug.Log("✅ This client is the Seeker.");
-        selectionPanel.SetActive(true);
+        gameObject.SetActive(true);
+        selectionPanel.SetActive(false);
     }
     else
     {
@@ -57,69 +66,99 @@ public class SeekerSelectionUI : MonoBehaviour
 }
 
     
-    public void Initialize(List<GameObject> characters)
-    {
-        ClearSelectionUI();
-        allCharacters = characters;
-        characterSprites.Clear(); // Ensure it's empty before filling
+public void Initialize(List<GameObject> characters)
+{
+    ClearSelectionUI(); // Ensure previous UI elements are removed
+    allCharacters = new List<GameObject>(characters); // Reset list instead of modifying the existing one
+    characterSprites.Clear(); 
 
-        foreach (var character in allCharacters)
+    // Iterate over all characters and get their sprites
+    foreach (var character in allCharacters)
+    {
+        SpriteRenderer spriteRenderer = character.GetComponent<SpriteRenderer>();
+
+        // Check if spriteRenderer is null (which would indicate the prefab is missing a SpriteRenderer component)
+        if (spriteRenderer != null)
         {
-            Debug.Log(character);
-            characterSprites.Add(character.GetComponent<SpriteRenderer>().sprite);
+            characterSprites.Add(spriteRenderer.sprite); // Add the correct sprite to the list
         }
-        PopulateSelectionUI();
-        selectionPanel.SetActive(true);
-        foreach (var character in characterSprites)
+        else
         {
-            Debug.Log(character);
+            Debug.LogError("SpriteRenderer is missing on character prefab: " + character.name);
         }
     }
+
+    // Ensure correctFakeNPCs is refreshed
+    correctFakeNPCs.Clear();  // ✅ Clears before adding new NPCs
+    correctFakeNPCs = new List<GameObject>(ServerManager.Instance.GetFakeNPCs()); // Retrieve fake NPCs
+
+    Debug.Log($"Initializing UI with {allCharacters.Count} characters and {correctFakeNPCs.Count} fake NPCs.");
+    PopulateSelectionUI();
+    selectionPanel.SetActive(true);
+}
+
+
   
     public void ClearSelectionUI()
+{
+    // Check that gridParent is not null
+    if (gridParent != null)
     {
-      foreach (Transform child in gridParent)
-      {
-          if (child.gameObject != characterButtonPrefab)
-          {
-              Destroy(child.gameObject);
-          }
-      }
-      npcSelections.Clear();
-      
+        foreach (Transform child in gridParent)
+        {
+            if (child.gameObject != characterButtonPrefab)
+            {
+                Debug.Log($"Destroying child: {child.gameObject.name}");
+                Destroy(child.gameObject); // Destroy each button (including fake NPC buttons)
+            }
+        }
     }
-
-
+    npcSelections.Clear(); // Clear previous selections
+    characterSprites.Clear(); // Clear previous character sprites
+    allCharacters.Clear(); // Ensure the list is fully cleared
+}
 
     private void PopulateSelectionUI()
 {
-    
+    Debug.Log($"Populating UI with {allCharacters.Count} characters...");
+
+    HashSet<GameObject> seenObjects = new HashSet<GameObject>(); // Track the GameObject reference to prevent duplicate entries
+
     for (int i = 0; i < allCharacters.Count; i++)
-{
-    Debug.Log(allCharacters[i]);
-    GameObject buttonObj = Instantiate(characterButtonPrefab, gridParent);
-    buttonObj.SetActive(true);
-    Button button = buttonObj.GetComponent<Button>();
-    Image buttonImage = buttonObj.GetComponent<Image>();
-    buttonImage.color = Color.white;
-
-    if (i < characterSprites.Count)
     {
-        buttonImage.sprite = characterSprites[i];
+        // Skip adding duplicate characters (based on actual GameObject reference)
+        if (seenObjects.Contains(allCharacters[i]))
+        {
+            //Debug.LogError($"🚨 Duplicate character detected: {allCharacters[i].name}");
+            continue;
+        }
+
+        GameObject buttonObj = Instantiate(characterButtonPrefab, gridParent);
+        buttonObj.SetActive(true);
+
+        Button button = buttonObj.GetComponent<Button>();
+        Image buttonImage = buttonObj.GetComponent<Image>();
+        buttonImage.color = Color.white;
+
+        if (i < characterSprites.Count)
+        {
+            buttonImage.sprite = characterSprites[i];
+        }
+        else
+        {
+            Debug.LogError($"Index {i} out of range for characterSprites (size: {characterSprites.Count})");
+            continue;
+        }
+
+        npcSelections[allCharacters[i]] = false;
+
+        // Track this GameObject to avoid duplicate instantiation
+        seenObjects.Add(allCharacters[i]);
+
+        // Capture current index properly
+        GameObject selectedCharacter = allCharacters[i];
+        button.onClick.AddListener(() => ToggleSelection(selectedCharacter, buttonImage));
     }
-    else
-    {
-        Debug.LogError($"Index {i} out of range for characterSprites (size: {characterSprites.Count})");
-        continue;
-    }
-
-    npcSelections[allCharacters[i]] = false;
-
-    // Fix: Capture current index in a separate variable
-    GameObject selectedCharacter = allCharacters[i];
-    button.onClick.AddListener(() => ToggleSelection(selectedCharacter, buttonImage));
-}
-
 }
 
     
@@ -132,14 +171,17 @@ public class SeekerSelectionUI : MonoBehaviour
     public void ConfirmSelection()
     {
         List<GameObject> selectedFakes = new List<GameObject>();
+        
         foreach (var entry in npcSelections)
         {
             if (entry.Value) selectedFakes.Add(entry.Key);
         }
         
+        VerifySelection(selectedFakes);
         SendSelectionToServer(selectedFakes);
         selectionPanel.SetActive(false);
     }
+
     
     private void SendSelectionToServer(List<GameObject> selectedFakes)
     {
@@ -152,4 +194,33 @@ public class SeekerSelectionUI : MonoBehaviour
             Debug.Log("Sending selection to server...");
         }
     }
+
+    private void VerifySelection(List<GameObject> selectedFakes)
+    {
+        if (correctFakeNPCs.Count == 0)
+        {
+            Debug.LogError("⚠️ No correct fake NPCs set! Ensure the list is initialized.");
+            return;
+        }
+
+        int correctCount = 0;
+        
+        foreach (GameObject fake in selectedFakes)
+        {
+            if (correctFakeNPCs.Contains(fake))
+            {
+                correctCount++;
+            }
+        }
+
+        if (correctCount == correctFakeNPCs.Count && selectedFakes.Count == correctFakeNPCs.Count)
+        {
+            Debug.Log("🎯 Seeker correctly identified all fake NPCs! ✅");
+        }
+        else
+        {
+            Debug.Log($"❌ Seeker made incorrect choices. {correctCount}/{selectedFakes.Count} were correct.");
+        }
+    }
+
 }
