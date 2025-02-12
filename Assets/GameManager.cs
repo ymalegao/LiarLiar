@@ -7,8 +7,8 @@ public class GameManager : NetworkBehaviour
 {
     public static GameManager Instance;
 
-    [SerializeField] private float startingTime = 10f; // 5 minutes (300 seconds)
-    private NetworkVariable<float> countdownTimer = new NetworkVariable<float>(10f, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+    [SerializeField] private float startingTime = 1000f;
+    private NetworkVariable<float> countdownTimer = new NetworkVariable<float>(1000f, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
     [SerializeField] private TMP_Text timerText; // Assign in the inspector
 
