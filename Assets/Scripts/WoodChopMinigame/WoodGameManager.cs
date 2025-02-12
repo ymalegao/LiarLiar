@@ -43,10 +43,6 @@ public class WoodGameManager : MonoBehaviour
         victoryPanel.SetActive(false);
     }
 
-    public void EndGame()
-    {
-        overallGameCanvas.SetActive(false);
-    }
 
     public void StartGame()
     {
@@ -108,6 +104,8 @@ public class WoodGameManager : MonoBehaviour
         gameActive = false;
         miniGameCanvas.SetActive(false);
         WoodSpawner.Instance.EndMiniGame();
+        overallGameCanvas.SetActive(false);
+
     }
 
     public void ResetState()
