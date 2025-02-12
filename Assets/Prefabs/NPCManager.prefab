@@ -41,13 +41,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1631563520335354392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e90ab7cc4371764a9abca5a889d26c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 68b5b52c0e01efe4d9a3f48539a7aabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   allNPCs:
-  - {fileID: 1274148144918918901, guid: bac519af8f5dbc84b9587aaab668a7ca, type: 3}
-  - {fileID: 1274148144918918901, guid: d6ac6f1d1cf5cf84f861d9ba32301773, type: 3}
-  - {fileID: 1274148144918918901, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
-  - {fileID: 1274148144918918901, guid: 0389f998cc4d28a448a6da4c6032f65d, type: 3}
-  - {fileID: 1274148144918918901, guid: c60fb5839d8bda344a1d8c5f4c673644, type: 3}
-  - {fileID: 1274148144918918901, guid: 28eac5850ef15b047a880508e458ce69, type: 3}
+  - {fileID: 0}
