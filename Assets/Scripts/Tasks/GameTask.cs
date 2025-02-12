@@ -4,23 +4,23 @@ using UnityEngine;
 [System.Serializable]
 public class GameTask
 {
-    public string name;
+  public string name;
 
-    public GameObject canvas;
-    public Vector2 position;
-    public float completionRadius;
-    public float completionTime;
-    [HideInInspector] public bool isCompleted = false;
-    [HideInInspector] public float taskTimer = 0f;
-    [HideInInspector] public bool isActive= false;
+  public GameObject canvas;
+  public Vector2 position;
+  public float completionRadius;
+  public float completionTime;
+  [HideInInspector] public bool isCompleted = false;
+  [HideInInspector] public float taskTimer = 0f;
+  [HideInInspector] public bool isActive = false;
 
 
-    public GameTask(string name, GameObject canvas ,Vector2 position, float completionRadius = 2.0f, float completionTime = 3.0f)
-    {
-        this.name = name;
-        this.canvas = canvas;
-        this.position = position;
-        this.completionRadius = completionRadius;
-        this.completionTime = completionTime;
-    }
+  public GameTask(string name, GameObject canvas, Vector2 position, float completionRadius = 2.0f, float completionTime = 3.0f)
+  {
+    this.name = name;
+    this.canvas = canvas;
+    this.position = position;
+    this.completionRadius = completionRadius;
+    this.completionTime = completionTime;
+  }
 }

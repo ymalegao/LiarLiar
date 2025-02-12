@@ -1,0 +1,31 @@
+# .editorconfig file for Unity C# code
+
+# Root of the config file
+root = true
+
+# General settings
+[*]
+indent_style = space        # Use spaces instead of tabs
+indent_size = 4             # 4 spaces per indent
+end_of_line = lf            # Use LF (Line Feed) for line endings (for Unix-based systems)
+charset = utf-8             # Use UTF-8 encoding
+insert_final_newline = true # Ensure a final newline at the end of every file
+
+# C# specific settings
+[*.cs]
+# Enforce PascalCase for class and method names
+dotnet_naming_rule.classes_should_be_pascal_case.severity = suggestion
+dotnet_naming_rule.classes_should_be_pascal_case.symbols = classes
+dotnet_naming_rule.classes_should_be_pascal_case.style = pascal_case
+
+dotnet_naming_rule.methods_should_be_pascal_case.severity = suggestion
+dotnet_naming_rule.methods_should_be_pascal_case.symbols = methods
+dotnet_naming_rule.methods_should_be_pascal_case.style = pascal_case
+
+# Enforce camelCase for local variables and private fields
+dotnet_naming_rule.local_variables_should_be_camel_case.severity = suggestion
+dotnet_naming_rule.local_variables_should_be_camel_case.symbols = locals
+dotnet_naming_rule.local_variables_should_be_camel_case.style = camel_case
+
+# Enforce using 'readonly' modifier for readonly fields
+dotnet_style_readonly_fields = true

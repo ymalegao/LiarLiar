@@ -4,11 +4,11 @@ using Unity.Netcode;
 
 public class EndGameUI : MonoBehaviour
 {
-    public void ReturnToLobby()
+  public void ReturnToLobby()
+  {
+    if (NetworkManager.Singleton.IsServer)
     {
-        if (NetworkManager.Singleton.IsServer)
-        {
-            LobbyManager.Instance.ReturnToLobby();
-        }
+      LobbyManager.Instance.ReturnToLobby();
     }
+  }
 }

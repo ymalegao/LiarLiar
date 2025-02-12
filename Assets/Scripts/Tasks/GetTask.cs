@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class GetTask : MonoBehaviour
 {
-    public string jobName; // Name of the task to assign player 
-    public GameTask assignedTask; // The task assigned to this player
-    public TaskManager TM; 
-    
-    public GameTask GetAssignedTask()
-    {
-        return TM.AssignTaskToPlayer();
-    }
+  public string jobName; // Name of the task to assign player 
+  public GameTask assignedTask; // The task assigned to this player
+  public TaskManager TM;
 
-    public void SetTask(GameTask task)
-    {
-        assignedTask = task;
-        Debug.Log("Task assigned to player: " + task.position);
-    }
+  public GameTask GetAssignedTask()
+  {
+    return TM.AssignTaskToPlayer();
+  }
 
-    void Start()
-    {
-        // Initialize task manager
-        this.TM = FindFirstObjectByType<TaskManager>(); 
-        this.SetTask(this.GetAssignedTask());
-    }
+  public void SetTask(GameTask task)
+  {
+    assignedTask = task;
+    Debug.Log("Task assigned to player: " + task.position);
+  }
 
-    void Update() { }
+  void Start()
+  {
+    // Initialize task manager
+    this.TM = FindFirstObjectByType<TaskManager>();
+    this.SetTask(this.GetAssignedTask());
+  }
+
+  void Update() { }
 }
