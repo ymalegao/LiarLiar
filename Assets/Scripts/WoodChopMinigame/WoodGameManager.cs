@@ -99,7 +99,7 @@ public class WoodGameManager : MonoBehaviour
         return score;
     }
 
-    private void EndGame()
+    public void EndGame()
     {
         gameActive = false;
         miniGameCanvas.SetActive(false);
