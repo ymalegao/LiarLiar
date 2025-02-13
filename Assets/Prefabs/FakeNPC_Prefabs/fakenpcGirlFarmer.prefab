@@ -42,18 +42,19 @@ GameObject:
   - component: {fileID: 6144481852531029297}
   - component: {fileID: 4670151574717188655}
   - component: {fileID: 7182736512230940212}
-  - component: {fileID: 7747024443398431810}
   - component: {fileID: 2094843647503842778}
+  - component: {fileID: 3539977013182107140}
   - component: {fileID: 1206742537773006156}
   - component: {fileID: 3540462122569174297}
   - component: {fileID: 4399940814885571179}
   - component: {fileID: 6269544432781698125}
-  - component: {fileID: 738380750543101518}
-  - component: {fileID: -7415606733240220363}
-  - component: {fileID: -2756753107088729077}
-  - component: {fileID: -2942977955835968304}
+  - component: {fileID: 950776779663999051}
+  - component: {fileID: -3864752852227472321}
+  - component: {fileID: 4520024464095396779}
+  - component: {fileID: -5627016521062384483}
+  - component: {fileID: 9136589870904870694}
   m_Layer: 3
-  m_Name: npcWizard
+  m_Name: fakenpcGirlFarmer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,11 +69,12 @@ Transform:
   m_GameObject: {fileID: 1274148144918918901}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19, y: -5, z: 0}
+  m_LocalPosition: {x: -17, y: -5, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2279939180156143571}
+  - {fileID: 2698763906852963264}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4670151574717188655
@@ -116,12 +118,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: -1250548452, guid: 7b3551c6a7081a44eb8c2a9bf50eec5d, type: 3}
+  m_Sprite: {fileID: -2086025217, guid: b7033e875415dbb4ba4c9c1e3dab991b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.31}
+  m_Size: {x: 6.34, y: 6.62}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -154,30 +156,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7747024443398431810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274148144918918901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf7298e1288d3814badecccae5c0ec48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcName: Hadwin Mitchell (Wizard)
-  dialogueLines:
-  - '[T] My book is missing! Someone stole it from my chest last night!!!
-
-'
-  - "[L] I was home all night!! There\u2019s no way someone stole it.\r\n"
-  - '[T] Those spells in the book are dangerous. They can be triggered just by speaking
-    the words.
-
-
-
-'
 --- !u!61 &2094843647503842778
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -210,19 +188,40 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.001841411, y: -0.1338101}
+  m_Offset: {x: -0.0012275502, y: -0.094526395}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.16, y: 0.31}
+    newSize: {x: 6.34, y: 6.62}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.12846602, y: 0.04078216}
+  m_Size: {x: 0.12478332, y: 0.03832695}
   m_EdgeRadius: 0
+--- !u!114 &3539977013182107140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274148144918918901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf7298e1288d3814badecccae5c0ec48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Adeline Burton (Farmer's Daughter)
+  dialogueLines:
+  - "[T] I saw Weston over by the lake reading a book really early this morning when
+    I was running errands for Dad. He looked funny. Like he was talking to the lake
+    or something!!\r"
+  - '[T] Dad is always always so busy! Never has time to do anything fun anymore.
+    I have to find ways to have fun without him. '
+  - "[L] Whatever. I\u2019ve been going to Hadwin\u2019s and he has been teaching
+    me some magic. Abracadabra! "
 --- !u!114 &1206742537773006156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 367217646
+  GlobalObjectIdHash: 134927776
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -288,7 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TransitionStateInfoList: []
-  m_Animator: {fileID: 738380750543101518}
+  m_Animator: {fileID: 950776779663999051}
 --- !u!114 &6269544432781698125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d7c879794dfda4687da0e400131852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &738380750543101518
+--- !u!95 &950776779663999051
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -311,7 +310,7 @@ Animator:
   m_GameObject: {fileID: 1274148144918918901}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a627128abe15b794c8655bf92949e10e, type: 2}
+  m_Controller: {fileID: 9100000, guid: bb87c07657372294e9eb474018f9b775, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -322,7 +321,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-7415606733240220363
+--- !u!114 &-3864752852227472321
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -334,21 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9caeddcce148a415ba5ad94ed3ccfc98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-2756753107088729077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274148144918918901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f37feb62b801604399566bc3038e80a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  animator: {fileID: 738380750543101518}
---- !u!114 &-2942977955835968304
+--- !u!114 &4520024464095396779
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -364,6 +349,116 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &-5627016521062384483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274148144918918901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f37feb62b801604399566bc3038e80a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  animator: {fileID: 950776779663999051}
+--- !u!114 &9136589870904870694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274148144918918901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3192518f6a0772742ba5571145098685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 2359373648053129983}
+--- !u!1 &4886115091230261087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2698763906852963264}
+  - component: {fileID: 2359373648053129983}
+  m_Layer: 3
+  m_Name: PlayerCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2698763906852963264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4886115091230261087}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6144481852531029297}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &2359373648053129983
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4886115091230261087}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &5154053815875224403
 GameObject:
   m_ObjectHideFlags: 0
