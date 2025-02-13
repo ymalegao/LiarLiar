@@ -1,8 +1,11 @@
 using UnityEngine;
 using TMPro;
 
-public class WoodGameManager : MonoBehaviour
+public class WoodGameManager : MonoBehaviour, MinigameManager
 {
+
+  public GameObject GameCanvas { get; set; }
+
   public static WoodGameManager Instance;
 
   [Header("Game Settings")]
@@ -76,7 +79,7 @@ public class WoodGameManager : MonoBehaviour
     }
   }
 
-  private void UpdateUI()
+  public void UpdateUI()
   {
     scoreText.text = "Score: " + score;
     timerText.text = "Time: " + Mathf.CeilToInt(timer);

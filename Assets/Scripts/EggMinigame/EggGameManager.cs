@@ -2,8 +2,11 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 
-public class EggGameManager : MonoBehaviour
+public class EggGameManager : MonoBehaviour, MinigameManager
 {
+
+  public GameObject GameCanvas { get; set; }
+
   public static EggGameManager Instance;
 
   [Header("Game Settings")]
@@ -73,7 +76,7 @@ public class EggGameManager : MonoBehaviour
     }
   }
 
-  private void UpdateUI()
+  public void UpdateUI()
   {
     scoreText.text = "Score: " + score;
     timerText.text = "Time: " + Mathf.CeilToInt(timer);
@@ -98,7 +101,7 @@ public class EggGameManager : MonoBehaviour
     return score;
   }
 
-  private void EndGame()
+  public void EndGame()
   {
     gameActive = false;
     miniGameCanvas.SetActive(false);

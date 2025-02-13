@@ -5,28 +5,30 @@ using UnityEngine;
 
 public class TaskManager : MonoBehaviour
 {
+
+
+  public GameObject fishingManager;
+  public GameObject woodManager;
+  public GameObject eggManager;
+    
   //List of Tasks in the game. Add and modify this dictionary to create and edit tasks.
   //public GameObject ...; for atri        
-  public Dictionary<string, GameTask> tasks = new Dictionary<string, GameTask>(){
-        {"fish", new GameTask("fish", null,new Vector2(0f,0f))},
-        {"blacksmith", new GameTask("blacksmith", null,new Vector2(-10f,5f))}
-    };
+  public Dictionary<string, GameTask> tasks;
   private void Awake()
   {
-
+    tasks = new Dictionary<string, GameTask>(){
+        {"fish", new GameTask("fish", fishingManager, new Vector2(0f,0f))},
+        {"wood", new GameTask("wood", woodManager, new Vector2(-10f,5f))},
+        {"egg", new GameTask("egg", eggManager, new Vector2(-10f,5f))}
+    };
   }
 
   void Start()
   {
-    tasks["fish"].canvas = GameObject.Find("FishCanvas");
-    tasks["blacksmith"].canvas = GameObject.Find("FishCanvas");
-
-    /*
-      //Disable all canvas objects.
+      //Disable all gameManager objects.
       foreach( KeyValuePair<string, GameTask> task in  tasks ){
-          task.Value.canvas.SetActive(false);
+          task.Value.gameManager.SetActive(false);
       }
-    */
   }
 
 
@@ -60,10 +62,10 @@ public class TaskManager : MonoBehaviour
 
         if (task.isActive)
         {
-          //Spawn Minigame Canvas
-          if (!task.canvas.activeSelf)
+          //Spawn Minigame gameManager
+          if (!task.gameManager.activeSelf)
           {
-            task.canvas.SetActive(true);
+            task.gameManager.SetActive(true);
           }
 
           task.taskTimer += Time.deltaTime;
@@ -73,9 +75,9 @@ public class TaskManager : MonoBehaviour
             Debug.Log($"Task completed at {task.position} by {name}");
             task.taskTimer = 0f;
             task.isActive = false; // Reset flag after completion
-            if (task.canvas.activeSelf)
+            if (task.gameManager.activeSelf)
             {
-              task.canvas.SetActive(false);
+              task.gameManager.SetActive(false);
             }
           }
         }
@@ -89,17 +91,18 @@ public class TaskManager : MonoBehaviour
     }
   }
 
-  // void OnDrawGizmos()
-  // {
-  //     // Visualize task locations in the editor
-  //     tasks = new Dictionary<string, GameTask>(){
-  //         {"fish", new GameTask("fish", GameObject.Find("FishCanvas"),new Vector2(0f,0f))},
-  //         {"blacksmith", new GameTask("blacksmith", GameObject.Find("FishCanvas"),new Vector2(-10f,5f))}
-  //     };
-  //     Gizmos.color = Color.green;
-  //     foreach (var (name,task) in tasks)
-  //     {
-  //         Gizmos.DrawWireSphere(task.position, task.completionRadius);
-  //     }
-  // }
+  void OnDrawGizmos()
+  {
+        tasks = new Dictionary<string, GameTask>(){
+        {"fish", new GameTask("fish", fishingManager, new Vector2(0f,0f))},
+        {"wood", new GameTask("wood",  woodManager, new Vector2(-10f,5f))},
+        {"egg", new GameTask("egg", eggManager, new Vector2(-10f,5f))}
+    };
+      // Visualize task locations in the editor
+      Gizmos.color = Color.green;
+      foreach (var (name,task) in tasks)
+      {
+          Gizmos.DrawWireSphere(task.position, task.completionRadius);
+      }
+  }
 }
