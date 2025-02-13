@@ -35,6 +35,8 @@ public class SeekerNetwork : NetworkBehaviour
 
 
   [SerializeField] private float speed = 5f;
+  [SerializeField] private Vector2 spawnPosition = new Vector2(5f, 5f);
+
   private Rigidbody2D rb;
 
   private Vector2 moveVelocity;
@@ -44,6 +46,10 @@ public class SeekerNetwork : NetworkBehaviour
   void Start()
   {
     rb = GetComponent<Rigidbody2D>();
+    if (IsOwner)
+    {
+        transform.position = spawnPosition;
+    }
 
   }
 
