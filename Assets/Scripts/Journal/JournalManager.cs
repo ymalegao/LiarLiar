@@ -1,8 +1,9 @@
-using UnityEngine;
-using UnityEngine.UI;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using TMPro;
-
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 public class JournalManager : MonoBehaviour
 {
   public static JournalManager Instance { get; private set; }
@@ -11,6 +12,7 @@ public class JournalManager : MonoBehaviour
   public GameObject journalPanel; // The main journal UI panel
   public GameObject cluesContent; // Content object under the Clues Scroll View
   public GameObject truthsContent; // Content object under the Truths Scroll View
+  public TextMeshProUGUI correctnessText;
   public GameObject journalItemPrefab; // Prefab for each journal entry
   public Button cluesTabButton; // Button to switch to the Clues tab
   public Button truthsTabButton; // Button to switch to the Truths tab
@@ -20,6 +22,7 @@ public class JournalManager : MonoBehaviour
   private List<string> generalClues = new List<string>(); // General clues not tied to NPCs
   private List<string> generalTruthsAndLies = new List<string>(); // General truths and lies
   private Dictionary<string, NPCData> npcDataMap = new Dictionary<string, NPCData>(); // NPC-specific data
+  private List<JournalItemState> journalEntries = new List<JournalItemState>();
 
   private void Awake()
   {
@@ -124,6 +127,10 @@ public class JournalManager : MonoBehaviour
 
         // Add NPC name and their Truths and Lies
         AddNPCNameAndStatements(data.Name, statements, data.Icon);
+        foreach (var (dialogue, isTruth) in statements)
+        {
+            AddStatement(dialogue, isTruth);
+        }
       }
       else
       {
@@ -151,17 +158,19 @@ public class JournalManager : MonoBehaviour
     foreach (var (dialogue, isTruth) in statements)
     {
       string formattedText = dialogue;
-      AddStatement(formattedText);
+      AddStatement(formattedText, isTruth);
     }
   }
 
   // Add a single statement to the journal
-  private void AddStatement(string statement)
-  {
-    GameObject item = Instantiate(journalItemPrefab, truthsContent.transform);
-    TMP_Text text = item.GetComponent<TMP_Text>();
-    text.text = $"- {statement}"; // Add a dash for formatting
-  }
+   private void AddStatement(string statement, bool isTruth)
+    {
+        GameObject item = Instantiate(journalItemPrefab, truthsContent.transform);
+        JournalItemState journalItem = item.GetComponent<JournalItemState>();
+        journalItem.SetText(statement, isTruth);
+        journalEntries.Add(journalItem);
+        journalItem.OnStateChanged += UpdateCorrectCount;
+    }
 
   private void UpdateGeneralCluesUI()
   {
@@ -222,4 +231,16 @@ public class JournalManager : MonoBehaviour
       Debug.LogWarning("JournalItemState component not found on the item.");
     }
   }
+  public void UpdateCorrectCount()
+    {
+        int correctCount = 0;
+        foreach (var entry in journalEntries)
+        {
+            if (entry.IsMarkedCorrectly())
+                correctCount++;
+        }
+        correctnessText.text = $"Correctly Marked: {correctCount} / {journalEntries.Count}";
+    }
+
+
 }

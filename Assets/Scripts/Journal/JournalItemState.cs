@@ -19,6 +19,14 @@ public class JournalItemState : MonoBehaviour, IPointerClickHandler
 
   public State state = State.Default;
   private TextMeshProUGUI text;
+  // Store the correct answer for this journal entry
+  public bool isCorrectlyTruth; // true = Truth, false = Lie
+  public event System.Action OnStateChanged;
+  public bool IsMarkedCorrectly()
+  {
+      return (state == State.Truth) == isCorrectlyTruth;
+  }
+
 
   // public Material outline;
 
@@ -37,41 +45,68 @@ public class JournalItemState : MonoBehaviour, IPointerClickHandler
   public void OnPointerClick(PointerEventData eventData)
   {
     cycleState();
+    
   }
 
   public void cycleState()
   {
     state = (State)(((int)state + 1) % System.Enum.GetValues(typeof(State)).Length);
     updateStateUI();
+    CheckCorrectness();
+    OnStateChanged?.Invoke();
   }
 
 
 
   public void updateStateUI()
-  {
+{
     if (text == null)
     {
-      Debug.LogError("TextMeshProUGUI component not found!");
-      return;
+        Debug.LogError("TextMeshProUGUI component not found!");
+        return;
     }
-
 
     switch (state)
     {
-      case State.Default:
-        text.color = Color.black;
-        Debug.Log("Default");
-        break;
-      case State.Lie:
-        text.color = Color.red;
-        Debug.Log("Lie");
-        break;
-      case State.Truth:
-        text.color = Color.green;
-        Debug.Log("Truth");
-        break;
+        case State.Default:
+            text.color = new Color(0, 0, 0, 1); // Force full black
+            Debug.Log("Default");
+            break;
+        case State.Lie:
+            text.color = new Color(1, 0, 0, 1); // Force full red
+            Debug.Log("Lie");
+            break;
+        case State.Truth:
+            text.color = new Color(0, 1, 0, 1); // Force full green
+            Debug.Log("Truth");
+            break;
     }
+}
 
+  private void CheckCorrectness()
+  {
+      bool playerMarkedAsTruth = (state == State.Truth);
+      if (playerMarkedAsTruth == isCorrectlyTruth)
+      {
+          Debug.Log("✅ Correct!");
+      }
+      else
+      {
+          Debug.Log("❌ Incorrect!");
+      }
+
+      // Notify the JournalManager to update the correct count
+      JournalManager.Instance.UpdateCorrectCount();
+  }
+
+  public void SetText(string textContent, bool isTruth)
+  {
+      if (text == null)
+      {
+          text = GetComponent<TextMeshProUGUI>();
+      }
+      text.text = textContent;
+      isCorrectlyTruth = isTruth;
   }
   void Update()
   {
