@@ -127,10 +127,6 @@ public class JournalManager : MonoBehaviour
 
         // Add NPC name and their Truths and Lies
         AddNPCNameAndStatements(data.Name, statements, data.Icon);
-        foreach (var (dialogue, isTruth) in statements)
-        {
-            AddStatement(dialogue, isTruth);
-        }
       }
       else
       {

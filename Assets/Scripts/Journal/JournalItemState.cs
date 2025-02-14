@@ -22,10 +22,14 @@ public class JournalItemState : MonoBehaviour, IPointerClickHandler
   // Store the correct answer for this journal entry
   public bool isCorrectlyTruth; // true = Truth, false = Lie
   public event System.Action OnStateChanged;
-  public bool IsMarkedCorrectly()
-  {
-      return (state == State.Truth) == isCorrectlyTruth;
-  }
+public bool IsMarkedCorrectly()
+{
+    if (state == State.Default)
+    {
+        return false; // Default state should never be marked correct
+    }
+    return (state == State.Truth) == isCorrectlyTruth;
+}
 
 
   // public Material outline;

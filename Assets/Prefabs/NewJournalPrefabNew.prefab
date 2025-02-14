@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 4027528839720869248}
   - component: {fileID: 5728473710666337920}
   - component: {fileID: 2835409045420487927}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: truthTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ Canvas:
   m_GameObject: {fileID: 1170633540640406726}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -333,7 +333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3828727737955103832}
   - component: {fileID: 6722414915890301313}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: cluesicon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -630,7 +630,7 @@ GameObject:
   m_Component:
   - component: {fileID: 593848625210153937}
   - component: {fileID: 5440492484829693656}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: truthIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -841,6 +841,7 @@ MonoBehaviour:
   journalPanel: {fileID: 6187010941320627848}
   cluesContent: {fileID: 8479617021260913209}
   truthsContent: {fileID: 1879835730879279656}
+  correctnessText: {fileID: 0}
   journalItemPrefab: {fileID: 6878875733853619493, guid: fcbc0d69485bb4959a0542941c79b77b, type: 3}
   cluesTabButton: {fileID: 5692934149288865764}
   truthsTabButton: {fileID: 2835409045420487927}
@@ -1511,8 +1512,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 387412261418602952}
   m_HandleRect: {fileID: 6657978181857127016}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.26179743
+  m_Value: 1.0000001
+  m_Size: 0.26179746
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1626,7 +1627,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1464401745746951450}
   - component: {fileID: 4013896606933156490}
-  m_Layer: 0
+  - component: {fileID: 4573046249321577375}
+  m_Layer: 5
   m_Name: notebook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1708,6 +1710,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!222 &4573046249321577375
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6187010941320627848}
+  m_CullTransparentMesh: 1
 --- !u!1 &6328148809029455546
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,7 +1829,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.132, y: 0.07700001}
   m_AnchorMax: {x: 0.892, y: 0.9633568}
-  m_AnchoredPosition: {x: -22, y: 8.785591}
+  m_AnchoredPosition: {x: -22, y: 8.822567}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2464121815202308486
@@ -2200,7 +2210,7 @@ GameObject:
   - component: {fileID: 1024814748985039500}
   - component: {fileID: 4430686675681541745}
   - component: {fileID: 5692934149288865764}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: cluesTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2703,8 +2713,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8911539861869267226}
   m_HandleRect: {fileID: 948101497191274574}
   m_Direction: 2
-  m_Value: 1.0000136
-  m_Size: 0.07732178
+  m_Value: 1.0000002
+  m_Size: 0.08026287
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
