@@ -1,34 +1,77 @@
-using Unity.Netcode;
 using UnityEngine;
+using Unity.Netcode;
+using System.Collections.Generic;
 
-public class NPCSpawner : NetworkBehaviour
+public class NpcSpawner : NetworkBehaviour
 {
-  [SerializeField] private GameObject[] npcPrefabs; // Array of NPC prefabs
-  [SerializeField] private Vector3[] spawnPositions; // Array of spawn positions
+    [Header("NPC Prefabs")]
+    public GameObject[] npcPrefabs; // ✅ List of NPC prefabs to spawn
 
-  public override void OnNetworkSpawn()
-  {
-    if (IsServer) // Ensure only the server spawns NPCs
+    [Header("FakeNPC to NPC Mapping")]
+    public List<FakeNPCMapping> fakeNPCMappings; // ✅ Manually map in Unity Inspector
+
+    private Dictionary<string, string> fakeNPCtoNPCMap = new Dictionary<string, string>(); // ✅ Internal dictionary
+
+    private HashSet<string> fakeNPCs = new HashSet<string>(); // ✅ Store Fake NPCs from ServerManager
+
+    private void Awake()
     {
-      SpawnNPCs();
+        // ✅ Convert the list into a Dictionary for quick lookup
+        foreach (var mapping in fakeNPCMappings)
+        {
+            fakeNPCtoNPCMap[mapping.fakeNPCName] = mapping.realNPCName;
+        }
     }
-  }
 
-  private void SpawnNPCs()
-  {
-    if (npcPrefabs.Length == 0)
+    public override void OnNetworkSpawn()
     {
-      Debug.LogError("No NPC prefabs assigned!");
-      return;
+        base.OnNetworkSpawn();
+        if (!IsServer) return; // ✅ Only the server spawns NPCs
+
+        Debug.Log("Checking which FakeNPCs are already spawned...");
+        fakeNPCs = LobbyManager.Instance.GetNpcTaken(); // ✅ Get FakeNPCs before spawning NPCs
+        Debug.Log($"👀 FakeNPCs already spawned: {string.Join(", ", fakeNPCs)}");
+
+        SpawnNPCs();
     }
 
-    for (int i = 0; i < spawnPositions.Length; i++)
+    private void SpawnNPCs()
     {
-      Debug.Log(npcPrefabs);
-      int prefabIndex = i % npcPrefabs.Length; // Ensure index is within range
-      GameObject npcInstance = Instantiate(npcPrefabs[prefabIndex], spawnPositions[i], Quaternion.identity);
+        foreach (GameObject npcPrefab in npcPrefabs)
+        {
+            string npcType = npcPrefab.name; // ✅ Get the NPC type
 
-      npcInstance.GetComponent<NetworkObject>().Spawn();
+            // ✅ Check if an NPC has a FakeNPC equivalent
+            if (fakeNPCtoNPCMap.ContainsValue(npcType) && fakeNPCs.Contains(GetFakeNPCName(npcType)))
+            {
+                Debug.Log($"❌ Skipping NPC spawn: {npcType} (FakeNPC exists)");
+                continue;
+            }
+
+            // ✅ If no FakeNPC exists, spawn the NPC
+            GameObject npc = Instantiate(npcPrefab, Vector3.zero, Quaternion.identity);
+            npc.GetComponent<NetworkObject>().Spawn();
+            Debug.Log($"✅ Spawned NPC: {npcType}");
+        }
     }
-  }
+
+    private string GetFakeNPCName(string npcName)
+    {
+        foreach (var mapping in fakeNPCtoNPCMap)
+        {
+            if (mapping.Value == npcName)
+            {
+                return mapping.Key;
+            }
+        }
+        return npcName; // Return the same if no FakeNPC mapping exists
+    }
+}
+
+// ✅ Custom Serializable Class for Mapping FakeNPC → NPC
+[System.Serializable]
+public class FakeNPCMapping
+{
+    public string fakeNPCName;
+    public string realNPCName;
 }
