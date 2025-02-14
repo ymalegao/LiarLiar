@@ -25,6 +25,7 @@ public class TaskManager : MonoBehaviour
 
   void Start()
   {
+    tasks["fish"].gameManager.SetActive(true);
       //Disable all gameManager objects.
       foreach( KeyValuePair<string, GameTask> task in  tasks ){
           task.Value.gameManager.SetActive(false);
