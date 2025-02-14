@@ -19,6 +19,9 @@ public class ServerManager : NetworkBehaviour
   public static ServerManager Instance { get; private set; }
   public NetworkVariable<ulong> seekerClientId = new NetworkVariable<ulong>();
 
+  
+  private HashSet<string> spawnedFakeNPCnames = new HashSet<string>(); // ✅ Keep track of fake NPC types
+
 
   public GameObject tempPlayerPrefab; // Temporary placeholder
   public List<GameObject> characterPrefabs; // List of all possible character prefabs
@@ -304,8 +307,14 @@ public class ServerManager : NetworkBehaviour
   // Register a Fake NPC when it's spawned
   public void RegisterFakeNPC(GameObject fakeNPC)
   {
+    string npcType = fakeNPC.name.Replace("(Clone)", "").Trim();  // Get the NPC type
     if (!spawnedFakeNPCs.Contains(fakeNPC))
     {
+      if (!spawnedFakeNPCnames.Contains(npcType))
+      {
+        spawnedFakeNPCnames.Add(npcType);
+        Debug.Log($"✅ Registered Fake NPC type: {npcType}");
+      }
       spawnedFakeNPCs.Add(fakeNPC);
       Debug.Log($"✅ Registered Fake NPC: {fakeNPC.name} | Instance ID: {fakeNPC.GetInstanceID()}");
     }
@@ -316,6 +325,18 @@ public class ServerManager : NetworkBehaviour
   {
     return new List<GameObject>(spawnedFakeNPCs);  // Return a copy of the list of spawned Fake NPCs
   }
+
+  
+  public bool IsFakeNPCSpawned(string npcType)
+    {
+        return spawnedFakeNPCnames.Contains(npcType);
+    }
+
+    // ✅ Provide a method for NpcSpawner to check before spawning
+    public HashSet<string> GetFakeNPCnames()
+    {
+        return new HashSet<string>(spawnedFakeNPCnames); // Return a copy
+    }
 
   public GameObject GetCharacterPrefab(int index)
   {

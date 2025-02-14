@@ -1668,7 +1668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6868732346154066211, guid: a9c9dd6cf8f7741e2a7a88b0e562da48, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 8.823393
+      value: 8.823306
       objectReference: {fileID: 0}
     - target: {fileID: 7665923409111578784, guid: a9c9dd6cf8f7741e2a7a88b0e562da48, type: 3}
       propertyPath: m_Pivot.x
@@ -14800,13 +14800,19 @@ MonoBehaviour:
   - {fileID: 1274148144918918901, guid: 0389f998cc4d28a448a6da4c6032f65d, type: 3}
   - {fileID: 1274148144918918901, guid: c60fb5839d8bda344a1d8c5f4c673644, type: 3}
   - {fileID: 1274148144918918901, guid: bac519af8f5dbc84b9587aaab668a7ca, type: 3}
-  spawnPositions:
-  - {x: 59.3, y: 23.5, z: 0}
-  - {x: 89.3, y: 59.7, z: 0}
-  - {x: -19.9, y: 54.1, z: 0}
-  - {x: 77.1, y: 40.9, z: 0}
-  - {x: 60.6, y: 34.7, z: 0}
-  - {x: 48.1, y: 36.1, z: 0}
+  fakeNPCMappings:
+  - fakeNPCName: fakenpcBlacksmith
+    realNPCName: npcBlacksmith
+  - fakeNPCName: fakenpcDadFarmer
+    realNPCName: npcDadFarmer
+  - fakeNPCName: fakenpcWizard
+    realNPCName: npcWizard
+  - fakeNPCName: fakenpcGirlFarmer
+    realNPCName: npcGirlFarmer
+  - fakeNPCName: fakenpcShopkeep
+    realNPCName: npcShopkeep
+  - fakeNPCName: fakenpcBaker
+    realNPCName: npcBaker
 --- !u!114 &1296637460
 MonoBehaviour:
   m_ObjectHideFlags: 0

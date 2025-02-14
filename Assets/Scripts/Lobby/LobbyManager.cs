@@ -39,6 +39,8 @@ public class LobbyManager : MonoBehaviour
   public Dictionary<ulong, string> _clientToPlayerIdMap = new Dictionary<ulong, string>();
   public Dictionary<string, string> _playerNameToPlayerIdMap = new Dictionary<string, string>();
 
+
+  public HashSet<string> npcTaken = new HashSet<string>();
   private void Awake()
   {
     if (Instance == null)
@@ -390,13 +392,38 @@ public class LobbyManager : MonoBehaviour
     }
   }
 
+  public HashSet<string> GetNpcTaken()
+  {
+    return npcTaken;
+  }
+
   private async Task AssignRolesAndSprites()
   {
     var roleAssignments = new Dictionary<string, object>();
     var players = _joinLobby.Players;
     Debug.Log("Players in lobby: " + players.Count);
+    // npcTaken.Add("fakenpcBlacksmith");
 
-    var availableSprites = new Queue<int>(Enumerable.Range(0, ServerManager.Instance.characterPrefabs.Count).OrderBy(x => _random.Next()));
+
+    var random = new System.Random();
+    var combinedList = ServerManager.Instance.characterPrefabs
+        .Select((prefab, index) => new { Prefab = prefab, SpriteIndex = index })
+        .OrderBy(x => random.Next())
+        .ToList();
+
+    var availablePrefabs = new Queue<string>(combinedList.Select(x => x.Prefab.name));
+    var availableSprites = new Queue<int>(combinedList.Select(x => x.SpriteIndex));
+
+    foreach (var item in availableSprites)
+    {
+        Debug.Log("Available sprite: " + item);
+    }
+
+    foreach (var fab in availablePrefabs)
+    {
+        Debug.Log("Available prefab: " + fab);
+    }
+
 
     var seeker = players[_random.Next(players.Count)];
     roleAssignments[seeker.Data["AuthID"].Value] = new RoleAssignment
@@ -408,13 +435,19 @@ public class LobbyManager : MonoBehaviour
     Task.Delay(1000);
     Debug.Log($"Assigned seeker role to {seeker.Id}");
 
+
     foreach (var player in players.Where(p => p.Id != seeker.Id))
     {
       Debug.Log("player is not seeker, their name is: " + player.Data["PlayerName"].Value);
+      
+      int spriteIndex = availableSprites.Count > 0 ? availableSprites.Dequeue() : _random.Next(ServerManager.Instance.characterPrefabs.Count);
+      Debug.Log("Sprite index: " + spriteIndex); 
+      npcTaken.Add(availablePrefabs.Dequeue()); 
+      
       roleAssignments[player.Data["AuthID"].Value] = new RoleAssignment
       {
         Role = FAKENPC_ROLE,
-        SpriteIndex = availableSprites.Count > 0 ? availableSprites.Dequeue() : _random.Next(ServerManager.Instance.characterPrefabs.Count)
+        SpriteIndex = spriteIndex
       };
       Debug.Log($"Assigned role to {player.Data["AuthID"].Value}");
     }
