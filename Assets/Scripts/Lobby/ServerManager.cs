@@ -22,6 +22,9 @@ public class ServerManager : NetworkBehaviour
   
   private HashSet<string> spawnedFakeNPCnames = new HashSet<string>(); // ✅ Keep track of fake NPC types
 
+  [SerializeField] private Vector2 spawnPosition = new Vector2(20f, 20f);
+
+
 
   public GameObject tempPlayerPrefab; // Temporary placeholder
   public List<GameObject> characterPrefabs; // List of all possible character prefabs
@@ -108,8 +111,8 @@ public class ServerManager : NetworkBehaviour
 
 
     // 1️⃣ Spawn a temporary player object first
-    Vector3 spawnPos = new Vector3(0f, 0f, 0f);
-    GameObject tempPlayer = Instantiate(tempPlayerPrefab, spawnPos, Quaternion.identity);
+    //Vector3 spawnPos = new Vector3(0f, 0f, 0f);
+    GameObject tempPlayer = Instantiate(tempPlayerPrefab, spawnPosition, Quaternion.identity);
     tempPlayer.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId);
     Debug.Log($"👤 Temporary player spawned for {clientId}");
 
