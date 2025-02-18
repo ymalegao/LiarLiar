@@ -964,8 +964,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 200}
-  m_SizeDelta: {x: 1200, y: 900}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 1000, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2006356485152755705
 CanvasRenderer:
@@ -1264,8 +1264,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.6532, y: -319.60577}
-  m_SizeDelta: {x: 1005.8564, y: 425.1177}
+  m_AnchoredPosition: {x: 5.6532, y: -297.2298}
+  m_SizeDelta: {x: 1005.8564, y: 469.8696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4711051584485222615
 CanvasRenderer:
@@ -1705,7 +1705,7 @@ Transform:
   m_GameObject: {fileID: 7956620096122185904}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.118591, y: -90.882126, z: -1.1055262}
+  m_LocalPosition: {x: 19.118591, y: -60, z: -1.1055262}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2032,11 +2032,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3951083004874605970, guid: 0cb79718935764943bf374d908609676, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -18.451447
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 3951083004874605970, guid: 0cb79718935764943bf374d908609676, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 12.659714
+      value: -108
       objectReference: {fileID: 0}
     - target: {fileID: 3951083004874605970, guid: 0cb79718935764943bf374d908609676, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
