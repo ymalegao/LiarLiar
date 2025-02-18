@@ -141,7 +141,7 @@ public class JournalManager : MonoBehaviour
     // Add the NPC name as a header
     GameObject nameItem = Instantiate(journalItemPrefab, truthsContent.transform);
     TMP_Text nameText = nameItem.GetComponent<TMP_Text>();
-    nameText.text = npcName;
+    nameText.text = npcName; 
 
     // Add icon for NPC (optional)
     Image iconImage = nameItem.transform.Find("Icon")?.GetComponent<Image>();
