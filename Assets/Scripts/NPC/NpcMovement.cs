@@ -79,10 +79,13 @@ public class NpcMovement : MonoBehaviour
     }
 
     currentPointIndex = randomIndex;
-    // Debug.Log("Current Point Index: " + currentPointIndex);
+        // Debug.Log("Current Point Index: " + currentPointIndex);
 
-    // Set the destination
-    agent.SetDestination(points[currentPointIndex].position);
+        // Set the destination
+
+        Debug.Log($"{gameObject.name} moving to waypoint {currentPointIndex}: {points[currentPointIndex].position}");
+
+        agent.SetDestination(points[currentPointIndex].position);
   }
 
   public void StopMovement()

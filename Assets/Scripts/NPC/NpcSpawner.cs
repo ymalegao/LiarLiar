@@ -7,6 +7,9 @@ public class NpcSpawner : NetworkBehaviour
     [Header("NPC Prefabs")]
     public GameObject[] npcPrefabs; // ✅ List of NPC prefabs to spawn
 
+    [Header("Waypoint Groups")]
+    public List<Transform> waypointGroups; // List of waypoint groups (each group is a parent GameObject with waypoints as children)
+
     [Header("FakeNPC to NPC Mapping")]
     public List<FakeNPCMapping> fakeNPCMappings; // ✅ Manually map in Unity Inspector
 
@@ -37,6 +40,8 @@ public class NpcSpawner : NetworkBehaviour
 
     private void SpawnNPCs()
     {
+        int i = 0; // Initialize the index variable
+
         foreach (GameObject npcPrefab in npcPrefabs)
         {
             string npcType = npcPrefab.name; // ✅ Get the NPC type
@@ -52,6 +57,28 @@ public class NpcSpawner : NetworkBehaviour
             GameObject npc = Instantiate(npcPrefab, Vector3.zero, Quaternion.identity);
             npc.GetComponent<NetworkObject>().Spawn();
             Debug.Log($"✅ Spawned NPC: {npcType}");
+
+            // Assign waypoints to NPC
+            NpcMovement npcMovement = npc.GetComponent<NpcMovement>();
+            if (npcMovement != null && waypointGroups.Count > 0)
+            {
+                // Assign a waypoint group to the NPC (e.g., based on index or randomly)
+                int waypointGroupIndex = i % waypointGroups.Count; // Cycle through waypoint groups
+                Transform waypointGroup = waypointGroups[waypointGroupIndex];
+
+                // Get all waypoints under the selected group
+                List<Transform> waypoints = new List<Transform>();
+                foreach (Transform child in waypointGroup)
+                {
+                    waypoints.Add(child);
+                }
+
+                // Assign the waypoints to the NPC
+                npcMovement.SetWaypoints(waypoints.ToArray());
+            }
+
+            i++; // Increment the index for the next NPC
+
         }
     }
 
