@@ -5,14 +5,14 @@ using UnityEngine;
 public class FishingManager : MonoBehaviour, MinigameManager
 {
     public GameObject GameCanvas { get; set; }
-    [SerializeField] private RectTransform fishingHookUI;
-
-    private RectTransform canvasRect;
+    private RectTransform canvasTransform;
+    Vector2 canvasSize;
 
     private void Awake()
     {
         GameCanvas = GameObject.Find("FishCanvas");
-        canvasRect = GameCanvas.GetComponent<RectTransform>();
+        canvasTransform = GameCanvas.GetComponent<RectTransform>();
+        canvasSize = canvasTransform.rect.size;
     }
 
     private void OnEnable()
@@ -50,22 +50,6 @@ public class FishingManager : MonoBehaviour, MinigameManager
 
     private void Update()
     {
-        MoveFishingHookUI();
     }
 
-    private void MoveFishingHookUI()
-    {
-        if (fishingHookUI == null || canvasRect == null) return;
-
-        // Get mouse position in screen space
-        Vector2 mousePosition = Input.mousePosition;
-
-        // Convert screen position to UI Canvas local position
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            canvasRect, mousePosition, null, out Vector2 localPoint
-        );
-
-        // Apply the position to the UI hook
-        fishingHookUI.anchoredPosition = localPoint;
-    }
 }
