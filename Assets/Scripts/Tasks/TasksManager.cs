@@ -35,9 +35,11 @@ public class TaskManager : MonoBehaviour
   // Assign tasks to players
   public GameTask AssignTaskToPlayer()
   {
-    int randomIndex = Random.Range(0, tasks.Count);
-    Debug.Log("Task assigned to player  " + tasks.ElementAt(randomIndex));
-    return (tasks.ElementAt(randomIndex).Value); //return random task
+    // int randomIndex = Random.Range(0, tasks.Count);
+    // Debug.Log("Task assigned to player  " + tasks.ElementAt(randomIndex));
+    // return (tasks.ElementAt(randomIndex).Value); //return random task
+    return (tasks["fish"]);
+
   }
 
   void Update()
