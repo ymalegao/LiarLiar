@@ -3,9 +3,7 @@ using TMPro;
 
 public class WoodGameManager : MonoBehaviour, MinigameManager
 {
-
   public GameObject GameCanvas { get; set; }
-
   public static WoodGameManager Instance;
 
   [Header("Game Settings")]
@@ -19,13 +17,11 @@ public class WoodGameManager : MonoBehaviour, MinigameManager
   public GameObject failurePanel;
   public GameObject victoryPanel;
   public GameObject instructionsPanel;
-
   public GameObject overallGameCanvas;
 
   [Header("Gameplay Elements")]
   public Transform axe;
   public float axeSpeed = 5f;
-
   private int score = 0;
   private bool gameActive = false;
 
@@ -45,7 +41,6 @@ public class WoodGameManager : MonoBehaviour, MinigameManager
     failurePanel.SetActive(false);
     victoryPanel.SetActive(false);
   }
-
 
   public void StartGame()
   {
@@ -67,6 +62,12 @@ public class WoodGameManager : MonoBehaviour, MinigameManager
     float moveInput = Input.GetAxis("Horizontal");
     axe.position += Vector3.right * moveInput * axeSpeed * Time.deltaTime;
 
+    // Axe chopping mechanic
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+      ChopWood();
+    }
+
     // Update Timer
     if (timer > 0)
     {
@@ -77,6 +78,17 @@ public class WoodGameManager : MonoBehaviour, MinigameManager
     {
       EndGame();
     }
+  }
+
+  private void ChopWood()
+  {
+    axe.position += Vector3.down * 0.2f; // Simulate axe chop
+    Invoke(nameof(ResetAxe), 0.1f);
+  }
+
+  private void ResetAxe()
+  {
+    axe.position += Vector3.up * 0.2f; // Reset axe position
   }
 
   public void UpdateUI()
@@ -108,7 +120,6 @@ public class WoodGameManager : MonoBehaviour, MinigameManager
     miniGameCanvas.SetActive(false);
     WoodSpawner.Instance.EndMiniGame();
     overallGameCanvas.SetActive(false);
-
   }
 
   public void ResetState()

@@ -75,3 +75,6 @@ crashlytics-build.properties
 
 # Settings
 /.vscode/settings.json
+
+# Exclude specific meta file
+Assets/Prefabs/WoodChopGamePrefabs.meta
