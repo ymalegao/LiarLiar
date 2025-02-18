@@ -7,12 +7,13 @@ public class FishingManager : MonoBehaviour, MinigameManager
     public GameObject GameCanvas { get; set; }
     private RectTransform canvasTransform;
     Vector2 canvasSize;
+    public GameObject MinigameCanvasParent;
 
     private void Awake()
     {
-        GameCanvas = GameObject.Find("FishCanvas");
-        canvasTransform = GameCanvas.GetComponent<RectTransform>();
-        canvasSize = canvasTransform.rect.size;
+        GameCanvas = MinigameCanvasParent.transform.Find("FishCanvas").gameObject;;
+        // canvasTransform = GameCanvas.GetComponent<RectTransform>();
+        // canvasSize = canvasTransform.rect.size;
     }
 
     private void OnEnable()
@@ -20,22 +21,21 @@ public class FishingManager : MonoBehaviour, MinigameManager
         StartGame();
     }
 
+    private void OnDisable(){
+        EndGame();
+    }
+
     public void StartGame()
     {
         Debug.Log("Fishing minigame started!");
-        if (GameCanvas != null)
-        {
-            GameCanvas.gameObject.SetActive(true);
-        }
+        GameCanvas.gameObject.SetActive(true);
     }
 
     public void EndGame()
     {
         Debug.Log("Fishing minigame ended!");
-        if (GameCanvas != null)
-        {
-            GameCanvas.gameObject.SetActive(false);
-        }
+        GameCanvas.gameObject.SetActive(false);
+
     }
 
     public void UpdateUI()
