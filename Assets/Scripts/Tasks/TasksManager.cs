@@ -17,9 +17,9 @@ public class TaskManager : MonoBehaviour
   private void Awake()
   {
     tasks = new Dictionary<string, GameTask>(){
-        {"fish", new GameTask("fish", fishingManager, new Vector2(0f,0f))},
-        {"wood", new GameTask("wood", woodManager, new Vector2(-10f,5f))},
-        {"egg", new GameTask("egg", eggManager, new Vector2(-10f,5f))}
+        {"fish", new GameTask("fish", fishingManager, new Vector2(4f,10f))},
+        {"wood", new GameTask("wood", woodManager, new Vector2(-11f,33f))},
+        {"egg", new GameTask("egg", eggManager, new Vector2(90f,60f))}
     };
   }
 
@@ -94,9 +94,9 @@ public class TaskManager : MonoBehaviour
   void OnDrawGizmos()
   {
         tasks = new Dictionary<string, GameTask>(){
-        {"fish", new GameTask("fish", fishingManager, new Vector2(0f,0f))},
-        {"wood", new GameTask("wood",  woodManager, new Vector2(-10f,5f))},
-        {"egg", new GameTask("egg", eggManager, new Vector2(-10f,5f))}
+        {"fish", new GameTask("fish", fishingManager, new Vector2(4f,10f))},
+        {"wood", new GameTask("wood",  woodManager, new Vector2(-11f,33f))},
+        {"egg", new GameTask("egg", eggManager, new Vector2(90f,60f))}
     };
       // Visualize task locations in the editor
       Gizmos.color = Color.green;

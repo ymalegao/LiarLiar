@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 4848053356585163661}
   - component: {fileID: 8303181372692782067}
   - component: {fileID: 8346403653836566246}
+  - component: {fileID: 3739157103676825822}
   m_Layer: 0
   m_Name: Seeker
   m_TagString: Untagged
@@ -369,6 +370,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1926811667236981853}
+--- !u!114 &3739157103676825822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364883654379630471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac266e39d3d54f6fbcc8bc0641448b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jobName: 
+  assignedTask:
+    name: 
+    gameManager: {fileID: 0}
+    position: {x: 0, y: 0}
+    completionRadius: 0
+    completionTime: 0
+    isCompleted: 0
+    taskTimer: 0
+    isActive: 0
+  TM: {fileID: 0}
 --- !u!1 &5158193424038937431
 GameObject:
   m_ObjectHideFlags: 0

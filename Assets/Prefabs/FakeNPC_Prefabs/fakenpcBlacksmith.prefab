@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: -6981450522663451334}
   - component: {fileID: 4858104051927070728}
   - component: {fileID: 1816092181121054028}
+  - component: {fileID: 2215568226067580286}
   m_Layer: 3
   m_Name: fakenpcBlacksmith
   m_TagString: Untagged
@@ -374,6 +375,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 8011796055294023663}
+--- !u!114 &2215568226067580286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274148144918918901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac266e39d3d54f6fbcc8bc0641448b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jobName: 
+  assignedTask:
+    name: 
+    gameManager: {fileID: 0}
+    position: {x: 0, y: 0}
+    completionRadius: 0
+    completionTime: 0
+    isCompleted: 0
+    taskTimer: 0
+    isActive: 0
+  TM: {fileID: 0}
 --- !u!1 &5154053815875224403
 GameObject:
   m_ObjectHideFlags: 0

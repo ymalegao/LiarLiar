@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 4520024464095396779}
   - component: {fileID: -5627016521062384483}
   - component: {fileID: 9136589870904870694}
+  - component: {fileID: 3105763719833656811}
   m_Layer: 3
   m_Name: fakenpcGirlFarmer
   m_TagString: Untagged
@@ -376,6 +377,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 2359373648053129983}
+--- !u!114 &3105763719833656811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274148144918918901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac266e39d3d54f6fbcc8bc0641448b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jobName: 
+  assignedTask:
+    name: 
+    gameManager: {fileID: 0}
+    position: {x: 0, y: 0}
+    completionRadius: 0
+    completionTime: 0
+    isCompleted: 0
+    taskTimer: 0
+    isActive: 0
+  TM: {fileID: 0}
 --- !u!1 &4886115091230261087
 GameObject:
   m_ObjectHideFlags: 0
