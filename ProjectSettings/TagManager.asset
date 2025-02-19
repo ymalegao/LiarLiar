@@ -9,6 +9,7 @@ TagManager:
   - Basket
   - Ground
   - Obstackle
+  - Fish
   layers:
   - Default
   - TransparentFX
