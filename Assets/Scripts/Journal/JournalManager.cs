@@ -18,6 +18,10 @@ public class JournalManager : MonoBehaviour
   public Button truthsTabButton; // Button to switch to the Truths tab
   public Button toggleJournalButton; // Button to open/close the journal (optional)
 
+  public GameObject[] finalCluePrefabs; // Array of final clue prefabs
+  public Transform[] clueSpawnLocations; // Array of locations for each clue
+  private bool finalCluesSpawned = false;
+
   [Header("Journal Data")]
   private List<string> generalClues = new List<string>(); // General clues not tied to NPCs
   private List<string> generalTruthsAndLies = new List<string>(); // General truths and lies
@@ -236,7 +240,35 @@ public class JournalManager : MonoBehaviour
                 correctCount++;
         }
         correctnessText.text = $"Correctly Marked: {correctCount} / 24";
+        if (correctCount >= 3 && !finalCluesSpawned)
+        {
+            SpawnFinalClues();
+        }
     }
+
+  private void SpawnFinalClues()
+  {
+      if (finalCluePrefabs.Length != clueSpawnLocations.Length)
+      {
+          Debug.LogError("Mismatch between final clue prefabs and spawn locations.");
+          return;
+      }
+
+      for (int i = 0; i < finalCluePrefabs.Length; i++)
+      {
+          if (finalCluePrefabs[i] != null && clueSpawnLocations[i] != null)
+          {
+              Instantiate(finalCluePrefabs[i], clueSpawnLocations[i].position, Quaternion.identity);
+          }
+          else
+          {
+              Debug.LogError($"Missing prefab or spawn location for clue {i + 1}.");
+          }
+      }
+
+      finalCluesSpawned = true; // Ensure they only spawn once
+  }
+
 
 
 }
