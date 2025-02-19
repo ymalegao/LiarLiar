@@ -57,9 +57,13 @@ public class SeekerNetwork : NetworkBehaviour
   {
     if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive)
     {
-      rb.velocity = Vector2.zero; // Stop movement
-      return; // Skip movement logic
+       moveVelocity = Vector2.zero; // Reset movement input
+       rb.velocity = Vector2.zero;  // Ensure movement stops
+            animator.SetFloat("npc_speed", 0f);
+            Debug.Log("Dialogue is active");
+        return; // Skip movement logic
     }
+
     if (Input.GetKeyDown(KeyCode.Space))
     {
       randomNumber.Value = Random.Range(1, 100);

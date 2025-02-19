@@ -9,9 +9,15 @@ public class NPC : MonoBehaviour, IInteractable
 
   private NpcMovement npcMovement;
 
-  private void Start()
+    private Animator animator;
+
+
+    private void Start()
   {
     npcMovement = GetComponent<NpcMovement>();
+
+    animator = GetComponent<Animator>(); // Ensure animator is assigned
+
     if (string.IsNullOrEmpty(npcName))
     {
       Debug.LogError($"NPC on {gameObject.name} has no name set!");
@@ -44,8 +50,14 @@ public class NPC : MonoBehaviour, IInteractable
       npcMovement.StopMovement();
     }
 
-    // Start dialogue and pass the NPC's name
-    DialogueManager.Instance.StartDialogue(npcName, dialogueLines);
+
+    if (animator != null)
+    {
+       animator.SetFloat("npc_speed", 0f);
+    }
+
+        // Start dialogue and pass the NPC's name
+        DialogueManager.Instance.StartDialogue(npcName, dialogueLines);
 
     // Subscribe to DialogueManager's OnDialogueEnd event
     DialogueManager.Instance.OnDialogueEnd += HandleDialogueEnd;
