@@ -29,7 +29,6 @@ public class TaskManager : MonoBehaviour
       foreach( KeyValuePair<string, GameTask> task in  tasks ){
           task.Value.gameManager.SetActive(false);
       }
-    tasks["fish"].gameManager.SetActive(true);
   }
 
 
