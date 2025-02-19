@@ -565,7 +565,7 @@ PrefabInstance:
     - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
       propertyPath: seekerPrefab
       value: 
-      objectReference: {fileID: 1364883654379630471, guid: b04f7d5850735324298a428cf6028a01, type: 3}
+      objectReference: {fileID: 1364883654379630471, guid: 9f5a17a8e2ed690438386254d3613c1c, type: 3}
     - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
       propertyPath: spawnPosition.x
       value: 35
@@ -581,7 +581,7 @@ PrefabInstance:
     - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
       propertyPath: characterPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 1364883654379630471, guid: b04f7d5850735324298a428cf6028a01, type: 3}
+      objectReference: {fileID: 1364883654379630471, guid: 9f5a17a8e2ed690438386254d3613c1c, type: 3}
     - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
       propertyPath: characterPrefabs.Array.data[1]
       value: 

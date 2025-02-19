@@ -235,7 +235,7 @@ public class JournalManager : MonoBehaviour
             if (entry.IsMarkedCorrectly())
                 correctCount++;
         }
-        correctnessText.text = $"Correctly Marked: {correctCount} / {journalEntries.Count}";
+        correctnessText.text = $"Correctly Marked: {correctCount} / 24";
     }
 
 

@@ -8,7 +8,7 @@ public class NpcMovement : MonoBehaviour
 
   //[SerializeField] private Transform target;
 
-  [SerializeField] private Transform[] points;
+  private Transform[] points;
   [SerializeField] private float destPoint = 1.0f;
 
   private NavMeshAgent agent;
