@@ -9,11 +9,13 @@ public class FishingManager : MonoBehaviour, MinigameManager
 
     private RectTransform canvasTransform;
     Vector2 canvasSize;
+    public GameObject MinigameCanvasParent;
     [SerializeField] private GameObject fishPrefab;
     [SerializeField] private float spawnInterval = 2f;
 
     private void Awake()
     {
+        GameCanvas = MinigameCanvasParent.transform.Find("FishCanvas").gameObject;;
         GameCanvas = GameObject.Find("FishCanvas");
         canvasTransform = GameCanvas.GetComponent<RectTransform>();
         canvasSize = canvasTransform.rect.size;
@@ -23,6 +25,7 @@ public class FishingManager : MonoBehaviour, MinigameManager
     {
         StartGame();
     }
+
 
     private void OnDisable(){
         EndGame();
