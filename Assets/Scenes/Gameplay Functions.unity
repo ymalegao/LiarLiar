@@ -2783,7 +2783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6868732346154066211, guid: a9c9dd6cf8f7741e2a7a88b0e562da48, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 8.823288
+      value: 8.823273
       objectReference: {fileID: 0}
     - target: {fileID: 7204060396248183033, guid: a9c9dd6cf8f7741e2a7a88b0e562da48, type: 3}
       propertyPath: m_Size
@@ -17079,7 +17079,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Select the fake NPC!
+  m_text: Guess the Spell Caster!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17416,6 +17416,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TImothy's bottles
       objectReference: {fileID: 0}
+    - target: {fileID: 6650895686918146846, guid: 96e227b6e31ff7947bc6028afa6cb3c7, type: 3}
+      propertyPath: clueUIPrompt
+      value: 
+      objectReference: {fileID: 316136538194917986, guid: fef32e5d95bc5994c82acc12b4846e8c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
