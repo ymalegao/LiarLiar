@@ -26,9 +26,9 @@ public class TaskManager : MonoBehaviour
   void Start()
   {
       //Disable all gameManager objects.
-      foreach( KeyValuePair<string, GameTask> task in  tasks ){
-          task.Value.gameManager.SetActive(false);
-      }
+    //   foreach( KeyValuePair<string, GameTask> task in  tasks ){
+    //       task.Value.gameManager.SetActive(false);
+    //   }
   }
 
 
