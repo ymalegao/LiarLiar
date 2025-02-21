@@ -11,6 +11,7 @@ public class NPCManager : MonoBehaviour
     if (Instance == null)
     {
       Instance = this;
+      DontDestroyOnLoad(gameObject);
     }
     else
     {
@@ -20,20 +21,31 @@ public class NPCManager : MonoBehaviour
 
   public void RegisterNPC(GameObject npc)
   {
-    Debug.Log("yo adding this npc to our list " + npc);
+    if (npc == null)
+    {
+      Debug.LogError("Attempted to register null NPC");
+      return;
+    }
+
     if (!allNPCs.Contains(npc))
     {
       allNPCs.Add(npc);
-      Debug.Log("added npc");
-      for (int i = 0; i < allNPCs.Count; i++)
-      {
-        Debug.Log("npc " + allNPCs[i]);
-      }
+      Debug.Log($"Registered NPC: {npc.name} | Total NPCs: {allNPCs.Count}");
     }
   }
 
   public List<GameObject> GetAllNPCs()
   {
-    return allNPCs;
+    if (allNPCs.Count == 0)
+    {
+      Debug.LogWarning("GetAllNPCs called but no NPCs are registered!");
+    }
+    return new List<GameObject>(allNPCs);
+  }
+
+  public void ClearNPCs()
+  {
+    allNPCs.Clear();
+    Debug.Log("Cleared all registered NPCs");
   }
 }

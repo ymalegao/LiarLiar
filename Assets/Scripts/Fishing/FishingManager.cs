@@ -16,7 +16,6 @@ public class FishingManager : MonoBehaviour, MinigameManager
     private void Awake()
     {
         GameCanvas = MinigameCanvasParent.transform.Find("FishCanvas").gameObject;;
-        GameCanvas = GameObject.Find("FishCanvas");
         canvasTransform = GameCanvas.GetComponent<RectTransform>();
         canvasSize = canvasTransform.rect.size;
     }
@@ -44,20 +43,13 @@ public class FishingManager : MonoBehaviour, MinigameManager
     public void EndGame()
     {
         Debug.Log("Fishing minigame ended!");
+
         if (GameCanvas != null)
         {
             GameCanvas.gameObject.SetActive(false);
         }
         StopAllCoroutines();
 
-        // Remove all fish from the game when ending
-        foreach (Transform child in canvasTransform)
-        {
-            if (child.CompareTag("Fish"))
-            {
-                Destroy(child.gameObject);
-            }
-        }
     }
 
     public void UpdateUI()

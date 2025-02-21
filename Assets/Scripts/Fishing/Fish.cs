@@ -7,14 +7,10 @@ public class Fish : MonoBehaviour
     private RectTransform rectTransform;
     private float speed;
 
-    public void Initialize()
-    {
-        speed = Random.Range(100,200);
-    }
-
     private void Awake()
     {
         rectTransform = this.GetComponent<RectTransform>();
+        speed = Random.Range(100,200);
     }
 
     private void Update()
@@ -22,7 +18,6 @@ public class Fish : MonoBehaviour
 
         // Move fish to the left
         rectTransform.anchoredPosition += Vector2.left * speed * Time.deltaTime;
-
         // Destroy fish when it leaves the screen
         if (rectTransform.anchoredPosition.x < -Screen.width / 2)
         {

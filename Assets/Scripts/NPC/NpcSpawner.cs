@@ -7,6 +7,9 @@ public class NpcSpawner : NetworkBehaviour
     [Header("NPC Prefabs")]
     public GameObject[] npcPrefabs; // ✅ List of NPC prefabs to spawn
 
+    [Header("NPC Spawn Points")]
+    public List<Transform> npcSpawnPoints; // ✅ List of spawn points
+
     [Header("Waypoint Groups")]
     public List<Transform> waypointGroups; // List of waypoint groups (each group is a parent GameObject with waypoints as children)
 
@@ -53,8 +56,13 @@ public class NpcSpawner : NetworkBehaviour
                 continue;
             }
 
+
+            // ✅ Get a spawn position
+            Vector3 spawnPosition = npcSpawnPoints.Count > 0 ?
+                npcSpawnPoints[i % npcSpawnPoints.Count].position : Vector3.zero;
+
             // ✅ If no FakeNPC exists, spawn the NPC
-            GameObject npc = Instantiate(npcPrefab, Vector3.zero, Quaternion.identity);
+            GameObject npc = Instantiate(npcPrefab, spawnPosition, Quaternion.identity);
             npc.GetComponent<NetworkObject>().Spawn();
             Debug.Log($"✅ Spawned NPC: {npcType}");
 
