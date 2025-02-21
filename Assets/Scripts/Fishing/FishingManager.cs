@@ -73,11 +73,10 @@ public class FishingManager : MonoBehaviour, MinigameManager
 
         Vector2 mousePosition = Input.mousePosition;
 
-        Camera cam = GameCanvas.GetComponent<Canvas>().worldCamera; 
 
         // Convert screen position to UI Canvas local position
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            canvasTransform, mousePosition, cam, out Vector2 localPoint
+            canvasTransform, mousePosition, null, out Vector2 localPoint
         );
 
         // Clamp the bait position inside the canvas bounds

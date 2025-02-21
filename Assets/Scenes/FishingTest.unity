@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1002638164732482026, guid: 3929b35b420924c6fb9df3ca6d97e751, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2182054910230610522, guid: 3929b35b420924c6fb9df3ca6d97e751, type: 3}
       propertyPath: m_LocalPosition.x
@@ -348,7 +348,7 @@ PrefabInstance:
     - target: {fileID: 6232035873097234960, guid: 0de4925c3178c42d2a04edc5228488eb, type: 3}
       propertyPath: eggManager
       value: 
-      objectReference: {fileID: 7922855584822673600, guid: a6e8b9547eca54a3ab30657e11a42b7b, type: 3}
+      objectReference: {fileID: 8883077317323794718, guid: b80a87dd2d7ef40cf9d1846af9a34146, type: 3}
     - target: {fileID: 6232035873097234960, guid: 0de4925c3178c42d2a04edc5228488eb, type: 3}
       propertyPath: woodManager
       value: 
