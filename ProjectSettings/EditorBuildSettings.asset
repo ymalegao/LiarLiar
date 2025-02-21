@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MultiVideo.unity
     guid: fa10d9d712b2279449f4cdfce48557d1
   - enabled: 1
+    path: Assets/Scenes/Title Screen.unity
+    guid: d3a1525f707439e41a42c883b8c98964
+  - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: 0be8992f580ef93489612bb3d8ef3734
   - enabled: 1
@@ -35,4 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/End Game.unity
     guid: baf89940a20ae80419b83125ba0d0d50
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: d189814b4f43fff4abba1d009cc2c19e
+  - enabled: 1
+    path: Assets/Scenes/How To Play.unity
+    guid: e3b7aec3351a1db45ab355f392dc08ce
   m_configObjects: {}

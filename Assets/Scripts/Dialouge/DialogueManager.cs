@@ -22,6 +22,8 @@ public class DialogueManager : MonoBehaviour
 
   private void Awake()
   {
+    dialoguePanel.SetActive(false);
+    IsDialogueActive = false;
     if (Instance == null)
     {
       Instance = this;
