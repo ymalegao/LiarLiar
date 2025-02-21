@@ -3,242 +3,245 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
+
 public class JournalManager : MonoBehaviour
 {
-  public static JournalManager Instance { get; private set; }
+    public static JournalManager Instance { get; private set; }
 
-  [Header("UI Elements")]
-  public GameObject journalPanel; // The main journal UI panel
-  public GameObject cluesContent; // Content object under the Clues Scroll View
-  public GameObject truthsContent; // Content object under the Truths Scroll View
-  public TextMeshProUGUI correctnessText;
-  public GameObject journalItemPrefab; // Prefab for each journal entry
-  public Button cluesTabButton; // Button to switch to the Clues tab
-  public Button truthsTabButton; // Button to switch to the Truths tab
-  public Button toggleJournalButton; // Button to open/close the journal (optional)
+    [Header("UI Elements")]
+    public GameObject journalPanel;
+    public Transform npcListContainer; // Left side list of NPC names
 
-  public GameObject[] finalCluePrefabs; // Array of final clue prefabs
-  public Transform[] clueSpawnLocations; // Array of locations for each clue
-  private bool finalCluesSpawned = false;
+    public Transform npcStatementContainer; // Right side list of NPC statements
+    public GameObject npcButtonPrefab; // Prefab for NPC name button
+    public Image npcPortrait;
+    public TextMeshProUGUI npcNameText;
+    public Transform truthsContent;
+    public Transform cluesContent; // ✅ Separate content for clues
+    public GameObject journalItemPrefab;
+    public Button toggleJournalButton;
+    public TextMeshProUGUI correctnessText;
 
-  [Header("Journal Data")]
-  private List<string> generalClues = new List<string>(); // General clues not tied to NPCs
-  private List<string> generalTruthsAndLies = new List<string>(); // General truths and lies
-  private Dictionary<string, NPCData> npcDataMap = new Dictionary<string, NPCData>(); // NPC-specific data
-  private List<JournalItemState> journalEntries = new List<JournalItemState>();
+    [Header("Final Clue System")]
+    public GameObject[] finalCluePrefabs;
+    public Transform[] clueSpawnLocations;
+    private bool finalCluesSpawned = false;
 
-  private void Awake()
-  {
-    if (Instance == null)
+    private Dictionary<string, JournalNPCData> npcDataMap = new Dictionary<string, JournalNPCData>();
+    private List<JournalItemState> journalEntries = new List<JournalItemState>();
+    private List<string> generalClues = new List<string>();
+
+    private void Awake()
     {
-      Instance = this;
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+        journalPanel.SetActive(false);
+    }
+
+    private void Start()
+    {
+        toggleJournalButton?.onClick.AddListener(ToggleJournal);
+    }
+
+    public void ToggleJournal()
+    {
+        journalPanel.SetActive(!journalPanel.activeSelf);
+    }
+
+    public void Update(){
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            ToggleJournal();
+        }
+    }
+
+    public void RegisterNPC(string npcId, string name, Sprite icon)
+    {
+        if (!npcDataMap.ContainsKey(npcId))
+        {
+            npcDataMap.Add(npcId, new JournalNPCData(name, icon));
+            AppendNPCToList(npcId, name);
+        }
+    }
+
+    private void AppendNPCToList(string npcId, string npcName)
+{
+    if (npcListContainer == null)
+    {
+        Debug.LogError("npcListContainer is not assigned in the Inspector.");
+        return;
+    }
+
+    if (npcButtonPrefab == null)
+    {
+        Debug.LogError("npcButtonPrefab is not assigned in the Inspector.");
+        return;
+    }
+
+    // Check if the NPC is already in the list
+    foreach (Transform child in npcListContainer)
+    {
+        var textComponent = child.GetComponentInChildren<TextMeshProUGUI>();
+        if (textComponent != null && textComponent.text == npcName)
+        {
+            return; // NPC already in the list
+        }
+    }
+
+    // Instantiate the NPC button prefab
+    GameObject buttonObj = Instantiate(npcButtonPrefab, npcListContainer);
+
+    // Ensure the instantiated object has the correct scale and position
+    buttonObj.transform.localScale = Vector3.one;
+    buttonObj.transform.localPosition = Vector3.zero;
+
+    // Set the NPC name on the button's text component
+    var buttonText = buttonObj.GetComponentInChildren<TextMeshProUGUI>();
+    if (buttonText == null)
+    {
+        Debug.LogError("The instantiated NPC button prefab is missing a TextMeshProUGUI component.");
+        return;
+    }
+    buttonText.text = npcName;
+
+    // Add a listener to handle button clicks
+    var button = buttonObj.GetComponent<Button>();
+    if (button == null)
+    {
+        Debug.LogError("The instantiated NPC button prefab is missing a Button component.");
+        return;
+    }
+    button.onClick.AddListener(() => ShowNPCDetails(npcId));
+}
+
+
+    public void ShowNPCDetails(string npcId)
+{
+    if (npcDataMap.TryGetValue(npcId, out JournalNPCData npc))
+    {
+        Debug.Log($"Showing details for NPC: {npc.Name}");
+
+        // Update NPC portrait
+        if (npcPortrait != null && npc.Icon != null)
+        {
+            npcPortrait.sprite = npc.Icon;
+            npcPortrait.enabled = true; // Ensure the Image component is enabled
+        }
+        else
+        {
+            Debug.LogWarning($"NPC {npc.Name} does not have an assigned portrait.");
+        }
+
+        // Update NPC name text
+        if (npcNameText != null)
+        {
+            npcNameText.text = npc.Name;
+        }
+
+        // Clear existing statements
+        foreach (Transform child in npcStatementContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // Add new statements
+        foreach (var (statement, isTruth) in npc.TruthsAndLies)
+        {
+            GameObject entry = Instantiate(journalItemPrefab, npcStatementContainer);
+            JournalItemState journalItem = entry.GetComponent<JournalItemState>();
+            journalItem.SetText(statement, isTruth);
+            if (npc.StatementStates.TryGetValue(statement, out var savedState))
+            {
+                journalItem.SetState(savedState);
+            }
+            journalEntries.Add(journalItem);
+            journalItem.OnStateChanged += () => UpdateStatementState(npcId, statement, journalItem.GetState());
+
+
+            Debug.Log($"Statement: {statement}, Is Truth: {isTruth}");
+        }
     }
     else
     {
-      Destroy(gameObject);
+        Debug.LogError($"NPC {npcId} not found in the journal.");
     }
+}
 
-    journalPanel.SetActive(false); // Ensure the journal is hidden initially
-  }
-
-  private void Start()
-  {
-    // Attach listeners to buttons
-    cluesTabButton.onClick.AddListener(ShowClues);
-    truthsTabButton.onClick.AddListener(ShowTruths);
-
-    if (toggleJournalButton != null)
+private void UpdateStatementState(string npcId, string statement, JournalItemState.State newState)
+{
+    if (npcDataMap.TryGetValue(npcId, out JournalNPCData npc))
     {
-      toggleJournalButton.onClick.AddListener(ToggleJournal);
+        npc.StatementStates[statement] = newState;
     }
-  }
+}
 
-  public void ToggleJournal()
-  {
-    journalPanel.SetActive(!journalPanel.activeSelf);
-  }
 
-  public void ShowClues()
-  {
-    cluesContent.SetActive(true);
-    truthsContent.SetActive(false);
-  }
-
-  public void ShowTruths()
-  {
-    cluesContent.SetActive(false);
-    truthsContent.SetActive(true);
-  }
-
-  // Register NPCs and their associated data
-  public void RegisterNPC(string npc, string name, string role, Sprite icon)
-  {
-    if (!npcDataMap.ContainsKey(npc))
+    public void AddClue(string clue)
     {
-      npcDataMap.Add(npc, new NPCData(name, role, icon));
+        generalClues.Add(clue);
+        UpdateGeneralCluesUI();
     }
-    else
+
+    private void UpdateGeneralCluesUI()
     {
-      Debug.LogWarning($"NPC {npc} has already been registered.");
+        foreach (string clue in generalClues)
+        {
+            GameObject item = Instantiate(journalItemPrefab, cluesContent);
+            item.GetComponent<TMP_Text>().text = clue;
+        }
     }
-  }
 
-  // Add a general clue (not tied to an NPC)
-  public void AddClue(string clue)
-  {
-    generalClues.Add(clue);
-    UpdateGeneralCluesUI();
-  }
-
-  // Add a clue provided by an NPC
-  public void AddClueFromNPC(string npc, string clue)
-  {
-    if (npcDataMap.ContainsKey(npc))
+    public void AddTruthsAndLiesFromNPC(string npcId, List<(string dialogue, bool isTruth)> statements)
     {
-      NPCData data = npcDataMap[npc];
+        if (!npcDataMap.ContainsKey(npcId))
+        {
+            Debug.LogError($"NPC {npcId} is not registered in the journal!");
+            return;
+        }
 
-      if (!data.HasBeenInteractedWith)
-      {
-        data.CluesGiven.Add(clue);
+        JournalNPCData npcData = npcDataMap[npcId];
 
-        // Update the journal UI for this NPC
-        UpdateCluesUI(data.Name, clue, data.Icon);
-      }
+        if (npcData.TruthsAndLies.Count == 0)
+        {
+            npcData.TruthsAndLies.AddRange(statements);
+            ShowNPCDetails(npcId);
+        }
+        else
+        {
+            Debug.LogWarning($"NPC {npcId} statements already added.");
+        }
     }
-  }
 
-  // Add general truths and lies
-  public void AddTruthsAndLies(string truth1, string truth2, string lie)
-  {
-    generalTruthsAndLies.Add(truth1);
-    generalTruthsAndLies.Add(truth2);
-    generalTruthsAndLies.Add(lie);
-
-    UpdateGeneralTruthsUI();
-  }
-
-  // Add truths and lies provided by an NPC
-  public void AddTruthsAndLiesFromNPC(string npc, List<(string dialogue, bool isTruth)> statements)
-  {
-    if (npcDataMap.ContainsKey(npc))
+    public void AddClueFromNPC(string npcId, string clue)
     {
-      NPCData data = npcDataMap[npc];
+        if (!npcDataMap.ContainsKey(npcId))
+        {
+            Debug.LogError($"NPC {npcId} is not registered in the journal!");
+            return;
+        }
 
-      if (!data.HasBeenInteractedWith)
-      {
-        data.HasBeenInteractedWith = true;
+        JournalNPCData npcData = npcDataMap[npcId];
 
-        // Add NPC name and their Truths and Lies
-        AddNPCNameAndStatements(data.Name, statements, data.Icon);
-      }
-      else
-      {
-        Debug.LogWarning($"NPC {npc} has already been interacted with.");
-      }
-    }
-  }
-
-  // Add the NPC's name and their three statements
-  private void AddNPCNameAndStatements(string npcName, List<(string dialogue, bool isTruth)> statements, Sprite icon)
-  {
-    // Add the NPC name as a header
-    GameObject nameItem = Instantiate(journalItemPrefab, truthsContent.transform);
-    TMP_Text nameText = nameItem.GetComponent<TMP_Text>();
-    nameText.text = npcName; 
-
-    // Add icon for NPC (optional)
-    Image iconImage = nameItem.transform.Find("Icon")?.GetComponent<Image>();
-    if (iconImage != null && icon != null)
-    {
-      iconImage.sprite = icon;
+        if (!npcData.HasBeenInteractedWith)
+        {
+            npcData.HasBeenInteractedWith = true;
+            npcData.CluesGiven.Add(clue);
+            UpdateGeneralCluesUI();
+        }
+        else
+        {
+            Debug.LogWarning($"NPC {npcId} has already provided clues.");
+        }
     }
 
-    // Add the three statements below the name
-    foreach (var (dialogue, isTruth) in statements)
-    {
-      string formattedText = dialogue;
-      AddStatement(formattedText, isTruth);
-    }
-  }
-
-  // Add a single statement to the journal
-   private void AddStatement(string statement, bool isTruth)
-    {
-        GameObject item = Instantiate(journalItemPrefab, truthsContent.transform);
-        JournalItemState journalItem = item.GetComponent<JournalItemState>();
-        journalItem.SetText(statement, isTruth);
-        journalEntries.Add(journalItem);
-        journalItem.OnStateChanged += UpdateCorrectCount;
-    }
-
-  private void UpdateGeneralCluesUI()
-  {
-    foreach (Transform child in cluesContent.transform)
-    {
-      Destroy(child.gameObject);
-    }
-
-    foreach (string clue in generalClues)
-    {
-      GameObject item = Instantiate(journalItemPrefab, cluesContent.transform);
-      item.GetComponent<TMP_Text>().text = clue;
-    }
-  }
-
-  private void UpdateGeneralTruthsUI()
-  {
-    foreach (Transform child in truthsContent.transform)
-    {
-      Destroy(child.gameObject);
-    }
-
-    foreach (string entry in generalTruthsAndLies)
-    {
-      GameObject item = Instantiate(journalItemPrefab, truthsContent.transform);
-      item.GetComponent<TMP_Text>().text = entry;
-    }
-  }
-
-  private void UpdateCluesUI(string npcName, string clue, Sprite icon)
-  {
-    GameObject item = Instantiate(journalItemPrefab, cluesContent.transform);
-    TMP_Text text = item.GetComponent<TMP_Text>();
-    text.text = $"{npcName}: {clue}";
-
-    Image iconImage = item.transform.Find("Icon")?.GetComponent<Image>();
-    if (iconImage != null && icon != null)
-    {
-      iconImage.sprite = icon;
-    }
-  }
-
-  public void HighlightEntry(GameObject item)
-  {
-    if (item == null)
-    {
-      Debug.LogError("Cannot highlight a null item.");
-      return;
-    }
-
-    var currentItemState = item.GetComponent<JournalItemState>();
-    if (currentItemState != null)
-    {
-      currentItemState.cycleState();
-    }
-    else
-    {
-      Debug.LogWarning("JournalItemState component not found on the item.");
-    }
-  }
-  public void UpdateCorrectCount()
+    public void UpdateCorrectCount()
     {
         int correctCount = 0;
         foreach (var entry in journalEntries)
         {
-            if (entry.IsMarkedCorrectly())
-                correctCount++;
+            if (entry.IsMarkedCorrectly()) correctCount++;
         }
+
         correctnessText.text = $"Correctly Marked: {correctCount} / 24";
         if (correctCount >= 3 && !finalCluesSpawned)
         {
@@ -246,29 +249,44 @@ public class JournalManager : MonoBehaviour
         }
     }
 
-  private void SpawnFinalClues()
-  {
-      if (finalCluePrefabs.Length != clueSpawnLocations.Length)
-      {
-          Debug.LogError("Mismatch between final clue prefabs and spawn locations.");
-          return;
-      }
+    private void SpawnFinalClues()
+    {
+        if (finalCluePrefabs.Length != clueSpawnLocations.Length)
+        {
+            Debug.LogError("Mismatch between final clue prefabs and spawn locations.");
+            return;
+        }
 
-      for (int i = 0; i < finalCluePrefabs.Length; i++)
-      {
-          if (finalCluePrefabs[i] != null && clueSpawnLocations[i] != null)
-          {
-              Instantiate(finalCluePrefabs[i], clueSpawnLocations[i].position, Quaternion.identity);
-          }
-          else
-          {
-              Debug.LogError($"Missing prefab or spawn location for clue {i + 1}.");
-          }
-      }
+        for (int i = 0; i < finalCluePrefabs.Length; i++)
+        {
+            if (finalCluePrefabs[i] != null && clueSpawnLocations[i] != null)
+            {
+                Instantiate(finalCluePrefabs[i], clueSpawnLocations[i].position, Quaternion.identity);
+            }
+        }
+        finalCluesSpawned = true;
+    }
+}
 
-      finalCluesSpawned = true; // Ensure they only spawn once
-  }
+[System.Serializable]
+public class JournalNPCData
+{
+    public string Name;
+    public Sprite Icon;
+    public bool HasBeenInteractedWith;
+    public List<(string statement, bool isTruth)> TruthsAndLies;
+    public List<string> CluesGiven; // ✅ Stores NPC-specific clues
+    public Dictionary<string, JournalItemState.State> StatementStates;
 
 
+    public JournalNPCData(string name, Sprite icon)
+    {
+        Name = name;
+        Icon = icon;
+        HasBeenInteractedWith = false;
+        TruthsAndLies = new List<(string, bool)>();
+        CluesGiven = new List<string>();
+        StatementStates = new Dictionary<string, JournalItemState.State>();
 
+    }
 }

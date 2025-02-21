@@ -7,6 +7,9 @@ public class NPC : MonoBehaviour, IInteractable
   [TextArea]
   public string[] dialogueLines; // The dialogue lines for this NPC
 
+    public Sprite npcSprite; // The NPC's sprite (Assigned in Inspector)
+
+
   private NpcMovement npcMovement;
 
     private Animator animator;
@@ -36,7 +39,7 @@ public class NPC : MonoBehaviour, IInteractable
       Debug.Log($"NPC {npcName} dialogue lines: {string.Join(", ", dialogueLines)}");
     }
 
-    JournalManager.Instance.RegisterNPC(npcName, npcName, "farmer", null);
+    JournalManager.Instance.RegisterNPC(npcName, npcName, npcSprite);
     Debug.Log("NPC registered: " + npcName);
   }
 

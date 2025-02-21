@@ -146,6 +146,7 @@ MonoBehaviour:
 
 
 '
+  npcSprite: {fileID: -1250548452, guid: 7e0906d47664b264bb65baf9c1d64d89, type: 3}
 --- !u!61 &2094843647503842778
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -203,11 +204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cee585c35ed7bc4985cd8f41842cebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   destPoint: 1
   animator: {fileID: 738380750543101518}
 --- !u!195 &8201454315367830834
@@ -244,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3901788784
+  GlobalObjectIdHash: 1383173479
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1

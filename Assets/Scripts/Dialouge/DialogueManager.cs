@@ -99,6 +99,8 @@ public class DialogueManager : MonoBehaviour
     npcStatements[npcName].Add((dialogue, isTruth)); // Add truth/lie to the list
   }
 
+  
+
   // Check if the line contains a [Clue] or [T/L] marker and update the journal
   private string CheckForClueOrTruth(string line)
   {
