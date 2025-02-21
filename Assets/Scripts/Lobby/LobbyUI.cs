@@ -12,7 +12,7 @@ public class LobbyUI : MonoBehaviour
   private LobbyManager lobbyManager;
   [SerializeField] private Button startGameButton;
 
-  [SerializeField] private Button listLobbiesButton;
+  // [SerializeField] private Button listLobbiesButton;
 
   //Character selection UI
   [SerializeField] private TMP_Dropdown characterDropdown;
