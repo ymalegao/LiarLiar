@@ -252,7 +252,7 @@ public class JournalManager : MonoBehaviour
       {
           Debug.LogError("Mismatch between final clue prefabs and spawn locations.");
           return;
-      }
+      }  
 
       for (int i = 0; i < finalCluePrefabs.Length; i++)
       {
