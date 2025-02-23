@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7298e1288d3814badecccae5c0ec48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Derek Burton (Farmer)
+  npcName: Derek Burton
   dialogueLines:
   - '[L] Hadwin is going around screaming about how his book holds some mighty spells
     that can only be casted with fancy materials by magic people. '
@@ -142,6 +142,7 @@ MonoBehaviour:
     got lots of cool pictures and scribbles and such.  "
   - "[T] I don\u2019t have very much time for reading these days. With Adeline and
     the farm, I\u2019m workin like a dog! "
+  npcSprite: {fileID: -1927248443, guid: 52f2d665ab1463442948a7d0524e3521, type: 3}
 --- !u!61 &2094843647503842778
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -235,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1253670794
+  GlobalObjectIdHash: 1293753299
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1

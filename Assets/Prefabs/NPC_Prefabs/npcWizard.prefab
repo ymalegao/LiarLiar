@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7298e1288d3814badecccae5c0ec48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Hadwin Mitchell (Wizard)
+  npcName: Hadwin Mitchell
   dialogueLines:
   - '[T] My book is missing! Someone stole it from my chest last night!!!
 
@@ -146,6 +146,7 @@ MonoBehaviour:
 
 
 '
+  npcSprite: {fileID: -1250548452, guid: 7e0906d47664b264bb65baf9c1d64d89, type: 3}
 --- !u!61 &2094843647503842778
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -239,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3901788784
+  GlobalObjectIdHash: 1383173479
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1

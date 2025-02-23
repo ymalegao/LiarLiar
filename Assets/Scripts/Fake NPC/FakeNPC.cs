@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class FakeNPC : MonoBehaviour, IInteractable
 {
@@ -8,6 +9,9 @@ public class FakeNPC : MonoBehaviour, IInteractable
   public string[] dialogueLines; // The dialogue lines for this NPC
 
   private NpcMovement npcMovement;
+
+  public Sprite npcSprite; // The NPC's sprite (Assigned in Inspector)
+
 
   private void Start()
   {
@@ -30,7 +34,12 @@ public class FakeNPC : MonoBehaviour, IInteractable
       Debug.Log($"NPC {npcName} dialogue lines: {string.Join(", ", dialogueLines)}");
     }
 
-    JournalManager.Instance.RegisterNPC(npcName, npcName, "farmer", null);
+    if (npcSprite == null)
+        {
+            Debug.LogWarning($"NPC {npcName} has no sprite assigned!");
+        }
+    
+    JournalManager.Instance.RegisterNPC(npcName, npcName, npcSprite);
     Debug.Log("NPC registered: " + npcName);
   }
 

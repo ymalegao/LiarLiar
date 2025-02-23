@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7298e1288d3814badecccae5c0ec48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Adeline Burton (Farmer's Daughter)
+  npcName: Adeline Burton
   dialogueLines:
   - "[T] I saw Weston over by the lake reading a book really early this morning when
     I was running errands for Dad. He looked funny. Like he was talking to the lake
@@ -202,6 +202,7 @@ MonoBehaviour:
     I have to find ways to have fun without him. '
   - "[L] Whatever. I\u2019ve been going to Hadwin\u2019s and he has been teaching
     me some magic. Abracadabra! "
+  npcSprite: {fileID: -2086025217, guid: b7033e875415dbb4ba4c9c1e3dab991b, type: 3}
 --- !u!195 &8201454315367830834
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -236,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3091164713
+  GlobalObjectIdHash: 508075284
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1

@@ -1275,7 +1275,7 @@ PrefabInstance:
     - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
       propertyPath: seekerPrefab
       value: 
-      objectReference: {fileID: 1364883654379630471, guid: 9f5a17a8e2ed690438386254d3613c1c, type: 3}
+      objectReference: {fileID: 1364883654379630471, guid: b04f7d5850735324298a428cf6028a01, type: 3}
     - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
       propertyPath: spawnPosition.x
       value: 35
@@ -1290,28 +1290,32 @@ PrefabInstance:
       objectReference: {fileID: 1364883654379630471, guid: 8f04047221c70417c83f32e0635488af, type: 3}
     - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
       propertyPath: characterPrefabs.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
       propertyPath: characterPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 1364883654379630471, guid: 9f5a17a8e2ed690438386254d3613c1c, type: 3}
+      objectReference: {fileID: 1274148144918918901, guid: 9405b8c24dbe349f9a100a36b0845d3a, type: 3}
     - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
       propertyPath: characterPrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 1274148144918918901, guid: 9405b8c24dbe349f9a100a36b0845d3a, type: 3}
+      objectReference: {fileID: 1274148144918918901, guid: 4d1cd3f26ab094e66ad18df4408424f4, type: 3}
     - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
       propertyPath: characterPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 1274148144918918901, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
+      objectReference: {fileID: 1274148144918918901, guid: 38b59e4236d04486f8ef2a518fa58aa9, type: 3}
     - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
       propertyPath: characterPrefabs.Array.data[3]
       value: 
-      objectReference: {fileID: 1274148144918918901, guid: 0389f998cc4d28a448a6da4c6032f65d, type: 3}
+      objectReference: {fileID: 1274148144918918901, guid: e672399f368b34e3aba01e0459e99a94, type: 3}
     - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
       propertyPath: characterPrefabs.Array.data[4]
       value: 
-      objectReference: {fileID: 1274148144918918901, guid: c60fb5839d8bda344a1d8c5f4c673644, type: 3}
+      objectReference: {fileID: 1274148144918918901, guid: 80245dfe0da2b4978a7869f7b63be7cb, type: 3}
+    - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
+      propertyPath: characterPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 1364883654379630471, guid: 9f5a17a8e2ed690438386254d3613c1c, type: 3}
     - target: {fileID: 7105505262449618103, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 369878106

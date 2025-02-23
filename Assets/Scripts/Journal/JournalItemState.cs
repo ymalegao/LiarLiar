@@ -60,6 +60,17 @@ public bool IsMarkedCorrectly()
     OnStateChanged?.Invoke();
   }
 
+  public void SetState(State newState)
+    {
+        state = newState;
+        updateStateUI();
+    }
+
+    public State GetState()
+    {
+        return state;
+    }
+
 
 
   public void updateStateUI()

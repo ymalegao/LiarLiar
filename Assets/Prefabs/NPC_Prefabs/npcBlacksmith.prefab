@@ -193,13 +193,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7298e1288d3814badecccae5c0ec48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Ed Porter (Blacksmith)
+  npcName: Ed Porter
   dialogueLines:
   - "[T] Hadwin and I were having a drink at Weston\u2019s last night. \r"
   - "[L] Hadwin kept going on and on about a mistake he made earlier last night.
     He\u2019s a bit of an odd-ball."
   - "[T] He was also telling me about how he has been secretly mentoring Timmy to
     be his apprentice. He\u2019s getting old and needs the extra hands. "
+  npcSprite: {fileID: -980357901, guid: d2721a6353886a94e8fad08dc1383a4e, type: 3}
 --- !u!195 &8201454315367830834
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -234,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3579371990
+  GlobalObjectIdHash: 2818104271
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1

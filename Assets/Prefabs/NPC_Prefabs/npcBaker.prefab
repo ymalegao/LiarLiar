@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7298e1288d3814badecccae5c0ec48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Avery Peters (Baker)
+  npcName: Avery Peters
   dialogueLines:
   - "[T] I stopped by Carrie\u2019s shop last night to pick up some stuff for my
     date tonight!. \r"
@@ -201,6 +201,7 @@ MonoBehaviour:
     some papers with odd scribbles. '
   - "[T] Anyways Carrie was mumbling some weird phrases. Sounded foreign I dont know.
     I always thought she was a little strange\u2026\u2026"
+  npcSprite: {fileID: -896425166, guid: 7e8ecdde01422d14b95bfe48e39bb451, type: 3}
 --- !u!195 &8201454315367830834
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -235,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 4039072000
+  GlobalObjectIdHash: 332948290
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
