@@ -134,11 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cee585c35ed7bc4985cd8f41842cebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   destPoint: 1
   animator: {fileID: 950776779663999051}
 --- !u!61 &2094843647503842778
@@ -170,7 +165,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0030690935, y: -0.09207116}
@@ -198,13 +193,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7298e1288d3814badecccae5c0ec48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Ed Porter (Blacksmith)
+  npcName: Ed Porter
   dialogueLines:
   - "[T] Hadwin and I were having a drink at Weston\u2019s last night. \r"
   - "[L] Hadwin kept going on and on about a mistake he made earlier last night.
     He\u2019s a bit of an odd-ball."
   - "[T] He was also telling me about how he has been secretly mentoring Timmy to
     be his apprentice. He\u2019s getting old and needs the extra hands. "
+  npcSprite: {fileID: -980357901, guid: d2721a6353886a94e8fad08dc1383a4e, type: 3}
 --- !u!195 &8201454315367830834
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -223,8 +219,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.2
-  m_BaseOffset: 0.09
+  m_Height: 0.1
+  m_BaseOffset: 0.11
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &1206742537773006156
@@ -239,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3579371990
+  GlobalObjectIdHash: 2818104271
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1

@@ -21,11 +21,14 @@ public class JournalManager : MonoBehaviour
     public GameObject journalItemPrefab;
     public Button toggleJournalButton;
     public TextMeshProUGUI correctnessText;
+    public Sprite cluesIcon;
+
 
     [Header("Final Clue System")]
     public GameObject[] finalCluePrefabs;
     public Transform[] clueSpawnLocations;
     private bool finalCluesSpawned = false;
+
 
     private Dictionary<string, JournalNPCData> npcDataMap = new Dictionary<string, JournalNPCData>();
     private List<JournalItemState> journalEntries = new List<JournalItemState>();
@@ -36,11 +39,15 @@ public class JournalManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
         journalPanel.SetActive(false);
+
     }
 
     private void Start()
     {
         toggleJournalButton?.onClick.AddListener(ToggleJournal);
+        //register Clues as NPC, so they are at the top of the list
+
+        RegisterNPC("clues", "Clues", cluesIcon);
     }
 
     public void ToggleJournal()
@@ -176,11 +183,11 @@ private void UpdateStatementState(string npcId, string statement, JournalItemSta
 }
 
 
-    public void AddClue(string clue)
-    {
-        generalClues.Add(clue);
-        UpdateGeneralCluesUI();
-    }
+    // public void AddClue(string clue)
+    // {
+    //     generalClues.Add(clue);
+    //     UpdateGeneralCluesUI();
+    // }
 
     private void UpdateGeneralCluesUI()
     {
@@ -190,6 +197,44 @@ private void UpdateStatementState(string npcId, string statement, JournalItemSta
             item.GetComponent<TMP_Text>().text = clue;
         }
     }
+
+    public void AddClue(string clue)
+{
+    if (npcDataMap.TryGetValue("clues", out JournalNPCData cluesData))
+    {
+        cluesData.TruthsAndLies.Add((clue, true)); // Assuming all clues are truths
+        
+            UpdateCluesUI();
+        
+    }
+    else
+    {
+        Debug.LogError("Clues entry not found in the journal.");
+    }
+}
+
+  private void UpdateCluesUI(){
+    foreach (Transform child in npcStatementContainer)
+    {
+        Destroy(child.gameObject);
+    }
+
+    if (npcDataMap.TryGetValue("clues", out JournalNPCData cluesData))
+    {
+        foreach (var (statement, isTruth) in cluesData.TruthsAndLies)
+        {
+            GameObject entry = Instantiate(journalItemPrefab, npcStatementContainer);
+            JournalItemState journalItem = entry.GetComponent<JournalItemState>();
+            journalItem.SetText(statement, isTruth);
+            journalEntries.Add(journalItem);
+            journalItem.OnStateChanged += () => UpdateStatementState("clues", statement, journalItem.GetState());
+        }
+    }
+    else
+    {
+        Debug.LogError("Clues entry not found in the journal.");
+    }
+  }
 
     public void AddTruthsAndLiesFromNPC(string npcId, List<(string dialogue, bool isTruth)> statements)
     {
@@ -248,6 +293,9 @@ private void UpdateStatementState(string npcId, string statement, JournalItemSta
             SpawnFinalClues();
         }
     }
+
+
+
 
     private void SpawnFinalClues()
     {

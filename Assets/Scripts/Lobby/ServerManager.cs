@@ -19,17 +19,10 @@ public class ServerManager : NetworkBehaviour
   public static ServerManager Instance { get; private set; }
   public NetworkVariable<ulong> seekerClientId = new NetworkVariable<ulong>();
 
-  
-  private HashSet<string> spawnedFakeNPCnames = new HashSet<string>(); // ✅ Keep track of fake NPC types
-
   [SerializeField] private Vector2 spawnPosition = new Vector2(20f, 20f);
-
-
 
   public GameObject tempPlayerPrefab; // Temporary placeholder
   public List<GameObject> characterPrefabs; // List of all possible character prefabs
-  private List<GameObject> spawnedFakeNPCs = new List<GameObject>();  // Track the actual spawned Fake NPCs
-                                                                      // public hashSet<int> spritesTaken; // List of all possible roles
   public GameObject seekerPrefab; // Seeker prefab
 
   private GameObject prefabToUse;
@@ -39,7 +32,6 @@ public class ServerManager : NetworkBehaviour
   public const string FAKENPC_ROLE = "FakeNPC";
 
   public Dictionary<ulong, string> _clientAuthIdMap = new Dictionary<ulong, string>();
-
 
   private void Awake()
   {
@@ -59,8 +51,6 @@ public class ServerManager : NetworkBehaviour
     if (NetworkManager.Singleton == null) return;
     NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
   }
-
-
 
   private IEnumerator MapClientToAuthId(ulong clientId)
   {
@@ -84,31 +74,11 @@ public class ServerManager : NetworkBehaviour
     Debug.LogError($"⌛ Failed to map client {clientId} to an AuthID");
   }
 
-
-
-
-
-
-
   private async void OnClientConnected(ulong clientId)
   {
     if (!IsServer) return; // ✅ Only the server should handle spawning
 
     Debug.Log($"🎮 Client connected: {clientId}");
-
-
-
-
-    //here accesses the hsahmap to get playerID from clientID and then gets the role using the playerID
-
-
-
-    Debug.Log($"🎮 Client connected: {clientId}");
-
-
-    //here accesses the hsahmap to get playerID from clientID and then gets the role using the playerID
-
-
 
     // 1️⃣ Spawn a temporary player object first
     //Vector3 spawnPos = new Vector3(0f, 0f, 0f);
@@ -118,10 +88,7 @@ public class ServerManager : NetworkBehaviour
 
     // 2️⃣ After delay, replace with the correct character prefab
     StartCoroutine(DelayedCharacterReplace(clientId));
-
   }
-
-
 
   private IEnumerator DelayedCharacterReplace(ulong clientId)
   {
@@ -147,7 +114,6 @@ public class ServerManager : NetworkBehaviour
     Debug.Log($"🎮 Scene synchronized for {clientId}");
     ReplacePlayerWithCharacter(clientId);
   }
-
 
   private bool IsClientSceneSynchronized(ulong clientId)
   {
@@ -176,23 +142,11 @@ public class ServerManager : NetworkBehaviour
   {
     string role = LobbyManager.Instance.GetPlayerRoleFromClient(clientId);
     Debug.Log($"👤 Role for in ReplacePlayerWithCharacter {clientId}: {role}");
-    if (role == "Seeker")
-    {
-      Debug.Log("👤 Role is Seeker");
-      seekerClientId.Value = clientId;
-      Debug.Log("👤 Seeker client id is " + seekerClientId.Value);
-    }
-    else
-    {
-      Debug.Log("👤 Role is not Seeker");
-    }
 
     int indexforPrefab = LobbyManager.Instance.GetPlayerSpriteIndexFromClient(clientId);
     Debug.Log($"🛑 Sprite Index for client {clientId}: {indexforPrefab}");
 
-    // For testing, we choose the seekerPrefab for "Seeker" or the first character for FakeNPC.
-    // You can expand this logic to use the sprite index if needed:
-    prefabToUse = role == SEEKER_ROLE ? seekerPrefab : characterPrefabs[indexforPrefab];
+    prefabToUse = seekerPrefab; // All players are now seekers
 
     if (!NetworkManager.Singleton.ConnectedClients.ContainsKey(clientId))
     {
@@ -207,25 +161,15 @@ public class ServerManager : NetworkBehaviour
       return;
     }
 
-    Vector3 spawnPos = oldPlayerObject.transform.position; // Keep same position
-    Debug.Log($"🎮 Spawning character for {clientId} at {spawnPos}");
+    Vector3 spawnPos = oldPlayerObject.transform.position;
     oldPlayerObject.Despawn();
     Destroy(oldPlayerObject.gameObject);
-    Debug.Log($"🎮 Destroyed old player object for {clientId}");
-    // Debug.Log("Did not destroy old player object");
-    Debug.Log("prefato use name is " + prefabToUse.name);
-    GameObject newCharacter = Instantiate(prefabToUse, spawnPos, Quaternion.identity);
-    if (role == FAKENPC_ROLE)
-    {
-      ServerManager.Instance.RegisterFakeNPC(newCharacter);
-    }
 
-    Debug.Log($"🔍 Index for client {clientId}: {indexforPrefab}");
-    Debug.Log($"🎮 Instantiated new character for {clientId}");
-    newCharacter.tag = role; // Optionally tag the object for debugging
+    GameObject newCharacter = Instantiate(prefabToUse, spawnPos, Quaternion.identity);
     newCharacter.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId);
-    Debug.Log($"🎮 Spawned character for {clientId} with role {role}");
+    Debug.Log($"🎮 Spawned seeker for {clientId}");
   }
+
   public async Task<string> CreateRelay()
   {
     try
@@ -245,8 +189,6 @@ public class ServerManager : NetworkBehaviour
       return null;
     }
   }
-
-  //
 
   public async Task<bool> JoinRelay(string relayJoinCode)
   {
@@ -287,15 +229,6 @@ public class ServerManager : NetworkBehaviour
     return assignments.TryGetValue(playerId, out RoleAssignment assignment) ? assignment.Role : FAKENPC_ROLE;
   }
 
-  //     [ServerRpc(RequireOwnership = false)]
-  // public void UpdateMappingServerRpc(ulong clientId, string authId, ServerRpcParams rpcParams = default)
-  // {
-  //     if (!_clientAuthIdMap.ContainsKey(clientId))
-  //     {
-  //         _clientAuthIdMap[clientId] = authId;
-  //         Debug.Log($"Server: Mapped client {clientId} to AuthID {authId}");
-  //     }
-  // }
   [ServerRpc(RequireOwnership = false)]
   public void UpdateMappingServerRpc(ulong clientId, string authId, ServerRpcParams rpcParams = default)
   {
@@ -306,40 +239,6 @@ public class ServerManager : NetworkBehaviour
       Debug.Log($"Server: Mapped client {clientId} to AuthID {authId} in LobbyManager");
     }
   }
-
-  // Register a Fake NPC when it's spawned
-  public void RegisterFakeNPC(GameObject fakeNPC)
-  {
-    string npcType = fakeNPC.name.Replace("(Clone)", "").Trim();  // Get the NPC type
-    if (!spawnedFakeNPCs.Contains(fakeNPC))
-    {
-      if (!spawnedFakeNPCnames.Contains(npcType))
-      {
-        spawnedFakeNPCnames.Add(npcType);
-        Debug.Log($"✅ Registered Fake NPC type: {npcType}");
-      }
-      spawnedFakeNPCs.Add(fakeNPC);
-      Debug.Log($"✅ Registered Fake NPC: {fakeNPC.name} | Instance ID: {fakeNPC.GetInstanceID()}");
-    }
-  }
-
-  // Get the actual spawned Fake NPCs
-  public List<GameObject> GetFakeNPCs()
-  {
-    return new List<GameObject>(spawnedFakeNPCs);  // Return a copy of the list of spawned Fake NPCs
-  }
-
-  
-  public bool IsFakeNPCSpawned(string npcType)
-    {
-        return spawnedFakeNPCnames.Contains(npcType);
-    }
-
-    // ✅ Provide a method for NpcSpawner to check before spawning
-    public HashSet<string> GetFakeNPCnames()
-    {
-        return new HashSet<string>(spawnedFakeNPCnames); // Return a copy
-    }
 
   public GameObject GetCharacterPrefab(int index)
   {
@@ -356,9 +255,4 @@ public class ServerManager : NetworkBehaviour
     }
     return characterPrefabs[index];
   }
-
-
-
-
-
 }

@@ -62,6 +62,7 @@ public class NpcMovement : MonoBehaviour
     if (!agent.pathPending && agent.remainingDistance <= destPoint)
     {
       SetRandomDestination();
+  
     }
   }
 

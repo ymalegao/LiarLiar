@@ -134,11 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cee585c35ed7bc4985cd8f41842cebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   destPoint: 1
   animator: {fileID: 950776779663999051}
 --- !u!61 &2094843647503842778
@@ -170,7 +165,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0024551153, y: -0.09329878}
@@ -198,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7298e1288d3814badecccae5c0ec48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Carrie Humboldt (Shopkeep)
+  npcName: Carrie Humboldt
   dialogueLines:
   - "[T] I have been so stressed all day! I\u2019m going crazy, talking to myself
     like a mad woman. \r"
@@ -206,6 +201,7 @@ MonoBehaviour:
     she heard me. Hopefully she doesn\u2019t think im insane!!!"
   - "[L] I\u2019ve been doing some reading to keep myself from going crazy. I stumbled
     across this magic fantasy book and it\u2019s quite unusual. "
+  npcSprite: {fileID: 675014341, guid: 252357301a388c74b8933ddbf0e07e82, type: 3}
 --- !u!195 &8201454315367830834
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -224,8 +220,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.2
-  m_BaseOffset: 0.09
+  m_Height: 0.1
+  m_BaseOffset: 0.11
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &1206742537773006156
@@ -240,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3493638597
+  GlobalObjectIdHash: 875922902
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1

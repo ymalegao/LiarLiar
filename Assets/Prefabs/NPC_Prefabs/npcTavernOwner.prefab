@@ -134,11 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cee585c35ed7bc4985cd8f41842cebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   destPoint: 1
   animator: {fileID: 950776779663999051}
 --- !u!61 &2094843647503842778
@@ -170,7 +165,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.000000070780516, y: -0.09391257}
@@ -198,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7298e1288d3814badecccae5c0ec48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Weston McCarthy (Tavern Owner)
+  npcName: Weston McCarthy
   dialogueLines:
   - "[L] I\u2019ve been so busy with the shop that I haven\u2019t gotten to go relax.
     I haven\u2019t had time to go to the lake in weeks! That\u2019s my safe space.
@@ -208,6 +203,7 @@ MonoBehaviour:
   - "[T] We talked about how Derek and Avery seem awfully friendly these days. Avery
     has been in love with Derek for years but he never felt the same. It\u2019s like
     he\u2019s under a spell or something. "
+  npcSprite: {fileID: -1702636405, guid: c67679a2ca6e3a44688ecd9a163a0aba, type: 3}
 --- !u!195 &8201454315367830834
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -226,8 +222,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.2
-  m_BaseOffset: 0.09
+  m_Height: 0.1
+  m_BaseOffset: 0.11
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &1206742537773006156
@@ -242,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3632793075
+  GlobalObjectIdHash: 2989488145
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
