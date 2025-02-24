@@ -38,7 +38,7 @@ public class TaskManager : MonoBehaviour
     // int randomIndex = Random.Range(0, tasks.Count);
     // Debug.Log("Task assigned to player  " + tasks.ElementAt(randomIndex));
     // return (tasks.ElementAt(randomIndex).Value); //return random task
-    return (tasks["fish"]);
+    return (tasks["egg"]);
 
   }
 
