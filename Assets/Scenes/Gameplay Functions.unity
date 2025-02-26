@@ -628,7 +628,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &218892220
@@ -891,6 +891,18 @@ PrefabInstance:
       propertyPath: m_Spacing
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 5315600913010752546, guid: d592160b7be5346a4b9e899edb159b05, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.2667
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315600913010752546, guid: d592160b7be5346a4b9e899edb159b05, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.2667
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315600913010752546, guid: d592160b7be5346a4b9e899edb159b05, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.2667
+      objectReference: {fileID: 0}
     - target: {fileID: 6890775219188533596, guid: d592160b7be5346a4b9e899edb159b05, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -935,6 +947,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: JournalUI
       objectReference: {fileID: 0}
+    - target: {fileID: 9028723957202475701, guid: d592160b7be5346a4b9e899edb159b05, type: 3}
+      propertyPath: selectionUI
+      value: 
+      objectReference: {fileID: 869011385}
     - target: {fileID: 9156215136786942075, guid: d592160b7be5346a4b9e899edb159b05, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1020,6 +1036,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d592160b7be5346a4b9e899edb159b05, type: 3}
+--- !u!1 &323208741 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4638359611497444373, guid: d592160b7be5346a4b9e899edb159b05, type: 3}
+  m_PrefabInstance: {fileID: 323208740}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &351606064
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,7 +1215,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 332, y: 87}
+  m_AnchoredPosition: {x: 359.5, y: 151.2}
   m_SizeDelta: {x: 63.695, y: 34.809}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &358377484
@@ -1213,6 +1234,7 @@ MonoBehaviour:
   seekerSelectionUI: {fileID: 869011386}
   buttonText: {fileID: 106547058}
   dialogueUIPanel: {fileID: 910381506}
+  journalUI: {fileID: 323208741}
 --- !u!114 &358377485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2855,6 +2877,18 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3402923206908758298, guid: a9c9dd6cf8f7741e2a7a88b0e562da48, type: 3}
+      propertyPath: selectionUI
+      value: 
+      objectReference: {fileID: 869011385}
+    - target: {fileID: 3402923206908758298, guid: a9c9dd6cf8f7741e2a7a88b0e562da48, type: 3}
+      propertyPath: cluesContent
+      value: 
+      objectReference: {fileID: 731058045}
+    - target: {fileID: 3402923206908758298, guid: a9c9dd6cf8f7741e2a7a88b0e562da48, type: 3}
+      propertyPath: truthsContent
+      value: 
+      objectReference: {fileID: 731058046}
+    - target: {fileID: 3402923206908758298, guid: a9c9dd6cf8f7741e2a7a88b0e562da48, type: 3}
       propertyPath: correctnessText
       value: 
       objectReference: {fileID: 516128515}
@@ -3221,6 +3255,16 @@ PrefabInstance:
 --- !u!224 &731058044 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7665923409111578784, guid: a9c9dd6cf8f7741e2a7a88b0e562da48, type: 3}
+  m_PrefabInstance: {fileID: 731058043}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &731058045 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2748095954650424441, guid: a9c9dd6cf8f7741e2a7a88b0e562da48, type: 3}
+  m_PrefabInstance: {fileID: 731058043}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &731058046 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5939499055514029122, guid: a9c9dd6cf8f7741e2a7a88b0e562da48, type: 3}
   m_PrefabInstance: {fileID: 731058043}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &754762989
@@ -29055,7 +29099,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &869011386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30603,7 +30647,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -203.7413, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &2078682362

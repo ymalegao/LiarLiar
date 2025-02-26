@@ -29,6 +29,9 @@ public class JournalManager : MonoBehaviour
     public Transform[] clueSpawnLocations;
     private bool finalCluesSpawned = false;
 
+    [Header("UICheck")]
+    [SerializeField] private GameObject selectionUI;
+
 
     private Dictionary<string, JournalNPCData> npcDataMap = new Dictionary<string, JournalNPCData>();
     private List<JournalItemState> journalEntries = new List<JournalItemState>();
@@ -56,8 +59,13 @@ public class JournalManager : MonoBehaviour
     }
 
     public void Update(){
+
         if (Input.GetKeyDown(KeyCode.J))
         {
+            if (selectionUI.activeSelf)
+            {
+                return;
+            }
             ToggleJournal();
         }
     }
