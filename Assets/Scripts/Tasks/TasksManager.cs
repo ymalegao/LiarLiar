@@ -67,6 +67,7 @@ public class TaskManager : MonoBehaviour
           //Spawn Minigame gameManager
           if (!task.gameManager.activeSelf)
           {
+            player.ActivateMinigameCamera();
             task.gameManager.SetActive(true);
           }
 
@@ -81,6 +82,7 @@ public class TaskManager : MonoBehaviour
             {
               task.gameManager.SetActive(false);
             }
+            player.ActivatePlayerCamera();
           }
         }
       }
@@ -89,6 +91,8 @@ public class TaskManager : MonoBehaviour
         // Reset the timer if the player moves away before starting
         task.taskTimer = 0f;
         task.isActive = false;
+        player.ActivatePlayerCamera();
+        
       }
     }
   }

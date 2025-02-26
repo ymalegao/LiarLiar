@@ -8,6 +8,9 @@ public class GetTask : MonoBehaviour
   public GameTask assignedTask; // The task assigned to this player
   public TaskManager TM;
 
+  private Camera playerCamera;
+  public Camera minigameCamera;
+
   public GameTask GetAssignedTask()
   {
     return TM.AssignTaskToPlayer();
@@ -24,6 +27,34 @@ public class GetTask : MonoBehaviour
     // Initialize task manager
     this.TM = FindFirstObjectByType<TaskManager>();
     this.SetTask(this.GetAssignedTask());
+    playerCamera = GetComponentInChildren<Camera>();
+  }
+
+
+  public void ActivatePlayerCamera()
+  {
+      if (playerCamera != null && minigameCamera != null)
+      {
+          playerCamera.gameObject.SetActive(true);
+          minigameCamera.gameObject.SetActive(false);
+      }
+      else
+      {
+          Debug.LogError("Cameras not properly assigned in GetTask script.");
+      }
+  }
+
+      public void ActivateMinigameCamera()
+  {
+      if (playerCamera != null && minigameCamera != null)
+      {
+          playerCamera.gameObject.SetActive(false);
+          minigameCamera.gameObject.SetActive(true);
+      }
+      else
+      {
+          Debug.LogError("Cameras not properly assigned in GetTask script.");
+      }
   }
 
   void Update() { }
