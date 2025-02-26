@@ -55,6 +55,7 @@ MonoBehaviour:
   journalItemPrefab: {fileID: 8454155145423953950, guid: 47d1899bf02dd48fcbe0f3bea73aeae8, type: 3}
   toggleJournalButton: {fileID: 0}
   correctnessText: {fileID: 0}
+  cluesIcon: {fileID: 0}
   finalCluePrefabs: []
   clueSpawnLocations: []
 --- !u!1 &534764801805804082
@@ -880,7 +881,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7666542941411348895}
-  - component: {fileID: 4713578981098006284}
   - component: {fileID: 6304601804535366761}
   m_Layer: 5
   m_Name: Content
@@ -909,20 +909,6 @@ RectTransform:
   m_AnchoredPosition: {x: 3.0437002, y: -0.9194031}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.9417817}
---- !u!114 &4713578981098006284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5721012084721563080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 2
-  m_VerticalFit: 2
 --- !u!114 &6304601804535366761
 MonoBehaviour:
   m_ObjectHideFlags: 0

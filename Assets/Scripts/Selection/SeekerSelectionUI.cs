@@ -157,12 +157,11 @@ public class SeekerSelectionUI : MonoBehaviour
     {
       currentlySelectedImage.color = Color.white;
     }
-
     currentlySelectedNPC = character;
     currentlySelectedImage = buttonImage;
     buttonImage.color = Color.red;
   }
-
+  
   public void ConfirmSelection()
   {
     
@@ -193,7 +192,7 @@ public class SeekerSelectionUI : MonoBehaviour
     selectionPanel.SetActive(false);
   }
 
-  private void SendSelectionToServer(GameObject selectedNPC)
+  private void SendSelectionToServer(GameObject selectedNPC) 
   {
     if (NetworkManager.Singleton.IsServer)
     {
