@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 8346403653836566246}
   - component: {fileID: 3739157103676825822}
   m_Layer: 0
-  m_Name: Seeker
+  m_Name: Seeker_Boy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1870902144
+  GlobalObjectIdHash: 559499573
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -225,7 +225,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: -1250548452, guid: 7b3551c6a7081a44eb8c2a9bf50eec5d, type: 3}
+  m_Sprite: {fileID: -953244956, guid: 554f866733dc40242826d401f4660be9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -246,7 +246,7 @@ Animator:
   m_GameObject: {fileID: 1364883654379630471}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a627128abe15b794c8655bf92949e10e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 318e8bb5d910fc74f8a4d56360caa756, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
