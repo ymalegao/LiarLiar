@@ -25,28 +25,17 @@ public class NPC : MonoBehaviour, IInteractable
     {
       Debug.LogError($"NPC on {gameObject.name} has no name set!");
     }
-    else
-    {
-      Debug.Log($"NPC Name: {npcName}");
-    }
 
     if (dialogueLines == null || dialogueLines.Length == 0)
     {
       Debug.LogError($"NPC {npcName} has no dialogue lines assigned!");
     }
-    else
-    {
-      Debug.Log($"NPC {npcName} dialogue lines: {string.Join(", ", dialogueLines)}");
-    }
 
     JournalManager.Instance.RegisterNPC(npcName, npcName, npcSprite);
-    Debug.Log("NPC registered: " + npcName);
   }
 
   public void Interact()
   {
-    Debug.Log($"Interacting with NPC: {npcName}");
-
     // Stop NPC movement during interaction
     if (npcMovement != null)
     {
@@ -70,9 +59,6 @@ public class NPC : MonoBehaviour, IInteractable
   {
     // Unsubscribe from the event to avoid multiple triggers
     DialogueManager.Instance.OnDialogueEnd -= HandleDialogueEnd;
-
-    Debug.Log($"Dialogue ended with NPC: {npcName}");
-
     // Resume NPC movement
     if (npcMovement != null)
     {

@@ -193,7 +193,7 @@ SpriteRenderer:
   m_Size: {x: 24, y: 24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &105941826
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.016666668
   m_BuildHeightMesh: 0
   m_MinRegionArea: 0
   m_HideEditorLogs: 0
@@ -933,16 +933,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!4 &989602439 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3494646955653641689, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
-  m_PrefabInstance: {fileID: 2040381555}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1048065409 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8570322947333569281, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
-  m_PrefabInstance: {fileID: 2040381555}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1055811249
 GameObject:
   m_ObjectHideFlags: 0
@@ -2976,11 +2966,6 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!4 &1229795710 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3143158369267763509, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
-  m_PrefabInstance: {fileID: 2040381555}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1232701369
 GameObject:
   m_ObjectHideFlags: 0
@@ -3056,11 +3041,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232701369}
   m_CullTransparentMesh: 1
---- !u!4 &1282165251 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2103538181071962022, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
-  m_PrefabInstance: {fileID: 2040381555}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1391292599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3291,39 +3271,39 @@ PrefabInstance:
     - target: {fileID: 3539977013182107140, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
       propertyPath: points.Array.data[0]
       value: 
-      objectReference: {fileID: 1048065409}
+      objectReference: {fileID: 0}
     - target: {fileID: 3539977013182107140, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
       propertyPath: points.Array.data[1]
       value: 
-      objectReference: {fileID: 989602439}
+      objectReference: {fileID: 0}
     - target: {fileID: 3539977013182107140, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
       propertyPath: points.Array.data[2]
       value: 
-      objectReference: {fileID: 1229795710}
+      objectReference: {fileID: 0}
     - target: {fileID: 3539977013182107140, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
       propertyPath: points.Array.data[3]
       value: 
-      objectReference: {fileID: 1282165251}
+      objectReference: {fileID: 0}
     - target: {fileID: 3539977013182107140, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
       propertyPath: points.Array.data[4]
       value: 
-      objectReference: {fileID: 1282165251}
+      objectReference: {fileID: 0}
     - target: {fileID: 3539977013182107140, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
       propertyPath: points.Array.data[5]
       value: 
-      objectReference: {fileID: 1282165251}
+      objectReference: {fileID: 0}
     - target: {fileID: 3539977013182107140, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
       propertyPath: points.Array.data[6]
       value: 
-      objectReference: {fileID: 1282165251}
+      objectReference: {fileID: 0}
     - target: {fileID: 3539977013182107140, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
       propertyPath: points.Array.data[7]
       value: 
-      objectReference: {fileID: 1282165251}
+      objectReference: {fileID: 0}
     - target: {fileID: 3539977013182107140, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
       propertyPath: points.Array.data[8]
       value: 
-      objectReference: {fileID: 1048065409}
+      objectReference: {fileID: 0}
     - target: {fileID: 6144481852531029297, guid: 27d36a639011280449694baf83fcb3f0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.21

@@ -218,8 +218,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.2272, y: -64.393}
-  m_SizeDelta: {x: 662.9988, y: 270.786}
+  m_AnchoredPosition: {x: 30, y: -64.393}
+  m_SizeDelta: {x: 800, y: 270.786}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &88321298
 MonoBehaviour:
@@ -241,8 +241,8 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 10, y: 10}
+  m_CellSize: {x: 80, y: 80}
+  m_Spacing: {x: 15, y: 10}
   m_Constraint: 0
   m_ConstraintCount: 5
 --- !u!1 &106547056
@@ -565,7 +565,7 @@ MonoBehaviour:
   m_text: Confirm Selection
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 64e1ce9d67f60964598b6459f59bb1e0, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -6689616622323997478, guid: 64e1ce9d67f60964598b6459f59bb1e0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1861,8 +1861,8 @@ GameObject:
   - component: {fileID: 417717133}
   - component: {fileID: 417717132}
   - component: {fileID: 417717131}
-  - component: {fileID: 417717135}
   - component: {fileID: 417717136}
+  - component: {fileID: 417717137}
   m_Layer: 5
   m_Name: SeekerSelectionCanvas
   m_TagString: Untagged
@@ -1954,22 +1954,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &417717135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 417717130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e52228d8c455ce4da7124e09c7ce75b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectionPanel: {fileID: 869011385}
-  gridParent: {fileID: 88321297}
-  characterButtonPrefab: {fileID: 1983444486446734959, guid: 0351f1d2fbb94c9469dfad0ef0a1440d, type: 3}
-  nameTextPrefab: {fileID: 1067919313904019935, guid: 01c16eabfbbb44344888b5e1daa3bfe1, type: 3}
 --- !u!114 &417717136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1983,6 +1967,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seekerSpecificUI: {fileID: 417717130}
+--- !u!114 &417717137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417717130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f2a737172d412d48a1e8eea670e9cba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &421259797
 GameObject:
   m_ObjectHideFlags: 0
@@ -29091,7 +29087,7 @@ MonoBehaviour:
   selectionPanel: {fileID: 869011385}
   gridParent: {fileID: 88321297}
   characterButtonPrefab: {fileID: 1983444486446734959, guid: 0351f1d2fbb94c9469dfad0ef0a1440d, type: 3}
-  nameTextPrefab: {fileID: 0}
+  spellCasterName: npcTavernOwner
 --- !u!114 &869011387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29139,7 +29135,7 @@ RectTransform:
   m_GameObject: {fileID: 869011385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 364843046}
@@ -29751,6 +29747,10 @@ MonoBehaviour:
     realNPCName: npcGirlFarmer
   - fakeNPCName: fakenpcShopkeep
     realNPCName: npcShopkeep
+  - fakeNPCName: fakenpcBaker
+    realNPCName: npcBaker
+  - fakeNPCName: fakenpcBaker
+    realNPCName: npcBaker
   - fakeNPCName: fakenpcBaker
     realNPCName: npcBaker
 --- !u!114 &1296637460
@@ -30556,7 +30556,7 @@ MonoBehaviour:
   m_text: Guess the Spell Caster!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 64e1ce9d67f60964598b6459f59bb1e0, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -6689616622323997478, guid: 64e1ce9d67f60964598b6459f59bb1e0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -30580,7 +30580,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 37.75
+  m_fontSize: 33.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -30767,7 +30767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3980546132873618107, guid: 09e9d9c330e16486c846e8de37446c14, type: 3}
       propertyPath: allNPCs.Array.size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3980546132873618107, guid: 09e9d9c330e16486c846e8de37446c14, type: 3}
       propertyPath: allNPCs.Array.data[0]
@@ -30793,6 +30793,14 @@ PrefabInstance:
       propertyPath: allNPCs.Array.data[5]
       value: 
       objectReference: {fileID: 1274148144918918901, guid: 28eac5850ef15b047a880508e458ce69, type: 3}
+    - target: {fileID: 3980546132873618107, guid: 09e9d9c330e16486c846e8de37446c14, type: 3}
+      propertyPath: allNPCs.Array.data[6]
+      value: 
+      objectReference: {fileID: 1274148144918918901, guid: e902c296631f859439af6f3e26c4fb30, type: 3}
+    - target: {fileID: 3980546132873618107, guid: 09e9d9c330e16486c846e8de37446c14, type: 3}
+      propertyPath: allNPCs.Array.data[7]
+      value: 
+      objectReference: {fileID: 1274148144918918901, guid: 8584db8721059e24e998cd18f8da9dab, type: 3}
     - target: {fileID: 8678177068116058331, guid: 09e9d9c330e16486c846e8de37446c14, type: 3}
       propertyPath: m_LocalPosition.x
       value: 868.16754

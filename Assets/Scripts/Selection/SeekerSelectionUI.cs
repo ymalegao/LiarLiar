@@ -5,13 +5,15 @@ using Unity.Netcode;
 using System.Collections;
 using System.Linq;
 using TMPro;
+using System;
+using UnityEngine.Assertions.Must;
 
 public class SeekerSelectionUI : MonoBehaviour
 {
   [SerializeField] private GameObject selectionPanel;
   [SerializeField] private Transform gridParent;
   [SerializeField] private GameObject characterButtonPrefab;
-  [SerializeField] private TextMeshProUGUI nameTextPrefab;
+[SerializeField] private string spellCasterName = "DefaultCaster";
 
   private List<GameObject> allCharacters = new List<GameObject>();
   private List<Sprite> characterSprites = new List<Sprite>();
@@ -20,7 +22,6 @@ public class SeekerSelectionUI : MonoBehaviour
 
   private void Start()
   {
-    Debug.Log("SeekerSelectionUI Start");
 
     if (selectionPanel != null)
     {
@@ -164,10 +165,30 @@ public class SeekerSelectionUI : MonoBehaviour
 
   public void ConfirmSelection()
   {
+    
+    Debug.Log("Before Selection - Spell Caster Name: " + spellCasterName);
+
     if (currentlySelectedNPC != null)
     {
       VerifySelection(currentlySelectedNPC);
       SendSelectionToServer(currentlySelectedNPC);
+    }
+    Debug.Log("selected:" + currentlySelectedNPC.name);
+    Debug.Log("actual:" + spellCasterName);
+
+    if (currentlySelectedNPC.name == spellCasterName){
+      Debug.Log("winner");
+      goToScene sceneManager = FindObjectOfType<goToScene>();
+      if (sceneManager != null)
+      {
+          sceneManager.goToEndGame();
+      }
+      else
+      {
+          Debug.LogError("goToScene not found in the scene!");
+      }
+    } else {
+      Debug.Log("loser");
     }
     selectionPanel.SetActive(false);
   }
