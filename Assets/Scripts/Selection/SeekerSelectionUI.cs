@@ -161,7 +161,7 @@ public class SeekerSelectionUI : MonoBehaviour
     currentlySelectedImage = buttonImage;
     buttonImage.color = Color.red;
   }
-  
+
   public void ConfirmSelection()
   {
     
@@ -172,22 +172,29 @@ public class SeekerSelectionUI : MonoBehaviour
       VerifySelection(currentlySelectedNPC);
       SendSelectionToServer(currentlySelectedNPC);
     }
-    Debug.Log("selected:" + currentlySelectedNPC.name);
-    Debug.Log("actual:" + spellCasterName);
 
+    goToScene sceneManager = FindObjectOfType<goToScene>();
     if (currentlySelectedNPC.name == spellCasterName){
       Debug.Log("winner");
-      goToScene sceneManager = FindObjectOfType<goToScene>();
       if (sceneManager != null)
       {
           sceneManager.goToEndGame();
+          PlayerPrefs.SetString("EndGameMessage", "You Win!");
       }
       else
       {
           Debug.LogError("goToScene not found in the scene!");
       }
     } else {
-      Debug.Log("loser");
+      if (sceneManager != null)
+      {
+          sceneManager.goToEndGame();
+          PlayerPrefs.SetString("EndGameMessage", "You Lose!");
+      }
+      else
+      {
+          Debug.LogError("goToScene not found in the scene!");
+      }
     }
     selectionPanel.SetActive(false);
   }
