@@ -1289,6 +1289,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1364883654379630471, guid: 8f04047221c70417c83f32e0635488af, type: 3}
     - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
+      propertyPath: powerUpManagerPrefab
+      value: 
+      objectReference: {fileID: 4141988189606785293, guid: 7f0fee6418a441346abf4165d4ae6e9a, type: 3}
+    - target: {fileID: 6079245896382523580, guid: b66e41f27c4e14b78802b27a4b9749aa, type: 3}
       propertyPath: characterPrefabs.Array.size
       value: 5
       objectReference: {fileID: 0}

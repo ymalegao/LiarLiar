@@ -33,6 +33,8 @@ public class ServerManager : NetworkBehaviour
 
   public Dictionary<ulong, string> _clientAuthIdMap = new Dictionary<ulong, string>();
 
+  [SerializeField] private GameObject powerUpManagerPrefab; // Add this field
+
   private void Awake()
   {
     if (Instance == null)
@@ -48,8 +50,35 @@ public class ServerManager : NetworkBehaviour
 
   private void Start()
   {
-    if (NetworkManager.Singleton == null) return;
+    if (NetworkManager.Singleton == null)
+    {
+      Debug.LogError("NetworkManager is null!");
+      return;
+    }
+
     NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
+
+    Debug.Log($"ServerManager Start - IsServer: {IsServer}, IsHost: {IsHost}");
+
+    if (IsServer)
+    {
+      if (powerUpManagerPrefab == null)
+      {
+        Debug.LogError("PowerUpManager prefab is not assigned!");
+        return;
+      }
+
+      GameObject powerUpManager = Instantiate(powerUpManagerPrefab);
+      NetworkObject netObj = powerUpManager.GetComponent<NetworkObject>();
+      if (netObj == null)
+      {
+        Debug.LogError("NetworkObject missing on PowerUpManager prefab!");
+        return;
+      }
+
+      netObj.Spawn();
+      Debug.Log("PowerUpManager spawned on server");
+    }
   }
 
   private IEnumerator MapClientToAuthId(ulong clientId)
