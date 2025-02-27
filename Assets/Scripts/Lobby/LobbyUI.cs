@@ -7,6 +7,8 @@ public class LobbyUI : MonoBehaviour
 {
   [SerializeField] private TMP_InputField lobbyCodeInput; // Use TMP_InputField instead of InputField
   [SerializeField] private TMP_Text lobbyInfoText; // Use TMP_Text instead of Text
+  [SerializeField] private TMP_Text characterInfoText; // Use TMP_Text instead of Text
+
 
   public GameObject lobbyTrigger;
   private LobbyManager lobbyManager;
@@ -91,13 +93,9 @@ public class LobbyUI : MonoBehaviour
   public async void OnCharacterSelectButtonClicked()
   {
     string selectedCharacter = characterDropdown.options[characterDropdown.value].text;
-    Debug.Log("Character selected: " + characterDropdown.value);
-
     ServerManager.Instance.setCharacterIndex(characterDropdown.value);
     Debug.Log("Character selected: " + characterDropdown.value);
-    lobbyInfoText.text = "Character Selected: " + selectedCharacter;
-
-    //characterSelectionPanel.SetActive(false);
+    characterInfoText.text = selectedCharacter;
   }
 
   private void OnDestroy()
