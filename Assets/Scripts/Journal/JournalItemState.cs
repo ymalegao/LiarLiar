@@ -88,11 +88,11 @@ public bool IsMarkedCorrectly()
             Debug.Log("Default");
             break;
         case State.Lie:
-            text.color = new Color(179, 12, 12, 1); // Force full red
+            text.color = new Color(1, 0, 0, 1); // Force full red
             Debug.Log("Lie");
             break;
         case State.Truth:
-            text.color = new Color(6, 161, 40, 1); // Force full green
+            text.color = new Color(0, 1, 0, 1); // Force full green
             Debug.Log("Truth");
             break;
     }

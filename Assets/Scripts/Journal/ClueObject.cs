@@ -15,69 +15,106 @@ public class ClueObject : MonoBehaviour
 
   private void Update()
   {
-    if (playerInRange && Input.GetKeyDown(KeyCode.R)) // Change key as needed
+    if ( Input.GetKeyDown(KeyCode.R)) // Change key as needed
     {
-      CollectClue();
+      if(playerInRange){
+        CollectClue();
+      } else {
+        Debug.Log("nope bruh");
+      }
+      
     }
   }
 
-  private void CollectClue()
+  public void CollectClue()
   {
     JournalManager.Instance.AddClue(clueText); // Add clue to journal
     Debug.Log($"Clue collected: {clueText}");
     Destroy(gameObject); // Remove clue from the world after collection
   }
 
-  private void OnTriggerEnter(Collider other)
-  {
-    if (other.CompareTag("Seeker"))
-    {
-      playerInRange = true;
-      Debug.Log("I'm in range :)");
-      if (clueUIPrompt != null)
-      {
-        clueUIPrompt.SetActive(true);
-      }
-    }
-  }
+  // private void OnTriggerEnter(Collider other)
+  // {
+  //   // if (other.CompareTag("Seeker"))
+  //   // {
+  //   //   playerInRange = true;
+  //   //   Debug.Log("I'm in range :)");
+  //   //   if (clueUIPrompt != null)
+  //   //   {
+  //   //     clueUIPrompt.SetActive(true);
+  //   //   }
+  //   // }
+  //   playerInRange = true;
+  //   Debug.Log("I'm in range :)");
+  //   if (clueUIPrompt != null)
+  //   {
+  //     clueUIPrompt.SetActive(true);
+  //   }
+  // }
 
-  private void OnTriggerExit(Collider other)
-  {
-    if (other.CompareTag("Seeker"))
-    {
-      playerInRange = false;
-      if (clueUIPrompt != null)
-      {
-        clueUIPrompt.SetActive(false);
-      }
-    }
-  }
+//   private void OnTriggerExit(Collider other)
+//   {
+//     // if (other.CompareTag("Seeker"))
+//     // {
+//     //   playerInRange = false;
+//     //   if (clueUIPrompt != null)
+//     //   {
+//     //     clueUIPrompt.SetActive(false);
+//     //   }
+//     // }
+//     playerInRange = false;
+//     if (clueUIPrompt != null)
+//     {
+//       clueUIPrompt.SetActive(false);
+//     }
+//   }
 
-  private void OnTriggerEnter2D(Collider2D other)
-  {
-    if (other.CompareTag("Seeker"))
-    {
-      Debug.Log("Player can now read the clue!");
-      playerInRange = true;
-      Debug.Log("I'm in range :)");
-      if (clueUIPrompt != null)
-      {
-        clueUIPrompt.SetActive(true);
-      }
-    }
-  }
+//   private void OnTriggerEnter2D(Collider2D other)
+//   {
+//     // if (other.CompareTag("Seeker"))
+//     // {
+//     //   Debug.Log("Player can now read the clue!");
+//     //   playerInRange = true;
+//     //   Debug.Log("I'm in range :)");
+//     //   if (clueUIPrompt != null)
+//     //   {
+//     //     clueUIPrompt.SetActive(true);
+//     //   }
+//     // } else {
+//     //   Debug.Log("tf is a tag");
+//     // }
+//     Debug.Log("Player can now read the clue!");
+//     playerInRange = true;
+//     Debug.Log("I'm in range :)");
+//     if (clueUIPrompt != null)
+//     {
+//       clueUIPrompt.SetActive(true);
+//     }
+//   }
 
-  private void OnTriggerExit2D(Collider2D other)
-  {
-    if (other.CompareTag("Seeker"))
+//   private void OnTriggerExit2D(Collider2D other)
+//   {
+//     // if (other.CompareTag("Seeker"))
+//     // {
+//     //   Debug.Log("Player can now NOT read the clue!");
+//     //   playerInRange = false;
+//     //   Debug.Log("I'm not in range :)");
+//     //   if (clueUIPrompt != null)
+//     //   {
+//     //     clueUIPrompt.SetActive(false);
+//     //   }
+//     // }
+//     Debug.Log("Player can now NOT read the clue!");
+//     playerInRange = false;
+//     Debug.Log("I'm not in range :)");
+//     if (clueUIPrompt != null)
+//     {
+//       clueUIPrompt.SetActive(false);
+//     }
+// }
+
+public void ShowPrompt(bool show)
     {
-      Debug.Log("Player can now NOT read the clue!");
-      playerInRange = false;
-      Debug.Log("I'm not in range :)");
-      if (clueUIPrompt != null)
-      {
-        clueUIPrompt.SetActive(false);
-      }
+        clueUIPrompt?.SetActive(show);
     }
-  }
 }

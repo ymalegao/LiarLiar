@@ -4,6 +4,7 @@ public class SeekerInteraction : MonoBehaviour
 {
   public float interactionRange = 1.5f; // Range for interaction
   public LayerMask interactableLayer; // Assign in the inspector to detect interactables
+  private ClueObject currentClue = null;
 
   private void Update()
   {
@@ -21,6 +22,12 @@ public class SeekerInteraction : MonoBehaviour
         CheckForInteractable();
       }
     }
+
+    if (Input.GetKeyDown(KeyCode.R) && currentClue != null)
+        {
+            currentClue.CollectClue();
+            currentClue = null; // Prevents multiple collections
+        }
   }
 
   private void CheckForInteractable()
@@ -53,4 +60,23 @@ public class SeekerInteraction : MonoBehaviour
     Gizmos.color = Color.green;
     Gizmos.DrawWireSphere(transform.position, interactionRange);
   }
+
+  private void OnTriggerEnter2D(Collider2D other)
+    {
+        ClueObject clue = other.GetComponent<ClueObject>();
+        if (clue != null)
+        {
+            currentClue = clue;
+            clue.ShowPrompt(true);
+        }
+    }
+
+  private void OnTriggerExit2D(Collider2D other)
+    {
+        if (currentClue != null && other.GetComponent<ClueObject>() == currentClue)
+        {
+            currentClue.ShowPrompt(false);
+            currentClue = null;
+        }
+    }
 }
