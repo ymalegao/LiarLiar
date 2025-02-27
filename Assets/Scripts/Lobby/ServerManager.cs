@@ -23,7 +23,9 @@ public class ServerManager : NetworkBehaviour
 
   public GameObject tempPlayerPrefab; // Temporary placeholder
   public List<GameObject> characterPrefabs; // List of all possible character prefabs
-  public GameObject seekerPrefab; // Seeker prefab
+  public List<GameObject> seekerPrefabs; // Seeker prefab
+
+  private int characterIndex;
 
   private GameObject prefabToUse;
 
@@ -115,6 +117,10 @@ public class ServerManager : NetworkBehaviour
     ReplacePlayerWithCharacter(clientId);
   }
 
+  public void setCharacterIndex(int index) {
+    characterIndex = index;
+  }
+
   private bool IsClientSceneSynchronized(ulong clientId)
   {
     if (!NetworkManager.Singleton.ConnectedClients.ContainsKey(clientId))
@@ -138,6 +144,8 @@ public class ServerManager : NetworkBehaviour
     return playerObject.IsSpawned && playerObject != null;
   }
 
+
+
   private void ReplacePlayerWithCharacter(ulong clientId)
   {
     string role = LobbyManager.Instance.GetPlayerRoleFromClient(clientId);
@@ -146,7 +154,7 @@ public class ServerManager : NetworkBehaviour
     int indexforPrefab = LobbyManager.Instance.GetPlayerSpriteIndexFromClient(clientId);
     Debug.Log($"🛑 Sprite Index for client {clientId}: {indexforPrefab}");
 
-    prefabToUse = seekerPrefab; // All players are now seekers
+    prefabToUse = seekerPrefabs[characterIndex]; // All players are now seekers
 
     if (!NetworkManager.Singleton.ConnectedClients.ContainsKey(clientId))
     {

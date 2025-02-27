@@ -91,10 +91,10 @@ public class LobbyUI : MonoBehaviour
   public async void OnCharacterSelectButtonClicked()
   {
     string selectedCharacter = characterDropdown.options[characterDropdown.value].text;
-    Debug.Log("Character selected: " + selectedCharacter);
+    Debug.Log("Character selected: " + characterDropdown.value);
 
-    await lobbyManager.UpdatePlayerCharacter(selectedCharacter);
-    Debug.Log("Character selected: " + selectedCharacter);
+    ServerManager.Instance.setCharacterIndex(characterDropdown.value);
+    Debug.Log("Character selected: " + characterDropdown.value);
     lobbyInfoText.text = "Character Selected: " + selectedCharacter;
 
     //characterSelectionPanel.SetActive(false);
