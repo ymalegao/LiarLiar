@@ -12,7 +12,6 @@ public class JournalTester : MonoBehaviour
 
     private void TestJournalManager()
     {
-        Debug.Log("🔍 Starting JournalManager Tests...");
 
         // Step 1: Get the JournalManager instance
         if (JournalManager.Instance == null)
@@ -32,7 +31,6 @@ public class JournalTester : MonoBehaviour
         // Step 4: Add Truths and Lies
         AddTruthsAndLies(journal);
 
-        Debug.Log("📝 Journal Testing Complete! Open the UI and verify entries.");
     }
 
     private void RegisterNPCs(JournalManager journal)
@@ -53,8 +51,6 @@ public class JournalTester : MonoBehaviour
         {
             journal.RegisterNPC(npcs[i, 0], npcs[i, 1], placeholderSprite);
         }
-
-        Debug.Log("✅ NPCs Registered");
     }
 
     private void AddGeneralClues(JournalManager journal)
@@ -73,7 +69,6 @@ public class JournalTester : MonoBehaviour
             journal.AddClue(clue);
         }
 
-        Debug.Log("✅ Evidence Clues Added");
     }
 
     private void AddTruthsAndLies(JournalManager journal)
@@ -143,6 +138,5 @@ public class JournalTester : MonoBehaviour
             journal.AddTruthsAndLiesFromNPC(npc.Key, npc.Value);
         }
 
-        Debug.Log("✅ Truths and Lies Processed");
     }
 }

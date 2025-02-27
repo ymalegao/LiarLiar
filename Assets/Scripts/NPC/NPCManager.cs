@@ -30,7 +30,6 @@ public class NPCManager : MonoBehaviour
     if (!allNPCs.Contains(npc))
     {
       allNPCs.Add(npc);
-      Debug.Log($"Registered NPC: {npc.name} | Total NPCs: {allNPCs.Count}");
     }
   }
 
@@ -46,6 +45,5 @@ public class NPCManager : MonoBehaviour
   public void ClearNPCs()
   {
     allNPCs.Clear();
-    Debug.Log("Cleared all registered NPCs");
   }
 }

@@ -45,7 +45,6 @@ public class TestSeekerSelection : MonoBehaviour
       if (isActive)
       {
         List<GameObject> allNPCs = NPCManager.Instance?.GetAllNPCs() ?? new List<GameObject>();
-        Debug.Log($"Initializing NPC selection UI with {allNPCs.Count} NPCs");
 
         if (allNPCs.Count > 0 && seekerSelectionUI != null)
         {

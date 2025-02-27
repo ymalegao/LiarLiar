@@ -71,7 +71,6 @@ public class LobbyUI : MonoBehaviour
   private void EnableStartButton()
   {
     if (startGameButton.gameObject.activeSelf) return; // Prevent duplicate activation
-    Debug.Log("Start button enabled!");
 
     startGameButton.gameObject.SetActive(true);
     startGameButton.onClick.RemoveAllListeners(); // Remove previous listeners to prevent stacking
@@ -94,7 +93,6 @@ public class LobbyUI : MonoBehaviour
   {
     string selectedCharacter = characterDropdown.options[characterDropdown.value].text;
     ServerManager.Instance.setCharacterIndex(characterDropdown.value);
-    Debug.Log("Character selected: " + characterDropdown.value);
     characterInfoText.text = selectedCharacter;
   }
 

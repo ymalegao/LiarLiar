@@ -134,8 +134,6 @@ public class JournalManager : MonoBehaviour
 {
     if (npcDataMap.TryGetValue(npcId, out JournalNPCData npc))
     {
-        Debug.Log($"Showing details for NPC: {npc.Name}");
-
         // Update NPC portrait
         if (npcPortrait != null && npc.Icon != null)
         {
@@ -171,9 +169,6 @@ public class JournalManager : MonoBehaviour
             }
             journalEntries.Add(journalItem);
             journalItem.OnStateChanged += () => UpdateStatementState(npcId, statement, journalItem.GetState());
-
-
-            Debug.Log($"Statement: {statement}, Is Truth: {isTruth}");
         }
     }
     else

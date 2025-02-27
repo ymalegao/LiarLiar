@@ -36,21 +36,15 @@ public class SeekerInteraction : MonoBehaviour
 
     if (hit != null)
     {
-      Debug.Log($"Hit object: {hit.name}");
       IInteractable interactable = hit.GetComponent<IInteractable>();
       if (interactable != null)
       {
-        Debug.Log($"Interactable found: {hit.name}");
         interactable.Interact();
       }
       else
       {
         Debug.LogWarning($"Object {hit.name} does not implement IInteractable.");
       }
-    }
-    else
-    {
-      Debug.Log("No interactable object detected.");
     }
   }
 

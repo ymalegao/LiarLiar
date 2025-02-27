@@ -25,19 +25,14 @@ public class TaskManager : MonoBehaviour
 
   void Start()
   {
-      //Disable all gameManager objects.
-    //   foreach( KeyValuePair<string, GameTask> task in  tasks ){
-    //       task.Value.gameManager.SetActive(false);
-    //   }
+
   }
 
 
   // Assign tasks to players
   public GameTask AssignTaskToPlayer()
   {
-    // int randomIndex = Random.Range(0, tasks.Count);
-    // Debug.Log("Task assigned to player  " + tasks.ElementAt(randomIndex));
-    // return (tasks.ElementAt(randomIndex).Value); //return random task
+
     return (tasks["fish"]);
 
   }
@@ -59,7 +54,6 @@ public class TaskManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return) && !task.isActive)
         {
           task.isActive = true;
-          Debug.Log($"Task started: {task.name}");
         }
 
         if (task.isActive)
@@ -74,7 +68,6 @@ public class TaskManager : MonoBehaviour
 
           if (task.taskTimer >= task.completionTime)
           {
-            Debug.Log($"Task completed at {task.position} by {name}");
             task.taskTimer = 0f;
             task.isActive = false; // Reset flag after completion
             if (task.gameManager.activeSelf)

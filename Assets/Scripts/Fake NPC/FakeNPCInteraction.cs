@@ -23,7 +23,6 @@ public class FakeNPCInteraction : NetworkBehaviour, IInteractable
 
     if (!hasInteracted)
     {
-      Debug.Log($"Seeker is interacting with FakeNPC: {npcName}");
       DialogueManager.Instance.StartDialogue(npcName, truthsAndLies);
       hasInteracted = true;
     }

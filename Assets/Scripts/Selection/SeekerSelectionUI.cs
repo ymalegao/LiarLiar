@@ -30,11 +30,9 @@ public class SeekerSelectionUI : MonoBehaviour
 
     if (characterButtonPrefab != null)
     {
-      Debug.Log("Character button prefab is not null");
       characterButtonPrefab.SetActive(false);
     }
 
-    Debug.Log("Waiting for Seeker role...");
     StartCoroutine(WaitForSeekerRole());
   }
 
@@ -64,7 +62,6 @@ public class SeekerSelectionUI : MonoBehaviour
       }
     }
 
-    Debug.Log($"Initializing UI with {allCharacters.Count} NPCs");
     PopulateSelectionUI();
     selectionPanel.SetActive(true);
   }
@@ -77,7 +74,6 @@ public class SeekerSelectionUI : MonoBehaviour
       {
         if (child.gameObject != characterButtonPrefab)
         {
-          Debug.Log($"Destroying child: {child.gameObject.name}");
           Destroy(child.gameObject);
         }
       }
@@ -90,7 +86,6 @@ public class SeekerSelectionUI : MonoBehaviour
 
   private void PopulateSelectionUI()
   {
-    Debug.Log($"Populating UI with {allCharacters.Count} characters...");
     HashSet<GameObject> seenObjects = new HashSet<GameObject>();
 
     for (int i = 0; i < allCharacters.Count; i++)
@@ -164,18 +159,8 @@ public class SeekerSelectionUI : MonoBehaviour
 
   public void ConfirmSelection()
   {
-    
-    Debug.Log("Before Selection - Spell Caster Name: " + spellCasterName);
-
-    if (currentlySelectedNPC != null)
-    {
-      VerifySelection(currentlySelectedNPC);
-      SendSelectionToServer(currentlySelectedNPC);
-    }
-
     goToScene sceneManager = FindObjectOfType<goToScene>();
     if (currentlySelectedNPC.name == spellCasterName){
-      Debug.Log("winner");
       if (sceneManager != null)
       {
           sceneManager.goToEndGame();
@@ -199,20 +184,4 @@ public class SeekerSelectionUI : MonoBehaviour
     selectionPanel.SetActive(false);
   }
 
-  private void SendSelectionToServer(GameObject selectedNPC) 
-  {
-    if (NetworkManager.Singleton.IsServer)
-    {
-      Debug.Log($"Seeker selected NPC: {selectedNPC.name}");
-    }
-    else
-    {
-      Debug.Log("Sending selection to server...");
-    }
-  }
-
-  private void VerifySelection(GameObject selectedNPC)
-  {
-    Debug.Log($"Selected NPC for verification: {selectedNPC.name}");
-  }
 }

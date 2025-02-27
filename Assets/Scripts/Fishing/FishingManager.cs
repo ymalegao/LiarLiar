@@ -32,7 +32,6 @@ public class FishingManager : MonoBehaviour, MinigameManager
 
     public void StartGame()
     {
-        Debug.Log("Fishing minigame started!");
         if (GameCanvas != null)
         {
             GameCanvas.gameObject.SetActive(true);
@@ -42,8 +41,6 @@ public class FishingManager : MonoBehaviour, MinigameManager
 
     public void EndGame()
     {
-        Debug.Log("Fishing minigame ended!");
-
         if (GameCanvas != null)
         {
             GameCanvas.gameObject.SetActive(false);

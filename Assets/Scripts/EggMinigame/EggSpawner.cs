@@ -58,7 +58,6 @@ public class EggSpawner : MonoBehaviour
   {
     if (EggGameManager.Instance.GetScore() >= minScoreToComplete)
     {
-      Debug.Log("Mini-game completed successfully!");
       miniGameCanvas.SetActive(false);
       victoryPanel.SetActive(true);
       CancelInvoke(nameof(SpawnEgg));
@@ -66,7 +65,6 @@ public class EggSpawner : MonoBehaviour
     }
     else
     {
-      Debug.Log("Try again! You need at least " + minScoreToComplete + " points.");
       EggGameManager.Instance.ResetState();
       failurePanel.SetActive(true);
 

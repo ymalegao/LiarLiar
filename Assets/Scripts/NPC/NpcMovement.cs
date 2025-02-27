@@ -86,10 +86,7 @@ public class NpcMovement : MonoBehaviour
 
   public void StopMovement()
   {
-    Debug.Log("Stop the character");
-
     isStoppedForInteraction = true;
-    //set NPC velocity to 0
     agent.velocity = Vector3.zero;
     agent.isStopped = true; // Halts movement
   }
@@ -98,7 +95,6 @@ public class NpcMovement : MonoBehaviour
   {
     isStoppedForInteraction = false;
     agent.isStopped = false; // Resumes movement
-    Debug.Log("Resume Play\n\n");
   }
 
   public void SetWaypoints(Transform[] newWaypoints)

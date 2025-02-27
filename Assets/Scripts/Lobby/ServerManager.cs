@@ -66,7 +66,6 @@ public class ServerManager : NetworkBehaviour
         if (!_clientAuthIdMap.ContainsKey(clientId)) // Prevent duplicates
         {
           _clientAuthIdMap[clientId] = authId;
-          Debug.Log($"🔗 Mapped client {clientId} to AuthID {authId} in ServerManager");
         }
         yield break;
       }
@@ -80,13 +79,8 @@ public class ServerManager : NetworkBehaviour
   {
     if (!IsServer) return; // ✅ Only the server should handle spawning
 
-    Debug.Log($"🎮 Client connected: {clientId}");
-
-    // 1️⃣ Spawn a temporary player object first
-    //Vector3 spawnPos = new Vector3(0f, 0f, 0f);
     GameObject tempPlayer = Instantiate(tempPlayerPrefab, spawnPosition, Quaternion.identity);
     tempPlayer.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId);
-    Debug.Log($"👤 Temporary player spawned for {clientId}");
 
     // 2️⃣ After delay, replace with the correct character prefab
     StartCoroutine(DelayedCharacterReplace(clientId));
@@ -106,14 +100,8 @@ public class ServerManager : NetworkBehaviour
     {
       Debug.LogWarning($"Mapping still not available for client {clientId} after waiting");
     }
-    //get mapping from local hashmap
-    // _clientAuthIdMap.TryGetValue(clientId, out string playerId);
-    //using the playerID get the role
-    // string role = GetPlayerRole(clientId);        
-    // Debug.Log($"👤 Player ID for {clientId}: {playerId}");
 
     yield return new WaitUntil(() => IsClientSceneSynchronized(clientId));
-    Debug.Log($"🎮 Scene synchronized for {clientId}");
     ReplacePlayerWithCharacter(clientId);
   }
 
@@ -131,7 +119,6 @@ public class ServerManager : NetworkBehaviour
     var activeScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
     if (activeScene != "Gameplay Functions")
     {
-      Debug.Log($"🎮 Scene not synchronized for {clientId}");
       return false;
     }
     NetworkObject playerObject = NetworkManager.Singleton.ConnectedClients[clientId].PlayerObject;
@@ -148,11 +135,6 @@ public class ServerManager : NetworkBehaviour
 
   private void ReplacePlayerWithCharacter(ulong clientId)
   {
-    string role = LobbyManager.Instance.GetPlayerRoleFromClient(clientId);
-    Debug.Log($"👤 Role for in ReplacePlayerWithCharacter {clientId}: {role}");
-
-    int indexforPrefab = LobbyManager.Instance.GetPlayerSpriteIndexFromClient(clientId);
-    Debug.Log($"🛑 Sprite Index for client {clientId}: {indexforPrefab}");
 
     prefabToUse = seekerPrefabs[characterIndex]; // All players are now seekers
 
@@ -175,7 +157,6 @@ public class ServerManager : NetworkBehaviour
 
     GameObject newCharacter = Instantiate(prefabToUse, spawnPos, Quaternion.identity);
     newCharacter.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId);
-    Debug.Log($"🎮 Spawned seeker for {clientId}");
   }
 
   public async Task<string> CreateRelay()
@@ -244,18 +225,11 @@ public class ServerManager : NetworkBehaviour
     if (!LobbyManager.Instance._clientToPlayerIdMap.ContainsKey(clientId))
     {
       LobbyManager.Instance._clientToPlayerIdMap[clientId] = authId;
-      Debug.Log($"Server: Mapped client {clientId} to AuthID {authId} in LobbyManager");
     }
   }
 
   public GameObject GetCharacterPrefab(int index)
   {
-    Debug.Log($"CharacterPrefabs.Count: {characterPrefabs.Count}");
-    foreach (var prefab in characterPrefabs)
-    {
-      Debug.Log($"📦 CharacterPrefab: {prefab.name}");
-    }
-
     if (index < 0 || index >= characterPrefabs.Count)
     {
       Debug.LogError($"❌ Invalid index {index} for character prefabs.");
