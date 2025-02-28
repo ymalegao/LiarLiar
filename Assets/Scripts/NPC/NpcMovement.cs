@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Unity.Netcode;
 
 public class NpcMovement : MonoBehaviour
 {
@@ -84,20 +85,39 @@ public class NpcMovement : MonoBehaviour
         agent.SetDestination(points[currentPointIndex].position);
   }
 
-  public void StopMovement()
-  {
-    isStoppedForInteraction = true;
-    agent.velocity = Vector3.zero;
-    agent.isStopped = true; // Halts movement
-  }
+    public void StopMovement()
+    {
+        isStoppedForInteraction = true;
+        agent.velocity = Vector3.zero;
+        agent.isStopped = true; // Halts movement
+        StopMovementClientRpc(); // Ensure all clients sync the stopped state
+    }
 
-  public void ResumeMovement()
-  {
-    isStoppedForInteraction = false;
-    agent.isStopped = false; // Resumes movement
-  }
+    [ClientRpc]
+    private void StopMovementClientRpc()
+    {
+        isStoppedForInteraction = true;
+        agent.velocity = Vector3.zero;
+        agent.isStopped = true; // Sync stop movement across all clients
+    }
 
-  public void SetWaypoints(Transform[] newWaypoints)
+
+    public void ResumeMovement()
+    {
+        isStoppedForInteraction = false;
+        agent.isStopped = false; // Resumes movement
+        ResumeMovementClientRpc();
+    }
+
+    [ClientRpc]
+    private void ResumeMovementClientRpc()
+    {
+        isStoppedForInteraction = false;
+        agent.isStopped = false; // Sync resume movement across all clients
+    }
+
+
+    public void SetWaypoints(Transform[] newWaypoints)
   {
     points = newWaypoints;
   }
