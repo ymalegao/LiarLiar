@@ -62,6 +62,7 @@ public class JournalManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.J))
         {
+            Debug.Log("J pressed");
             if (selectionUI.activeSelf)
             {
                 return;
@@ -119,6 +120,13 @@ public class JournalManager : MonoBehaviour
     }
     buttonText.text = npcName;
 
+    //if NPC is clues, we wnt to disable the innocent and guilty buttons
+    if (npcId == "clues")
+    {
+        buttonObj.transform.GetChild(1).gameObject.SetActive(false);
+        buttonObj.transform.GetChild(2).gameObject.SetActive(false);
+    }
+
     // Add a listener to handle button clicks
     var button = buttonObj.GetComponent<Button>();
     if (button == null)
@@ -151,6 +159,19 @@ public class JournalManager : MonoBehaviour
             npcNameText.text = npc.Name;
         }
 
+        Debug.Log($"Showing details for NPC {npcId}");
+        //if the NPC is clues, we want to set the spacing to 0 for the NPC statement container
+
+        if (npcId == "clues")
+        {
+            npcStatementContainer.GetComponent<VerticalLayoutGroup>().spacing = 0;
+
+        }
+        else
+        {
+            npcStatementContainer.GetComponent<VerticalLayoutGroup>().spacing = 10;
+        }
+
         // Clear existing statements
         foreach (Transform child in npcStatementContainer)
         {
@@ -179,6 +200,7 @@ public class JournalManager : MonoBehaviour
 
 private void UpdateStatementState(string npcId, string statement, JournalItemState.State newState)
 {
+    
     if (npcDataMap.TryGetValue(npcId, out JournalNPCData npc))
     {
         npc.StatementStates[statement] = newState;

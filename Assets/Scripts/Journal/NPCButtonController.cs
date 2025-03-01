@@ -17,7 +17,7 @@ public class NPCButtonController : MonoBehaviour
     private TextMeshProUGUI buttonText;
 
     // Define colors for each state
-    public Color defaultColor = Color.white;
+    public Color defaultColor = Color.black;
     public Color suspiciousColor = Color.red;
     public Color innocentColor = Color.green;
 
@@ -46,13 +46,30 @@ public class NPCButtonController : MonoBehaviour
 
     public void OnGreenButton()
     {
-        currentState = NPCState.Innocent;
+        if (currentState == NPCState.Innocent)
+        {
+            currentState = NPCState.Default;
+        }
+        else
+        {
+            currentState = NPCState.Innocent;
+        }
+       
         UpdateButtonAppearance();
     }
 
     public void OnRedButton()
+
     {
-        currentState = NPCState.Suspicious;
+        if (currentState == NPCState.Suspicious)
+        {
+            currentState = NPCState.Default;
+        }
+        else
+        {
+            currentState = NPCState.Suspicious;
+        }
+        
         UpdateButtonAppearance();
     }
 
