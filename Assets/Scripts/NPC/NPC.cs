@@ -34,8 +34,9 @@ public class NPC : NetworkBehaviour, IInteractable
 
     public void Interact()
     {
+        Debug.Log("Interacting with NPC");
         if (isInteracting.Value) return; // Prevent multiple players from interacting
-
+        Debug.Log("Requesting interaction with NPC");
         RequestInteractServerRpc(NetworkManager.Singleton.LocalClientId);
     }
 
@@ -70,6 +71,8 @@ public class NPC : NetworkBehaviour, IInteractable
             animator.SetFloat("npc_speed", 0f);
         }
 
+        Debug.Log("Starting dialogue with nPC...");
+
         // Ensure dialogue starts only after stopping movement
         StartCoroutine(StartDialogueAfterMovement());
     }
@@ -77,6 +80,7 @@ public class NPC : NetworkBehaviour, IInteractable
     private IEnumerator StartDialogueAfterMovement()
     {
         yield return new WaitForEndOfFrame(); // Ensure movement stops first
+        Debug.Log("Starting dialogue...");
         DialogueManager.Instance.StartDialogue(npcName, dialogueLines);
         DialogueManager.Instance.OnDialogueEnd += HandleDialogueEnd;
     }

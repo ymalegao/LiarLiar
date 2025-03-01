@@ -29109,7 +29109,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 12
@@ -29670,6 +29670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5028d74fcca1947b79263a71d65d9a24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextLineButton: {fileID: 0}
   dialoguePanel: {fileID: 1232701369}
   dialogueText: {fileID: 772273360}
 --- !u!4 &1296637462

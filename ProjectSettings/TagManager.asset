@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - Obstackle
   - Fish
+  - NextLine
   layers:
   - Default
   - TransparentFX

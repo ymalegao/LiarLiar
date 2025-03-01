@@ -131,6 +131,7 @@ public class LobbyManager : MonoBehaviour
       _hostLobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, options);
       _joinLobby = _hostLobby;
       _isHost = true;
+      Debug.Log("Lobby created with code: " + _hostLobby.LobbyCode);
       OnLobbyCreated?.Invoke();
     }
     catch (LobbyServiceException e)
@@ -274,6 +275,8 @@ public class LobbyManager : MonoBehaviour
       else
       {
         Debug.LogError("❌ Client failed to join relay.");
+        //try again
+        await StartGame();
       }
     }
   }
