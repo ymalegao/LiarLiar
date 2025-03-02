@@ -1,4 +1,8 @@
+using System.Collections;
+using UnityEngine;
 public interface IInteractable
 {
-  void Interact();
+  void Interact(){
+    Debug.Log("Interacting with NPC");
+  }
 }

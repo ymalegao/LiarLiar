@@ -78,7 +78,7 @@ public class NPCButtonController : MonoBehaviour
         switch (currentState)
         {
             case NPCState.Default:
-                buttonText.color = defaultColor;
+                buttonText.color = Color.black;
                 break;
             case NPCState.Suspicious:
                 buttonText.color = suspiciousColor;

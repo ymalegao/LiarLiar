@@ -98,6 +98,7 @@ public class DialogueManager : MonoBehaviour
     // Trigger the end-of-dialogue event
     OnDialogueEnd?.Invoke();
     JournalManager.Instance.AddTruthsAndLiesFromNPC(currentNPCName, npcStatements[currentNPCName]);
+    JournalManager.Instance.ShowNPCDetails(currentNPCName);
 
   }
   private void AddToDict(string npcName, string dialogue, bool isTruth)

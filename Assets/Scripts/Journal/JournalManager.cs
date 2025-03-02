@@ -10,6 +10,11 @@ public class JournalManager : MonoBehaviour
 
     [Header("UI Elements")]
     public GameObject journalPanel;
+
+    private int currentNPCIndex = 0;
+
+
+    private TextMeshProUGUI currentSelectedNPCText = null; // Store the currently selected NPC's text
     public Transform npcListContainer; // Left side list of NPC names
 
     public Transform npcStatementContainer; // Right side list of NPC statements
@@ -21,6 +26,8 @@ public class JournalManager : MonoBehaviour
     public GameObject journalItemPrefab;
     public Button toggleJournalButton;
     public TextMeshProUGUI correctnessText;
+
+    public int indexCount = 0;
     public Sprite cluesIcon;
 
 
@@ -75,7 +82,8 @@ public class JournalManager : MonoBehaviour
     {
         if (!npcDataMap.ContainsKey(npcId))
         {
-            npcDataMap.Add(npcId, new JournalNPCData(name, icon));
+            npcDataMap.Add(npcId, new JournalNPCData(name, icon  , indexCount));
+            indexCount++;
             AppendNPCToList(npcId, name);
         }
     }
@@ -134,7 +142,26 @@ public class JournalManager : MonoBehaviour
         Debug.LogError("The instantiated NPC button prefab is missing a Button component.");
         return;
     }
-    button.onClick.AddListener(() => ShowNPCDetails(npcId));
+    button.onClick.AddListener(() => {
+            ShowNPCDetails(npcId);
+            HighlightSelectedNPC(buttonObj);
+
+    });
+
+    
+}
+
+private void HighlightSelectedNPC(GameObject selectedButton){
+    if (currentSelectedNPCText != null)
+    {
+        currentSelectedNPCText.color = Color.black;
+    }
+    TextMeshProUGUI buttonText = selectedButton.GetComponentInChildren<TextMeshProUGUI>();
+    if (buttonText != null)
+    {
+        buttonText.color = Color.yellow; // Change selected NPC text color
+        currentSelectedNPCText = buttonText; // Store reference to reset later
+    }
 }
 
 
@@ -191,6 +218,10 @@ public class JournalManager : MonoBehaviour
             journalEntries.Add(journalItem);
             journalItem.OnStateChanged += () => UpdateStatementState(npcId, statement, journalItem.GetState());
         }
+
+        currentNPCIndex = npc.index;
+        
+        HighlightSelectedNPC(npcListContainer.GetChild(currentNPCIndex).gameObject);
     }
     else
     {
@@ -260,6 +291,17 @@ private void UpdateStatementState(string npcId, string statement, JournalItemSta
         Debug.LogError("Clues entry not found in the journal.");
     }
   }
+
+  public void SelectNextNPC(int direction)
+{
+    if (npcListContainer.childCount == 0) return;
+    
+
+    currentNPCIndex = (currentNPCIndex + direction + npcListContainer.childCount) % npcListContainer.childCount;
+    Debug.Log($"Selected NPC index: {currentNPCIndex}");
+    Transform selectedNPC = npcListContainer.GetChild(currentNPCIndex);
+    selectedNPC.GetComponent<Button>().onClick.Invoke(); // Simulate click
+}
 
     public void AddTruthsAndLiesFromNPC(string npcId, List<(string dialogue, bool isTruth)> statements)
     {
@@ -351,8 +393,10 @@ public class JournalNPCData
     public List<string> CluesGiven; // ✅ Stores NPC-specific clues
     public Dictionary<string, JournalItemState.State> StatementStates;
 
+    public int index;
 
-    public JournalNPCData(string name, Sprite icon)
+
+    public JournalNPCData(string name, Sprite icon, int journalIndex)
     {
         Name = name;
         Icon = icon;
@@ -360,6 +404,7 @@ public class JournalNPCData
         TruthsAndLies = new List<(string, bool)>();
         CluesGiven = new List<string>();
         StatementStates = new Dictionary<string, JournalItemState.State>();
+        index = journalIndex;
 
     }
 }
