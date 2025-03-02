@@ -9,7 +9,7 @@ public class GetTask : MonoBehaviour
   public TaskManager TM;
 
   private Camera playerCamera;
-  public Camera minigameCamera;
+  public GameObject minigameCamera;
 
   public GameTask GetAssignedTask()
   {
@@ -33,9 +33,11 @@ public class GetTask : MonoBehaviour
 
   public void ActivatePlayerCamera()
   {
+      minigameCamera = this.assignedTask.camera;
       if (playerCamera != null && minigameCamera != null)
       {
           playerCamera.gameObject.SetActive(true);
+
           minigameCamera.gameObject.SetActive(false);
       }
       else
@@ -46,6 +48,7 @@ public class GetTask : MonoBehaviour
 
       public void ActivateMinigameCamera()
   {
+      minigameCamera = this.assignedTask.camera;
       if (playerCamera != null && minigameCamera != null)
       {
           playerCamera.gameObject.SetActive(false);
