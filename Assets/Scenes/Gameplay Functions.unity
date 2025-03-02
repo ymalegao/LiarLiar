@@ -29409,6 +29409,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3345309962347447050, guid: d8b430a3b4f9f4e6c941e95def882b42, type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8213243812718243724, guid: d8b430a3b4f9f4e6c941e95def882b42, type: 3}
       propertyPath: m_Name
       value: eggCamera
