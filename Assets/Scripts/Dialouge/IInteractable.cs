@@ -4,5 +4,6 @@ public interface IInteractable
 {
   void Interact(){
     Debug.Log("Interacting with NPC");
+    
   }
 }
