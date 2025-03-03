@@ -75,7 +75,6 @@ public class TaskManager : MonoBehaviour
           }
 
           task.taskTimer += Time.deltaTime;
-
           if (task.taskTimer >= task.completionTime)
           {
             Debug.Log($"Task completed at {task.position} by {name}");

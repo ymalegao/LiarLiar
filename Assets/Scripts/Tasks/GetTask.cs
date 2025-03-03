@@ -33,6 +33,9 @@ public class GetTask : MonoBehaviour
 
   public void ActivatePlayerCamera()
   {
+      if(playerCamera.gameObject.activeSelf){
+        return;
+      }
       minigameCamera = this.assignedTask.camera;
       if (playerCamera != null && minigameCamera != null)
       {

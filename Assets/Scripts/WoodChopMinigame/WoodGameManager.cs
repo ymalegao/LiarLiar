@@ -22,7 +22,7 @@ public class WoodGameManager : MonoBehaviour, MinigameManager
     public float axeSpeed = 5f;
 
     private int score = 0;
-    private bool gameActive = false;
+    public bool gameActive = false;
 
     private void Awake()
     {
