@@ -29387,7 +29387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2317930535280462021, guid: d8b430a3b4f9f4e6c941e95def882b42, type: 3}
       propertyPath: m_Name
-      value: EggManager Variant 1
+      value: EggManager
       objectReference: {fileID: 0}
     - target: {fileID: 2317930535280462021, guid: d8b430a3b4f9f4e6c941e95def882b42, type: 3}
       propertyPath: m_IsActive

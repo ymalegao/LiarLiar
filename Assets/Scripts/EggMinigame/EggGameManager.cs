@@ -107,7 +107,7 @@ public class EggGameManager : MonoBehaviour, MinigameManager
     gameActive = false;
     miniGameCanvas.SetActive(false);
     EggSpawner.Instance.EndMiniGame();
-    this.gameObject.SetActive(false);
+    // this.gameObject.SetActive(false);
   }
 
   public void ResetState()

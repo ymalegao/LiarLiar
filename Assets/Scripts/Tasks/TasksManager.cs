@@ -70,8 +70,9 @@ public class TaskManager : MonoBehaviour
           //Spawn Minigame gameManager
           if (!task.gameManager.activeSelf)
           {
-            player.ActivateMinigameCamera();
             task.gameManager.SetActive(true);
+
+            player.ActivateMinigameCamera();
           }
 
           task.taskTimer += Time.deltaTime;

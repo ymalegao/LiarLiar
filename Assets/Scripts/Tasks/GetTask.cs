@@ -56,6 +56,18 @@ public class GetTask : MonoBehaviour
       {
           playerCamera.gameObject.SetActive(false);
           minigameCamera.gameObject.SetActive(true);
+          switch(assignedTask.name.ToLower())
+          {
+              case "fish":
+                  // fishingManager.SetActive(true);
+                  break;
+              case "egg":
+                  EggSpawner.Instance.SetPlayer(this);
+                  break;
+              case "wood":
+                  // woodManager.SetActive(true);
+                  break;
+          }
       }
       else
       {
