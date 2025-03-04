@@ -33,7 +33,7 @@ public class SeekerSelectionUI : MonoBehaviour
       characterButtonPrefab.SetActive(false);
     }
 
-    StartCoroutine(WaitForSeekerRole());
+    //StartCoroutine(WaitForSeekerRole());
   }
 
   private IEnumerator WaitForSeekerRole()

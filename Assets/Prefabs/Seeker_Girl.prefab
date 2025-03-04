@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 3739157103676825822}
   m_Layer: 0
   m_Name: Seeker_Girl
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dad3a384bbe91eb40b8eb9f7b74010be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 20
   spawnPosition: {x: 5, y: 12}
   animator: {fileID: 5112175493857286404}
 --- !u!50 &6153845803831488788
@@ -349,7 +349,9 @@ MonoBehaviour:
     isCompleted: 0
     taskTimer: 0
     isActive: 0
+    camera: {fileID: 0}
   TM: {fileID: 0}
+  minigameCamera: {fileID: 0}
 --- !u!1 &5158193424038937431
 GameObject:
   m_ObjectHideFlags: 0

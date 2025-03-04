@@ -39,6 +39,7 @@ public class SeekerInteraction : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.R) && currentClue != null)
         {
+            Debug.Log("Collecting clue");
             currentClue.CollectClue();
             currentClue = null;
         }
@@ -65,5 +66,15 @@ public class SeekerInteraction : NetworkBehaviour
                 Debug.LogWarning($"Object {hit.name} does not implement IInteractable.");
             }
         }
+    }
+
+    public void SetCurrentClue(ClueObject clue)
+    {
+        currentClue = clue;
+    }
+
+    public void ClearCurrentClue()
+    {
+        currentClue = null;
     }
 }

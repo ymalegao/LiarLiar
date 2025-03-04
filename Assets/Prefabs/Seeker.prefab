@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 3739157103676825822}
   m_Layer: 0
   m_Name: Seeker
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -349,7 +349,9 @@ MonoBehaviour:
     isCompleted: 0
     taskTimer: 0
     isActive: 0
+    camera: {fileID: 0}
   TM: {fileID: 0}
+  minigameCamera: {fileID: 0}
 --- !u!1 &5158193424038937431
 GameObject:
   m_ObjectHideFlags: 0

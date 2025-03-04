@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: 0be8992f580ef93489612bb3d8ef3734
+  - enabled: 0
+    path: Assets/Scenes/GameplayWithoutMinigames.unity
+    guid: f38416835f308c6429109d204fd1f894
   - enabled: 1
     path: Assets/Scenes/Gameplay Functions.unity
     guid: a4fa9ab690dba474abd1bb338beb6b32
