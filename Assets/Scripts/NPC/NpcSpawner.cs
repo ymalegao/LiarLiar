@@ -43,21 +43,20 @@ public class NpcSpawner : NetworkBehaviour
 
         foreach (GameObject npcPrefab in npcPrefabs)
         {
-            string npcType = npcPrefab.name; // ✅ Get the NPC type
+            string npcType = npcPrefab.name; // Get the NPC type
 
-            // ✅ Check if an NPC has a FakeNPC equivalent
+            // Check if an NPC has a FakeNPC equivalent
             if (fakeNPCtoNPCMap.ContainsValue(npcType) && fakeNPCs.Contains(GetFakeNPCName(npcType)))
             {
                 Debug.Log($"❌ Skipping NPC spawn: {npcType} (FakeNPC exists)");
                 continue;
             }
 
-
-            // ✅ Get a spawn position
+            // Get a spawn position
             Vector3 spawnPosition = npcSpawnPoints.Count > 0 ?
                 npcSpawnPoints[i % npcSpawnPoints.Count].position : Vector3.zero;
 
-            // ✅ If no FakeNPC exists, spawn the NPC
+            // If no FakeNPC exists, spawn the NPC
             GameObject npc = Instantiate(npcPrefab, spawnPosition, Quaternion.identity);
             npc.GetComponent<NetworkObject>().Spawn();
             Debug.Log($"✅ Spawned NPC: {npcType}");
@@ -71,18 +70,20 @@ public class NpcSpawner : NetworkBehaviour
                 Transform waypointGroup = waypointGroups[waypointGroupIndex];
 
                 // Get all waypoints under the selected group
-                List<Transform> waypoints = new List<Transform>();
+                List<Vector3> waypoints = new List<Vector3>();
                 foreach (Transform child in waypointGroup)
                 {
-                    waypoints.Add(child);
+                    waypoints.Add(child.position); // Store positions instead of Transforms
                 }
 
                 // Assign the waypoints to the NPC
                 npcMovement.SetWaypoints(waypoints.ToArray());
+
+                // Synchronize waypoints across clients
+                npcMovement.SyncWaypointsClientRpc(waypoints.ToArray());
             }
 
             i++; // Increment the index for the next NPC
-
         }
     }
 
