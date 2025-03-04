@@ -1,56 +1,69 @@
+using Unity.Netcode;
 using UnityEngine;
+using System.Collections;
 
-public class SeekerInteraction : MonoBehaviour
+public class SeekerInteraction : NetworkBehaviour
 {
-  public float interactionRange = 1.5f; // Range for interaction
-  public LayerMask interactableLayer; // Assign in the inspector to detect interactables
+    public float interactionRange = 1.5f;
+    public LayerMask interactableLayer;
+    private ClueObject currentClue = null;
+    private bool canAdvanceDialogue = true;
 
-  private void Update()
-  {
-
-    if (Input.GetKeyDown(KeyCode.E)) // Press E to interact
+    private void Start()
     {
-      // If dialogue is active, advance to the next line
-      if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive)
-      {
-        DialogueManager.Instance.DisplayNextLine();
-      }
-      else
-      {
-        // Otherwise, check for interactable objects
-        CheckForInteractable();
-      }
+        if (!IsOwner) 
+        {
+            enabled = false;  // Disable input processing for non-local players
+        }
     }
-  }
 
-  private void CheckForInteractable()
-  {
-    Collider2D hit = Physics2D.OverlapCircle(transform.position, interactionRange, interactableLayer);
-
-    if (hit != null)
+    private void Update()
     {
-      Debug.Log($"Hit object: {hit.name}");
-      IInteractable interactable = hit.GetComponent<IInteractable>();
-      if (interactable != null)
-      {
-        Debug.Log($"Interactable found: {hit.name}");
-        interactable.Interact();
-      }
-      else
-      {
-        Debug.LogWarning($"Object {hit.name} does not implement IInteractable.");
-      }
-    }
-    else
-    {
-      Debug.Log("No interactable object detected.");
-    }
-  }
+        if (!IsOwner) return; // Ensure only the local player processes input
 
-  private void OnDrawGizmosSelected()
-  {
-    // Visualize interaction range
-    Gizmos.color = Color.green;
-    Gizmos.DrawWireSphere(transform.position, interactionRange);
-  }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive)
+            {
+                if (!canAdvanceDialogue) return;
+                canAdvanceDialogue = false;
+                StartCoroutine(ResetDialogueAdvanceCooldown());
+
+                DialogueManager.Instance.DisplayNextLine();
+            }
+            else
+            {
+                CheckForInteractable();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && currentClue != null)
+        {
+            currentClue.CollectClue();
+            currentClue = null;
+        }
+    }
+
+    private IEnumerator ResetDialogueAdvanceCooldown()
+    {
+        yield return new WaitForSeconds(0.2f);
+        canAdvanceDialogue = true;
+    }
+
+    private void CheckForInteractable()
+    {
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, interactionRange, interactableLayer);
+        if (hit != null)
+        {
+            IInteractable interactable = hit.GetComponent<IInteractable>();
+            if (interactable != null)
+            {
+                interactable.Interact();
+            }
+            else
+            {
+                Debug.LogWarning($"Object {hit.name} does not implement IInteractable.");
+            }
+        }
+    }
 }

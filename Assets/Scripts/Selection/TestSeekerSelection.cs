@@ -9,8 +9,9 @@ public class TestSeekerSelection : MonoBehaviour
   [SerializeField] private SeekerSelectionUI seekerSelectionUI;
   [SerializeField] private TextMeshProUGUI buttonText;
   [SerializeField] private GameObject dialogueUIPanel;
+    [SerializeField] private GameObject journalUI;
 
-  private void Start()
+    private void Start()
   {
     if (seekerSelectionPanel != null)
     {
@@ -30,7 +31,13 @@ public class TestSeekerSelection : MonoBehaviour
         dialogueUIPanel.SetActive(!isActive);
       }
 
-      if (buttonText != null)
+            if (journalUI != null)
+            {
+                if (isActive) journalUI.SetActive(false); // Hide journal when seeker selection is active
+            }
+
+
+            if (buttonText != null)
       {
         buttonText.text = isActive ? "Close Selection" : "Open Selection";
       }
@@ -38,7 +45,6 @@ public class TestSeekerSelection : MonoBehaviour
       if (isActive)
       {
         List<GameObject> allNPCs = NPCManager.Instance?.GetAllNPCs() ?? new List<GameObject>();
-        Debug.Log($"Initializing NPC selection UI with {allNPCs.Count} NPCs");
 
         if (allNPCs.Count > 0 && seekerSelectionUI != null)
         {

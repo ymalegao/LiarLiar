@@ -1,82 +1,110 @@
+using Unity.Netcode;
 using UnityEngine;
+using System.Collections;
 
-public class NPC : MonoBehaviour, IInteractable
+public class NPC : NetworkBehaviour, IInteractable
 {
-  [Header("NPC Data")]
-  public string npcName; // The NPC's name
-  [TextArea]
-  public string[] dialogueLines; // The dialogue lines for this NPC
+    [Header("NPC Data")]
+    public string npcName;
+    [TextArea]
+    public string[] dialogueLines;
+    public Sprite npcSprite;
 
-    public Sprite npcSprite; // The NPC's sprite (Assigned in Inspector)
-
-
-  private NpcMovement npcMovement;
-
+    private NpcMovement npcMovement;
     private Animator animator;
-
+    private NetworkVariable<bool> isInteracting = new NetworkVariable<bool>(false);
 
     private void Start()
-  {
-    npcMovement = GetComponent<NpcMovement>();
+    {
+        npcMovement = GetComponent<NpcMovement>();
+        animator = GetComponent<Animator>();
 
-    animator = GetComponent<Animator>(); // Ensure animator is assigned
+        if (string.IsNullOrEmpty(npcName))
+        {
+            Debug.LogError($"NPC on {gameObject.name} has no name set!");
+        }
 
-    if (string.IsNullOrEmpty(npcName))
-    {
-      Debug.LogError($"NPC on {gameObject.name} has no name set!");
-    }
-    else
-    {
-      Debug.Log($"NPC Name: {npcName}");
-    }
+        if (dialogueLines == null || dialogueLines.Length == 0)
+        {
+            Debug.LogError($"NPC {npcName} has no dialogue lines assigned!");
+        }
 
-    if (dialogueLines == null || dialogueLines.Length == 0)
-    {
-      Debug.LogError($"NPC {npcName} has no dialogue lines assigned!");
-    }
-    else
-    {
-      Debug.Log($"NPC {npcName} dialogue lines: {string.Join(", ", dialogueLines)}");
+        JournalManager.Instance.RegisterNPC(npcName, npcName, npcSprite);
     }
 
-    JournalManager.Instance.RegisterNPC(npcName, npcName, npcSprite);
-    Debug.Log("NPC registered: " + npcName);
-  }
-
-  public void Interact()
-  {
-    Debug.Log($"Interacting with NPC: {npcName}");
-
-    // Stop NPC movement during interaction
-    if (npcMovement != null)
+    public void Interact()
     {
-      npcMovement.StopMovement();
+        Debug.Log("Interacting with NPC");
+        if (isInteracting.Value) return; // Prevent multiple players from interacting
+        Debug.Log("Requesting interaction with NPC");
+        RequestInteractServerRpc(NetworkManager.Singleton.LocalClientId);
     }
 
-
-    if (animator != null)
+    [ServerRpc(RequireOwnership = false)]
+    private void RequestInteractServerRpc(ulong clientId)
     {
-       animator.SetFloat("npc_speed", 0f);
+        if (isInteracting.Value) return;
+
+        isInteracting.Value = true; // Lock the NPC
+
+
+        if (npcMovement != null)
+        {
+            npcMovement.StopMovement(); // Stop movement on the server
+        }
+
+        InteractClientRpc(clientId); // Only notify the interacting player
     }
 
-        // Start dialogue and pass the NPC's name
+    [ClientRpc]
+    private void InteractClientRpc(ulong clientId)
+    {
+        if (NetworkManager.Singleton.LocalClientId != clientId) return; // Only execute for the correct player
+
+        if (npcMovement != null)
+        {
+            npcMovement.StopMovement();
+        }
+
+        if (animator != null)
+        {
+            animator.SetFloat("npc_speed", 0f);
+        }
+
+        Debug.Log("Starting dialogue with nPC...");
+
+        // Ensure dialogue starts only after stopping movement
+        StartCoroutine(StartDialogueAfterMovement());
+    }
+
+    private IEnumerator StartDialogueAfterMovement()
+    {
+        yield return new WaitForEndOfFrame(); // Ensure movement stops first
+        Debug.Log("Starting dialogue...");
         DialogueManager.Instance.StartDialogue(npcName, dialogueLines);
-
-    // Subscribe to DialogueManager's OnDialogueEnd event
-    DialogueManager.Instance.OnDialogueEnd += HandleDialogueEnd;
-  }
-
-  private void HandleDialogueEnd()
-  {
-    // Unsubscribe from the event to avoid multiple triggers
-    DialogueManager.Instance.OnDialogueEnd -= HandleDialogueEnd;
-
-    Debug.Log($"Dialogue ended with NPC: {npcName}");
-
-    // Resume NPC movement
-    if (npcMovement != null)
-    {
-      npcMovement.ResumeMovement();
+        DialogueManager.Instance.OnDialogueEnd += HandleDialogueEnd;
     }
-  }
+
+
+    private void HandleDialogueEnd()
+    {
+        DialogueManager.Instance.OnDialogueEnd -= HandleDialogueEnd;
+        EndInteractionServerRpc();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void EndInteractionServerRpc()
+    {
+        isInteracting.Value = false; // Unlock NPC
+        EndInteractionClientRpc();
+    }
+
+    [ClientRpc]
+    private void EndInteractionClientRpc()
+    {
+        if (npcMovement != null)
+        {
+            npcMovement.ResumeMovement(); // Ensure NPC resumes movement on all clients
+        }
+    }
 }

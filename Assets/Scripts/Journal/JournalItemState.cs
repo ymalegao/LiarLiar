@@ -26,7 +26,7 @@ public bool IsMarkedCorrectly()
 {
     if (state == State.Default)
     {
-        return false; // Default state should never be marked correct
+        return false; 
     }
     return (state == State.Truth) == isCorrectlyTruth;
 }
@@ -85,15 +85,12 @@ public bool IsMarkedCorrectly()
     {
         case State.Default:
             text.color = new Color(0, 0, 0, 1); // Force full black
-            Debug.Log("Default");
             break;
         case State.Lie:
             text.color = new Color(1, 0, 0, 1); // Force full red
-            Debug.Log("Lie");
             break;
         case State.Truth:
             text.color = new Color(0, 1, 0, 1); // Force full green
-            Debug.Log("Truth");
             break;
     }
 }
@@ -101,15 +98,6 @@ public bool IsMarkedCorrectly()
   private void CheckCorrectness()
   {
       bool playerMarkedAsTruth = (state == State.Truth);
-      if (playerMarkedAsTruth == isCorrectlyTruth)
-      {
-          Debug.Log("✅ Correct!");
-      }
-      else
-      {
-          Debug.Log("❌ Incorrect!");
-      }
-
       // Notify the JournalManager to update the correct count
       JournalManager.Instance.UpdateCorrectCount();
   }

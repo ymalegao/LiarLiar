@@ -5,13 +5,15 @@ using Unity.Netcode;
 using System.Collections;
 using System.Linq;
 using TMPro;
+using System;
+using UnityEngine.Assertions.Must;
 
 public class SeekerSelectionUI : MonoBehaviour
 {
   [SerializeField] private GameObject selectionPanel;
   [SerializeField] private Transform gridParent;
   [SerializeField] private GameObject characterButtonPrefab;
-  [SerializeField] private TextMeshProUGUI nameTextPrefab;
+[SerializeField] private string spellCasterName = "DefaultCaster";
 
   private List<GameObject> allCharacters = new List<GameObject>();
   private List<Sprite> characterSprites = new List<Sprite>();
@@ -20,7 +22,6 @@ public class SeekerSelectionUI : MonoBehaviour
 
   private void Start()
   {
-    Debug.Log("SeekerSelectionUI Start");
 
     if (selectionPanel != null)
     {
@@ -29,11 +30,9 @@ public class SeekerSelectionUI : MonoBehaviour
 
     if (characterButtonPrefab != null)
     {
-      Debug.Log("Character button prefab is not null");
       characterButtonPrefab.SetActive(false);
     }
 
-    Debug.Log("Waiting for Seeker role...");
     StartCoroutine(WaitForSeekerRole());
   }
 
@@ -63,7 +62,6 @@ public class SeekerSelectionUI : MonoBehaviour
       }
     }
 
-    Debug.Log($"Initializing UI with {allCharacters.Count} NPCs");
     PopulateSelectionUI();
     selectionPanel.SetActive(true);
   }
@@ -76,7 +74,6 @@ public class SeekerSelectionUI : MonoBehaviour
       {
         if (child.gameObject != characterButtonPrefab)
         {
-          Debug.Log($"Destroying child: {child.gameObject.name}");
           Destroy(child.gameObject);
         }
       }
@@ -89,7 +86,6 @@ public class SeekerSelectionUI : MonoBehaviour
 
   private void PopulateSelectionUI()
   {
-    Debug.Log($"Populating UI with {allCharacters.Count} characters...");
     HashSet<GameObject> seenObjects = new HashSet<GameObject>();
 
     for (int i = 0; i < allCharacters.Count; i++)
@@ -156,7 +152,6 @@ public class SeekerSelectionUI : MonoBehaviour
     {
       currentlySelectedImage.color = Color.white;
     }
-
     currentlySelectedNPC = character;
     currentlySelectedImage = buttonImage;
     buttonImage.color = Color.red;
@@ -164,28 +159,29 @@ public class SeekerSelectionUI : MonoBehaviour
 
   public void ConfirmSelection()
   {
-    if (currentlySelectedNPC != null)
-    {
-      VerifySelection(currentlySelectedNPC);
-      SendSelectionToServer(currentlySelectedNPC);
+    goToScene sceneManager = FindObjectOfType<goToScene>();
+    if (currentlySelectedNPC.name == spellCasterName){
+      if (sceneManager != null)
+      {
+          sceneManager.goToEndGame();
+          PlayerPrefs.SetString("EndGameMessage", "You Win!");
+      }
+      else
+      {
+          Debug.LogError("goToScene not found in the scene!");
+      }
+    } else {
+      if (sceneManager != null)
+      {
+          sceneManager.goToEndGame();
+          PlayerPrefs.SetString("EndGameMessage", "You Lose!");
+      }
+      else
+      {
+          Debug.LogError("goToScene not found in the scene!");
+      }
     }
     selectionPanel.SetActive(false);
   }
 
-  private void SendSelectionToServer(GameObject selectedNPC)
-  {
-    if (NetworkManager.Singleton.IsServer)
-    {
-      Debug.Log($"Seeker selected NPC: {selectedNPC.name}");
-    }
-    else
-    {
-      Debug.Log("Sending selection to server...");
-    }
-  }
-
-  private void VerifySelection(GameObject selectedNPC)
-  {
-    Debug.Log($"Selected NPC for verification: {selectedNPC.name}");
-  }
 }
