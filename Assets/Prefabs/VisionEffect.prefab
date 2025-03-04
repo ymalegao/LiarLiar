@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fogMaterial: {fileID: 2100000, guid: eb20f737ffff7e945bc18c3c7717d8f1, type: 2}
-  normalVisionRadius: 5
-  reducedVisionRadius: 2
-  effectDuration: 10
+  normalVisionRadius: 1
+  reducedVisionRadius: 0.1
+  effectDuration: 20

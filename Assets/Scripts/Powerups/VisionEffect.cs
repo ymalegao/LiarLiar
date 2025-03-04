@@ -37,7 +37,7 @@ public class VisionEffect : MonoBehaviour
 
     fogImage = fogObj.AddComponent<Image>();
     fogImage.material = fogMaterial;
-    fogImage.color = new Color(0, 0, 0, 0); // Start transparent
+    fogImage.color = new Color(0, 0, 0, 1);
 
     RectTransform rect = fogImage.rectTransform;
     rect.anchorMin = Vector2.zero;
