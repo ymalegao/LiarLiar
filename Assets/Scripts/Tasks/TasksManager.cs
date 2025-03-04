@@ -33,7 +33,7 @@ public class TaskManager : MonoBehaviour
   public GameTask AssignTaskToPlayer()
   {
 
-    return (tasks["fish"]);
+    return (tasks["egg"]);
 
   }
 
