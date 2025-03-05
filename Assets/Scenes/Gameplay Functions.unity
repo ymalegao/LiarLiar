@@ -937,19 +937,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6890775219188533596, guid: d592160b7be5346a4b9e899edb159b05, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6890775219188533596, guid: d592160b7be5346a4b9e899edb159b05, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6890775219188533596, guid: d592160b7be5346a4b9e899edb159b05, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 100.2672
       objectReference: {fileID: 0}
     - target: {fileID: 6890775219188533596, guid: d592160b7be5346a4b9e899edb159b05, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -89.39135
       objectReference: {fileID: 0}
     - target: {fileID: 7486535192858638016, guid: d592160b7be5346a4b9e899edb159b05, type: 3}
       propertyPath: m_UiScaleMode
@@ -29460,6 +29460,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 10929745683793324, guid: b80a87dd2d7ef40cf9d1846af9a34146, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8b761aeb4eecb1d4da46f2dd6228ee36, type: 3}
+    - target: {fileID: 10929745683793324, guid: b80a87dd2d7ef40cf9d1846af9a34146, type: 3}
+      propertyPath: m_Color.b
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 10929745683793324, guid: b80a87dd2d7ef40cf9d1846af9a34146, type: 3}
+      propertyPath: m_Color.g
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 10929745683793324, guid: b80a87dd2d7ef40cf9d1846af9a34146, type: 3}
+      propertyPath: m_Color.r
+      value: 0.21960786
+      objectReference: {fileID: 0}
     - target: {fileID: 1656117379643987501, guid: b80a87dd2d7ef40cf9d1846af9a34146, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -29468,6 +29484,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1862515903985158072, guid: b80a87dd2d7ef40cf9d1846af9a34146, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862515903985158072, guid: b80a87dd2d7ef40cf9d1846af9a34146, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 96bc1372245d9cd46a54144d571de720, type: 3}
     - target: {fileID: 3404828668714771299, guid: b80a87dd2d7ef40cf9d1846af9a34146, type: 3}
       propertyPath: m_fontAsset
       value: 
