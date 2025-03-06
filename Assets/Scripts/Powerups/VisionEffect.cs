@@ -15,7 +15,13 @@ public class VisionEffect : MonoBehaviour
 
   private void Awake()
   {
-    Debug.Log("VisionEffect Awake");
+    Debug.Log("VisionEffect Awake called");
+    if (Instance != null)
+    {
+      Debug.LogError("Another instance of VisionEffect already exists!");
+      Destroy(gameObject);
+      return;
+    }
     if (fogMaterial == null)
     {
       Debug.LogError("Fog material is not assigned!");
@@ -52,8 +58,7 @@ public class VisionEffect : MonoBehaviour
 
   public void ReduceVision()
   {
-    Debug.Log($"Fog GameObject active: {fogImage.gameObject.activeInHierarchy}, Alpha: {fogImage.color.a}, Material: {fogImage.material.name}");
-    Debug.Log("ReduceVision called");
+    Debug.Log($"ReduceVision called - Fog GameObject active: {fogImage.gameObject.activeInHierarchy}, Alpha: {fogImage.color.a}");
     if (!isVisionReduced)
     {
       isVisionReduced = true;
