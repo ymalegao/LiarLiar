@@ -1,25 +1,30 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TitleScreen : MonoBehaviour
+public class goToScene : MonoBehaviour
 {
     public void goToLobby()
     {
-        SceneManager.LoadScene("Lobby"); // Replace with your lobby scene's name
+        SceneManager.LoadScene("Lobby"); 
     }
 
     public void goToTitle()
     {
-        SceneManager.LoadScene("Title Screen"); // Replace with your lobby scene's name
+        SceneManager.LoadScene("Title Screen"); 
     }
 
     public void goToHowTo()
     {
-        SceneManager.LoadScene("How To Play"); // Replace with your lobby scene's name
+        SceneManager.LoadScene("How To Play"); 
     }
 
     public void goToCredits()
     {
-        SceneManager.LoadScene("Credits"); // Replace with your lobby scene's name
+        SceneManager.LoadScene("Credits"); 
+    }
+
+    public void goToEndGame()
+    {
+        SceneManager.LoadScene("End Game"); 
     }
 }

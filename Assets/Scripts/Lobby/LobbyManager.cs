@@ -64,18 +64,14 @@ public class LobbyManager : MonoBehaviour
     {
       await AuthenticationService.Instance.SignInAnonymouslyAsync();
       playerName = "Za" + UnityEngine.Random.Range(1000, 9999);
-      Debug.Log("Signed in as: " + AuthenticationService.Instance.PlayerId);
-      Debug.Log("client id: " + NetworkManager.Singleton.LocalClientId);
       _clientToPlayerIdMap[NetworkManager.Singleton.LocalClientId] = AuthenticationService.Instance.PlayerId;
       _playerNameToPlayerIdMap[playerName] = AuthenticationService.Instance.PlayerId;
     }
     else
     {
-      Debug.Log("Player is already signed in as: " + AuthenticationService.Instance.PlayerId);
+      Debug.LogWarning("Player is already signed in as: " + AuthenticationService.Instance.PlayerId);
     }
 
-    Debug.Log("Player Name: " + playerName);
-    Debug.Log("Player ID: " + AuthenticationService.Instance.PlayerId);
   }
 
   public string GetPlayerIdFromClientId(ulong clientId)
@@ -135,7 +131,6 @@ public class LobbyManager : MonoBehaviour
       _hostLobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, options);
       _joinLobby = _hostLobby;
       _isHost = true;
-      Debug.Log($"Lobby created! Lobby Code: {_hostLobby.LobbyCode}");
       OnLobbyCreated?.Invoke();
     }
     catch (LobbyServiceException e)
@@ -164,7 +159,6 @@ public class LobbyManager : MonoBehaviour
         _clientToPlayerIdMap[clientId] = AuthenticationService.Instance.PlayerId;
         _playerNameToPlayerIdMap[playerName] = AuthenticationService.Instance.PlayerId;
       }
-      Debug.Log($"Joined lobby with code: {_joinLobby.LobbyCode}");
       OnLobbyJoined?.Invoke();
     }
     catch (LobbyServiceException e)
@@ -185,7 +179,6 @@ public class LobbyManager : MonoBehaviour
                 }
       });
 
-      Debug.Log($"Updated player character to: {selectedCharacter}");
       printPlayers(_joinLobby);
     }
     catch (LobbyServiceException e)
@@ -240,7 +233,6 @@ public class LobbyManager : MonoBehaviour
     {
       if (player.Data.ContainsKey("Character"))
       {
-        Debug.Log($"✅ Found character for client {clientId}: {player.Data["Character"].Value}");
         return player.Data["Character"].Value;
       }
     }
@@ -253,7 +245,6 @@ public class LobbyManager : MonoBehaviour
   {
     if (_isHost)
     {
-      Debug.Log("Host is starting the game...");
       await AssignRolesAndSprites();
       _rolesAssigned = true;
 
@@ -272,7 +263,6 @@ public class LobbyManager : MonoBehaviour
     }
     else
     {
-      Debug.Log("Client joining game...");
 
       string relayJoinCode = _joinLobby.Data["RelayJoinCode"].Value;
       bool success = await ServerManager.Instance.JoinRelay(relayJoinCode);
@@ -320,15 +310,10 @@ public class LobbyManager : MonoBehaviour
             {
               _playerNameToPlayerIdMap[player.Data["PlayerName"].Value] = player.Data["AuthID"].Value;
             }
-            else
-            {
-              //Debug.Log("Player is already in the map");
-            }
           }
 
           if (_joinLobby.Data.ContainsKey("RelayJoinCode") && !_isHost)
           {
-            Debug.Log("🚀 Game started by host! Joining relay...");
             await StartGame();
           }
         }
@@ -345,26 +330,10 @@ public class LobbyManager : MonoBehaviour
   private void printPlayers(Lobby lobby)
   {
     string playerNames = "";
-    Debug.Log("Players in lobby and size: " + lobby.Players.Count);
-    Debug.Log("Player Name | Character | Role");
     foreach (Player player in lobby.Players)
     {
       playerNames += player.Data["PlayerName"].Value + "\n" + player.Data["Character"].Value + "\n";
-      Debug.Log("Player: " + player.Data["PlayerName"].Value + " Character: " + player.Data["Character"].Value + " Role: " + player.Data["Role"].Value + " AuthID: " + player.Data["AuthID"].Value);
     }
-
-    Debug.Log("printing client to player id map which has a len of " + _clientToPlayerIdMap.Count);
-    foreach (var item in _clientToPlayerIdMap)
-    {
-      Debug.Log("Key: " + item.Key + " Value: " + item.Value);
-    }
-
-    Debug.Log("printing player name to player id map which has a len of " + _playerNameToPlayerIdMap.Count);
-    foreach (var item in _playerNameToPlayerIdMap)
-    {
-      Debug.Log("Key: " + item.Key + " Value: " + item.Value);
-    }
-    // playerNamesText.text = playerNames;
   }
 
   public string GetLobbyCode()
@@ -381,10 +350,6 @@ public class LobbyManager : MonoBehaviour
     try
     {
       QueryResponse response = await Lobbies.Instance.QueryLobbiesAsync();
-      foreach (Lobby lobby in response.Results)
-      {
-        Debug.Log("Lobby: " + lobby.LobbyCode);
-      }
     }
     catch (LobbyServiceException e)
     {
@@ -401,8 +366,7 @@ public class LobbyManager : MonoBehaviour
   {
     var roleAssignments = new Dictionary<string, object>();
     var players = _joinLobby.Players;
-    Debug.Log("Players in lobby: " + players.Count);
-    // npcTaken.Add("fakenpcBlacksmith");
+
 
 
     var random = new System.Random();
@@ -414,17 +378,6 @@ public class LobbyManager : MonoBehaviour
     var availablePrefabs = new Queue<string>(combinedList.Select(x => x.Prefab.name));
     var availableSprites = new Queue<int>(combinedList.Select(x => x.SpriteIndex));
 
-    foreach (var item in availableSprites)
-    {
-        Debug.Log("Available sprite: " + item);
-    }
-
-    foreach (var fab in availablePrefabs)
-    {
-        Debug.Log("Available prefab: " + fab);
-    }
-
-
     var seeker = players[_random.Next(players.Count)];
     roleAssignments[seeker.Data["AuthID"].Value] = new RoleAssignment
     {
@@ -433,15 +386,12 @@ public class LobbyManager : MonoBehaviour
     };
 
     Task.Delay(1000);
-    Debug.Log($"Assigned seeker role to {seeker.Id}");
 
 
     foreach (var player in players.Where(p => p.Id != seeker.Id))
     {
-      Debug.Log("player is not seeker, their name is: " + player.Data["PlayerName"].Value);
-      
+    
       int spriteIndex = availableSprites.Count > 0 ? availableSprites.Dequeue() : _random.Next(ServerManager.Instance.characterPrefabs.Count);
-      Debug.Log("Sprite index: " + spriteIndex); 
       npcTaken.Add(availablePrefabs.Dequeue()); 
       
       roleAssignments[player.Data["AuthID"].Value] = new RoleAssignment
@@ -449,7 +399,6 @@ public class LobbyManager : MonoBehaviour
         Role = FAKENPC_ROLE,
         SpriteIndex = spriteIndex
       };
-      Debug.Log($"Assigned role to {player.Data["AuthID"].Value}");
     }
 
     await Lobbies.Instance.UpdateLobbyAsync(_joinLobby.Id, new UpdateLobbyOptions
@@ -459,7 +408,6 @@ public class LobbyManager : MonoBehaviour
                 { "RoleAssignments", new DataObject(DataObject.VisibilityOptions.Public, value: JsonConvert.SerializeObject(roleAssignments)) }
             }
     });
-    Debug.Log("Updated lobby with role assignments");
   }
 
   private async Task UpdatePlayerRole(string playerId, string role, int spriteIndex)
@@ -474,9 +422,6 @@ public class LobbyManager : MonoBehaviour
                     { "SpriteIndex", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, spriteIndex.ToString()) }
                 }
       });
-      Debug.Log($"Updated player role to {role}");
-      Debug.Log($"Updated player sprite index to {spriteIndex}");
-      Debug.Log("verifyin role and sprite index" + GetPlayerRole(playerName) + GetPlayerSpriteIndex(playerName));
     }
     catch (Exception e)
     {
@@ -488,19 +433,12 @@ public class LobbyManager : MonoBehaviour
   {
     if (NetworkManager.Singleton.IsServer)
     {
-      Debug.Log("Returning all players to the lobby...");
       NetworkManager.Singleton.SceneManager.LoadScene("Lobby", UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
   }
 
   public string GetPlayerRole(string playerName)
   {
-    Debug.Log("Getting player role");
-    Debug.Log("Player Name: " + playerName);
-    foreach (var item in _playerNameToPlayerIdMap)
-    {
-      Debug.Log("Key: " + item.Key + " Value: " + item.Value);
-    }
     if (!_playerNameToPlayerIdMap.TryGetValue(playerName, out string playerId))
     {
       Debug.LogWarning($"⚠️ Player ID not found for player {playerName}");

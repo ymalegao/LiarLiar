@@ -19,12 +19,6 @@ public class FakeNPCTrigger : NetworkBehaviour
   private void CheckForMiniGame()
   {
     Collider2D hit = Physics2D.OverlapCircle(transform.position, interactionRange, interactableLayer);
-
-    if (hit != null)
-    {
-      Debug.Log($"FakeNPC triggered mini-game at: {hit.name}");
-      // MiniGameManager.Instance.StartMiniGameServerRpc();
-    }
   }
 
   private void OnDrawGizmosSelected()

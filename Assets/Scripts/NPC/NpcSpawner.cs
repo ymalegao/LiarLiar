@@ -33,11 +33,7 @@ public class NpcSpawner : NetworkBehaviour
     {
         base.OnNetworkSpawn();
         if (!IsServer) return; // ✅ Only the server spawns NPCs
-
-        Debug.Log("Checking which FakeNPCs are already spawned...");
         fakeNPCs = LobbyManager.Instance.GetNpcTaken(); // ✅ Get FakeNPCs before spawning NPCs
-        Debug.Log($"👀 FakeNPCs already spawned: {string.Join(", ", fakeNPCs)}");
-
         SpawnNPCs();
     }
 

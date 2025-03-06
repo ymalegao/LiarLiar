@@ -25,15 +25,6 @@ public class FakeNPCNetwork : NetworkBehaviour
 
   }
 
-  public override void OnNetworkSpawn()
-  {
-    randomNumber.OnValueChanged += (int previousValue, int newValue) =>
-    {
-      Debug.Log(OwnerClientId + "; Random number changed from " + previousValue + " to " + newValue);
-    };
-  }
-
-
   [SerializeField] private float speed = 5f;
   private Rigidbody2D rb;
 
@@ -66,11 +57,6 @@ public class FakeNPCNetwork : NetworkBehaviour
 
     animator.SetFloat("npc_horizontal", moveX);
     animator.SetFloat("npc_vertical", moveY);
-    if (moveVelocity.sqrMagnitude != 0)
-    {
-      //Debug.Log(moveVelocity.sqrMagnitude);
-    }
-
     animator.SetFloat("npc_speed", moveVelocity.sqrMagnitude);
 
 

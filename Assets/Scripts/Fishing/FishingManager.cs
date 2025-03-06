@@ -32,7 +32,6 @@ public class FishingManager : MonoBehaviour, MinigameManager
 
     public void StartGame()
     {
-        Debug.Log("Fishing minigame started!");
         if (GameCanvas != null)
         {
             GameCanvas.gameObject.SetActive(true);
@@ -42,8 +41,6 @@ public class FishingManager : MonoBehaviour, MinigameManager
 
     public void EndGame()
     {
-        Debug.Log("Fishing minigame ended!");
-
         if (GameCanvas != null)
         {
             GameCanvas.gameObject.SetActive(false);
@@ -73,11 +70,10 @@ public class FishingManager : MonoBehaviour, MinigameManager
 
         Vector2 mousePosition = Input.mousePosition;
 
-        Camera cam = GameCanvas.GetComponent<Canvas>().worldCamera; 
 
         // Convert screen position to UI Canvas local position
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            canvasTransform, mousePosition, cam, out Vector2 localPoint
+            canvasTransform, mousePosition, null, out Vector2 localPoint
         );
 
         // Clamp the bait position inside the canvas bounds

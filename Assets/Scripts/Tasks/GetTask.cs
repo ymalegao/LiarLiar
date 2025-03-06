@@ -16,7 +16,6 @@ public class GetTask : MonoBehaviour
   public void SetTask(GameTask task)
   {
     assignedTask = task;
-    Debug.Log("Task assigned to player: " + task.position);
   }
 
   void Start()

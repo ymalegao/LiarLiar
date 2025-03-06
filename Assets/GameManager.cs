@@ -15,14 +15,12 @@ public class GameManager : NetworkBehaviour
   private void Awake()
   {
     if (Instance == null) Instance = this;
-    Debug.Log("GameManager is ready!\n\n");
   }
 
   public override void OnNetworkSpawn()
   {
     if (IsServer) // Only the server should control the timer
     {
-      Debug.Log("Server is ready to start the countdown!");
       StartCoroutine(StartCountdown());
     }
   }
@@ -31,12 +29,10 @@ public class GameManager : NetworkBehaviour
   {
     while (countdownTimer.Value > 0)
     {
-      //Debug.Log($"Time remaining: {countdownTimer.Value} seconds");
       yield return new WaitForSeconds(1f);
       countdownTimer.Value -= 1f;
     }
 
-    Debug.Log("Time's up!");
     EndGame();
   }
 
@@ -52,7 +48,6 @@ public class GameManager : NetworkBehaviour
 
   private void EndGame()
   {
-    Debug.Log("Game Over! Transitioning to End Game screen...");
 
     if (NetworkManager.Singleton.IsServer)
     {
