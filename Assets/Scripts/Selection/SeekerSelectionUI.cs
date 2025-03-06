@@ -170,7 +170,7 @@ public class SeekerSelectionUI : NetworkBehaviour
             Debug.LogError("❌ No character selected!");
             return;
         }
-
+        Debug.Log("here");
         ConfirmSelectionServerRpc(currentlySelectedNPC.name);
     }
 
