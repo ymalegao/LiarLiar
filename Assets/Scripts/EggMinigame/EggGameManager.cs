@@ -28,7 +28,7 @@ public class EggGameManager : MonoBehaviour, MinigameManager
   public float basketSpeed = 5f;
 
   private int score = 0;
-  private bool gameActive = false;
+  public bool gameActive = false;
 
   private void Awake()
   {
@@ -37,7 +37,8 @@ public class EggGameManager : MonoBehaviour, MinigameManager
     instructionsPanel.SetActive(true); // Show instructions first
     failurePanel.SetActive(false);
     victoryPanel.SetActive(false);
-  }
+    Debug.Log("EggGameManager Awake");
+    }
 
   public void endGame()
   {
@@ -106,6 +107,7 @@ public class EggGameManager : MonoBehaviour, MinigameManager
     gameActive = false;
     miniGameCanvas.SetActive(false);
     EggSpawner.Instance.EndMiniGame();
+    // this.gameObject.SetActive(false);
   }
 
   public void ResetState()
