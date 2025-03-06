@@ -70,10 +70,12 @@ public class JournalManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             Debug.Log("J pressed");
-            if (selectionUI.activeSelf)
-            {
-                return;
-            }
+
+            //if (selectionUI.activeSelf) /// MAKE SURE TO FIX SELECTION UI FOR THE CLIENT
+            //{
+            //    Debug.Log("Selection UI is active");
+            //    return;
+            //}
             ToggleJournal();
         }
     }

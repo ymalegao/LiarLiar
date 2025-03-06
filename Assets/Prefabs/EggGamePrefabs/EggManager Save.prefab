@@ -2475,7 +2475,7 @@ GameObject:
   - component: {fileID: 8693438358864781365}
   - component: {fileID: 7771387663684298075}
   m_Layer: 0
-  m_Name: EggManager
+  m_Name: EggManager Save
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -30,7 +30,6 @@ public class EggGameManager : MonoBehaviour, MinigameManager
   private int score = 0;
   public bool gameActive = false;
 
-
   private void Awake()
   {
     Instance = this;
@@ -38,7 +37,8 @@ public class EggGameManager : MonoBehaviour, MinigameManager
     instructionsPanel.SetActive(true); // Show instructions first
     failurePanel.SetActive(false);
     victoryPanel.SetActive(false);
-  }
+    Debug.Log("EggGameManager Awake");
+    }
 
   public void endGame()
   {
