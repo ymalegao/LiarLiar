@@ -13,11 +13,10 @@ public class Fish : MonoBehaviour
         speed = Random.Range(100,200);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
 
-        // Move fish to the left
-        rectTransform.anchoredPosition += Vector2.left * speed * Time.deltaTime;
+        rectTransform.anchoredPosition +=  Vector2.left * speed * Time.fixedDeltaTime;
         // Destroy fish when it leaves the screen
         if (rectTransform.anchoredPosition.x < -Screen.width / 2)
         {

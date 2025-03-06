@@ -7,10 +7,17 @@ public class LobbyUI : MonoBehaviour
 {
   [SerializeField] private TMP_InputField lobbyCodeInput; // Use TMP_InputField instead of InputField
   [SerializeField] private TMP_Text lobbyInfoText; // Use TMP_Text instead of Text
+  [SerializeField] private TMP_Text characterInfoText; // Use TMP_Text instead of Text
+
 
   public GameObject lobbyTrigger;
   private LobbyManager lobbyManager;
   [SerializeField] private Button startGameButton;
+      public TextMeshProUGUI lobbyCodeText;
+
+
+      public Button copyButton;
+
 
   // [SerializeField] private Button listLobbiesButton;
 
@@ -35,10 +42,18 @@ public class LobbyUI : MonoBehaviour
     }
 
     startGameButton.gameObject.SetActive(false);
+    
+    
+    copyButton.onClick.AddListener(CopyLobbyCodeToClipboard);
+    copyButton.gameObject.SetActive(false);
+
+
 
     // Subscribe to lobby creation event
     LobbyManager.OnLobbyCreated += EnableStartButton;
     LobbyManager.OnLobbyJoined += ShowCharacterSelectionPanel;
+    LobbyManager.OnLobbyCreated += EnableCopyButton;
+
 
     characterDropdown.onValueChanged.AddListener(UpdateCharacterPreview);
 
@@ -69,7 +84,6 @@ public class LobbyUI : MonoBehaviour
   private void EnableStartButton()
   {
     if (startGameButton.gameObject.activeSelf) return; // Prevent duplicate activation
-    Debug.Log("Start button enabled!");
 
     startGameButton.gameObject.SetActive(true);
     startGameButton.onClick.RemoveAllListeners(); // Remove previous listeners to prevent stacking
@@ -83,6 +97,11 @@ public class LobbyUI : MonoBehaviour
 
   }
 
+  private void EnableCopyButton()
+    {
+        copyButton.gameObject.SetActive(true);
+    }
+
   private void UpdateCharacterPreview(int index)
   {
     characterPreview.sprite = characterSprites[index];
@@ -91,13 +110,8 @@ public class LobbyUI : MonoBehaviour
   public async void OnCharacterSelectButtonClicked()
   {
     string selectedCharacter = characterDropdown.options[characterDropdown.value].text;
-    Debug.Log("Character selected: " + selectedCharacter);
-
-    await lobbyManager.UpdatePlayerCharacter(selectedCharacter);
-    Debug.Log("Character selected: " + selectedCharacter);
-    lobbyInfoText.text = "Character Selected: " + selectedCharacter;
-
-    //characterSelectionPanel.SetActive(false);
+    ServerManager.Instance.setCharacterIndex(characterDropdown.value);
+    characterInfoText.text = selectedCharacter;
   }
 
   private void OnDestroy()
@@ -105,8 +119,30 @@ public class LobbyUI : MonoBehaviour
     // Unsubscribe from the event to avoid memory leaks
     LobbyManager.OnLobbyCreated -= EnableStartButton;
     LobbyManager.OnLobbyJoined -= ShowCharacterSelectionPanel;
+    LobbyManager.OnLobbyCreated -= EnableCopyButton; // Unsubscribe to prevent memory leaks
+
 
   }
+
+  public void CopyLobbyCodeToClipboard()
+    {
+        if (LobbyManager.Instance == null)
+        {
+            Debug.LogError("🚨 LobbyManager.Instance is NULL! Make sure LobbyManager is in the scene.");
+            return;
+        }
+
+        string lobbyCode = LobbyManager.Instance.GetLobbyCode();
+        if (!string.IsNullOrEmpty(lobbyCode))
+        {
+            GUIUtility.systemCopyBuffer = lobbyCode;
+            Debug.Log($"Copied Lobby Code: {lobbyCode} ✅");
+        }
+        else
+        {
+            Debug.LogError("🚨 Lobby code is empty or not set yet!");
+        }
+    }
 
   public void OnCreateLobbyButtonClicked()
   {

@@ -13,71 +13,49 @@ public class ClueObject : MonoBehaviour
     clueUIPrompt.SetActive(false);
   }
 
-  private void Update()
-  {
-    if (playerInRange && Input.GetKeyDown(KeyCode.R)) // Change key as needed
-    {
-      CollectClue();
-    }
-  }
 
-  private void CollectClue()
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player")) // Ensure player has the "Player" tag
+        {
+            playerInRange = true;
+            Debug.Log("Player in range");
+            ShowPrompt(true);
+            other.GetComponent<SeekerInteraction>()?.SetCurrentClue(this); // Assign this clue to the player
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+            Debug.Log("Player in range");
+            ShowPrompt(false);
+            other.GetComponent<SeekerInteraction>()?.ClearCurrentClue(); // Remove clue when leaving
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R)) // Change key as needed
+        {
+            if (playerInRange)
+            {
+                CollectClue();
+            }
+        }
+    }
+
+    public void CollectClue()
   {
     JournalManager.Instance.AddClue(clueText); // Add clue to journal
-    Debug.Log($"Clue collected: {clueText}");
     Destroy(gameObject); // Remove clue from the world after collection
-  }
-
-  private void OnTriggerEnter(Collider other)
-  {
-    if (other.CompareTag("Seeker"))
-    {
-      playerInRange = true;
-      Debug.Log("I'm in range :)");
-      if (clueUIPrompt != null)
-      {
-        clueUIPrompt.SetActive(true);
-      }
+    JournalManager.Instance.ShowNPCDetails("clues"); // Show NPC details after collecting clue
     }
-  }
 
-  private void OnTriggerExit(Collider other)
-  {
-    if (other.CompareTag("Seeker"))
+public void ShowPrompt(bool show)
     {
-      playerInRange = false;
-      if (clueUIPrompt != null)
-      {
-        clueUIPrompt.SetActive(false);
-      }
+        clueUIPrompt?.SetActive(show);
     }
-  }
-
-  private void OnTriggerEnter2D(Collider2D other)
-  {
-    if (other.CompareTag("Seeker"))
-    {
-      Debug.Log("Player can now read the clue!");
-      playerInRange = true;
-      Debug.Log("I'm in range :)");
-      if (clueUIPrompt != null)
-      {
-        clueUIPrompt.SetActive(true);
-      }
-    }
-  }
-
-  private void OnTriggerExit2D(Collider2D other)
-  {
-    if (other.CompareTag("Seeker"))
-    {
-      Debug.Log("Player can now NOT read the clue!");
-      playerInRange = false;
-      Debug.Log("I'm not in range :)");
-      if (clueUIPrompt != null)
-      {
-        clueUIPrompt.SetActive(false);
-      }
-    }
-  }
 }

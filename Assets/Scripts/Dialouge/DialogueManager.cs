@@ -2,10 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
+
 
 public class DialogueManager : MonoBehaviour
 {
   public static DialogueManager Instance { get; private set; }
+  public Button nextLineButton;
 
   public Dictionary<string, List<(string dialogue, bool isTruth)>> npcStatements = new Dictionary<string, List<(string, bool)>>();
 
@@ -43,6 +46,7 @@ public class DialogueManager : MonoBehaviour
 
     foreach (string line in dialogueLines)
     {
+      
       dialogueQueue.Enqueue(line);
     }
 
@@ -54,6 +58,10 @@ public class DialogueManager : MonoBehaviour
 
   public void DisplayNextLine()
   {
+    if (!NetworkManager.Singleton.IsClient) return;
+    Debug.Log("Displaying next line");
+    Debug.Log(dialogueQueue.Count);
+
     if (dialogueQueue.Count == 0)
     {
       EndDialogue();
@@ -61,6 +69,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     string line = dialogueQueue.Dequeue();
+    Debug.Log(line);  
 
     // Check for special markers and update the journal if needed
     line = CheckForClueOrTruth(line);
@@ -89,6 +98,7 @@ public class DialogueManager : MonoBehaviour
     // Trigger the end-of-dialogue event
     OnDialogueEnd?.Invoke();
     JournalManager.Instance.AddTruthsAndLiesFromNPC(currentNPCName, npcStatements[currentNPCName]);
+    JournalManager.Instance.ShowNPCDetails(currentNPCName);
 
   }
   private void AddToDict(string npcName, string dialogue, bool isTruth)

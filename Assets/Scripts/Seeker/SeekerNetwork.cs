@@ -25,15 +25,6 @@ public class SeekerNetwork : NetworkBehaviour
 
   }
 
-  public override void OnNetworkSpawn()
-  {
-    randomNumber.OnValueChanged += (int previousValue, int newValue) =>
-    {
-      Debug.Log(OwnerClientId + "; Random number changed from " + previousValue + " to " + newValue);
-    };
-  }
-
-
   [SerializeField] private float speed = 5f;
   [SerializeField] private Vector2 spawnPosition = new Vector2(5f, 5f);
 
@@ -86,11 +77,6 @@ public class SeekerNetwork : NetworkBehaviour
 
     animator.SetFloat("npc_horizontal", moveX);
     animator.SetFloat("npc_vertical", moveY);
-    if (moveVelocity.sqrMagnitude != 0)
-    {
-      //Debug.Log(moveVelocity.sqrMagnitude);
-    }
-
     animator.SetFloat("npc_speed", moveVelocity.sqrMagnitude);
 
 

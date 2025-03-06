@@ -5,6 +5,8 @@ public class EggSpawner : MonoBehaviour
 {
   public GameObject eggPrefab;
 
+  private GetTask currentPlayer;
+
   public GameObject obstaclePrefab;
   public Transform[] spawnPoints;
   public static EggSpawner Instance;
@@ -52,13 +54,19 @@ public class EggSpawner : MonoBehaviour
     EggGameManager.Instance.endGame();
     //trigger some condition if you want here using like a fakeNPC powerup Manger
     CancelInvoke(nameof(SpawnEgg));
+    if (currentPlayer != null)
+    {
+      Debug.Log("Deactivating player camera");
+      currentPlayer.ActivatePlayerCamera();
+    }else{
+      Debug.LogError("No player assigned to the game!");
+    }
   }
 
   public void EndMiniGame()
   {
     if (EggGameManager.Instance.GetScore() >= minScoreToComplete)
     {
-      Debug.Log("Mini-game completed successfully!");
       miniGameCanvas.SetActive(false);
       victoryPanel.SetActive(true);
       CancelInvoke(nameof(SpawnEgg));
@@ -66,7 +74,6 @@ public class EggSpawner : MonoBehaviour
     }
     else
     {
-      Debug.Log("Try again! You need at least " + minScoreToComplete + " points.");
       EggGameManager.Instance.ResetState();
       failurePanel.SetActive(true);
 
@@ -88,6 +95,11 @@ public class EggSpawner : MonoBehaviour
       Instantiate(obstaclePrefab, spawnPosition, Quaternion.identity);
     }
 
+  }
+
+  public void SetPlayer(GetTask player)
+  {
+    currentPlayer = player;
   }
 
   private void SpawnObstacle()

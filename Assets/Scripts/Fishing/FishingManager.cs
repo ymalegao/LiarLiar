@@ -13,11 +13,14 @@ public class FishingManager : MonoBehaviour, MinigameManager
     [SerializeField] private GameObject fishPrefab;
     [SerializeField] private float spawnInterval = 2f;
 
+    public Camera FishCamera; 
+
     private void Awake()
     {
         GameCanvas = MinigameCanvasParent.transform.Find("FishCanvas").gameObject;;
         canvasTransform = GameCanvas.GetComponent<RectTransform>();
         canvasSize = canvasTransform.rect.size;
+        FishCamera = this.GetComponent<Camera>();
     }
 
     private void OnEnable()
@@ -32,7 +35,6 @@ public class FishingManager : MonoBehaviour, MinigameManager
 
     public void StartGame()
     {
-        Debug.Log("Fishing minigame started!");
         if (GameCanvas != null)
         {
             GameCanvas.gameObject.SetActive(true);
@@ -42,8 +44,6 @@ public class FishingManager : MonoBehaviour, MinigameManager
 
     public void EndGame()
     {
-        Debug.Log("Fishing minigame ended!");
-
         if (GameCanvas != null)
         {
             GameCanvas.gameObject.SetActive(false);
@@ -69,15 +69,18 @@ public class FishingManager : MonoBehaviour, MinigameManager
 
     private void MoveBait()
     {
-        if (bait == null || canvasTransform == null) return;
+        if (bait == null || canvasTransform == null || FishCamera == null) return;
 
-        Vector2 mousePosition = Input.mousePosition;
+        // Get the mouse position in screen space
+        Vector3 mouseScreenPos = Input.mousePosition;
 
-        Camera cam = GameCanvas.GetComponent<Canvas>().worldCamera; 
+        // Convert mouse position to world position using fishCamera
+        Vector3 worldPosition = FishCamera.ScreenToWorldPoint(new Vector3(mouseScreenPos.x, mouseScreenPos.y, FishCamera.nearClipPlane));
 
-        // Convert screen position to UI Canvas local position
+        // Convert world position to UI local position
+        Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            canvasTransform, mousePosition, cam, out Vector2 localPoint
+            canvasTransform, worldPosition, FishCamera, out localPoint
         );
 
         // Clamp the bait position inside the canvas bounds

@@ -10,6 +10,11 @@ public class JournalManager : MonoBehaviour
 
     [Header("UI Elements")]
     public GameObject journalPanel;
+
+    private int currentNPCIndex = 0;
+
+
+    private TextMeshProUGUI currentSelectedNPCText = null; // Store the currently selected NPC's text
     public Transform npcListContainer; // Left side list of NPC names
 
     public Transform npcStatementContainer; // Right side list of NPC statements
@@ -21,6 +26,8 @@ public class JournalManager : MonoBehaviour
     public GameObject journalItemPrefab;
     public Button toggleJournalButton;
     public TextMeshProUGUI correctnessText;
+
+    public int indexCount = 0;
     public Sprite cluesIcon;
 
 
@@ -28,6 +35,9 @@ public class JournalManager : MonoBehaviour
     public GameObject[] finalCluePrefabs;
     public Transform[] clueSpawnLocations;
     private bool finalCluesSpawned = false;
+
+    [Header("UICheck")]
+    [SerializeField] private GameObject selectionUI;
 
 
     private Dictionary<string, JournalNPCData> npcDataMap = new Dictionary<string, JournalNPCData>();
@@ -56,8 +66,16 @@ public class JournalManager : MonoBehaviour
     }
 
     public void Update(){
+
         if (Input.GetKeyDown(KeyCode.J))
         {
+            Debug.Log("J pressed");
+
+            //if (selectionUI.activeSelf) /// MAKE SURE TO FIX SELECTION UI FOR THE CLIENT
+            //{
+            //    Debug.Log("Selection UI is active");
+            //    return;
+            //}
             ToggleJournal();
         }
     }
@@ -66,7 +84,8 @@ public class JournalManager : MonoBehaviour
     {
         if (!npcDataMap.ContainsKey(npcId))
         {
-            npcDataMap.Add(npcId, new JournalNPCData(name, icon));
+            npcDataMap.Add(npcId, new JournalNPCData(name, icon  , indexCount));
+            indexCount++;
             AppendNPCToList(npcId, name);
         }
     }
@@ -111,6 +130,13 @@ public class JournalManager : MonoBehaviour
     }
     buttonText.text = npcName;
 
+    //if NPC is clues, we wnt to disable the innocent and guilty buttons
+    if (npcId == "clues")
+    {
+        buttonObj.transform.GetChild(1).gameObject.SetActive(false);
+        buttonObj.transform.GetChild(2).gameObject.SetActive(false);
+    }
+
     // Add a listener to handle button clicks
     var button = buttonObj.GetComponent<Button>();
     if (button == null)
@@ -118,7 +144,26 @@ public class JournalManager : MonoBehaviour
         Debug.LogError("The instantiated NPC button prefab is missing a Button component.");
         return;
     }
-    button.onClick.AddListener(() => ShowNPCDetails(npcId));
+    button.onClick.AddListener(() => {
+            ShowNPCDetails(npcId);
+            HighlightSelectedNPC(buttonObj);
+
+    });
+
+    
+}
+
+private void HighlightSelectedNPC(GameObject selectedButton){
+    if (currentSelectedNPCText != null)
+    {
+        currentSelectedNPCText.color = Color.black;
+    }
+    TextMeshProUGUI buttonText = selectedButton.GetComponentInChildren<TextMeshProUGUI>();
+    if (buttonText != null)
+    {
+        buttonText.color = Color.yellow; // Change selected NPC text color
+        currentSelectedNPCText = buttonText; // Store reference to reset later
+    }
 }
 
 
@@ -126,8 +171,6 @@ public class JournalManager : MonoBehaviour
 {
     if (npcDataMap.TryGetValue(npcId, out JournalNPCData npc))
     {
-        Debug.Log($"Showing details for NPC: {npc.Name}");
-
         // Update NPC portrait
         if (npcPortrait != null && npc.Icon != null)
         {
@@ -143,6 +186,19 @@ public class JournalManager : MonoBehaviour
         if (npcNameText != null)
         {
             npcNameText.text = npc.Name;
+        }
+
+        Debug.Log($"Showing details for NPC {npcId}");
+        //if the NPC is clues, we want to set the spacing to 0 for the NPC statement container
+
+        if (npcId == "clues")
+        {
+            npcStatementContainer.GetComponent<VerticalLayoutGroup>().spacing = 0;
+
+        }
+        else
+        {
+            npcStatementContainer.GetComponent<VerticalLayoutGroup>().spacing = 10;
         }
 
         // Clear existing statements
@@ -163,10 +219,11 @@ public class JournalManager : MonoBehaviour
             }
             journalEntries.Add(journalItem);
             journalItem.OnStateChanged += () => UpdateStatementState(npcId, statement, journalItem.GetState());
-
-
-            Debug.Log($"Statement: {statement}, Is Truth: {isTruth}");
         }
+
+        currentNPCIndex = npc.index;
+        
+        HighlightSelectedNPC(npcListContainer.GetChild(currentNPCIndex).gameObject);
     }
     else
     {
@@ -176,6 +233,7 @@ public class JournalManager : MonoBehaviour
 
 private void UpdateStatementState(string npcId, string statement, JournalItemState.State newState)
 {
+    
     if (npcDataMap.TryGetValue(npcId, out JournalNPCData npc))
     {
         npc.StatementStates[statement] = newState;
@@ -235,6 +293,17 @@ private void UpdateStatementState(string npcId, string statement, JournalItemSta
         Debug.LogError("Clues entry not found in the journal.");
     }
   }
+
+  public void SelectNextNPC(int direction)
+{
+    if (npcListContainer.childCount == 0) return;
+    
+
+    currentNPCIndex = (currentNPCIndex + direction + npcListContainer.childCount) % npcListContainer.childCount;
+    Debug.Log($"Selected NPC index: {currentNPCIndex}");
+    Transform selectedNPC = npcListContainer.GetChild(currentNPCIndex);
+    selectedNPC.GetComponent<Button>().onClick.Invoke(); // Simulate click
+}
 
     public void AddTruthsAndLiesFromNPC(string npcId, List<(string dialogue, bool isTruth)> statements)
     {
@@ -326,8 +395,10 @@ public class JournalNPCData
     public List<string> CluesGiven; // ✅ Stores NPC-specific clues
     public Dictionary<string, JournalItemState.State> StatementStates;
 
+    public int index;
 
-    public JournalNPCData(string name, Sprite icon)
+
+    public JournalNPCData(string name, Sprite icon, int journalIndex)
     {
         Name = name;
         Icon = icon;
@@ -335,6 +406,7 @@ public class JournalNPCData
         TruthsAndLies = new List<(string, bool)>();
         CluesGiven = new List<string>();
         StatementStates = new Dictionary<string, JournalItemState.State>();
+        index = journalIndex;
 
     }
 }
