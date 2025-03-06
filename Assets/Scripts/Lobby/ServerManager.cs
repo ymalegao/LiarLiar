@@ -35,6 +35,7 @@ public class ServerManager : NetworkBehaviour
 
   public Dictionary<ulong, string> _clientAuthIdMap = new Dictionary<ulong, string>();
 
+
   private void Awake()
   {
     if (Instance == null)
@@ -50,8 +51,16 @@ public class ServerManager : NetworkBehaviour
 
   private void Start()
   {
-    if (NetworkManager.Singleton == null) return;
+    if (NetworkManager.Singleton == null)
+    {
+      Debug.LogError("NetworkManager is null!");
+      return;
+    }
+
     NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
+
+    Debug.Log($"ServerManager Start - IsServer: {IsServer}, IsHost: {IsHost}");
+
   }
 
   private IEnumerator MapClientToAuthId(ulong clientId)
@@ -75,15 +84,20 @@ public class ServerManager : NetworkBehaviour
     Debug.LogError($"⌛ Failed to map client {clientId} to an AuthID");
   }
 
-  private async void OnClientConnected(ulong clientId)
+  private void OnClientConnected(ulong clientId)
   {
-    if (!IsServer) return; // ✅ Only the server should handle spawning
+      if (!IsServer) return; // ✅ Only the server should handle spawning
 
-    GameObject tempPlayer = Instantiate(tempPlayerPrefab, spawnPosition, Quaternion.identity);
-    tempPlayer.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId);
+      Debug.Log($"🎮 Client connected: {clientId}");
 
-    // 2️⃣ After delay, replace with the correct character prefab
-    StartCoroutine(DelayedCharacterReplace(clientId));
+      // 1️⃣ Spawn a temporary player object first
+      //Vector3 spawnPos = new Vector3(0f, 0f, 0f);
+      GameObject tempPlayer = Instantiate(tempPlayerPrefab, spawnPosition, Quaternion.identity);
+      tempPlayer.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId);
+      Debug.Log($"👤 Temporary player spawned for {clientId}");
+
+      // 2️⃣ After delay, replace with the correct character prefab
+      StartCoroutine(DelayedCharacterReplace(clientId));
   }
 
   private IEnumerator DelayedCharacterReplace(ulong clientId)
