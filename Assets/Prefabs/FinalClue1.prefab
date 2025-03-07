@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clueText: Derek and Avery had their date at the pond when the book was stolen.
-  clueUIPrompt: {fileID: 0}
+  clueUIPrompt: {fileID: 316136538194917986, guid: fef32e5d95bc5994c82acc12b4846e8c, type: 3}
 --- !u!50 &1185059404824340418
 Rigidbody2D:
   serializedVersion: 4

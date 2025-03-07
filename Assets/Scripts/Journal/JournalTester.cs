@@ -61,6 +61,10 @@ public class JournalTester : MonoBehaviour
             "A love letter confirms Derek and Avery’s relationship.",
             "Carrie’s book is actually a history book.",
             "Tiny footsteps near the tower suggest Adeline was sneaking around.",
+            "Potion bottles at Timothy’s shack show Hadwin’s written instructions.",
+            "A love letter confirms Derek and Avery’s relationship.",
+            "Carrie’s book is actually a history book.",
+            "Tiny footsteps near the tower suggest Adeline was sneaking around.",
             "Potion bottles at Timothy’s shack show Hadwin’s written instructions."
         };
 

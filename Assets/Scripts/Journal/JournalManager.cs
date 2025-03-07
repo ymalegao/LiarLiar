@@ -18,6 +18,8 @@ public class JournalManager : MonoBehaviour
     public Transform npcListContainer; // Left side list of NPC names
 
     public Transform npcStatementContainer; // Right side list of NPC statements
+
+    public Transform npcClueContainer;
     public GameObject npcButtonPrefab; // Prefab for NPC name button
     public Image npcPortrait;
     public TextMeshProUGUI npcNameText;
@@ -26,6 +28,11 @@ public class JournalManager : MonoBehaviour
     public GameObject journalItemPrefab;
     public Button toggleJournalButton;
     public TextMeshProUGUI correctnessText;
+
+    public Image scrollBar;
+    public GameObject scrollBarHandle;
+
+    
 
     public int indexCount = 0;
     public Sprite cluesIcon;
@@ -198,12 +205,20 @@ private void HighlightSelectedNPC(GameObject selectedButton){
 
         if (npcId == "clues")
         {
-            npcStatementContainer.GetComponent<VerticalLayoutGroup>().spacing = 0;
+            //set npcStaementcontainer to deactivate and activate the clues container
+            npcStatementContainer.gameObject.SetActive(false);
+            npcClueContainer.gameObject.SetActive(true);
+            showScrollbar();
+
+            // npcStatementContainer.GetComponent<VerticalLayoutGroup>().spacing = 0;
 
         }
         else
         {
-            npcStatementContainer.GetComponent<VerticalLayoutGroup>().spacing = 10;
+            npcStatementContainer.gameObject.SetActive(true);
+            npcClueContainer.gameObject.SetActive(false);
+            hideScrollbar();
+            // npcStatementContainer.GetComponent<VerticalLayoutGroup>().spacing = -300;
         }
 
         // Clear existing statements
@@ -212,18 +227,46 @@ private void HighlightSelectedNPC(GameObject selectedButton){
             Destroy(child.gameObject);
         }
 
+        foreach (Transform child in npcClueContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
         // Add new statements
         foreach (var (statement, isTruth) in npc.TruthsAndLies)
         {
-            GameObject entry = Instantiate(journalItemPrefab, npcStatementContainer);
-            JournalItemState journalItem = entry.GetComponent<JournalItemState>();
-            journalItem.SetText(statement, isTruth);
-            if (npc.StatementStates.TryGetValue(statement, out var savedState))
+            //instanciate in the npcStatementContainer if the npc is not clues else instanciate in the npcClueContainer
+
+            if (npcId == "clues")
             {
-                journalItem.SetState(savedState);
+                GameObject entry = Instantiate(journalItemPrefab, npcClueContainer);
+                JournalItemState journalItem = entry.GetComponent<JournalItemState>();
+                journalItem.SetText(statement, isTruth);
+                journalEntries.Add(journalItem);
+                journalItem.OnStateChanged += () => UpdateStatementState(npcId, statement, journalItem.GetState());
             }
-            journalEntries.Add(journalItem);
-            journalItem.OnStateChanged += () => UpdateStatementState(npcId, statement, journalItem.GetState());
+            else
+            {
+                GameObject entry = Instantiate(journalItemPrefab, npcStatementContainer);
+                JournalItemState journalItem = entry.GetComponent<JournalItemState>();
+                journalItem.SetText(statement, isTruth);
+                if (npc.StatementStates.TryGetValue(statement, out var savedState))
+                {
+                    journalItem.SetState(savedState);
+                }
+                journalEntries.Add(journalItem);
+                journalItem.OnStateChanged += () => UpdateStatementState(npcId, statement, journalItem.GetState());
+            }
+
+            // GameObject entry = Instantiate(journalItemPrefab, npcStatementContainer);
+            // JournalItemState journalItem = entry.GetComponent<JournalItemState>();
+            // journalItem.SetText(statement, isTruth);
+            // if (npc.StatementStates.TryGetValue(statement, out var savedState))
+            // {
+            //     journalItem.SetState(savedState);
+            // }
+            // journalEntries.Add(journalItem);
+            // journalItem.OnStateChanged += () => UpdateStatementState(npcId, statement, journalItem.GetState());
         }
 
         currentNPCIndex = npc.index;
@@ -366,6 +409,19 @@ private void UpdateStatementState(string npcId, string statement, JournalItemSta
         {
             SpawnFinalClues();
         }
+    }
+
+    private void hideScrollbar(){
+        //set Image to deactivate, not the gameobject
+
+        scrollBar.enabled = false;
+        scrollBarHandle.SetActive(false);
+        
+    }
+
+    private void showScrollbar(){
+        scrollBar.enabled = true;
+        scrollBarHandle.SetActive(true);
     }
 
 

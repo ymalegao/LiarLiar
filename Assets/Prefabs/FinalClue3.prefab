@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueText: When Hadwin and Ed were at the bar last night, Weston left them in charge
     while he ran home to make sure he didn't leave the stove on.
-  clueUIPrompt: {fileID: 0}
+  clueUIPrompt: {fileID: 316136538194917986, guid: fef32e5d95bc5994c82acc12b4846e8c, type: 3}
 --- !u!50 &1185059404824340418
 Rigidbody2D:
   serializedVersion: 4
