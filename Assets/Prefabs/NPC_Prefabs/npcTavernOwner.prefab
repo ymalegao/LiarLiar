@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 6144481852531029297}
   - component: {fileID: 4670151574717188655}
   - component: {fileID: 7182736512230940212}
+  - component: {fileID: 1206742537773006156}
   - component: {fileID: 7747024443398431810}
   - component: {fileID: 2094843647503842778}
   - component: {fileID: 3539977013182107140}
   - component: {fileID: 8201454315367830834}
-  - component: {fileID: 1206742537773006156}
   - component: {fileID: 3540462122569174297}
   - component: {fileID: 4399940814885571179}
   - component: {fileID: 6269544432781698125}
@@ -122,6 +122,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1206742537773006156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274148144918918901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2989488145
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!114 &7747024443398431810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,13 +217,12 @@ MonoBehaviour:
   npcName: Weston McCarthy
   dialogueLines:
   - "[L] I\u2019ve been so busy with the shop that I haven\u2019t gotten to go relax.
-    I haven\u2019t had time to go to the lake in weeks! That\u2019s my safe space.
-    \r"
-  - "[T] At least I got to chat with my friends last night. Hadwin and Ed came in
-    for a drink. \r\n "
-  - "[T] We talked about how Derek and Avery seem awfully friendly these days. Avery
-    has been in love with Derek for years but he never felt the same. It\u2019s like
-    he\u2019s under a spell or something. "
+    I haven\u2019t had time to go to the lake in weeks! That\u2019s my safe space."
+  - '[T] At least I got to chat with my friends last night. Hadwin and Ed came in
+    for a drink.'
+  - "[T] Derek and Avery seem awfully friendly these days. Avery has been in love
+    with Derek for years but he never felt the same. It\u2019s like he\u2019s under
+    a spell..."
   npcSprite: {fileID: -1702636405, guid: c67679a2ca6e3a44688ecd9a163a0aba, type: 3}
 --- !u!195 &8201454315367830834
 NavMeshAgent:
@@ -226,27 +246,6 @@ NavMeshAgent:
   m_BaseOffset: 0.11
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1206742537773006156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274148144918918901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2989488145
-  InScenePlacedSourceGlobalObjectIdHash: 0
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!114 &3540462122569174297
 MonoBehaviour:
   m_ObjectHideFlags: 0

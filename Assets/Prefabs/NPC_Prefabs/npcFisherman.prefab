@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 6144481852531029297}
   - component: {fileID: 4670151574717188655}
   - component: {fileID: 7182736512230940212}
+  - component: {fileID: 1206742537773006156}
   - component: {fileID: 7747024443398431810}
   - component: {fileID: 2094843647503842778}
   - component: {fileID: 3539977013182107140}
   - component: {fileID: 8201454315367830834}
-  - component: {fileID: 1206742537773006156}
   - component: {fileID: 3540462122569174297}
   - component: {fileID: 4399940814885571179}
   - component: {fileID: 6269544432781698125}
@@ -122,6 +122,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1206742537773006156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274148144918918901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 602025393
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!114 &7747024443398431810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,14 +214,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7298e1288d3814badecccae5c0ec48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Fishman
+  npcName: Timothy Mullens
   dialogueLines:
   - "[L] I would never get involved in the magic stuff. It\u2019s too freaky for
     me. Besides, I\u2019m busy with the fishing business. \r"
   - "[T] However, Adeline was telling me all about how she wanted to do magic but
     Hadwin wouldn\u2019t let her. \r\n"
   - "[T] She said she\u2019s been sneaking around the tower to watch him while he
-    works. \u2026\u2026"
+    works. \u2026"
   npcSprite: {fileID: -529647792, guid: fe9fb8175b450974685ce6d6029d315d, type: 3}
 --- !u!195 &8201454315367830834
 NavMeshAgent:
@@ -224,27 +245,6 @@ NavMeshAgent:
   m_BaseOffset: 0.11
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1206742537773006156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274148144918918901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 602025393
-  InScenePlacedSourceGlobalObjectIdHash: 0
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!114 &3540462122569174297
 MonoBehaviour:
   m_ObjectHideFlags: 0

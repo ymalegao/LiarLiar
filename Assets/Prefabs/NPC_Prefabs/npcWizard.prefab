@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 6144481852531029297}
   - component: {fileID: 4670151574717188655}
   - component: {fileID: 7182736512230940212}
+  - component: {fileID: 1206742537773006156}
   - component: {fileID: 7747024443398431810}
   - component: {fileID: 2094843647503842778}
   - component: {fileID: 3539977013182107140}
   - component: {fileID: 8201454315367830834}
-  - component: {fileID: 1206742537773006156}
   - component: {fileID: 3540462122569174297}
   - component: {fileID: 4399940814885571179}
   - component: {fileID: 6269544432781698125}
@@ -122,6 +122,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1206742537773006156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274148144918918901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1383173479
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!114 &7747024443398431810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,16 +157,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Hadwin Mitchell
   dialogueLines:
-  - '[T] My book is missing! Someone stole it from my chest last night!!!
-
-'
-  - "[L] I was home all night!! There\u2019s no way someone stole it.\r\n"
+  - '[T] My book is missing! Someone stole it from my chest last night!!'
+  - "[L] I was home all night!! There\u2019s no way someone stole it."
   - '[T] Those spells in the book are dangerous. They can be triggered just by speaking
-    the words.
-
-
-
-'
+    the words.'
   npcSprite: {fileID: -1250548452, guid: 7e0906d47664b264bb65baf9c1d64d89, type: 3}
 --- !u!61 &2094843647503842778
 BoxCollider2D:
@@ -228,27 +243,6 @@ NavMeshAgent:
   m_BaseOffset: 0.15
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1206742537773006156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274148144918918901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1383173479
-  InScenePlacedSourceGlobalObjectIdHash: 0
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!114 &3540462122569174297
 MonoBehaviour:
   m_ObjectHideFlags: 0
