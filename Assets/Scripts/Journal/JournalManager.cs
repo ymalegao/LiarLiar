@@ -33,6 +33,8 @@ public class JournalManager : MonoBehaviour
 
     [Header("Final Clue System")]
     public GameObject[] finalCluePrefabs;
+    public GameObject finalClueAlert;
+
     public Transform[] clueSpawnLocations;
     private bool finalCluesSpawned = false;
 
@@ -56,7 +58,10 @@ public class JournalManager : MonoBehaviour
     {
         toggleJournalButton?.onClick.AddListener(ToggleJournal);
         //register Clues as NPC, so they are at the top of the list
-
+        if (finalClueAlert != null)
+        {
+            finalClueAlert.SetActive(false);
+        }
         RegisterNPC("clues", "Clues", cluesIcon);
     }
 
@@ -381,7 +386,12 @@ private void UpdateStatementState(string npcId, string statement, JournalItemSta
                 Instantiate(finalCluePrefabs[i], clueSpawnLocations[i].position, Quaternion.identity);
             }
         }
+        finalClueAlert.SetActive(true);
         finalCluesSpawned = true;
+    }
+
+    public void hideAlert(){
+        finalClueAlert.SetActive(false);
     }
 }
 
