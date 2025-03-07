@@ -29454,7 +29454,7 @@ GameObject:
   - component: {fileID: 1125419307}
   - component: {fileID: 1125419306}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Help Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29475,10 +29475,10 @@ RectTransform:
   - {fileID: 355367296}
   m_Father: {fileID: 351606068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 362, y: 111}
-  m_SizeDelta: {x: 43.6174, y: 28.8002}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -50, y: -50}
+  m_SizeDelta: {x: 43.6174, y: 28.800201}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1125419306
 MonoBehaviour:
@@ -31081,10 +31081,10 @@ RectTransform:
   - {fileID: 1996050418}
   m_Father: {fileID: 8896212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 361.2, y: 165}
-  m_SizeDelta: {x: 63.695, y: 34.809}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -50, y: -100}
+  m_SizeDelta: {x: 63.695007, y: 34.80899}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2119109254
 MonoBehaviour:
@@ -31576,9 +31576,49 @@ PrefabInstance:
       propertyPath: clueSpawnLocations.Array.data[3]
       value: 
       objectReference: {fileID: 2104285584}
+    - target: {fileID: 7232142358403899696, guid: 64fda7d2a574ce14c9230eaaa8be3cea, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232142358403899696, guid: 64fda7d2a574ce14c9230eaaa8be3cea, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232142358403899696, guid: 64fda7d2a574ce14c9230eaaa8be3cea, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232142358403899696, guid: 64fda7d2a574ce14c9230eaaa8be3cea, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232142358403899696, guid: 64fda7d2a574ce14c9230eaaa8be3cea, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -700
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232142358403899696, guid: 64fda7d2a574ce14c9230eaaa8be3cea, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -360
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232142358403899696, guid: 64fda7d2a574ce14c9230eaaa8be3cea, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232142358403899696, guid: 64fda7d2a574ce14c9230eaaa8be3cea, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232142358403899696, guid: 64fda7d2a574ce14c9230eaaa8be3cea, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000061035156
+      objectReference: {fileID: 0}
     - target: {fileID: 8217722535128640970, guid: 64fda7d2a574ce14c9230eaaa8be3cea, type: 3}
       propertyPath: m_Name
       value: JournalUI 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805748404760507472, guid: 64fda7d2a574ce14c9230eaaa8be3cea, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
