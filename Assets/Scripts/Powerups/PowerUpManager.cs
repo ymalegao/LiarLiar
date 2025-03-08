@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 
@@ -10,6 +11,9 @@ namespace PowerUps
     [SerializeField] private VisionEffect visionEffectPrefab;
     private static VisionEffect localVisionEffect;
 
+    // Store connected client IDs
+    private List<ulong> connectedClientIds = new List<ulong>();
+
     private void Awake()
     {
       Debug.Log("PowerUpManager Awake called");
@@ -17,20 +21,6 @@ namespace PowerUps
       {
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
-        if (IsServer || IsHost) // Only spawn if on server or host
-        {
-          NetworkObject netObj = GetComponent<NetworkObject>();
-          if (netObj != null && !netObj.IsSpawned)
-          {
-            netObj.Spawn();
-            Debug.Log("✅ PowerUpManager successfully spawned on network.");
-          }
-          else
-          {
-            Debug.LogError("❌ PowerUpManager is missing a NetworkObject component or is already spawned.");
-          }
-        }
 
         if (visionEffectPrefab != null)
         {
@@ -42,6 +32,34 @@ namespace PowerUps
       {
         Destroy(gameObject);
       }
+    }
+
+    private void Start()
+    {
+      Debug.Log("PowerUpManager Start called");
+      Debug.Log($"IsServer: {IsServer}, IsHost: {IsHost}");
+      if (IsServer || IsHost) // Only collect clients if on server or host
+      {
+        CollectConnectedClients();
+      }
+    }
+
+    // Collect connected clients and send to clients
+    private void CollectConnectedClients()
+    {
+      connectedClientIds.Clear();
+      foreach (var client in NetworkManager.Singleton.ConnectedClients)
+      {
+        connectedClientIds.Add(client.Key);
+      }
+      SendConnectedClientsToClientsClientRpc(connectedClientIds.ToArray());
+    }
+
+    [ClientRpc]
+    private void SendConnectedClientsToClientsClientRpc(ulong[] clientIds)
+    {
+      connectedClientIds = new List<ulong>(clientIds);
+      Debug.Log($"Connected client IDs: {string.Join(", ", connectedClientIds)}");
     }
 
     private void Update()
@@ -56,6 +74,8 @@ namespace PowerUps
       if (Input.GetKeyDown(KeyCode.F))
       {
         Debug.Log("F key pressed on client");
+
+        // Get the other seeker ID from the stored list
         ulong otherSeekerId = GetOtherSeekerId(); // Get the other seeker's ID
         if (otherSeekerId != 0) // Ensure we found a valid ID
         {
@@ -103,12 +123,12 @@ namespace PowerUps
 
     private ulong GetOtherSeekerId()
     {
-      foreach (var client in NetworkManager.Singleton.ConnectedClients)
+      foreach (var clientId in connectedClientIds)
       {
-        if (client.Key != NetworkManager.Singleton.LocalClientId) // Exclude the local player
+        if (clientId != NetworkManager.Singleton.LocalClientId) // Exclude the local player
         {
-          Debug.Log($"Found other seeker: {client.Key}");
-          return client.Key; // Return the first other seeker found
+          Debug.Log($"Found other seeker: {clientId}");
+          return clientId; // Return the first other seeker found
         }
       }
       return 0; // Return 0 if no other seeker is found
