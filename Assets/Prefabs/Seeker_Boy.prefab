@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dad3a384bbe91eb40b8eb9f7b74010be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 12
   spawnPosition: {x: 5, y: 12}
   animator: {fileID: 5112175493857286404}
 --- !u!50 &6153845803831488788
