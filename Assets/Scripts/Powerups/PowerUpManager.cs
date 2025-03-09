@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 
@@ -11,9 +10,6 @@ namespace PowerUps
     [SerializeField] private VisionEffect visionEffectPrefab;
     private static VisionEffect localVisionEffect;
 
-    // Store connected client IDs
-    private List<ulong> connectedClientIds = new List<ulong>();
-
     private void Awake()
     {
       Debug.Log("PowerUpManager Awake called");
@@ -21,6 +17,20 @@ namespace PowerUps
       {
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        if (IsServer || IsHost) // Only spawn if on server or host
+        {
+          NetworkObject netObj = GetComponent<NetworkObject>();
+          if (netObj != null && !netObj.IsSpawned)
+          {
+            netObj.Spawn();
+            Debug.Log("✅ PowerUpManager successfully spawned on network.");
+          }
+          else
+          {
+            Debug.LogError("❌ PowerUpManager is missing a NetworkObject component or is already spawned.");
+          }
+        }
 
         if (visionEffectPrefab != null)
         {
@@ -34,34 +44,6 @@ namespace PowerUps
       }
     }
 
-    private void Start()
-    {
-      Debug.Log("PowerUpManager Start called");
-      Debug.Log($"IsServer: {IsServer}, IsHost: {IsHost}");
-      if (IsServer || IsHost) // Only collect clients if on server or host
-      {
-        CollectConnectedClients();
-      }
-    }
-
-    // Collect connected clients and send to clients
-    private void CollectConnectedClients()
-    {
-      connectedClientIds.Clear();
-      foreach (var client in NetworkManager.Singleton.ConnectedClients)
-      {
-        connectedClientIds.Add(client.Key);
-      }
-      SendConnectedClientsToClientsClientRpc(connectedClientIds.ToArray());
-    }
-
-    [ClientRpc]
-    private void SendConnectedClientsToClientsClientRpc(ulong[] clientIds)
-    {
-      connectedClientIds = new List<ulong>(clientIds);
-      Debug.Log($"Connected client IDs: {string.Join(", ", connectedClientIds)}");
-    }
-
     private void Update()
     {
       if (Instance == null)
@@ -73,34 +55,35 @@ namespace PowerUps
       // Check for input on both server and client
       if (Input.GetKeyDown(KeyCode.F))
       {
-        Debug.Log("F key pressed on client");
-
-        // Get the other seeker ID from the stored list
-        ulong otherSeekerId = GetOtherSeekerId(); // Get the other seeker's ID
-        if (otherSeekerId != 0) // Ensure we found a valid ID
-        {
-          Debug.Log($"F pressed. LocalClientId: {NetworkManager.Singleton.LocalClientId}, Targeting Player: {otherSeekerId}");
-          ApplyVisionReductionServerRpc(otherSeekerId); // Apply effect to the other player
-        }
-        else
-        {
-          Debug.LogWarning("No other seeker found to apply vision reduction.");
-        }
+        Debug.Log("F key pressed by " + (IsHost ? "host" : "client"));
+        // Simply call the ServerRpc, we'll figure out who to apply the effect to on the server
+        RequestApplyVisionReductionServerRpc();
       }
     }
 
-    // ServerRpc to apply vision reduction to the target player
+    // ServerRpc to request applying vision reduction
     [ServerRpc(RequireOwnership = false)]
-    public void ApplyVisionReductionServerRpc(ulong targetPlayerId)
+    public void RequestApplyVisionReductionServerRpc(ServerRpcParams rpcParams = default)
     {
       if (!IsServer)
       {
-        Debug.LogError("❌ ApplyVisionReductionServerRpc called, but no server is active!");
+        Debug.LogError("❌ RequestApplyVisionReductionServerRpc called, but no server is active!");
         return;
       }
 
-      Debug.Log($"✅ Server is active. Applying vision effect to Player {targetPlayerId}");
-      ApplyVisionReductionClientRpc(targetPlayerId);
+      // Get the sender's client ID from the RPC parameters
+      ulong senderId = rpcParams.Receive.SenderClientId;
+      Debug.Log($"✅ Server received vision reduction request from Player {senderId}");
+
+      // Find all connected clients except the sender
+      foreach (var client in NetworkManager.Singleton.ConnectedClients)
+      {
+        if (client.Key != senderId) // Exclude the player who initiated the request
+        {
+          Debug.Log($"Applying vision effect to Player {client.Key}");
+          ApplyVisionReductionClientRpc(client.Key);
+        }
+      }
     }
 
     [ClientRpc]
@@ -119,19 +102,6 @@ namespace PowerUps
           Debug.LogError("VisionEffect is null!");
         }
       }
-    }
-
-    private ulong GetOtherSeekerId()
-    {
-      foreach (var clientId in connectedClientIds)
-      {
-        if (clientId != NetworkManager.Singleton.LocalClientId) // Exclude the local player
-        {
-          Debug.Log($"Found other seeker: {clientId}");
-          return clientId; // Return the first other seeker found
-        }
-      }
-      return 0; // Return 0 if no other seeker is found
     }
   }
 }

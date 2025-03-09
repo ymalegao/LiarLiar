@@ -25,6 +25,7 @@ public class LobbyManager : MonoBehaviour
   private string playerName = "Za";
   public static event Action OnLobbyCreated;
   public static event Action OnLobbyJoined;
+  public static event Action OnGameStarted;
 
   private System.Random _random = new System.Random();
 
@@ -261,6 +262,8 @@ public class LobbyManager : MonoBehaviour
 
       NetworkManager.Singleton.StartHost();
       NetworkManager.Singleton.SceneManager.LoadScene("Gameplay Functions", UnityEngine.SceneManagement.LoadSceneMode.Single);
+      //Debug.Log("OnGameStarted Invoked");
+      //OnGameStarted?.Invoke();
     }
     else
     {
@@ -393,10 +396,10 @@ public class LobbyManager : MonoBehaviour
 
     foreach (var player in players.Where(p => p.Id != seeker.Id))
     {
-    
+
       int spriteIndex = availableSprites.Count > 0 ? availableSprites.Dequeue() : _random.Next(ServerManager.Instance.characterPrefabs.Count);
-      npcTaken.Add(availablePrefabs.Dequeue()); 
-      
+      npcTaken.Add(availablePrefabs.Dequeue());
+
       roleAssignments[player.Data["AuthID"].Value] = new RoleAssignment
       {
         Role = FAKENPC_ROLE,

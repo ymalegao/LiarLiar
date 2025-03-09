@@ -29873,7 +29873,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: -100}
+  m_AnchoredPosition: {x: 0, y: -100}
   m_SizeDelta: {x: -400, y: -400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1218599559
@@ -30762,7 +30762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.66819763, y: -1.3367004}
+  m_AnchoredPosition: {x: 0.6682129, y: -1.3367004}
   m_SizeDelta: {x: -39.3643, y: -25.899}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1863468069
@@ -31535,6 +31535,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3918523138340744948, guid: 2efc8faabee52664f90e14f2cec0dfc6, type: 3}
+      propertyPath: powerUpUnlockedText
+      value: 
+      objectReference: {fileID: 1760712507591910535, guid: 70a527ae587b0034e9ceeebffdbb8984, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
