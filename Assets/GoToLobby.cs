@@ -4,6 +4,8 @@ using Unity.Netcode;
 
 public class goToScene : NetworkBehaviour
 {
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip buttonClickSound;
     public void goToLobby()
     {
         if (NetworkManager.Singleton != null && NetworkManager.Singleton.IsServer)
@@ -14,7 +16,7 @@ public class goToScene : NetworkBehaviour
             LoadLobbyClientRpc();
 
             // Host loads the lobby scene
-            SceneManager.LoadScene("Lobby");
+            PlayButtonSoundAndLoadScene("Lobby");
         }
         else if (NetworkManager.Singleton != null && NetworkManager.Singleton.IsClient)
         {
@@ -23,7 +25,7 @@ public class goToScene : NetworkBehaviour
         else
         {
             // If not connected, just load the lobby scene
-            SceneManager.LoadScene("Lobby");
+            PlayButtonSoundAndLoadScene("Lobby");
         }
     }
 
@@ -44,21 +46,41 @@ public class goToScene : NetworkBehaviour
 
     public void goToTitle()
     {
-        SceneManager.LoadScene("Title Screen"); 
+        PlayButtonSoundAndLoadScene("Title Screen");
     }
 
     public void goToHowTo()
     {
-        SceneManager.LoadScene("How To Play"); 
+        PlayButtonSoundAndLoadScene("How To Play");
     }
 
     public void goToCredits()
     {
-        SceneManager.LoadScene("Credits"); 
+        PlayButtonSoundAndLoadScene("Credits");
     }
 
     public void goToEndGame()
     {
-        SceneManager.LoadScene("End Game"); 
+        PlayButtonSoundAndLoadScene("End Game");
     }
+
+    private void PlayButtonSoundAndLoadScene(string sceneName)
+    {
+        if (audioSource != null && buttonClickSound != null)
+        {
+            audioSource.PlayOneShot(buttonClickSound);
+            StartCoroutine(LoadSceneAfterDelay(sceneName, buttonClickSound.length));
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+    }
+
+    private System.Collections.IEnumerator LoadSceneAfterDelay(string sceneName, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(sceneName);
+    }
+
 }

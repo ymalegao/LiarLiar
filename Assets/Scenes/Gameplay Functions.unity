@@ -31777,17 +31777,45 @@ PrefabInstance:
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1797689794043515647, guid: c461f5ccb3420614f98feba108839350, type: 3}
+      propertyPath: m_Size.x
+      value: 24.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797689794043515647, guid: c461f5ccb3420614f98feba108839350, type: 3}
+      propertyPath: m_Size.y
+      value: 25.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2286730389953709945, guid: c461f5ccb3420614f98feba108839350, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 55.86
+      objectReference: {fileID: 0}
     - target: {fileID: 3758214201418333268, guid: c461f5ccb3420614f98feba108839350, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4346757066374053146, guid: c461f5ccb3420614f98feba108839350, type: 3}
+      propertyPath: m_Layer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4428424807232065247, guid: c461f5ccb3420614f98feba108839350, type: 3}
       propertyPath: m_Name
       value: Sound
       objectReference: {fileID: 0}
+    - target: {fileID: 4428424807232065247, guid: c461f5ccb3420614f98feba108839350, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6441154054599519741, guid: c461f5ccb3420614f98feba108839350, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777148048243960477, guid: c461f5ccb3420614f98feba108839350, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9076249915287431341, guid: c461f5ccb3420614f98feba108839350, type: 3}
+      propertyPath: m_Layer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9212925279724345110, guid: c461f5ccb3420614f98feba108839350, type: 3}
       propertyPath: m_LocalPosition.x
