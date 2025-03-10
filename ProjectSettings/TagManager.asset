@@ -11,6 +11,7 @@ TagManager:
   - Obstackle
   - Fish
   - NextLine
+  - Shark
   layers:
   - Default
   - TransparentFX

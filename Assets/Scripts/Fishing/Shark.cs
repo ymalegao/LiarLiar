@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fish : MonoBehaviour
+public class Shark : MonoBehaviour
 {
     private float speed;
 
     private void Awake()
     {
-        speed = Random.Range(2,6);
+        speed = Random.Range(2,4);
     }
 
     private void FixedUpdate()
@@ -16,6 +16,6 @@ public class Fish : MonoBehaviour
 
          transform.position += Vector3.left * speed * Time.deltaTime;
         // Destroy fish when it leaves the screen
-        Destroy(gameObject, 6f);
+        Destroy(gameObject, 7f);
     }
 }
