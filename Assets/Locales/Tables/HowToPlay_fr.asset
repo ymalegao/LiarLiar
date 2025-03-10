@@ -28,9 +28,9 @@ MonoBehaviour:
   - m_Id: 35587612672
     m_Localized: "Parlez \xE0 chaque habitant d'Emberwell pour obtenir des informations.
       Ils vous diront deux v\xE9rit\xE9s et un mensonge (dans un ordre al\xE9atoire),
-      et ces informations seront enregistr\xE9es dans votre journal.\n\nEn cliquant
+      et ces informations seront enregistr\xE9es dans votre journal. En cliquant
       sur les informations du journal, vous pouvez marquer les lignes comme vraies
-      ou fausses : vert pour la v\xE9rit\xE9 et rouge pour le mensonge.\n\nDes indices
+      ou fausses : vert pour la v\xE9rit\xE9 et rouge pour le mensonge.\nDes indices
       sont \xE9galement cach\xE9s dans la ville pour vous aider dans votre enqu\xEAte.
       Ces indices seront \xE9galement enregistr\xE9s dans votre journal.\n\nUne fois
       que vous pensez avoir trouv\xE9 le lanceur de sorts, s\xE9lectionnez votre
@@ -38,8 +38,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 55661551616
-    m_Localized: "Utilisez WASD ou les touches fl\xE9ch\xE9es pour vous d\xE9placer.\n\nAppuyez
-      sur E pour parler aux villageois.\n\nAppuyez sur R pour ramasser un indice.\n\nUtilisez
+    m_Localized: "Utilisez WASD ou les touches fl\xE9ch\xE9es pour vous d\xE9placer.\nAppuyez
+      sur E pour parler aux villageois.\nAppuyez sur R pour ramasser un indice.\nUtilisez
       J pour ouvrir le journal."
     m_Metadata:
       m_Items: []

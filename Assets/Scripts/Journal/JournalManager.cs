@@ -79,9 +79,7 @@ public class JournalManager : MonoBehaviour
     public void ToggleJournal()
     {
         bool isOpening = !journalPanel.activeSelf;
-
         journalPanel.SetActive(isOpening);
-
         if (audioSource != null)
         {
             audioSource.PlayOneShot(isOpening ? openSound : closeSound);

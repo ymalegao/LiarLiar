@@ -28,10 +28,10 @@ MonoBehaviour:
   - m_Id: 35587612672
     m_Localized: "Habla con cada habitante de Emberwell y obt\xE9n informaci\xF3n
       de ellos. Te dir\xE1n dos verdades y una mentira (en un orden aleatorio), y
-      esta informaci\xF3n se registrar\xE1 en tu diario.\n\nAl hacer clic en la informaci\xF3n
+      esta informaci\xF3n se registrar\xE1 en tu diario.\nAl hacer clic en la informaci\xF3n
       del diario, puedes marcar las l\xEDneas como verdaderas o falsas: verde es
-      verdad y rojo es mentira.\n\nTambi\xE9n hay varias pistas escondidas por el
-      pueblo que te ayudar\xE1n en tu misi\xF3n. Estas pistas tambi\xE9n se documentar\xE1n
+      verdad y rojo es mentira.\nTambi\xE9n hay varias pistas escondidas por el pueblo
+      que te ayudar\xE1n en tu misi\xF3n. Estas pistas tambi\xE9n se documentar\xE1n
       en tu diario.\n\nCuando creas haber encontrado al hechicero, selecciona a tu
       sospechoso."
     m_Metadata:
@@ -39,13 +39,10 @@ MonoBehaviour:
   - m_Id: 55661551616
     m_Localized: 'Usa WASD o las teclas de flecha para moverte.
 
-
-      Presiona
-      E para hablar con los aldeanos.
-
+      Presiona E
+      para hablar con los aldeanos.
 
       Presiona R para recoger una pista.
-
 
       Utilice
       J para abrir el diario.'
