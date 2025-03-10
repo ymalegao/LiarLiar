@@ -2195,19 +2195,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120899305277813637, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 120899305277813637, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 120899305277813637, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 227695746231215952, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1063840933416500168, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_Spacing
@@ -2315,15 +2315,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1595702753593192855, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1595702753593192855, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.9999999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1595702753593192855, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.4976563
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2800619558118603439, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_IsActive
@@ -2393,6 +2393,14 @@ PrefabInstance:
       propertyPath: clueSpawnLocations.Array.data[3]
       value: 
       objectReference: {fileID: 369686821}
+    - target: {fileID: 6139711910419784060, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
+      propertyPath: m_Spacing
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139711910419784060, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
+      propertyPath: m_ChildForceExpandHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8001512439663282856, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.00011653481
