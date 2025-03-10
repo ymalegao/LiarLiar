@@ -25,6 +25,10 @@ public class EggGameManager : MonoBehaviour, MinigameManager
 
   public GameObject overallGameCanvas;
 
+  public GameObject seekerSelectButton;
+  public GameObject helpButton;
+
+
   [Header("Gameplay Elements")]
   public Transform basket;
   public float basketSpeed = 5f;
@@ -40,6 +44,8 @@ public class EggGameManager : MonoBehaviour, MinigameManager
     instructionsPanel.SetActive(true); // Show instructions first
     failurePanel.SetActive(false);
     victoryPanel.SetActive(false);
+    seekerSelectButton.SetActive(false);
+    helpButton.SetActive(false);
     if (powerUpUnlockedText != null)
       powerUpUnlockedText.SetActive(false);
     Debug.Log("EggGameManager Awake");
@@ -48,6 +54,9 @@ public class EggGameManager : MonoBehaviour, MinigameManager
   public void endGame()
   {
     overallGameCanvas.SetActive(false);
+    seekerSelectButton.SetActive(true);
+    helpButton.SetActive(true);
+
   }
 
   public void StartGame()
@@ -67,6 +76,8 @@ public class EggGameManager : MonoBehaviour, MinigameManager
     instructionsPanel.SetActive(false);
     failurePanel.SetActive(false);
     victoryPanel.SetActive(false);
+    seekerSelectButton.SetActive(false);
+    helpButton.SetActive(false);
     if (powerUpUnlockedText != null)
       powerUpUnlockedText.SetActive(false);
     UpdateUI();
@@ -200,13 +211,16 @@ public class EggGameManager : MonoBehaviour, MinigameManager
 
     // Show appropriate end game panel
     if (score >= winningScore)
-    {
+    {   
+      failurePanel.SetActive(false);
       victoryPanel.SetActive(true);
     }
     else
     {
+      victoryPanel.SetActive(false);
       failurePanel.SetActive(true);
     }
+
 
     EggSpawner.Instance.EndMiniGame();
   }
