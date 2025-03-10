@@ -44,7 +44,11 @@ MonoBehaviour:
       E para hablar con los aldeanos.
 
 
-      Presiona R para recoger una pista.'
+      Presiona R para recoger una pista.
+
+
+      Utilice
+      J para abrir el diario.'
     m_Metadata:
       m_Items: []
   - m_Id: 85860540416

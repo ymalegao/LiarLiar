@@ -39,7 +39,8 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 55661551616
     m_Localized: "Utilisez WASD ou les touches fl\xE9ch\xE9es pour vous d\xE9placer.\n\nAppuyez
-      sur E pour parler aux villageois.\n\nAppuyez sur R pour ramasser un indice."
+      sur E pour parler aux villageois.\n\nAppuyez sur R pour ramasser un indice.\n\nUtilisez
+      J pour ouvrir le journal."
     m_Metadata:
       m_Items: []
   - m_Id: 85860540416
