@@ -53,20 +53,28 @@ public class SeekerInteraction : NetworkBehaviour
 
     private void CheckForInteractable()
     {
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, interactionRange, interactableLayer);
-        if (hit != null)
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, interactionRange, interactableLayer);
+
+        if (hits.Length == 0)
+        {
+            Debug.Log("No interactable objects detected.");
+            return;
+        }
+
+        foreach (Collider2D hit in hits)
         {
             IInteractable interactable = hit.GetComponent<IInteractable>();
             if (interactable != null)
             {
+                Debug.Log($"Interacting with: {hit.gameObject.name}");
                 interactable.Interact();
-            }
-            else
-            {
-                Debug.LogWarning($"Object {hit.name} does not implement IInteractable.");
+                return; // Stop after finding a valid interactable
             }
         }
+
+        Debug.Log("No valid interactable objects found.");
     }
+
 
     public void SetCurrentClue(ClueObject clue)
     {
