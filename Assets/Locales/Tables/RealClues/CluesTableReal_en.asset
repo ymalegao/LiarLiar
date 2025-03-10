@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: CluesTableReal_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 63884b0f565a945c4b727b3b8d84c549, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 10665058304
+    m_Localized: '3 Double IPAs: $18.45 - HADWIN (PAID)'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49965686784
+    m_Localized: Dear Avery, You look so beautiful today. I can't wait for our date.
+      Love, Derek
+    m_Metadata:
+      m_Items: []
+  - m_Id: 66956812288
+    m_Localized: 'A Book on the History of Ladybugs - Owned by: Carrie'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 85122342912
+    m_Localized: '*small footsteps that circle around the back of Hadwin''s tower*'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104978178048
+    m_Localized: "Potion bottles at Timothy\u2019s shack show Hadwin\u2019s written
+      instructions.\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 345303408640
+    m_Localized: Derek and Avery had their date at the pond when the book was stolen.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358117007360
+    m_Localized: Adeline was home alone for dinner, so she decided to go on a little
+      adventure down to the lake
+    m_Metadata:
+      m_Items: []
+  - m_Id: 376790048768
+    m_Localized: When Hadwin and Ed were at the bar last night, Weston left them
+      in charge while he ran home to make sure he didn't leave the stove on.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 398780784640
+    m_Localized: 'Carrie was stargazing by the lake last night while Timothy was
+      doing some late night fishing. '
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

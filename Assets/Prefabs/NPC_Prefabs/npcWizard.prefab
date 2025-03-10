@@ -157,10 +157,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Hadwin Mitchell
   dialogueLines:
-  - '[T] My book is missing! Someone stole it from my chest last night!!'
-  - "[L] I was home all night!! There\u2019s no way someone stole it."
-  - '[T] Those spells in the book are dangerous. They can be triggered just by speaking
-    the words.'
+  - Hadwin1
+  - Hadwin2
+  - Hadwin3
   npcSprite: {fileID: -1250548452, guid: 7e0906d47664b264bb65baf9c1d64d89, type: 3}
 --- !u!61 &2094843647503842778
 BoxCollider2D:

@@ -155,7 +155,7 @@ public class LobbyUI : MonoBehaviour
     if (lobbyManager == null) return;
 
     await lobbyManager.CreateLobby("MyLobby", 4, false);
-    lobbyInfoText.text = "Lobby created! Code: " + lobbyManager.GetLobbyCode();
+    lobbyInfoText.text += lobbyManager.GetLobbyCode();
   }
 
   public void OnJoinLobbyButtonClicked()

@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: HowToPlay_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 17a4d832ae5b543769f3e6060c2e4a63, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 10992214016
+    m_Localized: "Objetivo:\nNadie en el pueblo de Emberwell parece estar diciendo
+      toda la verdad. Alguien lanz\xF3 una maldici\xF3n que obliga a todos a decir
+      dos verdades y una mentira. Descubre qui\xE9n lanz\xF3 el hechizo sobre Emberwell
+      antes que tu oponente."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35587612672
+    m_Localized: "Habla con cada habitante de Emberwell y obt\xE9n informaci\xF3n
+      de ellos. Te dir\xE1n dos verdades y una mentira (en un orden aleatorio), y
+      esta informaci\xF3n se registrar\xE1 en tu diario.\n\nAl hacer clic en la informaci\xF3n
+      del diario, puedes marcar las l\xEDneas como verdaderas o falsas: verde es
+      verdad y rojo es mentira.\n\nTambi\xE9n hay varias pistas escondidas por el
+      pueblo que te ayudar\xE1n en tu misi\xF3n. Estas pistas tambi\xE9n se documentar\xE1n
+      en tu diario.\n\nCuando creas haber encontrado al hechicero, selecciona a tu
+      sospechoso."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55661551616
+    m_Localized: 'Usa WASD o las teclas de flecha para moverte.
+
+
+      Presiona
+      E para hablar con los aldeanos.
+
+
+      Presiona R para recoger una pista.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 85860540416
+    m_Localized: Controles
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

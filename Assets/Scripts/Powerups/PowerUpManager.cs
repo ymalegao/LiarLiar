@@ -44,6 +44,26 @@ namespace PowerUps
       }
     }
 
+    public void DisablePowerUp()
+    {
+      if (localVisionEffect != null)
+      {
+        localVisionEffect.gameObject.SetActive(false);
+      }
+    }
+
+    public bool IsPowerUpAvailable(){
+      return localVisionEffect != null;
+    }
+
+    public void EnablePowerUp()
+    {
+      if (localVisionEffect != null)
+      {
+        localVisionEffect.gameObject.SetActive(true);
+      }
+    }
+
     private void Update()
     {
       if (Instance == null)

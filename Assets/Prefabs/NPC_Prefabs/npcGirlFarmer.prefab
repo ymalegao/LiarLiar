@@ -216,13 +216,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Adeline Burton
   dialogueLines:
-  - "[T] I saw Weston over by the lake reading a book really early this morning when
-    I was running errands for Dad. He looked funny. Like he was talking to the lake
-    or something!!\r"
-  - '[T] Dad is always always so busy! Never has time to do anything fun anymore.
-    I have to find ways to have fun without him. '
-  - "[L] Whatever. I\u2019ve been going to Hadwin\u2019s and he has been teaching
-    me some magic. Abracadabra! "
+  - Adeline1
+  - Adeline2
+  - Adeline3
   npcSprite: {fileID: -2086025217, guid: b7033e875415dbb4ba4c9c1e3dab991b, type: 3}
 --- !u!195 &8201454315367830834
 NavMeshAgent:

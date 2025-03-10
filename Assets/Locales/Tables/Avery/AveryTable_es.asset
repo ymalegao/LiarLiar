@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: AveryTable_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: d2868b69fd9d44fecb4a232d7bfb688e, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 17451442176
+    m_Localized: "[T] Anoche pas\xE9 por la tienda de Carrie para comprar algunas
+      cosas para mi cita de esta noche."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38565568512
+    m_Localized: "[L] En el camino, me encontr\xE9 con Ed. Se ve\xEDa muy sospechoso.
+      Ten\xEDa unos papeles con garabatos extra\xF1os."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50095710208
+    m_Localized: "[T] Carrie estaba murmurando frases raras. Sonaban extranjeras,
+      no s\xE9. Siempre pens\xE9 que era un poco extra\xF1a\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5724540231680
+    m_Localized: "[T] Hadwin y yo est\xE1bamos tomando algo en el bar de Weston anoche."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5856182657024
+    m_Localized: "[L] Hadwin no paraba de hablar de un error que cometi\xF3 m\xE1s
+      temprano en la noche. Es un tipo un poco raro."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5873006010368
+    m_Localized: "[T] Tambi\xE9n me cont\xF3 que ha estado entrenando en secreto
+      a Timmy para que sea su aprendiz. Se est\xE1 haciendo viejo y necesita ayuda
+      extra."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6505066651648
+    m_Localized: "[L] Hadwin anda gritando por ah\xED que su libro tiene poderosos
+      hechizos que solo pueden lanzarse con materiales especiales por gente m\xE1gica."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6511341330432
+    m_Localized: "[T] Carrie me cont\xF3 sobre un libro que acaba de encontrar. Parece
+      interesante. Tiene muchas im\xE1genes geniales y garabatos y todo eso."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6512964526080
+    m_Localized: "[T] No tengo mucho tiempo para leer estos d\xEDas. Con Adeline
+      y la granja, \xA1trabajo como un perro!\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6978628739072
+    m_Localized: "[L] Nunca me meter\xEDa en cosas de magia. Es demasiado extra\xF1o
+      para m\xED. Adem\xE1s, estoy ocupado con el negocio de la pesca."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6983343136768
+    m_Localized: "[T] Sin embargo, Adeline me cont\xF3 que quer\xEDa hacer magia,
+      pero Hadwin no la dejaba."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6984916000768
+    m_Localized: "[T] Dijo que ha estado merodeando por la torre para verlo mientras
+      trabaja\u2026\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7362675990528
+    m_Localized: "[T] \xA1Pap\xE1 siempre est\xE1 tan ocupado! Ya no tiene tiempo
+      para hacer nada divertido. Tengo que encontrar formas de divertirme sin \xE9l.\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7360889217024
+    m_Localized: "[T] Vi a Weston junto al lago leyendo un libro muy temprano esta
+      ma\xF1ana cuando estaba haciendo unos recados para pap\xE1. Se ve\xEDa raro.
+      \xA1Como si estuviera hablando con el lago o algo as\xED!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7364148191232
+    m_Localized: "[L] Da igual. He estado yendo a casa de Hadwin y me ha estado ense\xF1ando
+      un poco de magia. \xA1Abracadabra!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7735423787008
+    m_Localized: "[T] \xA1He estado tan estresada todo el d\xEDa! Me estoy volviendo
+      loca, hablando sola como una desquiciada."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7736384282624
+    m_Localized: "[T] Avery pas\xF3 anoche por la tienda para recoger unas cosas.
+      Creo que me escuch\xF3. \xA1Espero que no piense que estoy loca!!!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7737227337728
+    m_Localized: "[L] He estado leyendo para no volverme loca. Encontr\xE9 un libro
+      de fantas\xEDa m\xE1gica y es bastante extra\xF1o."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8068858372096
+    m_Localized: "[L] He estado tan ocupada con la tienda que no he podido relajarme.
+      \xA1No he tenido tiempo de ir al lago en semanas! Es mi lugar seguro."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8070716448768
+    m_Localized: '[T] Al menos anoche pude charlar con mis amigos. Hadwin y Ed vinieron
+      a tomar algo.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8071781801984
+    m_Localized: "[T] Derek y Avery parecen demasiado cercanos \xFAltimamente. Avery
+      ha estado enamorada de Derek durante a\xF1os, pero \xE9l nunca sinti\xF3 lo
+      mismo. Es como si estuviera bajo un hechizo\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8626709192704
+    m_Localized: "[T] \xA1Mi libro ha desaparecido! \xA1Alguien lo rob\xF3 de mi
+      cofre anoche!!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8628256890880
+    m_Localized: "[L] \xA1Estuve en casa toda la noche!! No hay manera de que alguien
+      lo haya robado."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8629502599168
+    m_Localized: 'T] Los hechizos en ese libro son peligrosos. Pueden activarse solo
+      con decir las palabras.
+
+'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

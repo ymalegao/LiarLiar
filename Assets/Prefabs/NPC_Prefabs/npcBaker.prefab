@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6144481852531029297}
   - component: {fileID: 4670151574717188655}
-  - component: {fileID: 7182736512230940212}
   - component: {fileID: 1206742537773006156}
+  - component: {fileID: 7182736512230940212}
   - component: {fileID: 7747024443398431810}
   - component: {fileID: 2094843647503842778}
-  - component: {fileID: 3539977013182107140}
+  - component: {fileID: -3633057673380744466}
   - component: {fileID: 8201454315367830834}
   - component: {fileID: 3540462122569174297}
   - component: {fileID: 4399940814885571179}
@@ -95,6 +95,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1206742537773006156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274148144918918901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 332948290
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!50 &7182736512230940212
 Rigidbody2D:
   serializedVersion: 4
@@ -122,27 +143,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &1206742537773006156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274148144918918901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 332948290
-  InScenePlacedSourceGlobalObjectIdHash: 0
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!114 &7747024443398431810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +202,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.11987286, y: 0.038245372}
   m_EdgeRadius: 0
---- !u!114 &3539977013182107140
+--- !u!114 &-3633057673380744466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -211,17 +211,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1274148144918918901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf7298e1288d3814badecccae5c0ec48, type: 3}
+  m_Script: {fileID: 11500000, guid: fa7188401dad849118e407538d060100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Avery Peters
-  dialogueLines:
-  - "[T] I stopped by Carrie\u2019s shop last night to pick up some stuff for my
-    date tonight!. \r"
-  - '[L] On the way there I ran into Ed. He was being really suspicious. He was holding
-    some papers with odd scribbles. '
-  - "[T] Carrie was mumbling some weird phrases. Sounded foreign I dont know. I always
-    thought she was a little strange\u2026\u2026"
+  dialogueKeys:
+  - Avery1
+  - Avery2
+  - Avery3
   npcSprite: {fileID: -896425166, guid: 7e8ecdde01422d14b95bfe48e39bb451, type: 3}
 --- !u!195 &8201454315367830834
 NavMeshAgent:

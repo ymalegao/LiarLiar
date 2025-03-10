@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: AveryTable_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: d2868b69fd9d44fecb4a232d7bfb688e, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 17451442176
+    m_Localized: "[T] Je suis pass\xE9 par la boutique de Carrie hier soir pour acheter
+      quelques trucs pour mon rendez-vous de ce soir !\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38565568512
+    m_Localized: "[L] En chemin, j'ai crois\xE9 Ed. Il \xE9tait vraiment suspect.
+      Il tenait des papiers avec des gribouillis \xE9tranges."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50095710208
+    m_Localized: "[T] Carrie marmonnait des phrases bizarres. \xC7a semblait \xEAtre
+      une langue \xE9trang\xE8re, je ne sais pas. Je l'ai toujours trouv\xE9e un
+      peu \xE9trange\u2026\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5724540231680
+    m_Localized: '[T] Hadwin et moi avons pris un verre chez Weston hier soir.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5856182657024
+    m_Localized: "[L] Hadwin n\u2019arr\xEAtait pas de parler d\u2019une erreur qu\u2019il
+      avait commise plus t\xF4t dans la soir\xE9e. C\u2019est un type un peu \xE9trange."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5873006010368
+    m_Localized: "[T] Il me parlait aussi du fait qu\u2019il formait secr\xE8tement
+      Timmy pour devenir son apprenti. Il vieillit et a besoin d\u2019un coup de
+      main."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6505066651648
+    m_Localized: "[L] Hadwin crie partout que son livre contient de puissants sorts
+      qui ne peuvent \xEAtre lanc\xE9s qu\u2019avec des mat\xE9riaux sp\xE9ciaux
+      par des gens magiques."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6511341330432
+    m_Localized: "[T] Carrie me parlait d\u2019un livre qu\u2019elle vient de trouver.
+      Il a l\u2019air int\xE9ressant. Il contient plein de jolies images et de gribouillages."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6512964526080
+    m_Localized: "[T] Je n\u2019ai pas beaucoup de temps pour lire ces jours-ci.
+      Avec Adeline et la ferme, je travaille comme un chien !\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6978628739072
+    m_Localized: "[L] Je ne me m\xEAlerais jamais de ces histoires de magie. C\u2019est
+      trop \xE9trange pour moi. En plus, je suis occup\xE9 avec mon commerce de p\xEAche."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6983343136768
+    m_Localized: "[T] Cependant, Adeline me racontait \xE0 quel point elle voulait
+      faire de la magie, mais Hadwin ne la laissait pas.\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6984916000768
+    m_Localized: "[T] Elle a dit qu\u2019elle se faufilait autour de la tour pour
+      l\u2019observer pendant qu\u2019il travaille\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7360889217024
+    m_Localized: "[T] J\u2019ai vu Weston pr\xE8s du lac en train de lire un livre
+      tr\xE8s t\xF4t ce matin, quand je faisais des courses pour papa. Il avait l\u2019air
+      bizarre. On aurait dit qu\u2019il parlait au lac ou quelque chose comme \xE7a
+      !!\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7362675990528
+    m_Localized: "[T] Papa est toujours, toujours tellement occup\xE9 ! Il n\u2019a
+      jamais le temps de s\u2019amuser. Je dois trouver des moyens de m\u2019amuser
+      sans lui."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7364148191232
+    m_Localized: "[L] Peu importe. Je vais chez Hadwin et il m\u2019apprend un peu
+      de magie. Abracadabra !\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7735423787008
+    m_Localized: "[T] J\u2019ai \xE9t\xE9 tellement stress\xE9e toute la journ\xE9e
+      ! Je deviens folle, je parle toute seule comme une cingl\xE9e."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7736384282624
+    m_Localized: "[T] Avery est pass\xE9e hier soir pour r\xE9cup\xE9rer des affaires
+      \xE0 la boutique. Je crois qu\u2019elle m\u2019a entendue. J\u2019esp\xE8re
+      qu\u2019elle ne pense pas que je suis folle !!!\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7737227337728
+    m_Localized: "[L] Je lis pour \xE9viter de devenir folle. Je suis tomb\xE9e sur
+      un livre de fantasy magique et il est plut\xF4t \xE9trange.\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8068858372096
+    m_Localized: "[L] J\u2019ai \xE9t\xE9 tellement occup\xE9e avec la boutique que
+      je n\u2019ai pas pu me d\xE9tendre. Je n\u2019ai pas eu le temps d\u2019aller
+      au lac depuis des semaines ! C\u2019est mon endroit pr\xE9f\xE9r\xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8070716448768
+    m_Localized: "[T] Au moins, j\u2019ai pu discuter avec mes amis hier soir. Hadwin
+      et Ed sont pass\xE9s pour boire un verre."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8071781801984
+    m_Localized: "[T] Derek et Avery ont l\u2019air incroyablement proches ces derniers
+      temps. Avery est amoureuse de Derek depuis des ann\xE9es, mais il n\u2019a
+      jamais ressenti la m\xEAme chose. C\u2019est comme s\u2019il \xE9tait sous
+      un sort\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8626709192704
+    m_Localized: "[T] Mon livre a disparu ! Quelqu\u2019un l\u2019a vol\xE9 dans
+      mon coffre la nuit derni\xE8re !!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8628256890880
+    m_Localized: "[L] J\u2019\xE9tais chez moi toute la nuit !! Il est impossible
+      que quelqu\u2019un l\u2019ait vol\xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8629502599168
+    m_Localized: "[T] Les sorts dans ce livre sont dangereux. Ils peuvent \xEAtre
+      d\xE9clench\xE9s simplement en pronon\xE7ant les mots.\n"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

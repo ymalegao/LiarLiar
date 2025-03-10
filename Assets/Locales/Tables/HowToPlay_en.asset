@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: HowToPlay_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 17a4d832ae5b543769f3e6060c2e4a63, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 10992214016
+    m_Localized: 'Objective: No one in the town of Emberwell seems to be fully telling
+      the truth. Someone in the village cast a curse that foces everyone to tell
+      two truths and a lie. Find out who cast a spell on Emberwell before your opponent
+      does.
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35587612672
+    m_Localized: "Talk to each member of Emberwell and gain information from them.
+      They will tell you two truths and a lie (in no particular order) and this information
+      will be logged in your journal. \n\nBy clicking on the information in the journal,
+      you can mark the lines as true/false where green is true and red is false.
+      \n\nThere are also various clues hidden around the town to aide you in your
+      quest. These clues will also be documented in your journal. \n\nOnce you believe
+      you have found the spellcaster, select your suspect. \n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55661551616
+    m_Localized: 'Use WASD or arrow keys to move.
+
+
+      Use E to talk to townfolk.
+
+
+      Use
+      R to pick up a clue. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 85860540416
+    m_Localized: Controls
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
