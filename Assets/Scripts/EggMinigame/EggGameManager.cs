@@ -1,7 +1,8 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
-using PowerUps; // Add this to access PowerUpManager
+using PowerUps;
+using System; // Add this to access PowerUpManager
 
 public class EggGameManager : MonoBehaviour, MinigameManager
 {
@@ -12,7 +13,7 @@ public class EggGameManager : MonoBehaviour, MinigameManager
   [Header("Game Settings")]
   public float gameDuration = 30f;
   private float timer;
-  public int winningScore = 2; // Score needed to win and unlock power-up
+  public int winningScore = 3; // Score needed to win and unlock power-up
 
   [Header("UI Elements")]
   public TMP_Text scoreText;
@@ -219,6 +220,7 @@ public class EggGameManager : MonoBehaviour, MinigameManager
     {
       victoryPanel.SetActive(false);
       failurePanel.SetActive(true);
+      ResetState();
     }
 
 
