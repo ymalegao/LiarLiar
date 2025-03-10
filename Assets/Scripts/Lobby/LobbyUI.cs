@@ -64,6 +64,10 @@ public class LobbyUI : MonoBehaviour
     {
       EnableStartButton();
     }
+
+    if (lobbyCodeText) {
+      lobbyCodeText.text = "";
+    }
   }
 
   private void Update()
@@ -155,7 +159,7 @@ public class LobbyUI : MonoBehaviour
     if (lobbyManager == null) return;
 
     await lobbyManager.CreateLobby("MyLobby", 4, false);
-    lobbyInfoText.text += lobbyManager.GetLobbyCode();
+    lobbyInfoText.text = lobbyManager.GetLobbyCode();
   }
 
   public void OnJoinLobbyButtonClicked()
