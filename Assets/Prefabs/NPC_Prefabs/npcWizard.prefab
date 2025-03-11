@@ -163,7 +163,7 @@ MonoBehaviour:
   - Hadwin3
   npcSprite: {fileID: -1250548452, guid: 7e0906d47664b264bb65baf9c1d64d89, type: 3}
   dialogueAudioClips:
-  - {fileID: 8300000, guid: a1803f55d51f05e40a96e99c2f2d181d, type: 3}
+  - {fileID: 8300000, guid: f7247f599445feb47865f2064425f32c, type: 3}
 --- !u!61 &2094843647503842778
 BoxCollider2D:
   m_ObjectHideFlags: 0

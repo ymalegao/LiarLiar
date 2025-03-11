@@ -258,6 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
   buttonClickSound: {fileID: 0}
+  buttonStartSound: {fileID: 0}
 --- !u!114 &8896214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31691,7 +31692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3758214201418333268, guid: c461f5ccb3420614f98feba108839350, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4346757066374053146, guid: c461f5ccb3420614f98feba108839350, type: 3}
       propertyPath: m_Layer

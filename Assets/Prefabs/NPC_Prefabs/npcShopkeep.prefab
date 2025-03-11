@@ -222,7 +222,7 @@ MonoBehaviour:
   - Carrie3
   npcSprite: {fileID: 675014341, guid: 252357301a388c74b8933ddbf0e07e82, type: 3}
   dialogueAudioClips:
-  - {fileID: 8300000, guid: 89be4c97fe318044c9f33b1c3817a286, type: 3}
+  - {fileID: 8300000, guid: 6f78863aa28b9874b9a5ce45fe7d2ac9, type: 3}
 --- !u!195 &8201454315367830834
 NavMeshAgent:
   m_ObjectHideFlags: 0
