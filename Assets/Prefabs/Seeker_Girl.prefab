@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 8303181372692782067}
   - component: {fileID: 8346403653836566246}
   - component: {fileID: 3739157103676825822}
+  - component: {fileID: 4189325397688491222}
   m_Layer: 0
   m_Name: Seeker_Girl
   m_TagString: Player
@@ -154,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dad3a384bbe91eb40b8eb9f7b74010be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
+  speed: 6
   spawnPosition: {x: 5, y: 12}
   animator: {fileID: 5112175493857286404}
 --- !u!50 &6153845803831488788
@@ -352,6 +353,14 @@ MonoBehaviour:
     camera: {fileID: 0}
   TM: {fileID: 0}
   minigameCamera: {fileID: 0}
+--- !u!81 &4189325397688491222
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364883654379630471}
+  m_Enabled: 1
 --- !u!1 &5158193424038937431
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,7 +428,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9.16
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2

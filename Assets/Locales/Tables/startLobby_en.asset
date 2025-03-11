@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: startLobby_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 703fbc76b44a5422c8c88d38c91eddbb, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 12581855232
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 445777960960
+    m_Localized: Create Lobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 486081028096
+    m_Localized: 'Join Lobby '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 516418428928
+    m_Localized: Lock in
+    m_Metadata:
+      m_Items: []
+  - m_Id: 549981249536
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 564942331904
+    m_Localized: 'Copy Text '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 588141027328
+    m_Localized: Instructions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 619036270592
+    m_Localized: Credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37550067539968
+    m_Localized: Back To Lobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37718733086720
+    m_Localized: Game Over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38693304786944
+    m_Localized: Enter Lobby Code
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39446031360000
+    m_Localized: 'Lobby code: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40719296225280
+    m_Localized: How To Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44729910681600
+    m_Localized: Guilty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44686147313664
+    m_Localized: Innocent
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

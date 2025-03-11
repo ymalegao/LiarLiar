@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: startLobby Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: startLobby
+  m_TableCollectionNameGuidString: 703fbc76b44a5422c8c88d38c91eddbb
+  m_Entries:
+  - m_Id: 12581855232
+    m_Key: 'LobbyStart
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 445777960960
+    m_Key: CreateLob
+    m_Metadata:
+      m_Items: []
+  - m_Id: 486081028096
+    m_Key: JoinLobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 516418428928
+    m_Key: LockIn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 549981249536
+    m_Key: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 564942331904
+    m_Key: CopyText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 588141027328
+    m_Key: Instructions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 619036270592
+    m_Key: Credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37550067539968
+    m_Key: Back To Lobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37718733086720
+    m_Key: Game Oer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38693304786944
+    m_Key: Enter Lobby Code
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39446031360000
+    m_Key: Lobby code
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40719296225280
+    m_Key: How to play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44686147313664
+    m_Key: Innocent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44729910681600
+    m_Key: Guilt
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 2247349218944483352
+  references:
+    version: 2
+    RefIds:
+    - rid: 2247349218944483352
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1741573732994

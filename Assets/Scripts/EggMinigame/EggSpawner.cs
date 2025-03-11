@@ -21,13 +21,12 @@ public class EggSpawner : MonoBehaviour
 
   public GameObject failurePanel;
   public TMP_Text instructionsText;
-  public int minScoreToComplete = 10;
+  public int minScoreToComplete = 3;
 
   private void Start()
   {
     miniGameCanvas.SetActive(false); // Ensure the mini-game starts hidden
     instructionsPanel.SetActive(true); // Show instructions first
-    instructionsText.text = "Welcome to Egg Drop!\n\nPress A and D to move the basket and catch eggs.\n\nYou need a score of 10 to pass.\n\nPress Play to start!";
   }
 
   private void Awake()
@@ -65,19 +64,8 @@ public class EggSpawner : MonoBehaviour
 
   public void EndMiniGame()
   {
-    if (EggGameManager.Instance.GetScore() >= minScoreToComplete)
-    {
-      miniGameCanvas.SetActive(false);
-      victoryPanel.SetActive(true);
-      CancelInvoke(nameof(SpawnEgg));
-
-    }
-    else
-    {
-      EggGameManager.Instance.ResetState();
-      failurePanel.SetActive(true);
-
-    }
+    CancelInvoke(nameof(SpawnEgg));
+    miniGameCanvas.SetActive(false);
   }
 
   private void SpawnEgg()

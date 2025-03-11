@@ -50,4 +50,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/End Game.unity
     guid: 30630f79b44286f42bb50703f62d1735
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: e9611ddc29eb24c5f9963da6f68e856e, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 398c4f569a06341e69bafe1c6499279b, type: 2}

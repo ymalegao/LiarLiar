@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: AveryTable_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: d2868b69fd9d44fecb4a232d7bfb688e, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 17451442176
+    m_Localized: "[T] I stopped by Carrie\u2019s shop last night to pick up some
+      stuff for my date tonight!. \r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38565568512
+    m_Localized: '[L] On the way there I ran into Ed. He was being really suspicious.
+      He was holding some papers with odd scribbles. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50095710208
+    m_Localized: "[T] Carrie was mumbling some weird phrases. Sounded foreign I dont
+      know. I always thought she was a little strange\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5724540231680
+    m_Localized: "[T] Hadwin and I were having a drink at Weston\u2019s last night.
+      \r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5856182657024
+    m_Localized: "[L] Hadwin kept going on and on about a mistake he made earlier
+      last night. He\u2019s a bit of an odd-ball."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5873006010368
+    m_Localized: "[T] He was also telling me about how he has been secretly mentoring
+      Timmy to be his apprentice. He\u2019s getting old and needs the extra hands. "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6505066651648
+    m_Localized: '[L] Hadwin is going around screaming about how his book holds some
+      mighty spells that can only be casted with fancy materials by magic people. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6512964526080
+    m_Localized: "[T] I don\u2019t have very much time for reading these days. With
+      Adeline and the farm, I\u2019m workin like a dog! "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6511341330432
+    m_Localized: "[T] Carrie was telling me about a book she just found. Seems interesting.
+      It\u2019s got lots of cool pictures and scribbles and such.  "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6984916000768
+    m_Localized: "[T] She said she\u2019s been sneaking around the tower to watch
+      him while he works. \u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6983343136768
+    m_Localized: "[T] However, Adeline was telling me all about how she wanted to
+      do magic but Hadwin wouldn\u2019t let her. \r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6978628739072
+    m_Localized: "[L] I would never get involved in the magic stuff. It\u2019s too
+      freaky for me. Besides, I\u2019m busy with the fishing business. \r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7360889217024
+    m_Localized: "[T] I saw Weston over by the lake reading a book really early this
+      morning when I was running errands for Dad. He looked funny. Like he was talking
+      to the lake or something!!\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7362675990528
+    m_Localized: '[T] Dad is always always so busy! Never has time to do anything
+      fun anymore. I have to find ways to have fun without him. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7364148191232
+    m_Localized: "[L] Whatever. I\u2019ve been going to Hadwin\u2019s and he has
+      been teaching me some magic. Abracadabra! "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7735423787008
+    m_Localized: "[T] I have been so stressed all day! I\u2019m going crazy, talking
+      to myself like a mad woman."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7736384282624
+    m_Localized: "[T] Avery stopped by last night to pick up some stuff from the
+      shop. I think she heard me. Hopefully she doesn\u2019t think im insane!!!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7737227337728
+    m_Localized: "[L] I\u2019ve been reading to keep myself from going crazy. I stumbled
+      across this magic fantasy book and it\u2019s quite unusual. "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8068858372096
+    m_Localized: "[L] I\u2019ve been so busy with the shop that I haven\u2019t gotten
+      to go relax. I haven\u2019t had time to go to the lake in weeks! That\u2019s
+      my safe space."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8071781801984
+    m_Localized: "[T] Derek and Avery seem awfully friendly these days. Avery has
+      been in love with Derek for years but he never felt the same. It\u2019s like
+      he\u2019s under a spell..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8070716448768
+    m_Localized: '[T] At least I got to chat with my friends last night. Hadwin and
+      Ed came in for a drink.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8626709192704
+    m_Localized: '[T] My book is missing! Someone stole it from my chest last night!!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8628256890880
+    m_Localized: "[L] I was home all night!! There\u2019s no way someone stole it."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8629502599168
+    m_Localized: '[T] Those spells in the book are dangerous. They can be triggered
+      just by speaking the words.'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

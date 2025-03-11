@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: CluesTableReal_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 63884b0f565a945c4b727b3b8d84c549, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 10665058304
+    m_Localized: '3 Doble IPA: 18,45 $ - HADWIN (PAGADO)
+
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104978178048
+    m_Localized: "Las botellas de poci\xF3n en la caba\xF1a de Timothy tienen las
+      instrucciones escritas de Hadwin."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49965686784
+    m_Localized: Querida Avery, Te ves tan hermosa hoy. No puedo esperar para nuestra
+      cita. Con amor, Derek
+    m_Metadata:
+      m_Items: []
+  - m_Id: 66956812288
+    m_Localized: 'Un libro sobre la historia de las mariquitas - Propiedad de: Carrie
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 85122342912
+    m_Localized: "Peque\xF1as huellas que rodean la parte trasera de la torre de
+      Hadwin\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 345303408640
+    m_Localized: Derek y Avery tuvieron su cita en el estanque cuando el libro fue
+      robado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358117007360
+    m_Localized: "Adeline estaba sola en casa para la cena, as\xED que decidi\xF3
+      irse de aventura hasta el lago"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 376790048768
+    m_Localized: "Cuando Hadwin y Ed estaban en el bar anoche, Weston los dej\xF3
+      a cargo mientras corr\xEDa a casa para asegurarse de que no hab\xEDa dejado
+      la estufa encendida."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 398780784640
+    m_Localized: Carrie estaba mirando las estrellas junto al lago anoche mientras
+      Timothy pescaba tarde en la noche.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

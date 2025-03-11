@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1383173479
+  GlobalObjectIdHash: 3901788784
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -157,10 +157,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Hadwin Mitchell
   dialogueLines:
-  - '[T] My book is missing! Someone stole it from my chest last night!!'
-  - "[L] I was home all night!! There\u2019s no way someone stole it."
-  - '[T] Those spells in the book are dangerous. They can be triggered just by speaking
-    the words.'
+  - Hadwin1
+  - Hadwin2
+  - Hadwin3
   npcSprite: {fileID: -1250548452, guid: 7e0906d47664b264bb65baf9c1d64d89, type: 3}
 --- !u!61 &2094843647503842778
 BoxCollider2D:
@@ -231,7 +230,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
-  m_Speed: 3.5
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 10
   m_AngularSpeed: 120

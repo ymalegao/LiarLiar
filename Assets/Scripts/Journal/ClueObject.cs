@@ -1,18 +1,23 @@
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
+using System.Collections;
 
 public class ClueObject : MonoBehaviour
 {
-  [Header("Clue Properties")]
-  [SerializeField] private string clueText; // The text of the clue
-  [SerializeField] private GameObject clueUIPrompt; // UI prompt to interact
+    [Header("Clue Properties")]
+    [SerializeField] private string clueKey; // The localization key for the clue
 
-  private bool playerInRange = false;
+    private bool isCollected = false;
 
-  private void Start()
-  {
-    clueUIPrompt.SetActive(false);
-  }
+    [SerializeField] private GameObject clueUIPrompt; // UI prompt to interact
 
+    private bool playerInRange = false;
+
+    private void Start()
+    {
+        clueUIPrompt.SetActive(false);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -30,7 +35,7 @@ public class ClueObject : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            Debug.Log("Player in range");
+            Debug.Log("Player out of range");
             ShowPrompt(false);
             other.GetComponent<SeekerInteraction>()?.ClearCurrentClue(); // Remove clue when leaving
         }
@@ -48,13 +53,29 @@ public class ClueObject : MonoBehaviour
     }
 
     public void CollectClue()
-  {
-    JournalManager.Instance.AddClue(clueText); // Add clue to journal
-    Destroy(gameObject); // Remove clue from the world after collection
-    JournalManager.Instance.ShowNPCDetails("clues"); // Show NPC details after collecting clue
+    {
+        if (isCollected) return; // Prevent duplicate collection
+        isCollected = true;
+
+        StartCoroutine(LoadLocalizedClue()); // Fetch localized text before storing it
     }
 
-public void ShowPrompt(bool show)
+    private IEnumerator LoadLocalizedClue()
+    { 
+        var localizedString = new LocalizedString("CluesTableReal", clueKey);
+        var asyncOperation = localizedString.GetLocalizedStringAsync();
+
+        yield return asyncOperation;
+
+        string localizedClueText = asyncOperation.Result;
+        Debug.Log($"Collected Clue: {localizedClueText}");
+
+        JournalManager.Instance.AddClue(localizedClueText); // Add localized clue to journal
+        Destroy(gameObject); // Remove clue from the world after collection
+        JournalManager.Instance.ShowNPCDetails("clues"); // Show NPC details after collecting clue
+    }
+
+    public void ShowPrompt(bool show)
     {
         clueUIPrompt?.SetActive(show);
     }

@@ -8,6 +8,10 @@ public class JournalManager : MonoBehaviour
 {
     public static JournalManager Instance { get; private set; }
 
+    public AudioSource audioSource;
+    public AudioClip openSound;
+    public AudioClip closeSound;
+
     [Header("UI Elements")]
     public GameObject journalPanel;
 
@@ -74,8 +78,14 @@ public class JournalManager : MonoBehaviour
 
     public void ToggleJournal()
     {
-        journalPanel.SetActive(!journalPanel.activeSelf);
+        bool isOpening = !journalPanel.activeSelf;
+        journalPanel.SetActive(isOpening);
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(isOpening ? openSound : closeSound);
+        }
     }
+
 
     public void Update(){
 

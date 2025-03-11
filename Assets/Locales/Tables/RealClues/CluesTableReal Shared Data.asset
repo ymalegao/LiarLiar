@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: CluesTableReal Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: CluesTableReal
+  m_TableCollectionNameGuidString: 63884b0f565a945c4b727b3b8d84c549
+  m_Entries:
+  - m_Id: 10665058304
+    m_Key: Recipet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49965686784
+    m_Key: LoveLetter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 66956812288
+    m_Key: CarriesBook
+    m_Metadata:
+      m_Items: []
+  - m_Id: 85122342912
+    m_Key: FootSteps
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104978178048
+    m_Key: TimPotion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 345303408640
+    m_Key: Final1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358117007360
+    m_Key: Final2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 376790048768
+    m_Key: Final3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 398780784640
+    m_Key: Final4
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 2247349220130422796
+  references:
+    version: 2
+    RefIds:
+    - rid: 2247349220130422796
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1741579124708

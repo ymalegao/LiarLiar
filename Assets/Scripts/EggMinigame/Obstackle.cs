@@ -11,7 +11,7 @@ public class Obstackle : MonoBehaviour
 
   private void OnTriggerEnter2D(Collider2D other)
   {
-    if (other.CompareTag("Obstackle"))
+    if (other.CompareTag("Basket"))
     {
       EggGameManager.Instance.subtractScore();
       Destroy(gameObject);

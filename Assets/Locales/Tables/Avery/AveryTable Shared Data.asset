@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: AveryTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: AveryTable
+  m_TableCollectionNameGuidString: d2868b69fd9d44fecb4a232d7bfb688e
+  m_Entries:
+  - m_Id: 17451442176
+    m_Key: Avery1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38565568512
+    m_Key: Avery2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50095710208
+    m_Key: Avery3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5724540231680
+    m_Key: Ed1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5856182657024
+    m_Key: Ed2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5873006010368
+    m_Key: Ed3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6505066651648
+    m_Key: Derek1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6511341330432
+    m_Key: Derek2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6512964526080
+    m_Key: Derek3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6978628739072
+    m_Key: Timothy1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6983343136768
+    m_Key: Timothy2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6984916000768
+    m_Key: Timothy3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7360889217024
+    m_Key: Adeline1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7362675990528
+    m_Key: Adeline2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7364148191232
+    m_Key: Adeline3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7735423787008
+    m_Key: Carrie1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7736384282624
+    m_Key: Carrie2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7737227337728
+    m_Key: Carrie3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8068858372096
+    m_Key: Weston1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8070716448768
+    m_Key: Weston2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8071781801984
+    m_Key: Weston3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8626709192704
+    m_Key: Hadwin1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8628256890880
+    m_Key: Hadwin2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8629502599168
+    m_Key: Hadwin3
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 2247349220130422786
+  references:
+    version: 2
+    RefIds:
+    - rid: 2247349220130422786
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1741576363662

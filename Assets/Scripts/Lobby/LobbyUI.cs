@@ -8,9 +8,11 @@ public class LobbyUI : MonoBehaviour
   [SerializeField] private TMP_InputField lobbyCodeInput; // Use TMP_InputField instead of InputField
   [SerializeField] private TMP_Text lobbyInfoText; // Use TMP_Text instead of Text
   [SerializeField] private TMP_Text characterInfoText; // Use TMP_Text instead of Text
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip buttonClickSound;
 
 
-  public GameObject lobbyTrigger;
+    public GameObject lobbyTrigger;
   private LobbyManager lobbyManager;
   [SerializeField] private Button startGameButton;
       public TextMeshProUGUI lobbyCodeText;
@@ -44,8 +46,12 @@ public class LobbyUI : MonoBehaviour
     startGameButton.gameObject.SetActive(false);
     
     
-    copyButton.onClick.AddListener(CopyLobbyCodeToClipboard);
-    copyButton.gameObject.SetActive(false);
+    copyButton.onClick.AddListener(() =>
+    {
+        PlayButtonSound();
+        CopyLobbyCodeToClipboard();
+    });
+        copyButton.gameObject.SetActive(false);
 
 
 
@@ -64,6 +70,10 @@ public class LobbyUI : MonoBehaviour
     {
       EnableStartButton();
     }
+
+    if (lobbyCodeText) {
+      lobbyCodeText.text = "";
+    }
   }
 
   private void Update()
@@ -81,14 +91,18 @@ public class LobbyUI : MonoBehaviour
     }
   }
 
-  private void EnableStartButton()
-  {
-    if (startGameButton.gameObject.activeSelf) return; // Prevent duplicate activation
+    private void EnableStartButton()
+    {
+        if (startGameButton.gameObject.activeSelf) return; // Prevent duplicate activation
 
-    startGameButton.gameObject.SetActive(true);
-    startGameButton.onClick.RemoveAllListeners(); // Remove previous listeners to prevent stacking
-    startGameButton.onClick.AddListener(() => lobbyManager.StartGame());
-  }
+        startGameButton.gameObject.SetActive(true);
+        startGameButton.onClick.RemoveAllListeners(); // Remove previous listeners to prevent stacking
+        startGameButton.onClick.AddListener(() =>
+        {
+            PlayButtonSound();
+            lobbyManager.StartGame();
+        });
+    }
 
   private void ShowCharacterSelectionPanel()
   {
@@ -109,6 +123,7 @@ public class LobbyUI : MonoBehaviour
 
   public async void OnCharacterSelectButtonClicked()
   {
+    PlayButtonSound();
     string selectedCharacter = characterDropdown.options[characterDropdown.value].text;
     ServerManager.Instance.setCharacterIndex(characterDropdown.value);
     characterInfoText.text = selectedCharacter;
@@ -146,7 +161,8 @@ public class LobbyUI : MonoBehaviour
 
   public void OnCreateLobbyButtonClicked()
   {
-    string selectedCharacter = characterDropdown.options[characterDropdown.value].text;
+        PlayButtonSound();
+        string selectedCharacter = characterDropdown.options[characterDropdown.value].text;
     _ = CreateLobbyAsync();
   }
 
@@ -155,12 +171,13 @@ public class LobbyUI : MonoBehaviour
     if (lobbyManager == null) return;
 
     await lobbyManager.CreateLobby("MyLobby", 4, false);
-    lobbyInfoText.text = "Lobby created! Code: " + lobbyManager.GetLobbyCode();
+    lobbyInfoText.text = lobbyManager.GetLobbyCode();
   }
 
   public void OnJoinLobbyButtonClicked()
   {
-    _ = JoinLobbyAsync();
+        PlayButtonSound();
+        _ = JoinLobbyAsync();
   }
 
   private async Task JoinLobbyAsync()
@@ -180,7 +197,8 @@ public class LobbyUI : MonoBehaviour
 
   public void OnListLobbiesButtonClicked()
   {
-    ListLobbiesAsync();
+        PlayButtonSound();  
+        ListLobbiesAsync();
   }
 
   private void ListLobbiesAsync()
@@ -189,4 +207,13 @@ public class LobbyUI : MonoBehaviour
 
     lobbyManager.ListLobbies();
   }
+
+    private void PlayButtonSound()
+    {
+        if (audioSource != null && buttonClickSound != null)
+        {
+            audioSource.PlayOneShot(buttonClickSound);
+        }
+    }
+
 }

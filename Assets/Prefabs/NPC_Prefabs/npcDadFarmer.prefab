@@ -157,12 +157,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Derek Burton
   dialogueLines:
-  - '[L] Hadwin is going around screaming about how his book holds some mighty spells
-    that can only be casted with fancy materials by magic people. '
-  - "[T] Carrie was telling me about a book she just found. Seems interesting. It\u2019s
-    got lots of cool pictures and scribbles and such.  "
-  - "[T] I don\u2019t have very much time for reading these days. With Adeline and
-    the farm, I\u2019m workin like a dog! "
+  - Derek1
+  - Derek2
+  - Derek3
   npcSprite: {fileID: -1927248443, guid: 52f2d665ab1463442948a7d0524e3521, type: 3}
 --- !u!61 &2094843647503842778
 BoxCollider2D:
@@ -233,7 +230,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
-  m_Speed: 3.5
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 10
   m_AngularSpeed: 120

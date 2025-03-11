@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using PowerUps;
+using System; // Add this to access PowerUpManager
 
 public class EggGameManager : MonoBehaviour
 {
@@ -11,7 +13,7 @@ public class EggGameManager : MonoBehaviour
   [Header("Game Settings")]
   public float gameDuration = 30f;
   private float timer;
-  public int winningScore = 2; // Score needed to win and unlock power-up
+  public int winningScore = 3; // Score needed to win and unlock power-up
 
   [Header("UI Elements")]
   public TMP_Text scoreText;
@@ -23,6 +25,10 @@ public class EggGameManager : MonoBehaviour
   public GameObject powerUpUnlockedText; // Add a UI element to show power-up unlock
 
   public GameObject overallGameCanvas;
+
+  public GameObject seekerSelectButton;
+  public GameObject helpButton;
+
 
   [Header("Gameplay Elements")]
   public Transform basket;
@@ -39,6 +45,8 @@ public class EggGameManager : MonoBehaviour
     instructionsPanel.SetActive(true); // Show instructions first
     failurePanel.SetActive(false);
     victoryPanel.SetActive(false);
+    seekerSelectButton.SetActive(false);
+    helpButton.SetActive(false);
     if (powerUpUnlockedText != null)
       powerUpUnlockedText.SetActive(false);
     Debug.Log("EggGameManager Awake");
@@ -47,6 +55,9 @@ public class EggGameManager : MonoBehaviour
   public void endGame()
   {
     overallGameCanvas.SetActive(false);
+    seekerSelectButton.SetActive(true);
+    helpButton.SetActive(true);
+
   }
 
   public void StartGame()
@@ -61,6 +72,8 @@ public class EggGameManager : MonoBehaviour
     instructionsPanel.SetActive(false);
     failurePanel.SetActive(false);
     victoryPanel.SetActive(false);
+    seekerSelectButton.SetActive(false);
+    helpButton.SetActive(false);
     if (powerUpUnlockedText != null)
       powerUpUnlockedText.SetActive(false);
     UpdateUI();
@@ -128,13 +141,17 @@ public class EggGameManager : MonoBehaviour
 
     // Show appropriate end game panel
     if (score >= winningScore)
-    {
+    {   
+      failurePanel.SetActive(false);
       victoryPanel.SetActive(true);
     }
     else
     {
+      victoryPanel.SetActive(false);
       failurePanel.SetActive(true);
+      ResetState();
     }
+
 
     EggSpawner.Instance.EndMiniGame();
   }

@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2989488145
+  GlobalObjectIdHash: 3632793075
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -216,13 +216,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Weston McCarthy
   dialogueLines:
-  - "[L] I\u2019ve been so busy with the shop that I haven\u2019t gotten to go relax.
-    I haven\u2019t had time to go to the lake in weeks! That\u2019s my safe space."
-  - '[T] At least I got to chat with my friends last night. Hadwin and Ed came in
-    for a drink.'
-  - "[T] Derek and Avery seem awfully friendly these days. Avery has been in love
-    with Derek for years but he never felt the same. It\u2019s like he\u2019s under
-    a spell..."
+  - Weston1
+  - Weston2
+  - Weston3
   npcSprite: {fileID: -1702636405, guid: c67679a2ca6e3a44688ecd9a163a0aba, type: 3}
 --- !u!195 &8201454315367830834
 NavMeshAgent:
@@ -234,7 +230,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
-  m_Speed: 3.5
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 10
   m_AngularSpeed: 120

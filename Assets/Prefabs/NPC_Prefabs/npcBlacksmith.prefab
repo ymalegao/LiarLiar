@@ -216,11 +216,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Ed Porter
   dialogueLines:
-  - "[T] Hadwin and I were having a drink at Weston\u2019s last night. \r"
-  - "[L] Hadwin kept going on and on about a mistake he made earlier last night.
-    He\u2019s a bit of an odd-ball."
-  - "[T] He was also telling me about how he has been secretly mentoring Timmy to
-    be his apprentice. He\u2019s getting old and needs the extra hands. "
+  - Ed1
+  - Ed2
+  - Ed3
   npcSprite: {fileID: -980357901, guid: d2721a6353886a94e8fad08dc1383a4e, type: 3}
 --- !u!195 &8201454315367830834
 NavMeshAgent:
@@ -232,7 +230,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
-  m_Speed: 3.5
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 10
   m_AngularSpeed: 120

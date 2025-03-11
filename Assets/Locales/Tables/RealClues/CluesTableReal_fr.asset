@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: CluesTableReal_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: 63884b0f565a945c4b727b3b8d84c549, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 10665058304
+    m_Localized: "3 Double IPA : 18,45 $ - HADWIN (PAY\xC9)\n\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49965686784
+    m_Localized: "Ch\xE8re Avery, Tu es si belle aujourd\u2019hui. J\u2019ai h\xE2te
+      \xE0 notre rendez-vous. Avec amour, Derek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 66956812288
+    m_Localized: "Un livre sur l\u2019histoire des coccinelles - Propri\xE9t\xE9
+      de : Carrie"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 85122342912
+    m_Localized: "Petites empreintes de pas qui tournent autour de l\u2019arri\xE8re
+      de la tour de Hadwin"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104978178048
+    m_Localized: "Les bouteilles de potion dans la cabane de Timothy portent les
+      instructions \xE9crites de Hadwin."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 345303408640
+    m_Localized: "Derek et Adeline d\xEEnaient chez eux quand le livre a \xE9t\xE9
+      vol\xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358117007360
+    m_Localized: "Adeline \xE9tait seule \xE0 la maison pour le d\xEEner, alors elle
+      a d\xE9cid\xE9 de partir \xE0 l\u2019aventure jusqu\u2019au lac"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 376790048768
+    m_Localized: "Quand Hadwin et Ed \xE9taient au bar hier soir, Weston les a laiss\xE9s
+      en charge pendant qu\u2019il rentrait chez lui pour s\u2019assurer qu\u2019il
+      n\u2019avait pas laiss\xE9 le po\xEAle allum\xE9.\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 398780784640
+    m_Localized: "Carrie observait les \xE9toiles au bord du lac hier soir pendant
+      que Timothy p\xEAchait tard dans la nuit.\n"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
