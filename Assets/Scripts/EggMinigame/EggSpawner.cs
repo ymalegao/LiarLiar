@@ -12,7 +12,7 @@ public class EggSpawner : MonoBehaviour
   public static EggSpawner Instance;
 
   public Transform basket;
-  public float spawnRate = 2f;
+  public float spawnRate = 5f;
   public GameObject miniGameCanvas;
   public GameObject victoryPanel;
   public GameObject instructionsPanel;
@@ -70,7 +70,7 @@ public class EggSpawner : MonoBehaviour
   private void SpawnEgg()
   {
     int EggOrObstacle = Random.Range(0, 10);
-    if (EggOrObstacle < 8)
+    if (EggOrObstacle < 10)
     {
       int randomIndex = Random.Range(0, spawnPoints.Length);
       Instantiate(eggPrefab, spawnPoints[randomIndex].position, Quaternion.identity);
