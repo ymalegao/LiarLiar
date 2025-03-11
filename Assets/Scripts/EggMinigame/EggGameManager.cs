@@ -1,9 +1,8 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
-using PowerUps; // Add this to access PowerUpManager
 
-public class EggGameManager : MonoBehaviour, MinigameManager
+public class EggGameManager : MonoBehaviour
 {
   public GameObject GameCanvas { get; set; }
 
@@ -57,11 +56,6 @@ public class EggGameManager : MonoBehaviour, MinigameManager
     gameActive = true;
     powerUpUnlockedLocally = false; // Reset power-up status on game start
 
-    // Make sure power-up is disabled at start of game
-    if (PowerUpManager.Instance != null)
-    {
-      PowerUpManager.Instance.DisablePowerUp();
-    }
 
     miniGameCanvas.SetActive(true);
     instructionsPanel.SetActive(false);
@@ -86,26 +80,12 @@ public class EggGameManager : MonoBehaviour, MinigameManager
       timer -= Time.deltaTime;
       UpdateUI();
 
-      // Check if win condition is met
-      if (score >= winningScore && !powerUpUnlockedLocally)
-      {
-        UnlockPowerUp();
-      }
     }
     else
     {
       EndGame();
     }
 
-    // Allow using the powerup with F key only if unlocked
-    // We check both our local flag AND the network state via PowerUpManager
-    if (powerUpUnlockedLocally &&
-        PowerUpManager.Instance != null &&
-        PowerUpManager.Instance.IsPowerUpAvailable() &&
-        Input.GetKeyDown(KeyCode.F))
-    {
-      UsePowerUp();
-    }
   }
 
   public void UpdateUI()
@@ -119,11 +99,6 @@ public class EggGameManager : MonoBehaviour, MinigameManager
     score++;
     UpdateUI();
 
-    // Check if win condition is met
-    if (score >= winningScore && !powerUpUnlockedLocally)
-    {
-      UnlockPowerUp();
-    }
   }
 
   public void subtractScore()
@@ -137,30 +112,6 @@ public class EggGameManager : MonoBehaviour, MinigameManager
     return score;
   }
 
-  private void UnlockPowerUp()
-  {
-    powerUpUnlockedLocally = true;
-    Debug.Log("Power Up Unlocked! Press F to use it.");
-
-    // Tell PowerUpManager that the power-up is available
-    if (PowerUpManager.Instance != null)
-    {
-      PowerUpManager.Instance.EnablePowerUp();
-    }
-    else
-    {
-      Debug.LogError("PowerUpManager Instance is null!");
-    }
-
-    // Show power-up unlocked message
-    if (powerUpUnlockedText != null)
-    {
-      powerUpUnlockedText.SetActive(true);
-      powerUpUnlockedText.GetComponent<TMP_Text>().text = "Fog Power-Up Unlocked! Press F to use it.";
-      // Optional: Hide the message after a few seconds
-      StartCoroutine(HidePowerUpMessageAfterDelay(5f));
-    }
-  }
 
   private IEnumerator HidePowerUpMessageAfterDelay(float delay)
   {
@@ -169,29 +120,6 @@ public class EggGameManager : MonoBehaviour, MinigameManager
       powerUpUnlockedText.SetActive(false);
   }
 
-  private void UsePowerUp()
-  {
-    if (PowerUpManager.Instance != null)
-    {
-      Debug.Log("Using fog power-up!");
-      PowerUpManager.Instance.RequestApplyVisionReductionServerRpc();
-      powerUpUnlockedLocally = false; // One-time use locally
-
-      // PowerUpManager will handle disabling it on the network after use
-
-      // Optional: Show a usage feedback
-      if (powerUpUnlockedText != null)
-      {
-        powerUpUnlockedText.SetActive(true);
-        powerUpUnlockedText.GetComponent<TMP_Text>().text = "Fog Applied!";
-        StartCoroutine(HidePowerUpMessageAfterDelay(2f));
-      }
-    }
-    else
-    {
-      Debug.LogError("PowerUpManager Instance is null!");
-    }
-  }
 
   public void EndGame()
   {
@@ -209,22 +137,5 @@ public class EggGameManager : MonoBehaviour, MinigameManager
     }
 
     EggSpawner.Instance.EndMiniGame();
-  }
-
-  public void ResetState()
-  {
-    score = 0;
-    timer = gameDuration;
-    powerUpUnlockedLocally = false;
-
-    // Make sure power-up is disabled when resetting
-    if (PowerUpManager.Instance != null)
-    {
-      PowerUpManager.Instance.DisablePowerUp();
-    }
-
-    UpdateUI();
-    if (powerUpUnlockedText != null)
-      powerUpUnlockedText.SetActive(false);
   }
 }
