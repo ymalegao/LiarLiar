@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
-using PowerUps;
 using System; // Add this to access PowerUpManager
 
 public class EggGameManager : MonoBehaviour
@@ -149,7 +148,6 @@ public class EggGameManager : MonoBehaviour
     {
       victoryPanel.SetActive(false);
       failurePanel.SetActive(true);
-      ResetState();
     }
 
 
