@@ -32518,6 +32518,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SeekerSelectionCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 200942709785015469, guid: ecc3f3343dafdf240a6e2e6bcae2ff8d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 6047375428519194996, guid: ecc3f3343dafdf240a6e2e6bcae2ff8d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -32639,6 +32643,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 8290036784849788060}
   - {fileID: 910381510}
   - {fileID: 1827231386}
   - {fileID: 389383407}
@@ -32647,7 +32652,6 @@ SceneRoots:
   - {fileID: 1296637462}
   - {fileID: 398302015}
   - {fileID: 4630909094975666567}
-  - {fileID: 8290036784849788060}
   - {fileID: 7991046330687450266}
   - {fileID: 351606068}
   - {fileID: 245889959}
