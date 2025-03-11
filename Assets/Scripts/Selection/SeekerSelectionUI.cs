@@ -24,6 +24,7 @@ public class SeekerSelectionUI : NetworkBehaviour
 
     private NetworkVariable<bool> hostGuessedCorrectly = new NetworkVariable<bool>(false);
     private NetworkVariable<bool> clientGuessedCorrectly = new NetworkVariable<bool>(false);
+    
 
     private void Start()
     {
@@ -37,19 +38,6 @@ public class SeekerSelectionUI : NetworkBehaviour
         {
             characterButtonPrefab.SetActive(false);
         }
-
-        //StartCoroutine(WaitForSeekerRole());
-    }
-
-    private IEnumerator WaitForSeekerRole()
-    {
-        while (NetworkManager.Singleton == null || !NetworkManager.Singleton.IsClient)
-        {
-            yield return new WaitForSeconds(0.5f);
-        }
-
-        gameObject.SetActive(true);
-        selectionPanel.SetActive(false);
     }
 
     public void Initialize(List<GameObject> characters)
