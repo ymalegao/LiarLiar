@@ -23,14 +23,15 @@ public class SeekerVisibilityChecker : MonoBehaviour
     }
 
     ulong myClientId = NetworkManager.Singleton.LocalClientId;
-    if (ServerManager.Instance.seekerClientId.Value == myClientId)
-    {
-      seekerSpecificUI.SetActive(true);
-    }
-    else
-    {
-      gameObject.SetActive(false); // Hide UI
-    }
+    seekerSpecificUI.SetActive(true);
+    // if (ServerManager.Instance.seekerClientId.Value == myClientId)
+    // {
+    //   seekerSpecificUI.SetActive(true);
+    // }
+    // else
+    // {
+    //   gameObject.SetActive(false); // Hide UI
+    // }
 
   }
 }
