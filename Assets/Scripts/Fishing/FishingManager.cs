@@ -18,7 +18,7 @@ public class FishingManager : MonoBehaviour, MinigameManager
 
     public TMP_Text scoreText;
 
-    private int score = 0; 
+    public int score = 0; 
 
     private void Awake()
     {
@@ -72,10 +72,6 @@ public class FishingManager : MonoBehaviour, MinigameManager
     private void Update()
     {
         MoveBait();
-        if (Input.GetMouseButtonDown(0)) // Left mouse button click
-        {
-            DetectFishClick();
-        }
     }
 
     private void MoveBait()
@@ -114,7 +110,6 @@ public class FishingManager : MonoBehaviour, MinigameManager
 
         // Set fish position
         fish.transform.position = worldSpawnPosition;
-        Debug.Log(fish.transform.position);
         fish.transform.rotation = Quaternion.identity; // Reset rotation
 
         fish.tag = "Fish";
@@ -148,36 +143,6 @@ public class FishingManager : MonoBehaviour, MinigameManager
         shark.transform.rotation = Quaternion.Euler(0, 180, 0); // Reset rotation
 
         shark.tag = "Shark";
-    }
-
-    private void DetectFishClick()
-    {
-        // Cast a ray from the mouse position
-        // Vector3 mousePos = FishCamera.ScreenToWorldPoint(Input.mousePosition);
-        // Vector3 CorrectPos = new Vector3(mousePos.x,mousePos.y, 10.0f);
-        // RaycastHit2D hit = Physics2D.Raycast(CorrectPos, Vector2.zero);
-        RaycastHit2D hit = Physics2D.GetRayIntersection(FishCamera.ScreenPointToRay(Input.mousePosition));
-        Debug.Log(hit.collider);
-        // Debug.Log(CorrectPos);
-        
-        if (hit.collider != null && hit.collider.CompareTag("Fish"))
-        {
-            Debug.Log("caught fish");
-            OnFishCaught(hit.collider.gameObject);
-        }
-    }
-
-    public void OnFishCaught(GameObject fish)
-    {
-        // Increase score
-        score += 1;
-        Debug.Log("Fish caught! Score: " + score);
-
-        // Update score UI
-        UpdateUI();
-
-        // Destroy the fish
-        Destroy(fish);
     }
 
 }
