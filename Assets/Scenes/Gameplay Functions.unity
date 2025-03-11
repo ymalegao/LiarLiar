@@ -1097,6 +1097,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 4537270287595205916, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5234741286319262050, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
       propertyPath: m_Constraints
       value: 7
@@ -1113,6 +1117,10 @@ PrefabInstance:
       propertyPath: clueText
       value: '3 Double IPAs: $18.45 - HADWIN (PAID)'
       objectReference: {fileID: 0}
+    - target: {fileID: 7814029791514936704, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 71828d1b1501105429c4a1ed4d5de3f3, type: 3}
     - target: {fileID: 8563346846880621834, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 31.24
@@ -1447,6 +1455,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4537270287595205916, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5234741286319262050, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
       propertyPath: m_Constraints
       value: 7
@@ -1463,6 +1475,10 @@ PrefabInstance:
       propertyPath: clueText
       value: '*small footsteps that circle around the back of Hadwin''s tower*'
       objectReference: {fileID: 0}
+    - target: {fileID: 7814029791514936704, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 71828d1b1501105429c4a1ed4d5de3f3, type: 3}
     - target: {fileID: 8563346846880621834, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.1
@@ -2015,6 +2031,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4537270287595205916, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7647506466814137116, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2027,6 +2047,10 @@ PrefabInstance:
       propertyPath: clueText
       value: Derek and Avery had their date at the pond when the book was stolen.
       objectReference: {fileID: 0}
+    - target: {fileID: 7814029791514936704, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 71828d1b1501105429c4a1ed4d5de3f3, type: 3}
     - target: {fileID: 8563346846880621834, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.3
@@ -2331,19 +2355,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3701121703107218067, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3701121703107218067, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3701121703107218067, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 100.2672
       objectReference: {fileID: 0}
     - target: {fileID: 3701121703107218067, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -89.39135
       objectReference: {fileID: 0}
     - target: {fileID: 5138139422762392936, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: selectionUI
@@ -31153,6 +31177,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4537270287595205916, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5234741286319262050, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
       propertyPath: m_Constraints
       value: 7
@@ -31169,6 +31197,10 @@ PrefabInstance:
       propertyPath: clueText
       value: 'A Book on the History of Ladybugs - Owned by: Carrie'
       objectReference: {fileID: 0}
+    - target: {fileID: 7814029791514936704, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 71828d1b1501105429c4a1ed4d5de3f3, type: 3}
     - target: {fileID: 8563346846880621834, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 79
@@ -31297,6 +31329,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4537270287595205916, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5234741286319262050, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
       propertyPath: m_Constraints
       value: 7
@@ -31314,6 +31350,10 @@ PrefabInstance:
       value: Dear Avery, You look so beautiful today. I can't wait for our date.
         Love, Derek
       objectReference: {fileID: 0}
+    - target: {fileID: 7814029791514936704, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 71828d1b1501105429c4a1ed4d5de3f3, type: 3}
     - target: {fileID: 8563346846880621834, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 53.94

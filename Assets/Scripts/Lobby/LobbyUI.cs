@@ -10,6 +10,7 @@ public class LobbyUI : MonoBehaviour
   [SerializeField] private TMP_Text characterInfoText; // Use TMP_Text instead of Text
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip buttonClickSound;
+    [SerializeField] private AudioClip buttonStartSound;
 
 
     public GameObject lobbyTrigger;
@@ -99,7 +100,7 @@ public class LobbyUI : MonoBehaviour
         startGameButton.onClick.RemoveAllListeners(); // Remove previous listeners to prevent stacking
         startGameButton.onClick.AddListener(() =>
         {
-            PlayButtonSound();
+            PlayStartSound();
             lobbyManager.StartGame();
         });
     }
@@ -213,6 +214,14 @@ public class LobbyUI : MonoBehaviour
         if (audioSource != null && buttonClickSound != null)
         {
             audioSource.PlayOneShot(buttonClickSound);
+        }
+    }
+
+    private void PlayStartSound()
+    {
+        if (audioSource != null && buttonStartSound != null)
+        {
+            audioSource.PlayOneShot(buttonStartSound);
         }
     }
 

@@ -6,6 +6,8 @@ public class goToScene : NetworkBehaviour
 {
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip buttonClickSound;
+    [SerializeField] private AudioClip buttonStartSound;
+
     public void goToLobby()
     {
         if (NetworkManager.Singleton != null && NetworkManager.Singleton.IsServer)
@@ -16,7 +18,7 @@ public class goToScene : NetworkBehaviour
             LoadLobbyClientRpc();
 
             // Host loads the lobby scene
-            PlayButtonSoundAndLoadScene("Lobby");
+            PlayStartSoundAndLoadScene("Lobby");
         }
         else if (NetworkManager.Singleton != null && NetworkManager.Singleton.IsClient)
         {
@@ -25,7 +27,7 @@ public class goToScene : NetworkBehaviour
         else
         {
             // If not connected, just load the lobby scene
-            PlayButtonSoundAndLoadScene("Lobby");
+            PlayStartSoundAndLoadScene("Lobby");
         }
     }
 
@@ -77,10 +79,22 @@ public class goToScene : NetworkBehaviour
         }
     }
 
+    private void PlayStartSoundAndLoadScene(string sceneName)
+    {
+        if (audioSource != null && buttonStartSound != null)
+        {
+            audioSource.PlayOneShot(buttonStartSound);
+            StartCoroutine(LoadSceneAfterDelay(sceneName, buttonStartSound.length));
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+    }
+
     private System.Collections.IEnumerator LoadSceneAfterDelay(string sceneName, float delay)
     {
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(sceneName);
     }
-
 }

@@ -9,15 +9,18 @@ public class NPC : NetworkBehaviour, IInteractable
     [TextArea]
     public string[] dialogueLines;
     public Sprite npcSprite;
+    public AudioClip[] dialogueAudioClips;
 
     private NpcMovement npcMovement;
     private Animator animator;
+    private AudioSource audioSource; 
     private NetworkVariable<bool> isInteracting = new NetworkVariable<bool>(false);
 
     private void Start()
     {
         npcMovement = GetComponent<NpcMovement>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
 
         if (string.IsNullOrEmpty(npcName))
         {
@@ -83,7 +86,63 @@ public class NPC : NetworkBehaviour, IInteractable
         Debug.Log("Starting dialogue...");
         DialogueManager.Instance.StartDialogue(npcName, dialogueLines);
         DialogueManager.Instance.OnDialogueEnd += HandleDialogueEnd;
+
+        StartCoroutine(PlayDialogueAudio());
+
     }
+
+
+    private IEnumerator PlayDialogueAudio()
+    {
+        Debug.Log($"[NPC] {npcName}: PlayDialogueAudio() started.");
+
+        if (audioSource == null)
+        {
+            Debug.LogError($"[NPC] {npcName}: AudioSource is NULL in PlayDialogueAudio()!");
+            yield break;
+        }
+
+        if (dialogueAudioClips == null)
+        {
+            Debug.LogError($"[NPC] {npcName}: dialogueAudioClips array is NULL in PlayDialogueAudio()!");
+            yield break;
+        }
+
+        if (dialogueAudioClips.Length == 0)
+        {
+            Debug.LogWarning($"[NPC] {npcName}: dialogueAudioClips array is EMPTY, skipping audio playback.");
+            yield break;
+        }
+
+        for (int i = 0; i < dialogueLines.Length; i++)
+        {
+            if (i >= dialogueAudioClips.Length)
+            {
+                Debug.LogWarning($"[NPC] {npcName}: No audio clip for dialogue line {i}, skipping.");
+                yield return new WaitForSeconds(2.0f);
+                continue;
+            }
+
+            if (dialogueAudioClips[i] == null)
+            {
+                Debug.LogError($"[NPC] {npcName}: dialogueAudioClips[{i}] is NULL!");
+                yield return new WaitForSeconds(2.0f);
+                continue;
+            }
+
+            Debug.Log($"[NPC] {npcName}: Playing audio clip {i} - {dialogueAudioClips[i].name}");
+            audioSource.clip = dialogueAudioClips[i];
+            audioSource.Play();
+
+            while (audioSource.isPlaying)
+            {
+                yield return null;
+            }
+        }
+
+        Debug.Log($"[NPC] {npcName}: Finished playing audio.");
+    }
+
 
 
     private void HandleDialogueEnd()
