@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using System;
+using PowerUps;
 
 public class EggGameManager : MonoBehaviour
 {
