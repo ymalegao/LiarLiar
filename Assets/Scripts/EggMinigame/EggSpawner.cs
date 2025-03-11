@@ -70,7 +70,7 @@ public class EggSpawner : MonoBehaviour
   private void SpawnEgg()
   {
     int EggOrObstacle = Random.Range(0, 10);
-    if (EggOrObstacle < 10)
+    if (EggOrObstacle < 8)
     {
       int randomIndex = Random.Range(0, spawnPoints.Length);
       Instantiate(eggPrefab, spawnPoints[randomIndex].position, Quaternion.identity);
