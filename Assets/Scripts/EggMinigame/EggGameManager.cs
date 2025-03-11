@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
-using System; // Add this to access PowerUpManager
+using System;
 
 public class EggGameManager : MonoBehaviour
 {

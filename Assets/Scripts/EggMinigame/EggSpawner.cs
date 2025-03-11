@@ -45,7 +45,6 @@ public class EggSpawner : MonoBehaviour
 
   public void exitGame()
   {
-    EggGameManager.Instance.ResetState();
     miniGameCanvas.SetActive(false);
     instructionsPanel.SetActive(false);
     failurePanel.SetActive(false);
