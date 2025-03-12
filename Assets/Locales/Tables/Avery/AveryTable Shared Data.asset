@@ -111,6 +111,10 @@ MonoBehaviour:
     m_Key: Hadwin3
     m_Metadata:
       m_Items: []
+  - m_Id: 757427258515456
+    m_Key: Journal1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

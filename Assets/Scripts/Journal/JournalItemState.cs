@@ -90,7 +90,7 @@ public bool IsMarkedCorrectly()
             text.color = new Color(1, 0, 0, 1); // Force full red
             break;
         case State.Truth:
-            text.color = new Color(0, 1, 0, 1); // Force full green
+            text.color = new Color(0, 0.5f, 0, 1); // Force full green
             break;
     }
 }

@@ -415,7 +415,7 @@ private void UpdateStatementState(string npcId, string statement, JournalItemSta
         }
 
         correctnessText.text = $"Correctly Marked: {correctCount} / 24";
-        if (correctCount >= 3 && !finalCluesSpawned)
+        if (correctCount >= 20 && !finalCluesSpawned)
         {
             SpawnFinalClues();
         }
@@ -452,7 +452,11 @@ private void UpdateStatementState(string npcId, string statement, JournalItemSta
                 Instantiate(finalCluePrefabs[i], clueSpawnLocations[i].position, Quaternion.identity);
             }
         }
-        finalClueAlert.SetActive(true);
+        //temp solution - start a dialogue of one line 
+        string[] ClueAlertdialogue = new string[1];
+        ClueAlertdialogue[0] = "Journal1";
+        DialogueManager.Instance.StartDialogue("Journal" , ClueAlertdialogue);
+        // finalClueAlert.SetActive(true);
         finalCluesSpawned = true;
     }
 
