@@ -6,7 +6,6 @@ public class Fish : MonoBehaviour
 {
     private float speed;
     public FishingManager fishingManager;
-    public Camera FishCamera; 
 
     private void Awake()
     {
@@ -14,7 +13,6 @@ public class Fish : MonoBehaviour
     }
     private void Start(){
         fishingManager = GameObject.FindFirstObjectByType<FishingManager>();
-        FishCamera = fishingManager.GetComponentInChildren<Camera>();
     }
     private void FixedUpdate()
     {
@@ -24,11 +22,11 @@ public class Fish : MonoBehaviour
         Destroy(gameObject, 6f);
     }
     private void Update(){
-        Vector2 mouseWorldPos = FishCamera.ScreenToWorldPoint(Input.mousePosition);
-        if(Vector2.Distance(mouseWorldPos, transform.position) < 0.4f){
-            fishingManager.score += 1;
-            fishingManager.UpdateUI();
-            Destroy(gameObject);
-        }
+    }
+
+    private void OnMouseDown(){
+        fishingManager.score += 1;
+        fishingManager.UpdateUI();
+        Destroy(gameObject);
     }
 }

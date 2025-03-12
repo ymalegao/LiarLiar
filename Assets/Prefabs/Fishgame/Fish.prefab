@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1081228661717557149}
   - component: {fileID: 76348209803046660}
   - component: {fileID: -8811589974633093253}
-  - component: {fileID: -5468384695667495296}
   - component: {fileID: 3134193876387391856}
   m_Layer: 0
   m_Name: Fish
@@ -100,6 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94df36fcedbb148d0b12488fc816d0c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishingManager: {fileID: 0}
+  FishCamera: {fileID: 0}
 --- !u!61 &-8811589974633093253
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -129,7 +130,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -143,35 +144,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 20, y: 20}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!50 &-5468384695667495296
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3897474637840744512}
-  m_BodyType: 0
-  m_Simulated: 0
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!111 &3134193876387391856
 Animation:
   m_ObjectHideFlags: 0

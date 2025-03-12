@@ -5,10 +5,15 @@ using UnityEngine;
 public class Shark : MonoBehaviour
 {
     private float speed;
+    public FishingManager fishingManager;
 
     private void Awake()
     {
-        speed = Random.Range(2,4);
+        speed = Random.Range(3f,4.6f);
+    }
+
+    private void Start(){
+        fishingManager = GameObject.FindFirstObjectByType<FishingManager>();
     }
 
     private void FixedUpdate()
@@ -17,5 +22,10 @@ public class Shark : MonoBehaviour
          transform.position += Vector3.left * speed * Time.deltaTime;
         // Destroy fish when it leaves the screen
         Destroy(gameObject, 7f);
+    }
+
+    private void OnMouseDown(){
+        fishingManager.EndGame();
+        Destroy(gameObject);
     }
 }

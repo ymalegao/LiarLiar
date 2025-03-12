@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 public class FishingManager : MonoBehaviour, MinigameManager
 {
     public GameObject GameCanvas { get; set; }
-    public Bait bait;
+    public GameObject bait;
 
     private RectTransform canvasTransform;
     Vector2 canvasSize;
@@ -17,6 +18,9 @@ public class FishingManager : MonoBehaviour, MinigameManager
     public Camera FishCamera; 
 
     public TMP_Text scoreText;
+
+    public TMP_Text GameOverText;
+    public Button exitButton;
 
     public int score = 0; 
 
@@ -51,12 +55,19 @@ public class FishingManager : MonoBehaviour, MinigameManager
 
     public void EndGame()
     {
+        if(!GameOverText.gameObject|| !exitButton ){return;}
+        GameOverText.gameObject.SetActive(true);
+        exitButton.gameObject.SetActive(true);
+        StopAllCoroutines();
+
+    }
+
+    public void Exit(){
+        StopAllCoroutines();
         if (GameCanvas != null)
         {
             GameCanvas.gameObject.SetActive(false);
         }
-        StopAllCoroutines();
-
     }
 
     public void UpdateUI()
@@ -81,7 +92,7 @@ public class FishingManager : MonoBehaviour, MinigameManager
         Vector3 screenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f); // Z distance from camera
 
         // Convert screen position to world position
-        bait.gameObject.transform.position = FishCamera.ScreenToWorldPoint(screenPoint);
+        bait.transform.position = FishCamera.ScreenToWorldPoint(screenPoint);
 
     }
 
