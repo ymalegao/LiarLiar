@@ -30,7 +30,7 @@ public class GameManager : NetworkBehaviour
     while (countdownTimer.Value > 0)
     {
       yield return new WaitForSeconds(1f);
-      countdownTimer.Value -= 100f;
+      countdownTimer.Value -= 1f;
     }
 
     EndGame();
