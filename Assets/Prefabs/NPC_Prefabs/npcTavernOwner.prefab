@@ -221,7 +221,8 @@ MonoBehaviour:
   - Weston2
   - Weston3
   npcSprite: {fileID: -1702636405, guid: c67679a2ca6e3a44688ecd9a163a0aba, type: 3}
-  dialogueAudioClips: []
+  dialogueAudioClips:
+  - {fileID: 8300000, guid: 54f25a1872ef5ad4caa1f8e2ba686608, type: 3}
 --- !u!195 &8201454315367830834
 NavMeshAgent:
   m_ObjectHideFlags: 0

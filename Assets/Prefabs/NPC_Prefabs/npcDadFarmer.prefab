@@ -162,7 +162,8 @@ MonoBehaviour:
   - Derek2
   - Derek3
   npcSprite: {fileID: -1927248443, guid: 52f2d665ab1463442948a7d0524e3521, type: 3}
-  dialogueAudioClips: []
+  dialogueAudioClips:
+  - {fileID: 8300000, guid: dcdf17ca0980a4c4996e2177bd7e2c42, type: 3}
 --- !u!61 &2094843647503842778
 BoxCollider2D:
   m_ObjectHideFlags: 0
