@@ -14,9 +14,15 @@ public class ClueObject : MonoBehaviour
 
     private bool playerInRange = false;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip pickupSound; // Assign this in Inspector
+    private AudioSource audioSource;
+
+
     private void Start()
     {
         clueUIPrompt.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -57,7 +63,16 @@ public class ClueObject : MonoBehaviour
         if (isCollected) return; // Prevent duplicate collection
         isCollected = true;
 
+        if (pickupSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(pickupSound);
+        }
+
+
         StartCoroutine(LoadLocalizedClue()); // Fetch localized text before storing it
+
+        Destroy(gameObject, pickupSound.length);
+
     }
 
     private IEnumerator LoadLocalizedClue()
@@ -71,7 +86,7 @@ public class ClueObject : MonoBehaviour
         Debug.Log($"Collected Clue: {localizedClueText}");
 
         JournalManager.Instance.AddClue(localizedClueText); // Add localized clue to journal
-        Destroy(gameObject); // Remove clue from the world after collection
+        //Destroy(gameObject); // Remove clue from the world after collection
         JournalManager.Instance.ShowNPCDetails("clues"); // Show NPC details after collecting clue
     }
 
