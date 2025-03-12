@@ -45,10 +45,7 @@ public class FishingManager : MonoBehaviour, MinigameManager
 
     public void StartGame()
     {
-        if (GameCanvas != null)
-        {
-            GameCanvas.gameObject.SetActive(true);
-        }
+        GameCanvas.gameObject.SetActive(true);
         StartCoroutine(SpawnFishRoutine());
         StartCoroutine(SpawnSharkRoutine());
     }

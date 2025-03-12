@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 98.34491, y: -25.242382, z: -15}
-  m_LocalScale: {x: 20, y: 20, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishingManager: {fileID: 0}
-  FishCamera: {fileID: 0}
 --- !u!61 &-8811589974633093253
 BoxCollider2D:
   m_ObjectHideFlags: 0
