@@ -32,6 +32,7 @@ public class TaskManager : MonoBehaviour
     //   foreach( KeyValuePair<string, GameTask> task in  tasks ){
     //       task.Value.gameManager.SetActive(false);
     //   }
+
   }
 
 
@@ -41,7 +42,7 @@ public class TaskManager : MonoBehaviour
     // int randomIndex = Random.Range(0, tasks.Count);
     // Debug.Log("Task assigned to player  " + tasks.ElementAt(randomIndex));
     // return (tasks.ElementAt(randomIndex).Value); //return random task
-    return (tasks["egg"]);
+    return (tasks["fish"]);
 
   }
 
@@ -67,13 +68,9 @@ public class TaskManager : MonoBehaviour
 
         if (task.isActive)
         {
-          //Spawn Minigame gameManager
-          if (!task.gameManager.activeSelf)
-          {
-            task.gameManager.SetActive(true);
-
-            player.ActivateMinigameCamera();
-          }
+          task.gameManager.SetActive(false);
+          task.gameManager.SetActive(true);
+          player.ActivateMinigameCamera();
 
           task.taskTimer += Time.deltaTime;
           if (task.taskTimer >= task.completionTime)
