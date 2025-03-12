@@ -44,26 +44,6 @@ namespace PowerUps
       }
     }
 
-    public void DisablePowerUp()
-    {
-      if (localVisionEffect != null)
-      {
-        localVisionEffect.gameObject.SetActive(false);
-      }
-    }
-
-    public bool IsPowerUpAvailable(){
-      return localVisionEffect != null;
-    }
-
-    public void EnablePowerUp()
-    {
-      if (localVisionEffect != null)
-      {
-        localVisionEffect.gameObject.SetActive(true);
-      }
-    }
-
     private void Update()
     {
       if (Instance == null)
@@ -73,7 +53,7 @@ namespace PowerUps
       }
 
       // Check for input on both server and client
-      if (Input.GetKeyDown(KeyCode.F))
+      if (false)
       {
         Debug.Log("F key pressed by " + (IsHost ? "host" : "client"));
         // Simply call the ServerRpc, we'll figure out who to apply the effect to on the server
