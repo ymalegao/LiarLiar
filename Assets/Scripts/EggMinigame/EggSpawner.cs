@@ -12,7 +12,7 @@ public class EggSpawner : MonoBehaviour
   public static EggSpawner Instance;
 
   public Transform basket;
-  public float spawnRate = 2f;
+  public float spawnRate = 5f;
   public GameObject miniGameCanvas;
   public GameObject victoryPanel;
   public GameObject instructionsPanel;
