@@ -139,6 +139,11 @@ MonoBehaviour:
       just by speaking the words.'
     m_Metadata:
       m_Items: []
+  - m_Id: 757427258515456
+    m_Localized: You have almost solved the mystery... Four new clues have spawned.
+      Find them to determine who cast the spell on Emberwell.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
