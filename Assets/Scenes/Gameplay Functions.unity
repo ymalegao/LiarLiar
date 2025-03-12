@@ -869,6 +869,10 @@ PrefabInstance:
       propertyPath: clueText
       value: '3 Double IPAs: $18.45 - HADWIN (PAID)'
       objectReference: {fileID: 0}
+    - target: {fileID: 7814029791514936704, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 71828d1b1501105429c4a1ed4d5de3f3, type: 3}
     - target: {fileID: 8563346846880621834, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 31.24
@@ -1219,6 +1223,10 @@ PrefabInstance:
       propertyPath: clueText
       value: '*small footsteps that circle around the back of Hadwin''s tower*'
       objectReference: {fileID: 0}
+    - target: {fileID: 7814029791514936704, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 71828d1b1501105429c4a1ed4d5de3f3, type: 3}
     - target: {fileID: 8563346846880621834, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.1
@@ -1917,6 +1925,10 @@ PrefabInstance:
       propertyPath: clueText
       value: Derek and Avery had their date at the pond when the book was stolen.
       objectReference: {fileID: 0}
+    - target: {fileID: 7814029791514936704, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 71828d1b1501105429c4a1ed4d5de3f3, type: 3}
     - target: {fileID: 8563346846880621834, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.3
@@ -1992,7 +2004,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -30731,6 +30743,10 @@ PrefabInstance:
       propertyPath: clueText
       value: 'A Book on the History of Ladybugs - Owned by: Carrie'
       objectReference: {fileID: 0}
+    - target: {fileID: 7814029791514936704, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 71828d1b1501105429c4a1ed4d5de3f3, type: 3}
     - target: {fileID: 8563346846880621834, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 79
@@ -30876,6 +30892,10 @@ PrefabInstance:
       value: Dear Avery, You look so beautiful today. I can't wait for our date.
         Love, Derek
       objectReference: {fileID: 0}
+    - target: {fileID: 7814029791514936704, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 71828d1b1501105429c4a1ed4d5de3f3, type: 3}
     - target: {fileID: 8563346846880621834, guid: 7a8b46942c17aa24ca9bc4ff8df60ec5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 53.94
@@ -31213,7 +31233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3758214201418333268, guid: c461f5ccb3420614f98feba108839350, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4346757066374053146, guid: c461f5ccb3420614f98feba108839350, type: 3}
       propertyPath: m_Layer
@@ -31936,7 +31956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2810211183936250545, guid: b80a87dd2d7ef40cf9d1846af9a34146, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3037729524200996354, guid: b80a87dd2d7ef40cf9d1846af9a34146, type: 3}
       propertyPath: m_SizeDelta.x
@@ -32094,6 +32114,10 @@ PrefabInstance:
       objectReference: {fileID: -6689616622323997478, guid: 64e1ce9d67f60964598b6459f59bb1e0, type: 2}
     - target: {fileID: 5423268625646902658, guid: b80a87dd2d7ef40cf9d1846af9a34146, type: 3}
       propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109912439515200785, guid: b80a87dd2d7ef40cf9d1846af9a34146, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7824780196045956295, guid: b80a87dd2d7ef40cf9d1846af9a34146, type: 3}
