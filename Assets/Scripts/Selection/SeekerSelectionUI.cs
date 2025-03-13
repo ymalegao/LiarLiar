@@ -16,6 +16,7 @@ public class SeekerSelectionUI : NetworkBehaviour
     [SerializeField] private Transform gridParent;
     [SerializeField] private GameObject characterButtonPrefab;
     [SerializeField] private string spellCasterName = "DefaultCaster";
+    [SerializeField] private AudioSource buttonAudioSource;
 
     private List<GameObject> allCharacters = new List<GameObject>();
     private List<Sprite> characterSprites = new List<Sprite>();
@@ -133,6 +134,12 @@ public class SeekerSelectionUI : NetworkBehaviour
 
     private void ToggleSelection(GameObject character, Image buttonImage)
     {
+
+        if (buttonAudioSource != null)
+        {
+            buttonAudioSource.Play(); // Play button sound
+        }
+
         if (character == currentlySelectedNPC)
         {
             currentlySelectedImage.color = Color.white;
@@ -165,6 +172,12 @@ public class SeekerSelectionUI : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     private void ConfirmSelectionServerRpc(string selectedNPCName, ServerRpcParams rpcParams = default)
     {
+
+        if (buttonAudioSource != null)
+        {
+            buttonAudioSource.Play(); // Play button sound
+        }
+
         bool isCorrect = selectedNPCName == spellCasterName;
 
         ulong senderId = rpcParams.Receive.SenderClientId;

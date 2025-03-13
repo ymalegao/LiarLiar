@@ -221,7 +221,8 @@ MonoBehaviour:
   - Adeline2
   - Adeline3
   npcSprite: {fileID: -2086025217, guid: b7033e875415dbb4ba4c9c1e3dab991b, type: 3}
-  dialogueAudioClips: []
+  dialogueAudioClips:
+  - {fileID: 8300000, guid: 0f5511684d199e04b8217ffc26575f79, type: 3}
 --- !u!195 &8201454315367830834
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -33,16 +33,30 @@ public class SeekerNetwork : NetworkBehaviour
   private Vector2 moveVelocity;
   public Animator animator;
 
-  // Start is called before the first frame update
-  void Start()
+    // Add these for the footstep audio
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip footstepClip;
+    [SerializeField] private float footstepInterval = 0.5f; // How often the footstep sound plays
+    private float lastFootstepTime = 0f;
+
+
+    // Start is called before the first frame update
+    void Start()
   {
     rb = GetComponent<Rigidbody2D>();
-    if (IsOwner)
+    audioSource = GetComponent<AudioSource>();
+
+        if (IsOwner)
     {
       transform.position = spawnPosition;
     }
 
-  }
+        if (footstepClip != null)
+        {
+            audioSource.clip = footstepClip;
+        }
+
+    }
 
   void Update()
   {
@@ -79,12 +93,37 @@ public class SeekerNetwork : NetworkBehaviour
     animator.SetFloat("npc_vertical", moveY);
     animator.SetFloat("npc_speed", moveVelocity.sqrMagnitude);
 
-
-  }
+        // Play footsteps if player is moving
+        if (moveVelocity.sqrMagnitude > 0 && Time.time - lastFootstepTime > footstepInterval)
+        {
+            PlayFootsteps();
+        }
+        else if (moveVelocity.sqrMagnitude == 0)
+        {
+            StopFootsteps();
+        }
+    }
   void FixedUpdate()
   {
     if (!IsOwner) return; // Only update the Rigidbody for the local player
 
     rb.velocity = moveVelocity;
   }
+
+    private void PlayFootsteps()
+    {
+        if (!audioSource.isPlaying) // Prevent overlapping footstep sounds
+        {
+            audioSource.Play();
+        }
+        lastFootstepTime = Time.time; // Update the time of the last footstep played
+    }
+
+    private void StopFootsteps()
+    {
+        if (audioSource.isPlaying) // Stop audio when the player stops moving
+        {
+            audioSource.Stop();
+        }
+    }
 }
