@@ -7,6 +7,8 @@ public class HelpPage : MonoBehaviour
 {
 
     [SerializeField] private GameObject helpScreen;
+    [SerializeField] private AudioSource helpAudioSource;  // AudioSource for playing sound
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,12 @@ public class HelpPage : MonoBehaviour
         {
             bool isActive = !helpScreen.activeSelf;
             helpScreen.SetActive(isActive);
+
+            // Play audio when the help menu is toggled
+            if (helpAudioSource != null)
+            {
+                helpAudioSource.Play();  // Play the sound when the help menu is shown
+            }
 
         }
     }
