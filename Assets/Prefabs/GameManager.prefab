@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3228061297050385690}
   - component: {fileID: 6176878749992861439}
   - component: {fileID: 2755807468188482757}
-  - component: {fileID: 5450263622686003589}
+  - component: {fileID: 4832724695421770399}
   - component: {fileID: 5838009880210769510}
   m_Layer: 0
   m_Name: GameManager
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2851411405
+  GlobalObjectIdHash: 3379945479
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingTime: 10
   timerText: {fileID: 0}
---- !u!114 &5450263622686003589
+--- !u!114 &4832724695421770399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
