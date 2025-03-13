@@ -30336,7 +30336,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1036558121}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -30347,7 +30347,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1036558121}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -30357,6 +30357,22 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2081905712593674240, guid: e6ab8ea4b76f040dbbed187d200dd8d5, type: 3}
   m_PrefabInstance: {fileID: 1036558121}
   m_PrefabAsset: {fileID: 0}
+--- !u!222 &1036558126
+CanvasRenderer:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_CullTransparentMesh: 1
+--- !u!222 &1036558127
+CanvasRenderer:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_CullTransparentMesh: 1
 --- !u!1 &1096450924
 GameObject:
   m_ObjectHideFlags: 0
@@ -31608,6 +31624,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5368247556232456286, guid: c461f5ccb3420614f98feba108839350, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6441154054599519741, guid: c461f5ccb3420614f98feba108839350, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
@@ -32830,6 +32850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   helpScreen: {fileID: 1201891308}
+  helpAudioSource: {fileID: 0}
 --- !u!1001 &8290036784849788060
 PrefabInstance:
   m_ObjectHideFlags: 0
