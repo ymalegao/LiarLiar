@@ -10,6 +10,8 @@ public class TestSeekerSelection : MonoBehaviour
   [SerializeField] private TextMeshProUGUI buttonText;
   [SerializeField] private GameObject dialogueUIPanel;
     [SerializeField] private GameObject journalUI;
+    [SerializeField] private AudioSource buttonAudioSource; 
+
 
     private void Start()
   {
@@ -21,7 +23,13 @@ public class TestSeekerSelection : MonoBehaviour
 
   public void ToggleSeekerSelection()
   {
-    if (seekerSelectionPanel != null)
+
+        if (buttonAudioSource != null)
+        {
+            buttonAudioSource.Play(); // Play button sound
+        }
+        
+        if (seekerSelectionPanel != null)
     {
       bool isActive = !seekerSelectionPanel.activeSelf;
       seekerSelectionPanel.SetActive(isActive);
