@@ -33,6 +33,14 @@ public class GetTask : MonoBehaviour
     playerCamera = GetComponentInChildren<Camera>();
     TaskText = GameObject.Find("TaskText").GetComponent<TMP_Text>();
     TaskText.text = "Task: " + this.assignedTask.name;
+
+    minigameCamera = this.assignedTask.camera;
+    var cameras = GameObject.FindObjectsOfType<Camera>();
+    foreach (var camera in cameras){
+      if (camera != playerCamera && camera != minigameCamera){
+        camera.gameObject.SetActive(false);
+      }
+      }
   }
 
 
