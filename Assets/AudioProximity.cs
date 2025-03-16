@@ -38,7 +38,7 @@ public class AudioProximity : MonoBehaviour
 
         // Find the closest point on the lake's collider
         Vector2 closestPoint = lakeCollider.ClosestPoint(player.position);
-        Debug.DrawLine(player.position, closestPoint, Color.green); // Visualize distance in Scene View
+        //Debug.DrawLine(player.position, closestPoint, Color.green); // Visualize distance in Scene View
         // Debug.Log("Closest point on lake: " + closestPoint);
 
         // Measure distance from the closest edge of the lake
@@ -50,7 +50,7 @@ public class AudioProximity : MonoBehaviour
         volume = Mathf.Clamp(volume, minVolume, maxVolume);
 
         audioSource.volume = volume;
-        Debug.Log("Audio Volume Set To: " + volume);
+        //Debug.Log("Audio Volume Set To: " + volume);
 
         if (distance <= maxDistance && !isAudioPlaying)
         {
