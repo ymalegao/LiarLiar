@@ -27,7 +27,7 @@ public class AudioProximity : MonoBehaviour
             if (playerObject != null)
             {
                 player = playerObject.transform;
-                Debug.Log("Player found: " + player.name);
+                // Debug.Log("Player found: " + player.name);
             }
             else
             {
@@ -39,11 +39,11 @@ public class AudioProximity : MonoBehaviour
         // Find the closest point on the lake's collider
         Vector2 closestPoint = lakeCollider.ClosestPoint(player.position);
         Debug.DrawLine(player.position, closestPoint, Color.green); // Visualize distance in Scene View
-        Debug.Log("Closest point on lake: " + closestPoint);
+        // Debug.Log("Closest point on lake: " + closestPoint);
 
         // Measure distance from the closest edge of the lake
         float distance = Vector2.Distance(closestPoint, player.position);
-        Debug.Log("Player Distance from Lake: " + distance);
+        // Debug.Log("Player Distance from Lake: " + distance);
 
         // Adjust volume based on distance
         float volume = Mathf.Lerp(maxVolume, minVolume, distance / maxDistance);
@@ -57,14 +57,14 @@ public class AudioProximity : MonoBehaviour
             // Start playing the audio when close enough
             audioSource.Play();
             isAudioPlaying = true;
-            Debug.Log("Audio Started: Player is within proximity.");
+            // Debug.Log("Audio Started: Player is within proximity.");
         }
         else if (distance > maxDistance && isAudioPlaying)
         {
             // Stop audio when player moves away
             audioSource.Stop();
             isAudioPlaying = false;
-            Debug.Log("Audio Stopped: Player is too far away.");
+            // Debug.Log("Audio Stopped: Player is too far away.");
         }
 
     }

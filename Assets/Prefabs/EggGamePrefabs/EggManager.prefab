@@ -546,6 +546,7 @@ RectTransform:
   - {fileID: 7365458508245451059}
   - {fileID: 1617328289802054805}
   - {fileID: 3407564078664969597}
+  - {fileID: 4974662581597253611}
   m_Father: {fileID: 5646336542078265841}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -759,11 +760,10 @@ MonoBehaviour:
   instructionsPanel: {fileID: 3539257369516247386}
   powerUpUnlockedText: {fileID: 1760712507591910535, guid: 70a527ae587b0034e9ceeebffdbb8984, type: 3}
   overallGameCanvas: {fileID: 6840704915895076535}
-  seekerSelectButton: {fileID: 0}
-  helpButton: {fileID: 0}
   basket: {fileID: 7365458508245451059}
   basketSpeed: 5
   gameActive: 0
+  usePowerUpButton: {fileID: 0}
 --- !u!1 &3039186343805555126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,11 +1175,11 @@ Transform:
   m_GameObject: {fileID: 4208556444457206992}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8, y: -234, z: -3987}
-  m_LocalScale: {x: 838.8975, y: 31.84444, z: 44.3}
+  m_LocalPosition: {x: 0, y: 70.35, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5646336542078265841}
+  m_Father: {fileID: 1351361508965880445}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3133680616987235331
 SpriteRenderer:
@@ -2117,7 +2117,6 @@ RectTransform:
   - {fileID: 4130243342062047869}
   - {fileID: 563449020199478719}
   - {fileID: 4820558116089067304}
-  - {fileID: 4974662581597253611}
   m_Father: {fileID: 2674482659304958874}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

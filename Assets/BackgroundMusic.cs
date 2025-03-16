@@ -10,7 +10,7 @@ public class BackgroundMusic : MonoBehaviour
         if (!audioSource.isPlaying)
         {
             audioSource.Play();
-            Debug.Log("Background music started!");
+            // Debug.Log("Background music started!");
         }
     }
 }

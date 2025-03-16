@@ -8,7 +8,7 @@ public class PlaySound : MonoBehaviour
     {
         if (other.CompareTag("Player")) // Change to whatever should trigger it
         {
-            Debug.Log("Playing LAKE sound!");
+            // Debug.Log("Playing LAKE sound!");
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();
@@ -20,7 +20,7 @@ public class PlaySound : MonoBehaviour
     {
         if (other.CompareTag("Player")) // Change to whatever should trigger it
         {
-            Debug.Log("Stopping LAKE sound!");
+            // Debug.Log("Stopping LAKE sound!");
             audioSource.Stop();
         }
     }
