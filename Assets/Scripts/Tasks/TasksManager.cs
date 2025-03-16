@@ -60,7 +60,7 @@ public class TaskManager : MonoBehaviour
       if (distance <= task.completionRadius)
       {
 
-        if (Input.GetKeyDown(KeyCode.Return) && !task.isActive)
+        if (Input.GetKeyDown(KeyCode.E) && !task.isActive)
         {
           task.isActive = true;
           Debug.Log($"Task started: {task.name}");

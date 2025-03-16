@@ -2293,19 +2293,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3701121703107218067, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3701121703107218067, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3701121703107218067, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 100.2672
       objectReference: {fileID: 0}
     - target: {fileID: 3701121703107218067, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -89.39135
       objectReference: {fileID: 0}
     - target: {fileID: 4867893800421979617, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_Size
@@ -32034,6 +32034,14 @@ PrefabInstance:
       propertyPath: helpButton
       value: 
       objectReference: {fileID: 1125419304}
+    - target: {fileID: 3918523138340744948, guid: b80a87dd2d7ef40cf9d1846af9a34146, type: 3}
+      propertyPath: basketSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3918523138340744948, guid: b80a87dd2d7ef40cf9d1846af9a34146, type: 3}
+      propertyPath: gameDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3918523138340744948, guid: b80a87dd2d7ef40cf9d1846af9a34146, type: 3}
       propertyPath: winningScore
       value: 3
