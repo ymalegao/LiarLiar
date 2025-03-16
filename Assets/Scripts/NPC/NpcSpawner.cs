@@ -45,12 +45,14 @@ public class NpcSpawner : NetworkBehaviour
         {
             string npcType = npcPrefab.name; // Get the NPC type
 
+            /*
             // Check if an NPC has a FakeNPC equivalent
             if (fakeNPCtoNPCMap.ContainsValue(npcType) && fakeNPCs.Contains(GetFakeNPCName(npcType)))
             {
                 Debug.Log($"❌ Skipping NPC spawn: {npcType} (FakeNPC exists)");
                 continue;
             }
+            */
 
             // Get a spawn position
             Vector3 spawnPosition = npcSpawnPoints.Count > 0 ?
