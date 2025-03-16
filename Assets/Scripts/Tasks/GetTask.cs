@@ -36,56 +36,59 @@ public class GetTask : MonoBehaviour
 
     minigameCamera = this.assignedTask.camera;
     var cameras = GameObject.FindObjectsOfType<Camera>();
-    foreach (var camera in cameras){
-      if (camera != playerCamera && camera != minigameCamera){
+    foreach (var camera in cameras)
+    {
+      if (camera != playerCamera && camera != minigameCamera)
+      {
         camera.gameObject.SetActive(false);
       }
-      }
+    }
   }
 
 
   public void ActivatePlayerCamera()
   {
-      if(playerCamera.gameObject.activeSelf){
-        return;
-      }
-      minigameCamera = this.assignedTask.camera;
-      if (playerCamera != null && minigameCamera != null)
-      {
-          playerCamera.gameObject.SetActive(true);
+    if (playerCamera.gameObject.activeSelf)
+    {
+      return;
+    }
+    minigameCamera = this.assignedTask.camera;
+    if (playerCamera != null && minigameCamera != null)
+    {
+      playerCamera.gameObject.SetActive(true);
 
-          minigameCamera.gameObject.SetActive(false);
-      }
-      else
-      {
-          Debug.LogError("Cameras not properly assigned in GetTask script.");
-      }
+      minigameCamera.gameObject.SetActive(false);
+    }
+    else
+    {
+      Debug.LogError("Cameras not properly assigned in GetTask script.");
+    }
   }
 
-      public void ActivateMinigameCamera()
+  public void ActivateMinigameCamera()
   {
-      minigameCamera = this.assignedTask.camera;
-      if (playerCamera != null && minigameCamera != null)
+    minigameCamera = this.assignedTask.camera;
+    if (playerCamera != null && minigameCamera != null)
+    {
+      playerCamera.gameObject.SetActive(false);
+      minigameCamera.gameObject.SetActive(true);
+      switch (assignedTask.name.ToLower())
       {
-          playerCamera.gameObject.SetActive(false);
-          minigameCamera.gameObject.SetActive(true);
-          switch(assignedTask.name.ToLower())
-          {
-              case "fish":
-                  // fishingManager.SetActive(true);
-                  break;
-              case "egg":
-                  EggSpawner.Instance.SetPlayer(this);
-                  break;
-              case "wood":
-                  // woodManager.SetActive(true);
-                  break;
-          }
+        case "fish":
+          // fishingManager.SetActive(true);
+          break;
+        case "egg":
+          EggSpawner.Instance.SetPlayer(this);
+          break;
+        case "wood":
+          // woodManager.SetActive(true);
+          break;
       }
-      else
-      {
-          Debug.LogError("Cameras not properly assigned in GetTask script.");
-      }
+    }
+    else
+    {
+      Debug.LogError("Cameras not properly assigned in GetTask script.");
+    }
   }
 
   void Update() { }
