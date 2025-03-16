@@ -20,7 +20,7 @@ public class TaskManager : MonoBehaviour
   private void Awake()
   {
     tasks = new Dictionary<string, GameTask>(){
-        {"fish", new GameTask("fish", fishingManager, fishingCamera, new Vector2(4f,10f))},
+        //{"fish", new GameTask("fish", fishingManager, fishingCamera, new Vector2(4f,10f))},
         // {"wood", new GameTask("wood", woodManager, new Vector2(-11f,33f))},
         {"egg", new GameTask("egg", eggManager, eggCamera, new Vector2(90f,60f), 5.0f, 100.0f)}
     };
@@ -98,7 +98,7 @@ public class TaskManager : MonoBehaviour
   void OnDrawGizmos()
   {
         tasks = new Dictionary<string, GameTask>(){
-        {"fish", new GameTask("fish", fishingManager,fishingCamera,  new Vector2(4f,10f))},
+        //{"fish", new GameTask("fish", fishingManager,fishingCamera,  new Vector2(4f,10f))},
         // {"wood", new GameTask("wood",  woodManager, new Vector2(-11f,33f))},
         {"egg", new GameTask("egg", eggManager, eggCamera, new Vector2(90f,60f))}
     };
