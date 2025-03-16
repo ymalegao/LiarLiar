@@ -50,6 +50,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-es
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9dbd65af861034cb89a22c8bd541ceb1
+    m_Address: EggTable_es
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 94af4cd778ffa424c946ec74679eb975, type: 2}
   m_SchemaSet:

@@ -42,6 +42,11 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3931fa262f0a4bd4a7cab8790e44b2b
+    m_Address: Assets/Locales/Tables/EggTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 94af4cd778ffa424c946ec74679eb975, type: 2}
   m_SchemaSet:

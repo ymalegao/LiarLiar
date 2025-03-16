@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: EggTable_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: b3931fa262f0a4bd4a7cab8790e44b2b, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 444041519104
+    m_Localized: "Collecte les \u0153ufs qui tombent dans ton panier\n\nAppuie sur
+      \"A\" pour d\xE9placer le panier vers la gauche, et sur \"D\" pour le d\xE9placer
+      vers la droite.\n\nCollecte au moins 3 \u0153ufs avant que le temps ne s'\xE9coule.\n\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 586220036096
+    m_Localized: "D\xE9marrer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 652003500032
+    m_Localized: 'Score :
+
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 808371347456
+    m_Localized: Minuteur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 855490158592
+    m_Localized: "Tu n\u2019as pas r\xE9ussi \xE0 collecter 3 \u0153ufs\u2026\n\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 874041565184
+    m_Localized: "R\xE9essaie\n\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 930526257152
+    m_Localized: "L\u2019une des poules t\u2019a remerci\xE9 d\u2019avoir attrap\xE9
+      ses \u0153ufs et t\u2019a donn\xE9 un bonus !\n\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 969877217280
+    m_Localized: 'Utilise le Pouvoir du Brouillard !
+
+
+'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
