@@ -1,19 +1,19 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PlaySound : MonoBehaviour
 {
-    public AudioClip audioClip; // Assign in the Inspector
+    public AudioSource audioSource;
+    private HashSet<GameObject> playersInTrigger = new HashSet<GameObject>();
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            AudioSource playerAudioSource = other.GetComponent<AudioSource>();
-
-            if (playerAudioSource != null && !playerAudioSource.isPlaying)
+            playersInTrigger.Add(other.gameObject);
+            if (!audioSource.isPlaying)
             {
-                playerAudioSource.clip = audioClip; // Assign clip if needed
-                playerAudioSource.Play();
+                audioSource.Play();
             }
         }
     }
@@ -22,11 +22,10 @@ public class PlaySound : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            AudioSource playerAudioSource = other.GetComponent<AudioSource>();
-
-            if (playerAudioSource != null)
+            playersInTrigger.Remove(other.gameObject);
+            if (playersInTrigger.Count == 0)
             {
-                playerAudioSource.Stop();
+                audioSource.Stop();
             }
         }
     }
