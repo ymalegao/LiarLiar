@@ -2498,19 +2498,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3701121703107218067, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3701121703107218067, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3701121703107218067, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 100.2672
       objectReference: {fileID: 0}
     - target: {fileID: 3701121703107218067, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -89.39135
       objectReference: {fileID: 0}
     - target: {fileID: 4867893800421979617, guid: f375fdbc0152440079fe5b7479e227b2, type: 3}
       propertyPath: m_Size
@@ -31402,11 +31402,11 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: da4f1800c85b894498b6537d89a8af40, type: 3}
     - target: {fileID: 182145765689046965, guid: c461f5ccb3420614f98feba108839350, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 951698874583172270, guid: c461f5ccb3420614f98feba108839350, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1756185982466489484, guid: c461f5ccb3420614f98feba108839350, type: 3}
       propertyPath: m_PlayOnAwake
@@ -31434,7 +31434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2525760444243388692, guid: c461f5ccb3420614f98feba108839350, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3758214201418333268, guid: c461f5ccb3420614f98feba108839350, type: 3}
       propertyPath: m_Enabled
