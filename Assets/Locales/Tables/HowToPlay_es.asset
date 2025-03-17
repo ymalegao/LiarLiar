@@ -40,12 +40,12 @@ MonoBehaviour:
     m_Localized: 'Usa WASD o las teclas de flecha para moverte.
 
       Presiona E
-      para hablar con los aldeanos.
+      para hablar con los aldeanos o jugar a un minijuego (resaltado en amarillo).
 
-      Presiona R para recoger una pista.
+      Presiona
+      R para recoger una pista.
 
-      Utilice
-      J para abrir el diario.'
+      Utilice J para abrir el diario.s'
     m_Metadata:
       m_Items: []
   - m_Id: 85860540416

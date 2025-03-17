@@ -14,6 +14,7 @@ public class JournalManager : MonoBehaviour
 
     [Header("UI Elements")]
     public GameObject journalPanel;
+    public GameObject helper; // Assign the helper GameObject in the inspector
 
     private int currentNPCIndex = 0;
 
@@ -93,12 +94,16 @@ public class JournalManager : MonoBehaviour
         {
             Debug.Log("J pressed");
 
-            //if (selectionUI.activeSelf) /// MAKE SURE TO FIX SELECTION UI FOR THE CLIENT
-            //{
-            //    Debug.Log("Selection UI is active");
-            //    return;
-            //}
-            ToggleJournal();
+            if (helper.activeSelf)
+            {
+                helper.SetActive(false); // Deactivate the helper
+                ToggleJournal(); // Open the journal
+            }
+
+            else
+            {
+                ToggleJournal(); // Close the journal
+            }
         }
     }
 

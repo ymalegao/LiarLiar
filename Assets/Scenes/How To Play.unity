@@ -838,8 +838,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Use WASD or arrow keys to move.\n\nUse E to talk to townfolk.\n\nUse R
-    to pick up a clue. \n\nUse J to open the journal."
+  m_text: "Use WASD or arrow keys to move.\n\nUse E to talk to townfolk or start
+    a minigame (highlighted yellow).\n\nUse R to pick up a clue. \n\nUse J to open
+    the journal."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 64e1ce9d67f60964598b6459f59bb1e0, type: 2}
   m_sharedMaterial: {fileID: -6689616622323997478, guid: 64e1ce9d67f60964598b6459f59bb1e0, type: 2}

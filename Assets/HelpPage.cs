@@ -7,6 +7,7 @@ public class HelpPage : MonoBehaviour
 {
 
     [SerializeField] private GameObject helpScreen;
+    [SerializeField] private GameObject journal; // Reference to the Journal GameObject
     [SerializeField] private AudioSource helpAudioSource;  // AudioSource for playing sound
 
 
@@ -25,6 +26,13 @@ public class HelpPage : MonoBehaviour
         {
             bool isActive = !helpScreen.activeSelf;
             helpScreen.SetActive(isActive);
+
+            // Deactivate the journal if helpScreen is active
+            if (isActive && journal != null)
+            {
+                journal.SetActive(false);
+            }
+
 
             // Play audio when the help menu is toggled
             if (helpAudioSource != null)

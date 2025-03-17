@@ -13,7 +13,7 @@ public class GetTask : MonoBehaviour
   private Camera playerCamera;
   public GameObject minigameCamera;
 
-  public TMP_Text TaskText;
+  //public TMP_Text TaskText;
 
   public GameTask GetAssignedTask()
   {
@@ -31,8 +31,8 @@ public class GetTask : MonoBehaviour
     this.TM = FindFirstObjectByType<TaskManager>();
     this.SetTask(this.GetAssignedTask());
     playerCamera = GetComponentInChildren<Camera>();
-    TaskText = GameObject.Find("TaskText").GetComponent<TMP_Text>();
-    TaskText.text = "Task: " + this.assignedTask.name;
+    //TaskText = GameObject.Find("TaskText").GetComponent<TMP_Text>();
+    //TaskText.text = "Task: " + this.assignedTask.name;
 
     minigameCamera = this.assignedTask.camera;
   }
