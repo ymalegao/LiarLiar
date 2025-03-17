@@ -2,26 +2,32 @@ using UnityEngine;
 
 public class PlaySound : MonoBehaviour
 {
-    public AudioSource audioSource; // Assign in the Inspector
+    public AudioClip audioClip; // Assign in the Inspector
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // Change to whatever should trigger it
+        if (other.CompareTag("Player"))
         {
-            // Debug.Log("Playing LAKE sound!");
-            if (!audioSource.isPlaying)
+            AudioSource playerAudioSource = other.GetComponent<AudioSource>();
+
+            if (playerAudioSource != null && !playerAudioSource.isPlaying)
             {
-                audioSource.Play();
+                playerAudioSource.clip = audioClip; // Assign clip if needed
+                playerAudioSource.Play();
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // Change to whatever should trigger it
+        if (other.CompareTag("Player"))
         {
-            // Debug.Log("Stopping LAKE sound!");
-            audioSource.Stop();
+            AudioSource playerAudioSource = other.GetComponent<AudioSource>();
+
+            if (playerAudioSource != null)
+            {
+                playerAudioSource.Stop();
+            }
         }
     }
 }
