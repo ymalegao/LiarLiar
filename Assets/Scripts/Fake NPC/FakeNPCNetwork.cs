@@ -65,6 +65,6 @@ public class FakeNPCNetwork : NetworkBehaviour
   {
     if (!IsOwner) return; // Only update the Rigidbody for the local player
 
-    rb.velocity = moveVelocity;
+    rb.linearVelocity = moveVelocity;
   }
 }

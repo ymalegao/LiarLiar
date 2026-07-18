@@ -63,7 +63,7 @@ public class SeekerNetwork : NetworkBehaviour
     if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive)
     {
       moveVelocity = Vector2.zero; // Reset movement input
-      rb.velocity = Vector2.zero;  // Ensure movement stops
+      rb.linearVelocity = Vector2.zero;  // Ensure movement stops
       animator.SetFloat("npc_speed", 0f);
       Debug.Log("Dialogue is active");
       return; // Skip movement logic
@@ -107,7 +107,7 @@ public class SeekerNetwork : NetworkBehaviour
   {
     if (!IsOwner) return; // Only update the Rigidbody for the local player
 
-    rb.velocity = moveVelocity;
+    rb.linearVelocity = moveVelocity;
   }
 
     private void PlayFootsteps()

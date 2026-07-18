@@ -35,6 +35,6 @@ public class FakeNPCMovement : NetworkBehaviour
   {
     if (!IsOwner) return;
 
-    rb.velocity = movementInput.normalized * speed;
+    rb.linearVelocity = movementInput.normalized * speed;
   }
 }
